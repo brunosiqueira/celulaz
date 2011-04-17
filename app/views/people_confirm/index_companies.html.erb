@@ -1,0 +1,47 @@
+<div class="block">
+	<div class="secondary-navigation">
+		<ul class="wat-cf">
+			<li class="first"><%= link_to "Aut&ocirc;nomos pendentes", :action => :index  %></li>
+			<li class="active"><%= link_to "Empresas pendentes", :action=>"index_companies" %></li>
+		</ul>
+	</div>          
+  	<div class="content">          
+		<h2 class="title">Empresas pendentes</h2>
+		<div class="inner">
+			<table class="table">
+				<tr>
+			      <th><%=I18n.t("activerecord.attributes.company.razao_social") %></th>
+			      <th><%= I18n.t("activerecord.attributes.company.cnpj") %></th>
+			      <th>Responsável</th>
+			      <th>Tipo</th>
+			      <th>Vendedor</th>
+			      <th>Adm. Web</th>
+			    </tr>
+				<% for company in @companies do%>
+			        <tr>
+			          <td>
+			            <%= link_to  company.razao_social, :action=>"show", :id=>company.person%>
+			          </td>
+			          <td>
+			            <%= h company.document %>
+			          </td>
+			          <td>
+			            <%= h company.person.name%>
+
+			          </td>
+			          <td>
+			            <%=h ApplicationHelper.humanize_company company[:type]%>
+			          </td>
+			          <td>
+			            <%= h company.seller ? "#{company.seller.name} #{ApplicationHelper.show_web_adm(company.seller)}" : "" %>
+			          </td>
+			          <td>
+			            <%= h company.person.web_adm ? company.person.web_adm.name : ""%>
+			          </td>
+			        </tr>
+			      <% end %>
+			</table>
+			<%= will_paginate @companies %>
+		</div>
+	</div>
+</div>

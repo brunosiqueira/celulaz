@@ -1,0 +1,26 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", people_path  %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_person_path %></li>
+    </ul>
+  </div>          
+  <div class="content">            
+    <h2 class="title"><%= t("web-app-theme.new", :default => "New")%>  Person</h2>
+    <div class="inner">
+      <% form_for :person, :url => people_path, :html => { :class => :form } do |f| -%>
+        <%= render :partial => "form", :locals => {:f => f} %>
+
+        <% if (@person.user.nil? || @person.user.is_company?) %>
+          <!-- Exibe este campo apenas se a pessoa for um vendedor-->
+
+          <div id="labell" for="user_adm_web" class="fullline">Administrador Web
+            <%= f.select(:user_web_adm_id, current_user.web_administrators.collect { |u| [u.person.name, u.id.to_s] },{:include_blank=>true }) %>
+          </div>
+        <% end %>
+      <% end -%>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

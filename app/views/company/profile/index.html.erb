@@ -1,0 +1,41 @@
+<%= javascript 'third/jquery.bottomlesspagination.js',"third/jquery-ui-1.8.4.custom.min", "/ckeditor/ckeditor",'company/profile' %>
+<%= stylesheet  "third/smoothness/jquery-ui-1.8.10.custom",'company/profile' %>
+<div class="col-left">
+  <% unless @company.friend_requests.empty? %>
+    Você possui <%= link_to "solicitações de relacionamento", company_relationships_path %>.
+  <% end %>
+  <%= render :partial=>"/company/news/news" %>
+  <h1>Últimas atividades</h1>
+  <div class="feeds"><%= render :partial=>"feeds",:object=>@feed_items %></div>
+  <%=will_paginate @feed_items %>
+</div>
+<div class="col-right">
+  <%= render :partial=>"company/message_to_friend/form" %>
+
+  <div id="cv-relac-master-box">
+    <h1><%= I18n.t "company.friends" %>&nbsp;&nbsp;<small><%= link_to "ver mais", company_relationships_path %></small></h1>
+    <% @company.friends(1,4).each do |company| %>
+      <%=link_to "#{img_tag(company)} #{h company.layout.name} ",{:action=>:public,:id=>company}, :class=>"relac-thumb"%>
+    <% end %>
+  </div>
+  <div class="analytcs">
+
+    <h4>Relatórios</h4>
+    <% if logged_as_company_z? %>
+      <h1>Site</h1>
+      <p>
+        <%= @company.count_visitors(:site,:today) %> /dia <%= @company.count_visitors(:site,:month) %> /mês
+      </p>
+    <% end %>
+    <h1>Perfil</h1>
+    <p>
+      <%= @company.count_visitors(:profile,:today) %> /dia <%= @company.count_visitors(:profile,:month) %> /mês
+    </p>
+    <h1>Cartão de visita</h1>
+    <p>  <%= @company.count_visitors(:business_card,:today) %> /dia <%= @company.count_visitors(:business_card,:month) %> /mês
+    </p>
+  </div>
+</div>
+<div id="dialog-confirm" style="display: none;" title="Remover atividade?">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Deseja remover a atividade?</p>
+</div>

@@ -1,0 +1,5 @@
+<% form_tag "/passwords/create",:method=>:post do %>
+  <h1>Digite o e-mail usado para criar sua conta</h1><br />
+  <h1><%= text_field_tag :email, "", :size => 25 %></h1><br />
+  <%= submit_tag 'Enviar' %>
+<% end %>

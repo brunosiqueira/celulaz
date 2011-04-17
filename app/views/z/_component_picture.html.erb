@@ -1,0 +1,8 @@
+<div style="width: 100%; text-align: center !important;">
+<%= link_to image_tag(component_picture.picture.url(full_line ? :line : :thumb)),component_picture.picture.url(:big), :id=>"imagem#{component_picture.id}",:title=>component_picture.description %>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#imagem<%=component_picture.id%>").colorbox();
+  });
+</script>

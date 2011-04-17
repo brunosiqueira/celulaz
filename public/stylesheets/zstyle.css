@@ -1,0 +1,387 @@
+html {
+    overflow: hidden;
+}
+
+body {
+    margin:0px;
+    list-style-type:none;
+    padding:0px;
+
+}
+#outer{
+    min-height:100%;
+    height:auto;
+}
+
+#screen{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:auto;
+}
+ul {
+    margin:0px;
+    padding:0px;
+    list-style-type:none;
+}
+div#corpo{ background-image:url(../images/Z/csombra_colunlateral.png);
+    background-repeat:repeat-y;}
+div#pai{
+    position:relative;
+    width:960px;
+    height:auto;
+    
+}
+
+div#topo{
+    position:relative;
+    width:960px;
+    height:150px;
+
+
+}
+
+div#topo ul{
+    margin-top:10px;
+    width:960px;
+    height:115px;
+    float:left;
+
+}
+div#topo ul li.logo{
+    margin-top:20px;
+    margin-left:20px;
+    margin-right:20px;
+    width:115px;
+    height:115px;
+    float:left;
+}
+div#topo ul li.text{
+    margin-top:20px;
+    margin-left:20px;
+    width:auto;
+    height:115px;
+    float:left;
+}
+div#logo{
+    width:115px;
+    height:115px;
+}
+div#nomeempresa{
+    text-align:left;
+    font-family:Arial;
+    font-size:38px;
+    font-weight:bold;
+    text-transform:capitalize;
+}
+div#slogan{
+    margin-top:20px;
+    text-align:left;
+    font-family:Arial;
+    font-size:18px;
+    font-weight:bold;
+}
+div#conteudo2{
+    position:relative;
+    padding-bottom:150px;
+}
+div#linha{
+    position:relative;
+    height:325px;
+    width:740px;
+
+}
+
+div#conteudo2 ul {
+    list-style-type:none;
+    width:755px;
+    float:left;
+    height:325px;
+}
+
+div#conteudo2 ul li.linha {
+    list-style-type:none;
+    width:740px;
+    float:left;
+    height:320px;
+    margin: 5px 0 0 5px;
+}
+
+div#conteudo2 ul li.coluna {
+    list-style-type:none;
+    width:365px;
+    float:left;
+    height:320px;
+    margin: 5px 5px 0px 5px;
+}
+div#colunaconteudovert{
+    position:relative;
+    margin-left:200px;
+    width:755px;
+    padding-left:5px;
+    left:0px;
+}
+div#colunalateralvert{
+    position:absolute;
+    width:200px;
+    height:100%;
+    left:0px;
+}
+
+
+div#colunaconteudo{
+    position:relative;
+    width:760px;
+    left:0px;
+}
+div#colunalateral{
+
+    position:absolute;
+    width:200px;
+    height:100%;
+    margin-left:760px;
+}
+
+div#espacamento{
+
+    height:20px;
+    margin:5px 0 0 5px;
+    width:740px;
+}
+div#espacamentovert{
+
+    height:20px;
+    margin:0px 5px 0 5px;
+    width:auto;
+}
+div#rodape{
+    background-image:url(../images/Z/csombra_colunlateral.png);
+    background-repeat:repeat-y;
+    background-position:755px;
+    position:relative;
+    width:960px;
+    height:30px;
+}
+div#rodapevert{
+    background-image:url(../images/Z/csombra_colunlateral.png);
+    background-repeat:repeat-y;
+    background-position:200px;
+    position:relative;
+    width:960px;
+    height:70px;
+}
+div#box{
+    width:100%;
+    height:320px;
+}
+div#boxtopo{
+    position:relative;
+    width:100%;
+    height:32px;
+    overflow:hidden;
+}
+
+div#boxtopotitulo {
+    font-family:Arial;
+    font-weight:bold;
+    font-size:18px;
+    margin-top:5px;
+}
+
+div#boxtopodecor{
+    position:absolute;
+    float:right;
+    right:0px;
+    width:111px;
+    height:32px;
+}
+
+div#boxconteudo{
+    position:relative;
+    width:100%;
+    height:260px;
+}
+div#boxconteudo ul{
+    width:100%;
+    height:260px;
+    position:relative;
+}
+
+div#boxconteudo ul li.img{
+    float:left;
+    width:100%;
+    height:215px;
+    text-align:center;
+}
+div#boxconteudo ul li.descriimg{
+    float:left;
+    width:100%;
+    height:45px;
+}
+div#comptext{
+    font-family:Arial;
+    font-size:12px;
+    text-align:left;
+    overflow:auto;
+    height:260px;
+}
+div#boxpreenchimento{
+    margin-top:3px;
+    position:relative;
+    height:15px;
+    width:100%;
+}
+div#imgdescri{
+    height:45px;
+    overflow:hidden;
+    text-align:left;
+    font-family:arial;
+    font-size:12px;
+
+}
+div#divimg{
+    height:215px;
+}
+#servicos{
+    margin-top:5px;
+    position:relative;
+    width:190px;
+    height:83px;
+    margin-left:5px;
+    overflow:hidden;
+}
+
+ul#servicos{
+    list-style:none;
+    position:relative;
+    width:190px;
+    height:auto;
+    margin-left:5px;
+    margin-top:5px;
+    overflow:hidden;
+}
+ul#servicos li{
+    height:39px;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    margin-top:8px;
+    margin-left:8px;
+    overflow:hidden;
+    position:relative;
+    width:36px;
+    float:left;
+}
+
+#contato_body{
+    background-color:#E9E9E9;
+    display:none;
+    height:auto;
+    font-family:Arial;
+    font-size:16px;
+    line-height:24px;
+    text-align:right;
+    font-weight:bold;
+    color:#A7A7A7;
+    padding-bottom:10px;
+}
+#fonestele-entrega{
+    background-color:#FFF;
+    border-bottom:1px dotted #A7A7A7;
+    height:24px;
+    background-image:url(../images/Z/teleentrega.png);
+    background-position:10px;
+    background-repeat:no-repeat;
+    padding: 4px 5px 4px 0;
+}
+#fonescelular{
+    background-color:#FFF;
+    border-bottom:1px dotted #A7A7A7;
+    height:24px;
+    background-repeat:no-repeat;
+    background-image:url(../images/Z/celular.png);
+    background-position:10px;
+    padding: 4px 5px 4px 0;
+}
+#fonesconvencional{
+    background-color:#FFF;
+    border-bottom:1px dotted #A7A7A7;
+    height:24px;
+    background-repeat:no-repeat;
+    background-image:url(../images/Z/convencional.png);
+    background-position:10px;
+    padding: 4px 5px 4px 0;
+}
+#fonesfax{
+    background-color:#FFF;
+    border-bottom:1px dotted #A7A7A7;
+    height:24px;
+    background-repeat:no-repeat;
+    background-image:url(../images/Z/fax.png);
+    background-position:10px;
+    padding: 4px 5px 4px 0;
+}
+#localizacao_body{
+    background-color:#E9E9E9;
+    display:none;
+    height:auto;
+    text-align:center;
+    padding-bottom:10px;
+}
+
+#localizacao_body a:link , #localizacao_body a:hover ,#localizacao_body a:visited {
+    text-decoration:none;
+    font-family:Arial;
+    font-size:13px;
+    line-height:18px;
+    margin-top:5px;
+    color:#000;
+}
+
+
+#endereco p{
+    padding:0px;
+    margin:0px;
+ }
+
+.mapa{   
+    border:solid 1px #3366CC;
+    background-color:#B9DCFF;
+    position:absolute;
+
+    left:13px;
+    width:300px;
+    height:300px;
+
+}
+
+#mapa_div{
+    
+    width:320px;
+    height:342px;
+    background:#FFFFFF;
+    border:#000000 solid 1px;
+}
+
+#component_div{
+
+    width:730px;
+    height:360px;
+    background:#FFFFFF;
+    border:#000000 solid 1px;
+}
+
+#msglog {
+	position:relative;
+	width:100%;
+	border:#FFCC66 solid 1px;
+	line-height:20px;
+	background:#FFFF99;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	text-align:center;
+	z-index:1;
+}
+
+div.active-tab-body{display:block !important;}

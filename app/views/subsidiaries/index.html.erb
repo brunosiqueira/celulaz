@@ -1,0 +1,49 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", subsidiaries_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_subsidiary_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Filiais</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.subsidiary.title", :default => t("activerecord.labels.title", :default => "Title")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @subsidiaries.each do |subsidiary| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= subsidiary.id %>
+          </td>
+                    <td>
+            <%= link_to subsidiary.title, subsidiary_path(subsidiary) %>
+          </td>
+                    <td>
+            <%= subsidiary.created_at %>
+          </td>
+          <td class="last">
+          <%= link_to 'Editar Área de Atuação', :action=>"edit_range",:id=>subsidiary,:method=>:get %> |
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", subsidiary_path(subsidiary) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_subsidiary_path(subsidiary) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", subsidiary_path(subsidiary), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

@@ -1,0 +1,20 @@
+<h1>Editar Meu Negócio</h1>
+
+<% form_for([:company,@business]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :total %><br />
+    <%= f.text_field :total %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.submit 'Salvar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @business %> |
+<%= link_to 'Back', company_businesses_path %>

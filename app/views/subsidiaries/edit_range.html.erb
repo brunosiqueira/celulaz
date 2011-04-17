@@ -1,0 +1,26 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", subsidiaries_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_subsidiary_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_subsidiary_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title"><%= t("web-app-theme.edit", :default => "Edit") %> Área de Atuação da Filial</h2>
+    <%= link_to 'Voltar',subsidiaries_path,:method=>:put %>
+    <br/>
+    <br/>
+    Estador de Atuação:<br/>
+    <% for state in @subsidiary.states do %>
+        <%= link_to state.name,:action=>"change_range",:state=>state,:id=>@subsidiary,:method=>:put%><br/>
+      <% end %>
+      <br/>
+      Estador Disponíveis:<br/>
+      <% for state in (State.find(:all)-@subsidiary.states) do %>
+          <%= link_to state.name,:action=>"change_range",:state=>state,:id=>@subsidiary,:method=>:put%><br/>
+        <% end %>
+      </div>
+    </div>
+
+    <% content_for :sidebar, render(:partial => 'sidebar') -%>

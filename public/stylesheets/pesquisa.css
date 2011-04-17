@@ -1,0 +1,171 @@
+@charset "utf-8";
+/* CSS Document */
+
+#buscarempresas{
+    position:relative;
+	top:-15px;
+    width:759px;
+    height:100px;
+}
+
+#fundopesquisa{
+    top:10px;
+    padding:0px;
+    position:relative;
+    background-image:url(../images/pesquisa/fundo_pesquisa2.gif);
+    background-repeat:repeat-x;
+    height:80px;
+    margin-left:18px;
+    width:723px;
+
+}
+
+#fundopesquisa2{
+    position:absolute;
+    background-image: url(../images/pesquisa/fundo_pesquisa1.gif);
+    background-repeat:no-repeat;
+    height:80px;
+    width:18px;
+    top:0px;
+    left:-18px;
+
+}
+#fundopesquisa3{
+    background-image:url(../images/pesquisa/fundo_pesquisa3.gif);
+    background-repeat:no-repeat;
+    width:18px;
+    height:80px;
+    position:absolute;
+    top:0px;
+    right:-18px;
+}
+
+#fundopesquisa form{
+    width:723px;
+    height:50px;
+    margin-top:30px;
+    padding:0px;
+    float:left;
+    border:0px;
+    background-color:transparent;
+}
+#fundopesquisa label {
+    font-size:16px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    color:#FFFFFF;
+    font-weight:bold;
+    margin: 0px;
+}
+#fundopesquisa label.space{
+    margin-left:10px;
+
+}
+
+
+#fundopesquisa label input.busca{
+    width:300px;
+
+}
+#fundopesquisa label select{
+    font-size:12px;
+    font-weight:bolder;
+    color:#868686;
+}
+
+
+
+
+#fundopesquisa .botaopesquisa {
+    width:100px;
+    height:35px;
+    background-image:url(../images/buttom/orange/fundobig_02.gif);
+    display:block;
+    font-family:arial;
+    font-size:14px;
+    color:#ffffff;
+    font-weight:bold;
+    border:0px;
+    margin:0px;
+    padding:0 16px;
+    cursor:pointer;
+
+}
+#fundopesquisa .botaopesquisa-autonomoz {
+    width:100px;
+    height:35px;
+    background:transparent url(../images/autonomoz/buttom/orange/fundobig_02.png);
+    display:block;
+    font-family:arial;
+    font-size:14px;
+    color:#ffffff;
+    font-weight:bold;
+    border:0px;
+    margin:0px;
+    padding:0 16px;
+    cursor:pointer;
+
+}
+#pagination {
+width:750px;
+background-color:#F0F5F5;
+text-align:left;
+padding:5px 5px;
+font-size:11px;
+font-family:Arial, Helvetica, sans-serif;
+margin-bottom:20px;
+
+
+}
+#pagination .top{
+height:60px;
+
+}
+
+
+
+#pagination .bottom{
+margin-top:60px;
+height:30px;
+}
+.pagination {
+margin-top:10px;
+text-align:right;
+font-weight:bold;
+color:#1B75BB;
+width:750px;
+}
+div.pagination a , div.pagination a:visited , div.pagination a:link  {
+text-decoration:none;
+font-weight:normal;
+color:#1B75BB;
+}
+div.pagination a:hover  {
+text-decoration:none;
+font-weight:normal;
+color:#000000;
+}
+div.pagination a, div.pagination span {
+padding:5px 5px;
+
+}
+
+
+#pagination .palavra{
+text-align:left;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:bold;
+font-size:17px;
+color:#1B75BB;
+
+}
+#pagination h2{
+text-align:left;
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+font-weight:normal;
+color:#1B75BB;
+border-bottom:#FF3300 solid 1px;
+margin-top:10px;
+
+}

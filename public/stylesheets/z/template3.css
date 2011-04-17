@@ -1,0 +1,60 @@
+*{margin:0; padding:0}
+
+body{font-family:Tahoma,Geneva,sans-serif; font-size:100%}
+
+#header, #content, #footer, #sidebar{font-size:0.75em; position:relative}
+
+.wrapper{width:100%; overflow:hidden}
+.container{width:960px; margin:0 auto; position:relative}
+
+p{margin-bottom:14px}
+
+ul{list-style:none}
+ul li{padding-bottom:14px}
+
+#header{height:233px; background:url(images/header-bg.jpg) no-repeat center top}
+#logo{width:960px; text-align:center; margin:65px 0 0 0; position:absolute}
+#logo h1{font-size:30px; margin-bottom:10px}
+#logo p{margin:0;  font:normal 18px Georgia,"Times New Roman",Times,serif;  font-style:italic}
+
+#search{ position:absolute;  width:120px;  height:80px;  padding:0;  top:20px; right:20px}
+
+#page{ width:1000px;  margin:0 auto;  padding:0}
+#page-bgtop{}
+#page-bgbtm{ margin:0px;  padding:0px}
+
+.menu{text-align:center; font-family:Verdana,Geneva,sans-serif; font-size:1.0em; position:absolute; bottom:15px; width:960px}
+.menu ul.style2 li{display:inline}
+.menu ul.style2 li a{ text-decoration:none; text-transform:uppercase; border-left:1px solid #fff; padding:0 47px 0 50px; background:none !important}
+
+#content{ float:left;  padding:30px 40px 0;  width:700px}
+
+.post h2{font-size:26px;  font-weight:normal;  line-height:30px;  margin-bottom:25px}
+
+.link a, input.input-msg{padding:3px 15px}
+
+#sidebar{ float:left;  padding:20px 10px !important;  width:200px}
+#sidebar ul{ margin:0 0 40px 0;  padding:0;  float:left;  list-style:none}
+#sidebar li{ margin:0px 0px 10px;  padding:0}
+
+#sidebar h2{ font-weight:normal;  font-size:20px;  margin:0 0 15px 0;  letter-spacing:-1px}
+
+#sidebar a{ border:none}
+#sidebar a:hover{ text-decoration:underline}
+
+#footer{ margin:0 auto;  width:1000px;  padding:20px 0px;  margin-bottom: 40px;  font-family:Arial,Helvetica,sans-serif}
+#footer p{ margin:0;  line-height:normal;  font-size:10px;  text-transform:uppercase;  text-align:center}
+#footer a{}
+
+#sidebar ul li#contato h2{padding:5px 0px; width:180px; margin-bottom:0px!important; border-bottom:1px solid}
+#sidebar ul li#contato a{font-size:11px; padding:3px 15px; line-height:120%; margin-top:10px}
+#sidebar ul li#contato p{margin:1px 0px; padding:5px 0px; text-align:justify; width:180px; border-bottom: 1px solid}
+#sidebar ul li#contato .link{font-size:12px; padding:10px 0px;  width:180px}
+#sidebar ul li#contato .link p{padding:5px 0px 0; width:150px; border:none !important; line-height:140%}
+
+
+.full-line li{ margin:0 0px 0 0; width:116px}
+.column li{width:108px}
+li.pager{position:relative; float:left}
+li.pager a{width:100px; height:100px; display:block}
+.componente-galeria img{border:0px solid !important}

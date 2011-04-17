@@ -1,0 +1,43 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Painel", :controller => "users", :action => "show"  %></li>
+      <li class="active"><%= link_to "Usu&aacute;rios", users_path  %></li>
+      <li><%=link_to "Criar Usuário Comercial", :action=>:new %></li>
+      <li><%=link_to "Criar #{I18n.t("company.singular").capitalize}", :action=>:new,:type=>UserCompany.name %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Cadastrados</h2>
+    <div id="legenda">
+      <p><strong>Legendas:</strong>
+      <div id="square" class="yellow"></div> <div class="label"><%=I18n.t("company.singular").capitalize%> S</div>
+      <div id="square" class="blue"></div> <div class="label"><%=I18n.t("company.singular").capitalize%> Z </div>
+      <div id="square" class="gray"></div> <div class="label">Usuário administrativo</div>
+      </p>
+    </div>
+    <br/>
+    <div class="inner">
+      <div id="form">
+        <%=loading%>
+        <div id="filtro">
+          <%= link_to "Usuários",url_for(:action=>:index,:user_type=>"user") %>&nbsp;|&nbsp;
+          <%= link_to I18n.t("company.plural").capitalize,url_for(:action=>:index,:user_type=>"user_company") %>
+        </div>
+        <%= error_messages_for :user%>
+        <table class="table">
+          <tr>
+            <th class="first">Login</th>
+            <th>E-mail</th>
+            <th><%= "user_company".eql?(@user_type) ? I18n.t("company.singular").capitalize : "Cargo" %></th>
+            <th>Situação</th>
+            <th colspan=2 class="last">&nbsp;</th>
+          </tr>
+          <%= render :partial => 'users/user', :collection => @users %>
+        </table>
+        <%= will_paginate @users %>
+      </div>
+    </div>
+  </div>
+</div>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>  

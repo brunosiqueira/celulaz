@@ -1,0 +1,53 @@
+<div id="content">
+
+  <% if @companies.empty? %>
+    <div class="orientation-msg">
+      Nenhum resultado encontrado
+    </div>
+  <% else %>
+    <div id="search-control">
+
+      <span style="color:#333;font-size:16px; line-height:1.6;float: left; margin-top: 10px;">Você procurou por <span style="font-style: italic; font-size: 16px;color:#00395F;"><%= @search %></span></span>
+
+      <%= will_paginate @companies,:previous_label=>" ",:next_label=>" ",:id=>'top', :params=>{:search=>@search,:segment_id=>@segment_id,:order=>@order} %>
+
+    </div>
+
+    <div style="width: 780px;margin-bottom:20px; float: left">
+      Ordenar por: <%=link_to "Nome",:action=>"index",:search=>@search,:segment_id=>@segment_id,:order=>"layout_name ASC"%> | <%=link_to "Ultimas atualizações",:action=>"index",:search=>@search,:segment_id=>@segment_id,:order=>"updated_at DESC"%>
+    <% end %>
+  </div>
+
+  <% @companies.each do |company| %>
+    <% unless company.nil? %>
+      <div class="cv-info-basic">
+        <h1><%= h company.name %></h1>
+        <h2><%for phone in company.phones%>(<%=phone.ddd%>) <%=phone.number%>&nbsp;&nbsp;&nbsp;<% end %> </h2>
+        <p>
+          <% if company.address_business_card.show %>
+            <%=h(company.address_business_card.street) %>,
+            <%=h(company.address_business_card.number) %>
+            <% if company.address_business_card.complement != '' %>, <%=h(company.address_business_card.complement)%><% end %>
+            , <%=h(company.address_business_card.neighborhood)%>,
+            <%=h(company.address_business_card.city)%> / <%=h(company.address_business_card.state)%> <br/>
+          <% end %>
+          <% if company.site_enable? %>
+            <%= link_to "Site", site_path(company.user),:id=>"cv-bt-site",:popup=>true %>
+          <% end %>
+          <%= link_to "Ver mais", {:controller=>:business_cards,:action=>:show,:id=>company.to_param,:search=>@search},:class=>"zoom" %>
+        </p>
+      </div>
+      <div id="cv-img-master-box">
+        <%= image_tag(company.layout.card1.url(:small), :size=>"63x63") if company.layout.card1.file?%>
+        <%= image_tag(company.layout.card2.url(:small), :size=>"63x63") if company.layout.card2.file?%>
+        <%= image_tag(company.layout.card3.url(:small), :size=>"63x63") if company.layout.card3.file?%>
+      </div>
+      <br/>
+    <% end %>
+  <% end %>
+  <div id="search-control-bottom">
+
+    <%= will_paginate @companies,:previous_label=>" ",:next_label=>" ",:id=>'bottom', :params=>{:search=>@search,:segment_id=>@segment_id,:order=>@order} %>
+
+  </div>
+</div>

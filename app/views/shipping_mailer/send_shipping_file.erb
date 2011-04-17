@@ -1,0 +1,20 @@
+<h1>Envio de Remessa</h1>
+<p>
+  Código da Remessa: <%=@shipping.code%>
+</p>
+
+<p>
+  Quantidade de Títulos: <%=@shipping.titles.size%>
+</p>
+
+<p>
+  Valor da Remessa: <%=@shipping.total_value%>
+</p>
+
+<p>
+  Você pode realizar o download do arquivo remessa no endereço:<br>
+  <%=link_to @url,@url%>
+</p>
+<small>
+  O envio da remessa para o banco deve ser realizado ainda na data corrente.
+</small>

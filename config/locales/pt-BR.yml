@@ -1,0 +1,462 @@
+pt-BR:
+  scope_name: 'celulaz'
+  sufix-css: ''
+  sufix_method: ''
+  link:
+    back: 'Voltar'
+    show: 'Exibir'
+    edit: 'Editar'
+    delete: 'Excluir'
+    confirm: 'Tem Certeza?'
+
+  web-app-theme:
+    list: 'Todos'
+    new: 'Novo'
+    show: 'Visualizar'
+    all: 'Todos(as)'
+    edit: 'Editar'
+    delete: 'Excluir'
+    created_at: Criado Em
+  type:
+    ComponentText: 'texto'
+    ComponentVideo: 'video'
+    ComponentGallery: 'galeria'
+    ComponentPicture: 'imagem'
+    ComponentForm: 'formulario'
+
+  company:
+    singular: 'cliente'
+    plural: 'clientes'
+    the_singular: 'O cliente'
+    the_plural: 'Os clientes'
+    site_title: Célula Z
+    informal: 'Empresa Informal (não possui CNPJ)'
+    header: 'Dados do Cliente'
+    sent: 'enviou uma empresa/profissional para você conhecer!'
+    this: 'Este cliente'
+    site: 'Site'
+    want_to_be_friend: 'Solicitação de relacionamento. Aceitar?'
+    friends: 'Rede de Relacionamento'
+    search: 'Buscar Empresa/profissional'
+    messages:
+      not_found: 'Página não encontrada'
+      not_manageable: 'Não foi possível administrar o cliente. É possível que ela esteja desabilitada.'
+      relationship_initialized: 'Relacionamento já iniciado. Aguarde a confirmação.'
+      relationship_unable: 'Não foi possível criar o relacionamento.'
+      success_associated_seller: 'Cliente associado ao vendedor com sucesso.'
+      error_updating: 'Ocorreu um erro na atualização.'
+    CompanyS: Cadastro S
+    CompanyZ: Conta Z
+
+  email:
+    screen:
+      resend_activation_mail: Reenviar e-mail de ativação
+      passwords: Reiniciar Senha
+    
+  user:
+     UserAdministrator: Administrador
+     UserGeneralManager: Gerente Geral
+     UserDirector: Diretor
+     UserSupport: Suporte
+     UserSegmentManager: Gerente de Segmento
+     UserWebAdministrator: Administrador Web Master
+     UserWebAdministratorSenior: Administrador Web Senior
+     UserWebAdministratorTrainee: Administrador Web Trainee
+     UserCompany: Cliente
+     CompanyS: Cadastro S
+     CompanyZ: Conta Z
+
+  # formatos de data e hora
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d de %B"
+      long: "%d de %B de %Y"
+      only_day: "%d"
+
+    day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
+    abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
+    month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
+    abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
+    order: [ :day, :month, :year]
+
+  time:
+    formats:
+      default: "%A, %d de %B de %Y, %H:%M hs"
+      time: "%H:%M hs"
+      short: "%d/%m, %H:%M hs"
+      long: "%A, %d de %B de %Y, %H:%M hs"
+      only_second: "%S"
+      datetime:
+        formats:
+          default: "%Y-%m-%dT%H:%M:%S%Z"
+    am: ''
+    pm: ''
+
+  # date helper distanci em palavras
+  datetime:
+    distance_in_words:
+      half_a_minute: 'meio minuto'
+      less_than_x_seconds:
+        one: 'menos de 1 segundo'
+        other: 'menos de count segundos'
+
+      x_seconds:
+        one: '1 segundo'
+        other: 'count segundos'
+
+      less_than_x_minutes:
+        one: 'menos de um minuto'
+        other: 'menos de count minutos'
+
+      x_minutes:
+        one: '1 minuto'
+        other: 'count minutos'
+
+      about_x_hours:
+        one: 'aproximadamente 1 hora'
+        other: 'aproximadamente count horas'
+
+      x_days:
+        one: '1 dia'
+        other: 'count dias'
+
+      about_x_months:
+        one: 'aproximadamente 1 mês'
+        other: 'aproximadamente count meses'
+
+      x_months:
+        one: '1 mês'
+        other: 'count meses'
+
+      about_x_years:
+        one: 'aproximadamente 1 ano'
+        other: 'aproximadamente count anos'
+
+      over_x_years:
+        one: 'mais de 1 ano'
+        other: 'mais de count anos'
+
+  # numeros
+  number:
+    format:
+      precision: 3
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: 'R$'
+        precision: 2
+        format: '%u %n'
+        separator: ','
+        delimiter: '.'
+    percentage:
+      format:
+        delimiter: '.'
+    precision:
+      format:
+        delimiter: '.'
+    human:
+      format:
+        precision: 1
+        delimiter: '.'
+  support:
+    array:
+      sentence_connector: "e"
+      skip_last_comma: true 
+#END:currency
+
+  activerecord:    
+    models:
+      company: 'Cliente'
+      person: 'Pessoa'
+      business: 'Negócio'
+      user: 'Usuário'
+      subsidiary: 'Filial'
+      company_relationships: 'Relacionamento'
+      contract: 'Contrato'
+      bank: 'Banco'
+      address: 'Endereço'
+      shipping: 'Remessa'
+      shipping_title: 'Remessa de Títulos'
+      message: 'Mensagem'
+      template_text: 'Texto Padrão'
+    attributes:
+      business:
+        total: 'Total'
+        title: 'Título'
+        business_image: 'Imagem'
+      layout:
+        name: 'Nome'
+        domain: 'Domínio'
+        analytics: 'Código do Analtics'
+        meta_description: 'Descrição'
+        meta_keywords: 'Palavra-Chave'
+      message:
+        sender_id: 'Remetente'
+        subject: 'Assunto'
+        body: 'Conteúdo'
+        sender_email: 'E-mail'
+      company:
+        cnpj: 'CNPJ'
+        name: 'Nome da Empresa'
+        razao_social: 'Razão Social'
+        drawee_code: 'Código do Sacado'
+        state: 'Estado'
+        created_at: 'Data de Criação'
+        segment: 'Segmento'
+        segment_id: 'Segmento'
+        seller: 'Vendedor'
+        type: 'Tipo de Conta'
+        web_administrator: 'Administrador Web'
+        parcel: 'Parcelas'
+        value: Valor do Contrato
+        subsidiary: 'Filial'
+        informal: 'Informal (Sem CNPJ)'
+      person:
+        name: 'Nome'
+        cpf: 'CPF'
+        rg: 'RG'
+        rg_exp: 'Orgão Expedidor'
+        rg_exp_date: 'Data de Expedição'
+        date_birth: 'Data de Nascimento'
+        subsidiary_id: 'Filial'
+        bank: 'Banco'
+        user_type: 'Perfil'
+      address:
+        city: 'Cidade'
+        zip: 'CEP'
+        neighborhood: 'Bairro'
+        number: 'Número'
+        street: 'Rua'
+        state: 'UF'
+        complement: 'Complemento'
+      address_business_card:
+        city: 'Cidade'
+        zip: 'CEP'
+        neighborhood: 'Bairro'
+        number: 'Número'
+        street: 'Rua'
+        state: 'UF'
+        complement: 'Complemento'
+      user:
+        login: 'Login'
+        email: 'E-Mail'
+        password: 'Senha'
+        password_confirmation: 'Confirmação de Senha'
+      subsidiary:
+        title: 'Título'
+        enabled: Habilitada?
+      contract:
+        parcel: 'Parcelas'
+        initial_date: 'Data de Início'
+        end_date: 'Data de Término'
+        status: 'Estado Atual'
+        value: Valor
+      title:
+        emission_date: 'Data de Emissão'
+        due_date: 'Data de Vencimento'
+        value: 'Valor (R$)'
+        fine_percent: 'Multa (%)'
+        days_to_charge_fine: 'Dias para Cobrar a Multa Após o Vencimento'
+        interest_type: 'Tipo de Juros'
+        interest_percent: 'Juros'
+        abatement_value: 'Abatimento (R$)'
+        discount_value: 'Desconto (R$)'
+        discount_type: 'Tipo do Desconto'
+        discount_limit_date: 'Data Limite do Desconto'
+        additional_data: 'Dados Complementares'
+        contract: 'Contrato'
+        your_number: 'Seu Número (Cedente)'
+        our_number: 'Nosso Número (Banco)'
+        status: 'Status'
+        error_message: Erro
+      bank:
+        name: 'Nome do Banco'
+        code: 'Código do Banco'
+      shipping:
+        code: 'Código'
+        status: 'Status'
+        processing_date: 'Data de Remessa'
+        created_at: 'Data de Criação'
+      shipping_title:
+        title: 'Título'
+        shipping: 'Remessa'
+      visit_schedule:
+        name: Nome
+        email: Email
+        ddd: DDD
+        phone: Telefone
+        address: Endereço
+        city: Cidade
+        subsidiary_id: Área
+        segment_id: Segmento
+        time_to_visit: Horário de Preferência
+        description: Observações
+      contact:
+        name: Nome
+        email: Email
+        ddd: DDD
+        phone: Telefone
+        city: Cidade
+        description: Observações
+      banner:
+        title: Título
+        url: Link do Banner
+        banner_image: Banner
+      template_text:
+        title: Título
+        content: Corpo do Texto
+#END:model
+#START:errors
+    errors:
+      template:
+        body: "Ocorreram problemas com os seguintes campos:"
+        header:
+          one:   "1 um erro ocorreu em %{model}"
+          other: "%{count} erros ocorreram em %{model}"
+      messages:
+        accepted:  "deve ser aceito"
+        blank:  "deve ser preenchido"
+        confirmation:  "a confirmação não é válida"
+        empty:  "não pode ser vazio"
+        exclusion:  "é reservado"
+        inclusion:  "não está na lista"
+        invalid:  "não é válido"
+        not_a_number:  "não é um número"
+        too_long:  "valor muito grande (máximo de %d caractéres)"
+        too_short:  "valor muito curto (mínimo de %d caractéres)"
+        wrong_length:  "valor com tamanho errado (deve ser de %d caractéres)"
+        taken: 'já pertence a outro usuário'
+        titles_shipped: 'Não é possível realizar a operação. A transação financeira relacionada a este título já foi iniciada.'
+        record_invalid: O registro é inválido
+      models:
+        company:
+          maximum_services: 'São permitidos, no máximo, oito serviços.'
+        company_relationship:
+          self_relationship: 'Um usuário não pode se relacionar consigo mesmo.'
+        phone:
+          four_phones_allowed: 'Só são permitidos no máximo quatro telefones.'
+        tab:
+          five_tabs_top: 'O layout não pode possuir mais de 5 abas.'
+        user:
+          company_presence: 'Usuário clientes devem possuir company associadas'
+          company_not_allowed: 'Usuário que não são cliente não podem possuir clientes associadas'
+          company_with_titles: 'Cliente não pode ser excluída, pois já possui transações financeiras em andamento.<br> Inative o usuário, caso deseje remover seus direitos de acesso.'
+        person:
+          attributes:
+            cpf:
+              taken: 'esta pessoa já foi cadastrada no sistema'
+        title:          
+          attributes:
+            due_date:
+              due_date_bigger_than_emission_date: 'deve ser maior que a data de emissão.'
+              due_date_unique: A data de vencimento não pode ser repetida para o mesmo cliente.
+        shipping:
+          status_should_be_aberto: 'Operação só é permitida para remessas em aberto.'
+
+
+  AC: 'Acre'
+  AL: 'Alagoas'
+  AP: 'AmapÃ¡'
+  AM: 'Amazonas'
+  BA: 'Bahia'
+  CE: 'CearÃ¡'
+  DF: 'Distrito Federal'
+  ES: 'EspÃ­rito Santo'
+  GO: 'GoiÃ¡s'
+  MA: 'MaranhÃ£o'
+  MT: 'Mato Grosso'
+  MS: 'Mato Grosso do Sul'
+  MG: 'Minas Gerais'
+  PA: 'ParÃ¡'
+  PB: 'ParaÃ­ba'
+  PR: 'ParanÃ¡'
+  PE: 'Pernambuco'
+  PI: 'PiauÃ­'
+  RJ: 'Rio de Janeiro'
+  RN: 'Rio Grande do Norte'
+  RS: 'Rio Grande do Sul'
+  RO: 'RondÃ´nia'
+  RR: 'Roraima'
+  SC: 'Santa Catarina'
+  SP: 'SÃ£o Paulo'
+  SE: 'Sergipe'
+  TO: 'Tocantins'
+
+#  resource:
+#    company: 'empresa'
+  routes:
+    companies:
+      as: clientes
+      path_names:
+        new: 'nova'
+        edit: 'editar'
+        show: 'visualizar'
+        destroy: 'excluir'
+    users:
+      as: usuarios
+      path_names:
+        new: 'novo'
+        edit: 'editar'
+        show: 'visualizar'
+        destroy: 'excluir'
+    messages:
+      as: mensagens
+      path_names:
+        new: 'nova'
+        edit: 'editar'
+        show: 'visualizar'
+        destroy: 'excluir'
+    company_to_friend:
+      as: para-um-amigo
+      path_names:
+        new: 'novo'
+    business_cards:
+      as: cartao-de-visitas
+      path_names:
+        new: 'novo'
+        edit: 'editar'
+        show: 'visualizar'
+        destroy: 'excluir'
+#    people:
+#      as: pessoas
+#      path_names:
+#        new: 'nova'
+#        edit: 'editar'
+#        show: 'visualizar'
+#        destroy: 'excluir'
+    subsidiaries:
+      as: filiais
+      path_names:
+        new: 'nova'
+        edit: 'editar'
+        show: 'visualizar'
+        destroy: 'excluir'
+#    company:
+#      as: empresa
+#      path_names:
+#        messages: 'mensagens'
+#        users: 'usuarios'
+#        people: 'pessoas'
+#        business_card: 'cartao-visita'
+  named_routes_path:
+    company: 'clientes'
+  resource:
+    account: 'conta'
+    session: 'sessao'
+#    business_card: 'cartao-de-visitas'
+  resources:
+    identity: 'identidade'
+    users: 'usuarios'
+    business: 'negocios'
+    company_to_friend: 'para-um-amigo'
+    business_cards: 'cartao-de-visitas'
+    colors: 'cores'
+#    people: 'pessoas'
+    components: 'componentes'
+    pictures: 'images'
+    subsidiaries: 'filiais'
+    companies: 'clientes'
+    shippings: remessas
+    messages: mensagens

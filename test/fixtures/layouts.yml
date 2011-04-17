@@ -1,0 +1,86 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: layouts
+#
+#  id                    :integer(4)      not null, primary key
+#  company_id            :integer(4)
+#  architecture_type     :string(10)
+#  name                  :string(255)
+#  slogan                :string(255)
+#  website               :string(255)
+#  presentation_text     :text
+#  background_file_name  :string(255)
+#  created_at            :datetime
+#  updated_at            :datetime
+#  card1_file_name       :string(255)
+#  card1_content_type    :string(255)
+#  card1_file_size       :string(255)
+#  card2_file_name       :string(255)
+#  card2_content_type    :string(255)
+#  card2_file_size       :string(255)
+#  card3_file_name       :string(255)
+#  card3_content_type    :string(255)
+#  card3_file_size       :string(255)
+#  component_decoration  :string(255)
+#  show_name             :boolean(1)
+#  show_slogan           :boolean(1)
+#  show_logo             :boolean(1)
+#  background_top        :string(255)
+#  send_to_friend        :integer(4)
+#  side_image_url        :string(255)
+#  font_colors           :string(255)
+#  email                 :string(255)
+#  facebook              :string(255)
+#  orkut                 :string(255)
+#  twitter               :string(255)
+#  flickr                :string(255)
+#  repeat_background_x   :boolean(1)
+#  repeat_background_y   :boolean(1)
+#  centralize_background :boolean(1)
+#  meta_description      :string(255)
+#  meta_keywords         :string(255)
+#  analytics             :string(255)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+empresa:
+  id: 3
+  company_id: 3
+  architecture_type: 6
+  name: Empresa
+  slogan: A primeira empresa do banco de testes
+  website: www.sitedaempresa1.com.br
+  presentation_text: texto de apresentação da empresa 1
+  send_to_friend: 0
+
+empresa_first_confirm:
+  id: 4
+  company_id: 4
+  architecture_type: 6
+  name: Empresa
+  slogan: A primeira empresa do banco de testes
+  website: www.sitedaempresa1.com.br
+  presentation_text: texto de apresentação da empresa 1
+  send_to_friend: 0
+
+empresa_valid:
+  id: 1
+  company_id: 5
+  architecture_type: 6
+  name: Empresa 1
+  slogan: A primeira empresa do banco de testes
+  website: www.sitedaempresa1.com.br
+  presentation_text: texto de apresentação da empresa 1
+  send_to_friend: 0
+
+empresa_valid_2:
+  id: 2
+  company_id: 7
+  architecture_type: 1
+  name: Empresa 2
+  slogan: A segunda empresa do banco de testes
+  website: www.sitedaempresa2.com.br
+  presentation_text: texto de apresentação da empresa 2
+  send_to_friend: 0
+

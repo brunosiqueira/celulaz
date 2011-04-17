@@ -1,0 +1,36 @@
+/* Override here any style definide by web-app-theme */
+
+/* Adjusting forms */
+
+.cpf {width:120px !important;}
+.rg {width:92px !important;}
+.rg_exp {width:190px !important;}
+.zip{width:82px !important;}
+.number{width:24px !important;}
+
+.home_number{width:82px !important;}
+.address_fields{width:240px !important;}
+
+#errorExplanation{margin-bottom:15px;}
+#errorExplanation h2{margin-left:0px !important;} 
+#errorExplanation p{font-size:14px;font-weight:bold;}
+#errorExplanation ul{margin-left:14px;}
+
+/* will paginate */
+.actions-bar .pagination { float:left !important;}
+
+.group ul {list-style-type:none;line-height:1.4em;}
+.group ul li input{ margin-right: 1em;}
+
+/* users - show*/
+
+.admin-info {
+	display:block;
+	height:60px;
+	width:100%;
+}
+
+.admin-info img{
+	float:left;
+	margin-right:10px;
+}

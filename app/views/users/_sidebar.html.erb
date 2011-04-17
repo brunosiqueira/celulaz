@@ -1,0 +1,14 @@
+<div class="block">
+  <h3>Informações da Conta</h3>
+  <div class="content">
+    <p>
+    <p>Você possui <%=current_user.get_companies.size%> <%=I18n.t "company.plural"%>.</p>
+    <% companies = current_user.get_companies_no_contract %>
+    <% if companies.size > 0 %>
+      <p>Você possui <%=companies.size%> <%=I18n.t "company.plural"%> sem contrato ativo.<br />
+        <small>O contrato define o início da cobrança d<%=I18n.t("company.the_singular").downcase %>. Atualize os dados de seus clientes em  <%=link_to "#{I18n.t("company.plural").capitalize}", :controller=>"/company_management"%> </small></p>
+    <% end %>
+
+    </p>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: shipping_titles
+#
+#  id          :integer(4)      not null, primary key
+#  shipping_id :integer(4)
+#  title_id    :integer(4)
+#  status      :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# one:
+#   column: value
+#
+# two:
+#   column: value
+
+ associated_to_shipping:
+   shipping_id: 1
+   title_id: 3
+
+ associated_to_shipping_2:
+   shipping_id: 1
+   title_id: 4
+
+ associated_to_shipping_sent:
+   shipping_id: 3
+   title_id: 5
+

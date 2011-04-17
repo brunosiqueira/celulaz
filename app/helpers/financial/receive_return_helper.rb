@@ -1,0 +1,2 @@
+module Financial::ReceiveReturnHelper
+end

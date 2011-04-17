@@ -1,0 +1,65 @@
+<% javascript "company/banner" %>
+<% stylesheet "company/banner","company/construtor","scaffold"%>
+
+<div class="submenu">
+  <ul>
+    <li><%=link_to "Construção",:controller=>"company/construction"%></li>
+    <li><%=link_to "Identidade",:controller=>"company/identity"%></li>
+    <li class="active"><%= link_to "Banner", company_banners_path %></li>
+    <li><%= link_to "Contato", :controller=>"company/contacts",:action=>"edit" %></li>
+    <li><%= link_to "SEO", :controller=>"company/seo",:action=>"edit" %></li>
+  </ul>
+
+  <!-- <a class="publish" href="javascript:;">Publicar</a>-->
+  <%= link_to "Publicar", "javascript:",:class=>"publish" %>
+  <%= link_to "Ver como ficou", z_path(current_company.login),:class=>"preview",:popup=>true %>
+  <br class="clearfloat" />
+</div><!-- .submenu -->
+<div class="publish-message orientation-msg" style="display: none"></div>
+<div class="col-left">
+
+
+  <div class="hd-banner-list">
+    <strong class="hd-banner-titulo">Título do banner</strong> <strong class="hd-banner-link">Url do banner</strong>
+  </div>
+  <div class="banner-list">
+    <ul>
+      <%@layout.banners.each do |banner| %>
+
+        <li>
+          <div style="float: left; width: 35%;">
+            <h1>
+              <%= banner.title %>
+            </h1>
+          </div>
+          <div style="float: left; width: 45%;">
+            <%= link_to truncate(banner.url,:length=>20), banner.url,:popup=>true %>
+          </div>
+          <div class="banner-view">
+            <a id="title<%= banner.id %>" title="Clique para exibir o banner..." href="javascript:"></a>
+          </div>
+          <div style="float: left; width: 10%;">
+            <%= link_to " ", company_banner_url(banner), :class =>'excluir' , :confirm => 'Tem certeza que deseja excluir o banner?', :method => :delete %>
+          </div>
+          <%=image_tag banner.banner_image.url(:small),:class=>"image_banner",:id=>"#{banner.id}"%>
+        </li>
+
+      <% end %>
+    </ul>
+  </div>
+
+</div>
+
+<div class="col-right">
+
+  <h1>Utilize esta área para adicionar um novo banner</h1>
+  <div class="gray-box new-banner">
+    <%= render :partial=>"/company/banners/new" %>
+    <div class="orientation-msg" style="float: left">As dimensões da imagem devem respeitar a largura de 200px, com a altura livre.</div>
+  </div>
+
+
+
+
+
+</div>

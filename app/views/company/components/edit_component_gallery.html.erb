@@ -1,0 +1,97 @@
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+
+  //reativa botao fechar
+  $('.box-novo-conteudo span.remove').click(function(){
+    $('#box-incluir-conteudo').slideUp('fast');
+    $('#openMenu').removeClass('active');
+    $('#box-incluir-conteudo').load('/company/conteudo-menu.html');
+    //CKEDITOR.instances.editor1.destroy();
+  });
+
+  //cria novo conteudo
+  $('.btn-concluir').click(function(){
+      //$(CKEDITOR.instances.editorimagem.getData()).text();
+      createContentEditado(<%=@component.id%>, $('#titulo1').val())
+      $('.box-novo-conteudo span.remove').trigger('click');
+  });
+
+  //ajusta altura sidebar
+  $('#box-sidebar').css('height', $('#box-content').height());
+
+  //ativa funcionalidade de resize do container
+  $(document).ready(function() {
+    //$("#box-content").resizable({ maxWidth: 600 },{ minWidth: 600 },{ minHeight: 418 });
+    $(".img-edit").colorbox({
+      onCleanup:function(){CKEDITOR.instances.editorimagemgallery.destroy();}
+      //onLoad:function(){alert('onLoad: colorbox has started to load the targeted content');}
+    });
+  });
+
+  //cria novo conteudo
+  //$('.btn-concluir').click(function(){
+  //  createContentEditado(<%=@component.id%>, $('#titulo1').val())
+  //  $('.box-novo-conteudo span.remove').trigger('click');
+  //});
+  var uploader = new qq.FileUploader({
+    // pass the dom node (ex. $(selector)[0] for jQuery users)
+    element: $('#file-uploader')[0],
+    allowedExtensions: ["jpg","png","gif","bmp","tif"],
+    multiple: false,
+    label: 'ADICIONAR IMAGEM',
+    onSubmit: function(id, fileName){
+      uploader.setParams({
+        authenticity_token: AUTH_TOKEN,
+        tipo: 'galeria',
+        id: <%=@component.id%>,
+        component: {
+          title: $('input#titulo1').val()
+        }
+      });
+    },
+    onComplete: function(id, fileName, responseJSON){
+      $('.qq-upload-list').html('');
+      $('#box-incluir-conteudo').load('/company/components/edit.html',
+      {id: responseJSON.id, authenticity_token: AUTH_TOKEN});
+      return true;
+    },
+    // path to server-side upload script
+    action: '/component_update'
+  });
+  trataCampos('.input');
+</script>
+<div class="icon-seta"></div>
+<div id="box-sidebar"> <img src="/images/company/ico-novo-galeria.png" width="95" height="81" alt="Imagem" /> 
+  <p>GALERIA</p>
+  <p style="color:dimgray;"><%=@component.pictures.size%> IMAGENS</p>
+</div>
+<div id="box-content">
+  <!--<form name="form1">-->
+  <input type="text" name="titulo1" id="titulo1" class="input radius" value="<%=@component.title%>" />
+  <span class="clearfloat"></span>
+  <ul class="img-gallery" id="<%=@component.id%>">
+    <% @component.pictures.each_with_index do |picture, index| %>
+      <li <%="class=\"clearMargin\"" if ((index+1) % 4 )== 0 %>>
+        <input name="check-img-<%=picture.id%>" type="checkbox" value="imagem1" class="img-gallery-checkbox"/>
+        <img id="gallery-picture-<%=picture.id%>" src="<%=picture.photo.url :thumb%>" width="105" height="100" alt="Imagem1" class="img-gallery-item" />
+        <%= link_to image_tag("company/icon-edit.png", :width=>"22", :height=>"22", :alt=>"Editar", :class=>"img-gallery-edit"),edit_company_component_picture_path(@component,picture), :class=>'img-edit'%>
+      </li>
+
+    <% end %>
+  </ul>
+  <div style="width: 500px; float: left; height: 35px; z-index: 9999">
+    <!-- <a class='btn-add-image' href="/company/conteudo-galeria2-addimage.html"><input type="submit" value="ADICIONAR IMAGEM" class="btn-add-image" /></a> -->
+    <div id="file-uploader">
+      <noscript>
+        <p>Por favor, habilite o javascript do seu browser.</p>
+        <!-- or put a simple form for upload here -->
+      </noscript>
+    </div>
+    <input type="submit" value="CONCLUIR" class="btn-concluir" />
+<%#*<label id="img-gallery-aba">%>
+<%#*<input name="check-aba" type="checkbox" value="abainteira"/>%>
+<%#*Utilizar aba inteira</label>%>
+    <!--</form>-->
+  </div>
+</div>
+<span class="remove"></span> <br class="clearfloat" />

@@ -1,0 +1,42 @@
+<div class="block">
+	<div class="secondary-navigation">
+		<ul class="wat-cf">
+			<li class="first"><%= link_to "Gerar títulos", :controller => :main  %></li>
+			<li class="active"><%= link_to "Títulos", :controller=>"titles" %></li>
+			<li><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+			<li><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+			<li><%=link_to 'Remessas',:controller=>"shippings"%></li>
+			<li><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+			<li><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+		</ul>
+	</div>          
+	<div class="content">          
+		<h2>Novo Título (Selecione <%=I18n.t("company.the_singular").downcase%>)</h2>
+		<div class="innter">
+			<table class="table">
+			  <tr>
+			    <th><%=I18n.t("activerecord.attributes.company.razao_social") %></th>
+			    <th><%=I18n.t("activerecord.attributes.company.cnpj") %></th>
+			    <th>Filial</th>
+			    <th>Pagamento</th>
+			    <th>Data de Criação</th>
+			    <th>Segmento</th>
+			  </tr>
+			  <% for company in @companies do %>
+			      <tr class="<%= cycle("odd", "even") %>">
+			        <td>
+			          <%=link_to(company.razao_social,new_financial_company_title_path(company))%>
+			        </td>
+			        <td><%=h company.document%></td>
+			        <td><%=h company.user.person.subsidiary_title%></td>
+			        <td><%= h  company.contracts.last.parcel %></td>
+			        <td><%=h company.user.created_at.to_s_br%></td>
+			        <td><%= h company.segment.name %></td>
+			      </tr>
+			    <% end -%>
+			</table>
+			<%= will_paginate @companies %>
+			
+		</div>
+	</div>
+</div>

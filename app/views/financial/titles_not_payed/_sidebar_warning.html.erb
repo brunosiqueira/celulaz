@@ -1,0 +1,6 @@
+<% if @company.z? && @company.titles_not_payed.count>0 %>
+  
+    <div class="warning-msg">
+      <h1>Você possui pagamentos atrasados.<br/><%=link_to "Clique aqui",:controller=>"/financial/titles_not_payed"%></h1>
+    </div>
+<% end %>

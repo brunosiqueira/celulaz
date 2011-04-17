@@ -1,0 +1,21 @@
+<%
+	if @unread_messages.size > 0
+		unread_messages_size = " (#{@unread_messages.size})"
+	end
+
+%>
+
+<div class="panel-head">
+	<ul class="panel-actions">
+		<li class="<%= 'active' if params[:controller].eql?("company/mailbox") ||
+		 						   params[:controller].eql?("company/messages")%>">
+								<%= link_to "Caixa de entrada #{unread_messages_size}", inbox_path %>
+		</li>
+		<li class="<%= 'active' if params[:controller].eql?("company/sent") %>">
+			<%= link_to "Enviados", :controller => "sent", :action => "index" %>
+		</li>
+	</ul>
+	<% if @messages %>
+		<span>Exibindo <%= @messages.size %> de <%= @total_messages %> resultados</span>
+	<% end %>	
+</div>

@@ -1,0 +1,70 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "Contratos d#{I18n.t("company.the_singular").downcase}", :action => :index  %></li>
+      <li><%= link_to 'Novo Contrato', new_company_contract_path(@company) %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Contrato</h2>
+    <div class="inner">
+      <p>
+        <b><%=I18n.t("activerecord.attributes.contract.initial_date")%>:</b>
+        <%=h @contract.initial_date.to_s_br %>
+      </p>
+
+      <p>
+        <b><%=I18n.t("activerecord.attributes.contract.end_date")%>:</b>
+        <%=h @contract.end_date.to_s_br %>
+      </p>
+
+      <p>
+        <b><%=I18n.t("activerecord.attributes.contract.status")%>:</b>
+        <%=h @contract.status %>
+      </p>
+
+      <p>
+        <b><%=I18n.t("activerecord.attributes.contract.value")%>:</b>
+        <%=h @contract.value.real %>
+      </p>
+
+      <h3>Títulos não Pagos</h3>
+      <table>
+        <tr>
+          <th><%=I18n.t("activerecord.attributes.title.your_number") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.our_number") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.status") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.emission_date") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.due_date") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.value") %></th>
+        </tr>
+        <% for title in @contract.titles_not_payed %>
+          <tr class="<%= cycle('linha-par', 'linha-impar')%>">
+            <%=render :partial=>"titles/title",:object=>title%>
+          </tr>
+        <% end %>
+      </table>
+
+      <h3>Títulos Pagos</h3>
+      <table>
+        <tr>
+          <th><%=I18n.t("activerecord.attributes.title.your_number") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.our_number") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.status") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.emission_date") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.due_date") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.value") %></th>
+        </tr>
+        <% for title in @contract.titles_payed %>
+          <tr class="<%= cycle('linha-par', 'linha-impar')%>">
+            <%=render :partial=>"titles/title",:object=>title%>
+          </tr>
+        <% end %>
+      </table>
+
+
+      <%= link_to 'Editar', edit_company_contract_url(:id=>@contract,:company_id=>@company) %> |
+      <%= link_to 'Voltar', company_contracts_path(@company) %>
+    </div>
+  </div>
+</div>

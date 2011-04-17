@@ -1,0 +1,26 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "Gerar títulos", :controller => :main  %></li>
+      <li><%= link_to "Títulos", :controller=>"titles" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+      <li><%=link_to 'Remessas',:controller=>"shippings"%></li>
+      <li><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+      <li><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2>Sistema Financeiro</h2>
+    <div class="inner">
+      <% form_tag "/financial/main/generate_new_titles" do %>
+        Mês: <%= select_tag :month,options_for_select([1,2,3,4,5,6,7,8,9,10,11,12],Time.now.month) %>
+        <%=submit_tag "Gerar Títulos"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+

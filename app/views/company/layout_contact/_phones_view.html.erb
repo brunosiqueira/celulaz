@@ -1,0 +1,6 @@
+<%	for phone in @company.layout.phones do %>
+	<div id="inf_numero">
+          <span class="text_legend_orange"> <span style="font-size: 12px; color: #ccc;">(<%= phone.ddd%>) </span> &nbsp; <%= phone.number %></span>
+      <a id="fechar" data="<%= phone.id %>" class="delete_phone" href="javascript:"><%=image_tag "new_version/btn-remove-aba.gif"%></a>
+    </div>
+<% end %>

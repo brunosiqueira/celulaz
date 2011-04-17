@@ -1,0 +1,44 @@
+<% stylesheet "company/messages" %>
+<% stylesheet "third/autoSuggest" %>
+
+<% javascript "third/jquery.autoSuggest.minified" %>
+<% javascript "company/messages" %>
+
+<div class="message-page">
+	<%= render :partial => "company/shared/message_actions" %>
+	<%= render :partial => "company/shared/new_message" %>
+	<div class="panel">
+		<%= render :partial => "company/shared/message_box_label" %>
+		<div class="panel-body">
+			<div class="panel-body-head">
+				<strong class="sender-label">Para</strong>
+				<strong class="message-label">Mensagem</strong>
+			</div>
+			<% @messages.each do |m| %>
+				<div class="item">
+					<div class="delete">
+						<%= check_box_tag("message[]", m.id, false) %>
+					</div>
+					<% link_to company_sent_path(m) do %>
+					<div class="sender-info">
+						<% if m.recipients.size > 1%>
+							<% m.recipients.each do |r| %>
+								<%= r.login %>,
+							<% end %>
+						<% else %>
+							<%= m.recipients.map(&:login).to_sentence %>
+						<% end %>
+						<div class="date">
+							<%= I18n.localize(m.created_at, :format => :long) %>
+						</div>
+					</div>
+					<div class="content">
+						<%= m.body %>
+					</div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+		<%= will_paginate @messages, :previous_label => "anterior", :next_label => "próxima" %>
+	</div>
+</div>

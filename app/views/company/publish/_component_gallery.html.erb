@@ -1,0 +1,22 @@
+<div class="<%=component_gallery.tab_component.full_line ? "full-line" : "column"%>">
+  <ul id="galeria<%=component_gallery.id%>" class="componente-galeria" >
+    <% component_gallery.pictures.each do |picture| %>
+      <li>
+        <a class="colorbox" href="<%=picture.photo.url(:big)%>" rel="<%=component_gallery.id%>" title="<%=remove_tags picture.description%>"><%=image_tag picture.photo.url(:thumb), :width=>"100px", :height=>"100px"%><br/></a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="link"><%= link_to "Ver tudo...","/sites/#{URI::escape @user.login}/conteudo#{component_gallery.id}.html" %></div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#galeria<%=component_gallery.id%>").bxSlider({
+        displaySlideQty: <%= full_line ? 7 : 3 %>,
+        moveSlideQty: 2,
+        infiniteLoop: true,
+        prevImage: "/images/company/layout/ico-right-gallery.gif",
+        nextImage: "/images/company/layout/ico-left-gallery.gif"
+    });
+    $("a[rel='<%=component_gallery.id%>']").colorbox();
+  });
+</script>

@@ -1,0 +1,33 @@
+.sent-to-friend-obs{display: none;}
+.col-left {width:450px;clear:none;float:left;margin:0 20px 20px 0;}
+.col-right {width:290px;float:right;}
+#send-to-friend, .analytcs {background-color:#FDFDFD;border:1px solid #efefef;float:left;margin-bottom:30px;padding:20px;
+}
+#send-to-friend form {    float: left;}
+
+#send-to-friend form a {cursor: pointer;width: 250px;float: left;margin-top: 5px;}
+
+#message_to_friend_email_to , #send-to-friend form textarea {width: 90%;}
+
+#send-to-friend form textarea {height: 100px;margin-top: 10px;}
+.analytcs{width: 248px;}
+.analytcs p { border-bottom: 1px solid #efefef;}
+.remove-feed{font-size: 11px;}
+.input-falso{    background-color: #FFFFFF;border-color: #CCCCCC #F0F0F0 #F0F0F0 #CCCCCC;
+    border-style: solid;
+    border-width: 1px;
+    cursor: text;
+    font-weight: normal;
+    padding: 15px 9px 15px 34px;
+    width:400px;
+}
+#news_area { 
+    position: relative;
+    border: 3px solid #EFEFEF;
+    margin: 0 0 40px 0;
+    }
+    .space{padding: 5px 15px 5px 5px;}
+#news_area_seta {
+    background: url("/images/new_version/ico-seta-box-novo-conteudo.gif") no-repeat scroll 15px 3px transparent;
+    padding: 15px 0 0;
+}

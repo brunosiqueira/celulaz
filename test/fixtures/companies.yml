@@ -1,0 +1,67 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: companies
+#
+#  id                        :integer(4)      not null, primary key
+#  user_id                   :integer(4)
+#  cnpj                      :string(18)
+#  razao_social              :string(255)
+#  created_at                :datetime
+#  updated_at                :datetime
+#  person_id                 :string(255)
+#  payment_type              :string(10)      default("mensal")
+#  segment_id                :string(255)
+#  state_id                  :string(255)
+#  type                      :string(10)      default("CompanyS"), not null
+#  informal                  :boolean(1)
+#  drawee_code               :string(15)
+#  register_number           :string(255)
+#  profile_logo_file_name    :string(255)
+#  profile_logo_content_type :string(255)
+#  profile_logo_file_size    :integer(4)
+#  profile_logo_updated_at   :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+empresa:
+  id: 3
+  user_id: 5
+  cnpj: 88.323.034/0001-68
+  razao_social: empresa
+  segment_id: 1
+  type: CompanyS
+  drawee_code: SZ20004
+
+empresa_first_confirm:
+  id: 4
+  user_id: 7
+  segment_id: 1
+  cnpj: 55.086.845/0001-33
+  razao_social: MyString
+  segment_id: 1
+  type: CompanyS
+  drawee_code: SZ20003
+
+empresa_valid:
+  id: 5
+  user_id: 8
+  person_id: 13
+  segment_id: 1
+  cnpj: 15.754.056/0001-09
+  razao_social: MyString
+  segment_id: 1
+  type: CompanyZ
+  drawee_code: SZ20002
+
+empresa_valid_2:
+  id: 7
+  user_id: 12
+  segment_id: 1
+  cnpj: 15.754.056/0001-09
+  razao_social: MyString
+  segment_id: 1
+  type: CompanyZ
+  drawee_code: SZ20006
+  

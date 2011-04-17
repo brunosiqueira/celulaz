@@ -1,0 +1,53 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<div style="float: left; margin-bottom: 30px;">
+  <div id="colleft" style="width: 580px !important" >
+    <object width="560" height="310">
+      <param name="movie" value="yahl0h01v4I">
+      </param>
+      <param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always">
+      </param>
+      <embed wmode="transparent" src="http://www.youtube.com/v/yahl0h01v4I?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="310">
+      </embed>
+    </object>
+  </div>
+  <div id="colright" >
+    <!--  <h2> Facebook</h2>-->
+  </div>
+</div>
+<div id="colleft" style="float:left !important; width: 300px !important;">
+  <h1>Sede <span style="font-size: 14px">(matriz)</span></h1>
+
+
+  <div class="image_location">
+    <%=link_to image_tag("filiais/sede01min.jpg"),image_path("filiais/sede01.jpg"), :rel=>"sede"%>
+    <%=link_to image_tag("filiais/sede02min.jpg"),image_path("filiais/sede02.jpg"), :rel=>"sede"%>
+    <%=link_to image_tag("filiais/sede03min.jpg"),image_path("filiais/sede03.jpg"), :rel=>"sede"%>
+  </div>
+</div>
+<div id="colright" style="float:left !important; width: 300px !important;">
+
+  <h2>Agência Garibaldi</h2>
+
+
+  <div class="image_location">
+    <%=link_to image_tag("filiais/garibaldi01min.jpg"),image_path("filiais/garibaldi01.jpg"), :rel=>"garibaldi"%>
+    <%=link_to image_tag("filiais/garibaldi02min.jpg"),image_path("filiais/garibaldi02.jpg"), :rel=>"garibaldi"%>
+    <%=link_to image_tag("filiais/garibaldi03min.jpg"),image_path("filiais/garibaldi03.jpg"), :rel=>"garibaldi"%>
+  </div>
+</div>
+<div id="colright" style="float:right !important; width: 300px !important;">
+  <h2>Agência Shopping Total</h2>
+
+  <div class="image_location">
+    <%=link_to image_tag("filiais/total01min.jpg"),image_path("filiais/total01.jpg"), :rel=>"total"%>
+    <%=link_to image_tag("filiais/total02min.jpg"),image_path("filiais/total02.jpg"), :rel=>"total"%>
+    <%=link_to image_tag("filiais/total03min.jpg"),image_path("filiais/total03.jpg"), :rel=>"total"%>
+  </div>
+</div>
+
+<script type="text/javascript">
+  jQuery(document).ready(function(){$("a[rel='sede']").colorbox();$("a[rel='garibaldi']").colorbox();$("a[rel='total']").colorbox();});
+</script>

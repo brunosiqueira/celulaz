@@ -1,0 +1,22 @@
+<%= error_messages_for :contact,:header_message=>nil %>
+<% form_for :contact,:url=>{:action=>"create"},:method=>:put, :html=>{:class=>"fale-conosco"} do |f|%>
+  <div id="colleft">
+    <h1> Nome:</h1>
+    <div id="line2"> <%= f.text_field :name,:class=>"normal" %></div>
+
+    <h1>Telefone: </h1>
+    <%= f.text_field :ddd,:size=>3,:maxlength=>3,:onkeypress=>"mascara(this,soNumeros)",:class=>"ddd" %>
+    <%= f.text_field :phone,:size=>8,:maxlength=>8, :onkeypress=>"mascara(this,soNumeros)" ,:class=>"fone"%>
+
+    <h1>E-mail: </h1>
+    <%= f.text_field :email ,:class=>"normal"%>
+    <h1>Cidade</h1>
+    <%= f.text_field :city ,:class=>"normal"%>
+    <%=f.submit "Enviar",:class=>"link-btn-orange-big"%>
+  </div>
+  <div id="colright">
+    <h1>Observações:</h1>
+    <%= f.text_area :description,:class=>"normal",:style=>"height:170px;" %>
+  </div>
+<% end %>
+<%= javascript_include_tag "fields_masks" %>

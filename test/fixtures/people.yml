@@ -1,0 +1,232 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: people
+#
+#  id              :integer(4)      not null, primary key
+#  user_id         :integer(4)
+#  name            :string(255)
+#  cpf             :string(14)
+#  rg              :string(50)
+#  rg_exp          :string(50)
+#  rg_exp_date     :date
+#  date_birth      :date
+#  created_at      :datetime
+#  updated_at      :datetime
+#  subsidiary_id   :string(255)
+#  user_create_id  :string(255)
+#  user_confirm_id :string(255)
+#  state_id        :string(255)
+#  user_web_adm_id :string(255)
+#  bank_id         :integer(4)
+#  agency          :integer(4)
+#  account_number  :string(15)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  user_create_id: 3
+  user_confirm_id: 3   
+  name: one
+  cpf: 330.882.682-87
+  rg: MyString
+  subsidiary_id: 1
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+
+two:
+  id: 2
+  user_create_id: 3
+  user_confirm_id: 3   
+  name: two
+  cpf: 751.195.664-56
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+  
+quentin:
+  id: 3
+  user_create_id: 3
+  user_confirm_id: 3   
+  subsidiary_id: 1
+  name: quentin
+  cpf: 613.112.317-90
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+
+gerente_geral:
+  id: 4
+  user_create_id: 3
+  user_confirm_id: 3   
+  subsidiary_id: 1
+  name: gerente_geral
+  cpf: 898.361.554-06
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+  
+admin:
+  id: 5
+  user_create_id: 3
+  user_confirm_id: 3   
+  name: admin
+  cpf: 805.191.266-70
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+  
+gerente_segmento:
+  id: 6  
+  subsidiary_id: 1
+  name: gerente_segmento
+  cpf: 226.437.018-10
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+
+admin_web:
+  id: 8
+  user_create_id: 3
+  user_confirm_id: 3   
+  subsidiary_id: 1
+  name: admin_web
+  cpf: 625.629.426-20
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+  
+empresa:
+  id: 7  
+  name: empresa
+  user_web_adm_id: 6
+  subsidiary_id: 1
+  cpf: 076.507.553-98
+  rg: empresa
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+  
+empresa_first_confirm:
+  id: 9
+  user_create_id: 6
+  name: empresa_first_confirm
+  subsidiary_id: 2
+  cpf: 296.851.408-39
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+
+empresa_valid:
+  id: 10
+  user_create_id: 3
+  user_confirm_id: 3  
+  name: empresa_valid
+  subsidiary_id: 2
+  cpf: 573.683.830-39
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+
+empresa_valid_no_layout:
+  id: 11
+  user_create_id: 3
+  user_confirm_id: 3
+  name: empresa_valid_no_layout
+  subsidiary_id: 2
+  cpf: 572.824.164-60
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+
+web_no_subsidiary:
+  id: 12
+  user_create_id: 3
+  user_confirm_id: 3
+  name: web_no_subsidiary
+  cpf: 671.537.348-56
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+
+seller:
+  id: 13
+  user_create_id: 3
+  user_confirm_id: 3
+  user_web_adm_id: 6
+  name: seller
+  cpf: 302.451.258-68
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+
+director:
+  id: 14
+  user_create_id: 3
+  user_confirm_id: 3
+  name: director
+  cpf: 009.361.189-70
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+
+seller_to_confirm:
+  id: 15
+  user_create_id: 3
+  subsidiary_id: 1
+  name: seller_to_confirm
+  cpf: 275.517.707-12
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+
+seller_to_confirm_subsidiary_2:
+  id: 16
+  user_create_id: 3
+  subsidiary_id: 2
+  name: seller_to_confirm_subsidiary_2
+  cpf: 625.158.293-68
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+
+empresa_valid_2:
+  id: 17
+  user_create_id: 3
+  user_confirm_id: 3
+  name: empresa_valid_2
+  subsidiary_id: 2
+  cpf: 194.231.684-42
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09
+
+gerente_geral_2:
+  id: 18
+  user_create_id: 3
+  user_confirm_id: 3
+  subsidiary_id: 4
+  name: gerente_geral
+  cpf: 898.361.554-06
+  rg: MyString
+  rg_exp: MyString
+  rg_exp_date: 2008-09-09
+  date_birth: 2008-09-09

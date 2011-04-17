@@ -1,0 +1,31 @@
+<div id="company-message-window" class="message-window" >
+  <div class="icon-seta"></div>
+  	<span class="remove" id="close-company-message-window"></span>
+	<fieldset>
+		<% form_tag ("/messages"), :id => "company-message-form" do -%>
+			<%= hidden_field_tag  'message[subject]', 'Mensagem enviada pelo cartao de visita' %>
+			<%= hidden_field_tag  'message[to]', @company.user.id %>
+			<label>Email:</label>
+			<%= text_field_tag 'message[sender_email]', '', :id => "company_email" %>
+			<label>Mensagem:</label>
+			<%= text_area_tag 'message[body]', '', :id => "message", :rows => "5" %>
+			<%= submit_tag 'enviar', :class => "btn" %>
+			<div id="result-company-message-window"></div>
+		<% end -%>
+	</fieldset>
+</div>
+
+
+<div id="friend-message-window" class="message-window">
+  <div class="icon-seta"></div>
+  <span class="remove" id="close-friend-message-window"></span>
+	<fieldset>
+		<% form_tag ("/company_to_friend"), :id => "friend-message-form" do -%>
+			<%= hidden_field_tag  'company_id', @company.id %>
+			<label>Email do amigo:</label>
+			<%= text_field_tag 'email_to', '', :id => "friend_email" %>
+			<%= submit_tag 'enviar', :class => "btn" %>
+			<div id="result-friend-message-window"></div>
+		<% end -%>
+	</fieldset>
+</div>

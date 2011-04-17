@@ -1,0 +1,37 @@
+<% form_tag ("/messages/create"), :id => "message_form", :class => "message_form_#{object.id.to_s}", :data => "#{object.id.to_s}" do -%>
+  <%= hidden_field_tag  'message[subject]', 'Mensagem enviada pelo site' %>
+  <%= hidden_field_tag  'message[to]', @company.user.id %>
+  <div style="float: left; width: 325px; margin-bottom: 20px;">	
+    <% if object.show_name? %>
+      <label>Nome:</label>
+      <%= text_field_tag 'public_profile[name]', '', :class => "public_profile_name_"+object.id.to_s %>
+    <% end %>
+    <% if object.show_email? %>
+      <label>Email:</label>
+      <%= text_field_tag 'message[sender_email]', '', :class => "message_sender_email_"+object.id.to_s %>
+    <% end %>
+    <% if object.show_address? %>
+      <label>Endereço:</label>
+      <%= text_field_tag 'public_profile[address]', '', :class => "public_profile_address_"+object.id.to_s %>
+    <% end %>
+
+  </div>
+
+  <div style="float: right; width: 325px; margin-bottom: 20px">
+    <% if object.show_phone? %>
+      <label>Telefone:</label>
+      <%= text_field_tag 'public_profile[ddd]', '', :size => 2, :maxlength=>2, :class => "public_profile_ddd_"+object.id.to_s %>
+      <%= text_field_tag 'public_profile[number]', '', :size => 8, :maxlength=>8, :class => "public_profile_number_" + object.id.to_s %>
+    <% end %>
+    <% if object.show_message? %>
+
+      <label>Mensagem:</label>
+      <%= text_area_tag 'message[body]', '', :rows => "5", :class => "message_body_" + object.id.to_s %>
+    <% end %>
+    
+  </div>
+<div style="width: 325px;">
+<%= submit_tag 'Enviar', :class => "input-msg" , :style=>'width:90px !important; heigth:12px; ' %>
+</div>  
+<div class="result-message-window" style="width: 325px;float: left;"></div>
+<% end -%>

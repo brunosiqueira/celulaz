@@ -1,0 +1,67 @@
+
+<h1>Quais são suas novidades?</h1>
+<div id="news_area_seta" >
+  <div id="news_area" >
+    <div id="news" class="input-falso">
+      Poste aqui sua novidade!
+    </div>
+    <div id="news_edit"></div> 
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#news").click(function(){
+      CKEDITOR.replace( 'news_edit',
+      {toolbar: "News"
+       
+      });
+      $("#news_area").append('<input id="news-concluir" style="float:none !important" type="submit" value="CONCLUIR" class="btn-concluir btn-input" />');
+      $("#news_area").append('<span class="remove"></span>');
+      $("#news_area .remove").click(function(){
+        CKEDITOR.instances.news_edit.destroy();
+        $("#news-concluir").remove();
+        $("#news_area .remove").remove();
+        $("#errorExplanation").remove();
+        $('#news_edit').html('');
+        $('#news').show();
+        $("#news_area").removeClass('space');
+        $('body').css('cursor','auto');
+      });
+      $("#news_area").addClass('space');
+      $("#news-concluir").click(function(){
+        $('body').css('cursor','wait');
+        var value = CKEDITOR.instances.news_edit.getData();
+        if (value == null || value == ""){
+          $("#news_area").prepend("<span id='errorExplanation'>Preenchimento obrigatório</span>");
+        } else {
+          $.ajax({
+            type:"POST",
+            url:"/company/news/create",
+            data:{
+              value: value,
+              authenticity_token:AUTH_TOKEN
+            },
+            success:function(result){
+              CKEDITOR.instances.news_edit.destroy();
+              $("#news-concluir").remove();
+              $("#news_area .remove").remove();
+              $("#errorExplanation").remove();
+              $('.feeds').prepend("<div class=\"item feed_news novo>"+value+"<div class=\"date\">"+result+"</div></div>");
+              $('#news_edit').html('');
+              $('#news').show();
+              $("#news_area").removeClass('space');
+              $('body').css('cursor','auto');
+            },
+            error:function(request,status,errorThrown){
+              alert('Erro na Ação!'+status);
+              $('body').css('cursor','auto');
+            }
+          });
+        }
+      });
+      $(this).hide();
+    });
+  });
+</script>

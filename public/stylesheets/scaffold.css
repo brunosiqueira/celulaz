@@ -1,0 +1,42 @@
+
+pre {
+    background-color: #eee;
+    padding: 10px;
+    font-size: 11px;
+}
+
+.fieldWithErrors input {
+    border-color: red !important;
+}
+
+#errorExplanation {
+    padding: 15px;
+    margin:0px 0px 30px;
+    border: solid 1px #c00;
+    background-color:#FFF0F0;
+}
+
+#errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: 0px;
+
+}
+
+#errorExplanation p {background:url("../images/new_version/title-decor.gif") no-repeat scroll 0 1px transparent;
+color:#333333;
+font-weight:bold;
+margin:0;
+padding:0 0 5px 15px;
+}
+
+#errorExplanation ul li {
+    font-size: 11px;
+    list-style: none;
+    padding-left:20px;
+    background: url(../../images/new_version/ico-cancel.gif) no-repeat;
+    margin:3px;
+}
+

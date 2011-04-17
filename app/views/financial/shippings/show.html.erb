@@ -1,0 +1,72 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Gerar títulos", :controller => :main  %></li>
+      <li><%= link_to "Títulos", :controller=>"titles" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+      <li class="active"><%=link_to 'Remessas',:controller=>"shippings"%></li>
+      <li><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+      <li><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2>Remessa</h2>
+    <div class="inner">
+      <p>
+        <b><%= I18n.t("activerecord.attributes.shipping.code") %>:</b>
+        <%=h @shipping.code %>
+      </p>
+      <p>
+        <b><%= I18n.t("activerecord.attributes.shipping.status") %>:</b>
+        <%=h @shipping.status %>
+      </p>
+      <p>
+        <b>Número de Títulos:</b>
+        <%=h @shipping.titles.size %>
+      </p>
+      <p>
+        <b>Valor Total:</b>
+        <%=h @shipping.total_value %>
+      </p>
+      <%= render :partial=>"/financial/shippings/download",:locals=>{:shipping=>@shipping} %>
+      <h3>Títulos não Pagos</h3>
+      <table class="table">
+        <tr>
+          <th><%=I18n.t("activerecord.attributes.title.your_number") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.our_number") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.status") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.emission_date") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.due_date") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.value") %></th>
+        </tr>
+        <% for title in @shipping.titles_not_payed %>
+          <tr class="<%= cycle('odd', 'even')%>">
+            <%=render :partial=>"titles/title",:object=>title%>
+          </tr>
+        <% end %>
+      </table>
+
+      <h3>Títulos Pagos</h3>
+      <table class="table">
+        <tr>
+          <th><%=I18n.t("activerecord.attributes.title.your_number") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.our_number") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.status") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.emission_date") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.due_date") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.value") %></th>
+        </tr>
+        <% for title in @shipping.titles_payed %>
+          <tr class="<%= cycle('odd', 'even')%>">
+            <%=render :partial=>"titles/title",:object=>title%>
+          </tr>
+        <% end %>
+      </table>
+      <div class="group navform wat-cf">
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Editar")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_financial_shipping_path(@shipping), :class => "button" %>
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Voltar")}")} #{t("web-app-theme.cancel", :default => "Voltar")}", financial_shippings_path, :class => "button" %>
+      </div>
+    </div>
+  </div>
+</div>

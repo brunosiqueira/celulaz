@@ -1,0 +1,4 @@
+$('div#change-password').html('<%= render(:partial=>"form").gsub(/\n/,'') %>');
+$('div.notice-password').html('<%=flash[:notice]%>');
+$('div.error-password').html('<%=flash[:error]%>');
+$('form.change-password').submitWithAjax();

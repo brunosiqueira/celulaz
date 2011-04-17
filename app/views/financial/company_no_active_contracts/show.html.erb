@@ -1,0 +1,43 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Gerar títulos", :controller => :main  %></li>
+      <li><%= link_to "Títulos", :controller=>"titles" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+      <li class="active"><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+      <li><%=link_to 'Remessas',:controller=>"shippings"%></li>
+      <li><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+      <li><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <h2><%=I18n.t("company.singular").capitalize%></h2>
+    <div class="inner">
+      <%= render :partial=>"/companies/company_show", :object => @company %>
+      <%=button_to "Criar Novo contrato", new_company_contract_path(@company),
+        :method=>:get,:confirm=>"Você será redirecionado para a criação de contrato. Deseja continuar?"%>
+      <h3>Contratos</h3>
+      <table class="table">
+        <tr>
+          <th><%=I18n.t "activerecord.attributes.contract.parcel"%></th>
+          <th><%=I18n.t "activerecord.attributes.contract.initial_date"%></th>
+          <th><%=I18n.t "activerecord.attributes.contract.end_date"%></th>
+          <th><%=I18n.t "activerecord.attributes.contract.value"%></th>
+          <th><%=I18n.t "activerecord.attributes.contract.status"%></th>
+          <th colspan=2>&nbsp;</th>
+        </tr>
+
+        <% for contract in @company.contracts %>
+          <tr>
+            <td><%= h contract.parcel %>X</td>
+            <td><%=h contract.initial_date %></td>
+            <td><%=h contract.end_date %></td>
+            <td><%=h contract.value.real %></td>
+            <td><%=h contract.status %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Voltar")}")} #{t("web-app-theme.cancel", :default => "Voltar")}", :action => "index", :page=>@page, :class => "button" %>
+    </div>
+  </div>
+</div>

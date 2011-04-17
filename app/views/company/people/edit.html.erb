@@ -1,0 +1,42 @@
+<%=javascript "company/people"%>
+<%=stylesheet "company/people","scaffold"%>
+<div class="panel-head">
+  <ul class="panel-actions">
+    <li><%= link_to "Dados do Usuário", edit_company_user_path(current_company) %></li>
+    <li class="active"><%= link_to "Dados Pessoais", edit_company_person_path(current_company.person) %></li>
+  </ul>
+</div>
+<div id="notice"><%=flash[:notice]%></div>
+<%=error_messages_for :person, :header_message=>nil%>
+<% form_for @person, :url => company_person_path(@person) do |f| -%>
+  <div class="group">
+    <%= f.label :name, t("activerecord.attributes.person.name", :default => "Name"), :class => :label %>
+    <%= f.text_field :name, :class => 'text_field' %>
+  </div>
+
+  <div class="group">
+    <%= f.label :cpf, t("activerecord.attributes.person.cpf", :default => "Cpf"), :class => :label %>
+    <%= f.text_field :cpf, :class=>"text_field", :size => 20, :onkeypress => "mascara(this,cpf)" %>
+  </div>
+
+  <div class="group">
+    <%= f.label :rg, t("activerecord.attributes.person.rg", :default => "Rg"), :class => :label %>
+    <%= f.text_field :rg, :class => 'text_field' %>
+  </div>
+
+  <div class="group">
+    <%= f.label :rg_exp, t("activerecord.attributes.person.rg_exp", :default => "Rg exp"), :class => :label %>
+    <%= f.text_field :rg_exp, :class => 'text_field' %>
+  </div>
+
+  <div class="group">
+    <%= f.label :rg_exp_date, t("activerecord.attributes.person.rg_exp_date", :default => "Rg exp date"), :class => :label %>
+    <%= f.date_select :rg_exp_date, :class => 'date_select', :include_blank => true, :default => nil  %>
+  </div>
+
+  <div class="group">
+    <%= f.label :date_birth, t("activerecord.attributes.person.date_birth", :default => "Date birth"), :class => :label %>
+    <%= f.date_select :date_birth, :class => 'date_select', :include_blank => true, :default => nil %>
+  </div>
+  <%= f.submit "Salvar" %>
+<% end -%>

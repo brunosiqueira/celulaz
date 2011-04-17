@@ -1,0 +1,47 @@
+<script type="text/javascript">
+  //reativa botao fechar
+  $('.box-novo-conteudo span.remove').click(function(){
+    $('#box-incluir-conteudo').slideUp('fast');
+    $('#openMenu').removeClass('active');
+    $('#box-incluir-conteudo').load('/company/conteudo-menu.html');
+  });
+
+  //ajusta altura sidebar
+  $('#box-sidebar').css('height', $('#box-content').height());
+
+  //cria novo conteudo
+  $('.btn-concluir').click(function(){
+      createContentEditado(<%=@component.id%>, $('#box-content #titulo1').val(), 
+        null,null,
+        $('input[name=nome]').attr('checked'),
+        $('input[name=email]').attr('checked'),
+        $('input[name=endereco]').attr('checked'),
+        $('input[name=telefone]').attr('checked'),
+        $('input[name=recado]').attr('checked'));
+      $('.box-novo-conteudo span.remove').trigger('click');
+  });
+
+  trataCampos('.input');
+</script>
+
+
+<div class="icon-seta"></div>
+
+<div id="box-sidebar">
+  <img src="/images/company/ico-novo-formulario.png" width="95" height="81" alt="Video" />
+  <p>FOMULÁRIO</p>
+</div>
+
+<div id="box-content">
+  <input type="text" name="titulo1" id="titulo1" class="input radius" value="<%=@component.title%>" />
+  <p>Selecione os campos que deseja perguntar:</p>
+  <input name="nome" type="checkbox" value="nome" checked="true" disabled="true"  class="check"/>Nome<br />
+  <input name="email" type="checkbox" value="email" checked="true" disabled="true" class="check"/>E-mail<br />
+  <input name="endereco" type="checkbox" value="endereco" <%="checked=\"checked\"" if @component.show_address%> class="check"/>Endere&ccedil;o<br />
+  <input name="telefone" type="checkbox" value="telefone" <%="checked=\"checked\"" if @component.show_phone%> class="check"/>Telefone para contato<br />
+  <input name="recado" type="checkbox" value="recado" <%="checked=\"checked\"" if @component.show_message%> class="check"/>Recado<br /><br /><br />
+  <input type="submit" value="CONCLUIR" class="btn-concluir" />
+</div>
+
+<span class="remove"></span>
+<br class="clearfloat" />

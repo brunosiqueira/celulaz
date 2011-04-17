@@ -1,0 +1,26 @@
+<ul id="msgcaixa">
+  <% @messages.each { |message|  %>
+    <li id="msgcaixa_<%=message.id%>" class="<%=!message.read || @message_view.eql?("sent_messages") ? "new" : ""%>">
+      <div id="imgempresa">
+        <% pic_owner = @message_view.eql?("sent_messages") ? message.receiver : message.sender %>
+        <% default_picture = pic_owner.nil? ? "/images/relacionamento/msgsite.gif" : pic_owner.company.layout.default_picture_small %>
+        <%="<img src=\"#{default_picture}\" alt=\"Icon\" height=63 width=63>"%>
+      </div>
+      <div id="descri">
+        <h1><%= h !@message_view.eql?("sent_messages") ? message.sender_to_s : message.receiver.name%></h1>
+        <h2> <%= h message.subject %></h2>
+        <h2>
+          <%=  message.body.split("\n").each { |line| "#{h(line)}<br>" } %>
+        </h2>
+      </div>
+      <div id="msgaction">
+        <% if params[:message_view] !="sent" && !message.sender.nil? %>
+          <img src="../images/relacionamento/respondico.gif"><%=link_to_remote'Responder',:class=>"linkresponder",:url=>{:action=>:new,:origin_id=>message},:method=>:get,:update=>"answer_#{message.id}"%>
+        <% end %>
+        <%=  link_to_remote'Excluir',:url=>message_path(message),:method=>:delete,:confirm=>"Tem certeza?"%>
+        <span id="msgdate"><%= h message.created_at.to_date.to_s_br %></span>
+      </div>
+      <div id="answer_<%=message.id%>"></div>
+    </li>
+  <% } %>
+</ul>

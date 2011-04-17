@@ -1,0 +1,207 @@
+
+#geral
+{
+	background-color: #d6edff;
+}
+
+.head
+{	
+	width: 980px;
+	height: 150px;
+	background-color: #000099;
+}
+
+	#titulo
+	{
+		color: white;
+		font-size:40px;
+		padding: 90px 200px 0px 0px;
+	}
+
+.body 
+{	
+	width: 980px;
+}
+
+	#esquerda
+	{
+		width:720px;
+		float:left;/* com float left, um div para do lado do outro, vao se ajustando, um ao lado do outro automaticamente */
+	}
+
+	#superior
+	{
+		padding: 50px 10px 50px 50px; /*top right bottom left*/
+
+	}
+
+
+	#subtitulo
+	{
+		text-align:left;
+		font-size:35px;
+		padding-top: 20px;
+	}
+
+	#texto 
+	{	
+		font-family: arial, verdana, tahoma;
+		font-size: 12px;
+		text-align: justify;
+		padding: 25px 50px 0px 160px; /*top right bottom left*/
+	}
+	
+	.link a
+	{
+		text-decoration: none;
+	}
+
+
+	#inferior_esquerdo
+	{
+		padding: 25px 0px 40px 30px;
+		float: left;
+		width:250px;
+	}
+
+	#texto2
+	{
+		text-align: left;
+		font-family: arial, verdana, tahoma;
+		font-size: 12px;
+
+	}
+
+	#subtitulo2
+	{
+		font-size: 35px;
+		font-family: Times New Roman;
+	}
+
+	#inferior_direito
+	{
+		float:right;
+		padding: 25px 0px 0px 0px;
+		width:350px;
+		overflow:hidden;
+	}
+
+	#subtitulo3
+	{
+		font-size: 35px;
+		text-align: left;
+		padding-left: 10px;
+		
+	}
+	
+	#cito
+	{
+		float: left;
+		padding: 20px 0px 0px 10px;/*top right bottom left*/
+	}
+	
+	#cito2
+	{
+		float: left;
+		padding: 20px 0px 0px 25px;	
+	}
+	
+	
+	#cito3
+	{
+		float: right;
+		padding:20px 42px 0px 0px;	
+	}
+
+	#direita
+	{
+		width:256px; /* 256 pq ha 1px de borda na esquerda, e outro px d borda na direita*/
+		float:right;
+	}
+	
+	#subtitulo4
+	{
+		font-size: 25px;
+		color: gray;
+		text-align: left;
+		padding-top: 60px;
+	}
+	
+	#subtitulo5
+	{
+		font-size: 25px;
+		color: gray;
+		float: left;
+		padding: 60px 30px 0px 0px;
+	}
+	
+	
+	
+	.galeriaContainer
+	{
+		width:2000px;
+		margin-left:0px;
+		left:0px;
+	}
+	.galeria
+	{
+		clear:both;
+		padding-top:50px;
+		width:300px;
+		height:150px;
+		overflow:hidden;
+		white-space:no-wrap;
+	}
+	.galeria .galeriaContainer div
+	{
+		float:left;
+		margin:4px;
+	}
+	.galeria .galeriaContainer a img
+	{
+		margin:1px;
+	}
+	.galeria .galeriaContainer a:hover img
+	{
+		margin:0px;
+	}
+	.galeria .galeriaContainer a
+	{
+		text-decoration: none;
+		font-weight:bold;
+		font-family: tahoma, verdana, arial;
+		font-size: 12px;
+		color:#660000;
+	}
+	
+.footer
+{
+	background-color: gray;
+	width: 980px;
+	height: 100px;
+	clear:both;
+}
+	#menu
+	{
+		text-align: right;
+		padding: 10px 100px;
+	}
+
+	#rodape1
+	{
+		color: white;
+		font-family: vardana, tahoma;
+		font-size: 12px;
+		text-align: center;
+		padding: 25px;
+	}
+
+	#rodape2
+	{
+		font-size: 10px;
+	}
+.line{
+    position: relative;
+    width: 100%;
+    height: 300px;
+}

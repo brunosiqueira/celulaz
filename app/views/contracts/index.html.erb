@@ -1,0 +1,36 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "Contratos d#{I18n.t("company.the_singular").downcase}", :action => :index  %></li>
+      <li><%= link_to 'Novo Contrato', new_company_contract_path(@company) %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Contratos de <%=@company.razao_social %></h2>
+    <div class="inner">
+      <table class="table">
+        <tr>
+          <th><%=I18n.t "activerecord.attributes.contract.parcel"%></th>
+          <th><%=I18n.t "activerecord.attributes.contract.initial_date"%></th>
+          <th><%=I18n.t "activerecord.attributes.contract.end_date"%></th>
+          <th><%=I18n.t "activerecord.attributes.contract.value"%></th>
+          <th><%=I18n.t "activerecord.attributes.contract.status"%></th>
+          <th colspan=2>&nbsp;</th>
+        </tr>
+
+        <% for contract in @contracts %>
+          <tr>
+            <td><%= link_to h(contract.parcel), company_contract_path(:id=>contract,:company_id=>@company) %></td>
+            <td><%=h contract.initial_date %></td>
+            <td><%=h contract.end_date %></td>
+            <td><%=h contract.value.real %></td>
+            <td><%=h contract.status %></td>
+            <td><%= link_to 'Editar', edit_company_contract_url(:id=>contract,:company_id=>@company) %></td>
+            <td><%= link_to image_tag('buttom/del_small.png'), company_contract_url(:id=>contract,:company_id=>@company), :confirm => 'Tem certeza?', :method => :delete %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= link_to 'Voltar', :controller=>"company_management",:action=>"show",:id=>@company.user%>
+    </div>
+  </div>
+</div>

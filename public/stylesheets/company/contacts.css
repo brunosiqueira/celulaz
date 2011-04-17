@@ -1,0 +1,62 @@
+/*styles contato / localizaçao*/
+
+
+#col-left {float:left;width:400px;}
+#col-right {width:300px;float:right;}	
+
+.actions {width: 400px; float: left}
+#tab-contact{width: 780px; border-top:5px solid #eee; }
+
+.info-texto  {margin-bottom: 10px; float: left; width: 400px;}
+
+.info-texto a {
+    text-decoration: none;
+    color: #333;
+    line-height: 130%;
+
+}
+.delete_phone{
+border: 0px none !important;
+cursor: pointer !important;
+display: block !important;
+float: right;
+width: 10px !important;}
+
+.phones {float: left}
+#inf_numero {  font-size: 15px;width: 240px; line-height: 100%; padding: 5px 10px; border-bottom:  1px #eee solid;margin-bottom: 5px; float: left;position: relative;}
+#inf_numero1 { background-color:#EEEEEE;float:left;padding:9px;}
+.text_legend_orange{float: left; font-weight: bold; width: 200px;}
+
+input#show_address_site, input#show_address_sidebar{ margin-right: 10px; float: left;}
+.col-left div.actions{
+    float: left;
+    width: 400px;
+}
+.col-right div.actions {
+    float: left;
+    width: 220px;
+}
+h1.text_legend_form {width: 385px;float: left;}
+
+#form_space{float: left; width: 400px;}
+#form_space_cinza{float: left; width: 220px; }
+
+div.actions input#address_submit, div.actions input#layout_submit, #form_space_cinza div.actions input{
+    background:url("/images/new_version/ico-check.gif") no-repeat scroll left center transparent;
+    border:0 none;
+    cursor:pointer;
+    float:left;
+    margin:3px 10px 3px 3px;
+    padding-left:25px;
+    width:55px;
+
+}
+
+div.actions a {background:url("/images/new_version/ico-cancel.gif") no-repeat scroll left center transparent;
+               border:0 none;
+               cursor:pointer;
+               float:left;
+               margin:3px;
+               line-height: 180%;
+               padding-left:25px;
+               width:55px;}

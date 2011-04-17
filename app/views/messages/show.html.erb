@@ -1,0 +1,21 @@
+<div id="redboxmsg" style="display:block;" >
+  <div id="closebox"><%=link_to_close_redbox('Fechar')%></div>
+
+  <div id="msgdestinatario">
+    <h2>Remetente:</h2>
+    <h3><%=h @message.sender_to_s %></h3>
+  </div>
+  <!-- <div id="msgdestinatario"><h2>Destinatário:</h2>
+   <h3> <%=h @message.receiver.name %></h3>
+  </div>-->
+
+  <div id="msgreader"><h2>Assunto:</h2>
+    <h1><%=h @message.subject %></h1>
+    <h2>Mensagem:</h2>
+    <h1>
+      <% @message.body.split("\n").each { |msg| %>
+        <%="#{h(msg)}<br>"%>
+      <% }%>
+    </h1>
+  </div>
+</div>

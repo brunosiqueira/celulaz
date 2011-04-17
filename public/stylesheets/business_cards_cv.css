@@ -1,0 +1,282 @@
+@charset "utf-8";
+/* CSS Document */
+/*css cartao de visitas infos basica*/
+.mini-card {float:left;width:100%;}
+.cv-info-basic {width:550px;clear:none;float:left;position: relative;margin:0 0 20px;}
+.cv-info-basic h1 {padding: 0px !important; clear: right!important; background-image: none;color:#003399;font-size:21px;font-weight:normal;line-height:1;margin:3px 0;}
+.cv-info-basic h2 {float:left;font-size:12px;font-weight:800;margin:3px 5px 0 0;padding:5px 0;width:100%; clear: both;}
+/* thumbs da empresa */
+#cv-img-master-box {float:right;}
+#cv-img-master-box img  {height:63px;width:63px;border: 2px solid #eee;float: left; word-wrap: break-word;}
+/* servi?os */
+#cv-serv-master-box { margin-bottom:10px;float: left;}
+#cv-serv-master-box #cv-thumb {border:none !important; background-color:#FFFFFF;float:left;height:39px;width:36px;}
+
+.cv-more-action-bar a {padding-left: 30px;    background:url("/images/new_version/icons-view.gif") no-repeat scroll 0px -5px transparent;
+    color: #ADADAD;
+}
+
+.cv-more-action-bar a:hover{
+    color: #333;
+    
+}
+.cv-more-action-bar{
+    float: left;
+    width: 100%;
+    border-top : 1px solid #eee;
+    padding-top: 10px;
+}
+
+#cv-thumb {
+    background-color:#FFFFFF;
+    height:67px;
+    width:67px;
+    margin: 0;
+    float:right;
+}
+#more-info-box {
+    clear:both;
+    float: left;
+    width:780px;
+}
+
+#more-info-box .col-left {
+    width:348px;
+    clear:none;
+    float:left;
+    margin:0 20px 20px 0;
+}
+#more-info-box .col-right {
+    width:350px;
+    float:right;
+}
+#more-info-box #map-view {
+    border:1px solid #B4B4B4;
+    height:230px;
+}
+/* CV actions*/
+#cv-menu-action-master-box {
+    height:28px;
+    margin:5px 0 0;
+    line-height:3;
+    font-size:12px;
+    float:left;
+    width: 100%
+}
+#cv-menu-action-master-box div{
+    color:#FF6600;
+    cursor:pointer;
+    display:inline;
+    margin:0 15px 0 0;
+    text-decoration:none;
+}
+#cv-menu-action-master-box  div:hover {font-size:12px;color:#f60;text-decoration:none;}
+
+.message-window {background:none repeat scroll 0 0 #EEEEEE;border-bottom:1px solid #B4B4B4;border-right:1px solid #B4B4B4;display:none; font-size:12px; margin:15px 0 0 0; padding:10px;position:absolute; width:255px;z-index:100;}
+
+.message-window p {margin-top: 5px;}
+
+#company-message-window {}
+
+#friend-message-window {left: 160px;}
+
+#company-message-window {left: 70px}
+
+.message-window .fieldWithError {color:red; display:block;}
+
+.message-window fieldset {width:230px; padding: 5px;}
+
+.message-window fieldset label  {float: left;clear: both;}
+.message-window input, .message-window textarea {padding:5px;margin-bottom: 20px;background: #fff;width: 100%;}
+.message-window .btn  {font-size:9px;margin:10px 0; padding:8px 0; text-align:center; text-transform:uppercase;width:120px;background-color:#394754;color:#FFFFFF;display:block;float:left;cursor: pointer;}
+.message-window .icon-seta {background:url("../images/new_version/ico-seta-box-novo-conteudo.gif") no-repeat scroll 0 0 transparent;height:13px;position:absolute;top:-13px;width:34px;}
+#result-company-message-window {display: block; float: left; width: 100%; font-size: 11px;}
+
+/* end CV actions */
+
+
+/* star editon */
+
+/* buttons */
+
+
+#name form button.ok ,.edit_services a , #presentation_text form button.ok , .ui-tabs-panel form.edit_layout  #layout_submit, .adress-edit-box form #address_submit , span.create_phone input#phone_submit {border: 0px none;background:url("../images/new_version/ico-check.gif") no-repeat scroll center  transparent;cursor:pointer; float: left; margin: 3px; width: 20px}
+
+
+#presentation_text form button.ok , a.image_cancel,.edit_services a , span.create_phone input#phone_submit , .ui-tabs-panel form.edit_layout  #layout_submit, .create_phone a.phone_cancel, #presentation_text form button.cancel {
+    width:20px!important; height: 15px!important;
+}
+
+#name form button.ok , #name form button.cancel , .adress-edit-box form a.address_cancel , .adress-edit-box form #company_submit {width:15px; height: 21px;}
+
+#name form button.cancel , .edit_services a.service_cancel, #presentation_text form button.cancel , .create_phone a.phone_cancel, a.image_cancel, adress_company , .adress-edit-box form a.address_cancel {
+    border: 0px none;
+    background:url("../images/new_version/ico-cancel.gif") no-repeat scroll center transparent;
+    cursor:pointer;
+    float: left;
+    margin: 3px;
+}
+#name form input {
+    float: left;
+    font-size: 16px;
+}
+
+a#cv-bt-site {
+    background:url("../images/new_version/bt-site.gif") no-repeat scroll 0 1px transparent;
+    color:#FF6600;
+    font-size:12px;
+    padding:5px 16px;
+    margin: 0 10px 0 0;
+    text-align:center;
+    text-decoration:none;
+}
+a#cv-bt-site:hover {
+    background-position:  0px -24px ;
+}
+div.edit_services {
+    display:none;
+}
+
+/* edit name */
+
+#name form.text_field , #presentation_text form {
+    background:none repeat scroll 0 0 #efefef;
+    float:left;
+    padding:3px;
+}
+
+
+/* edit phone*/
+span.create_phone {
+    width:145px !important;
+    display: none;
+    background:none repeat scroll 0 0 #efefef !important;
+    top:-5px;
+    margin-right:5px !important;
+}
+h2.phones span {
+    background:none repeat scroll 0 0 #FFFFFF;
+    clear:none;
+    cursor:default;
+    float:left;
+    padding:3px;
+    margin-bottom:5px;
+    position:relative;
+    width:90px;
+}
+
+form#new_phone input {
+    font-size: 10px;
+}
+a.phone_add {
+    float:left;
+}
+
+/* edit endereco */
+
+p.address , .cv-info-basic p {
+    float: left;
+    margin: 3px 0px;
+    line-height: 20px;
+}
+
+.adress-edit-box {
+    display:none;
+    float:left;
+    position:relative;
+}
+
+.adress-edit-box form {
+    margin: 0px;
+    float:left;
+}
+.adress-edit-box form .group {
+    background:none repeat scroll 0 0 #efefef;
+    float:left;
+    margin:2px;
+    padding:3px;
+}
+.address a {
+    color:#333333;
+    text-decoration:none;
+    display: block;
+}
+.adress-edit-box h3 {
+    background:url("../images/new_version/title-decor.gif") no-repeat scroll 0 0 transparent;
+    clear:both;
+    color:#333333;
+    font-size:12px;
+    font-weight:800;
+    line-height:1;
+    padding-left:10px !important;
+}
+.group label {
+    display:inline-block;
+    text-align:right;
+    width:80px;
+}
+
+/* edit servicos */
+.edit_services {
+    float: left;
+}
+
+
+.edit_services div {
+    float: left;
+    padding: 3px;
+    background: #efefef;
+    margin: 3px;
+    width: 55px;
+
+}
+
+.edit_services div img {
+    clear: right;float:left;
+    border: solid 1px #b4b4b4;
+}
+.edit_services div input {
+    margin:0 0 0 -55px;
+    position:absolute;
+    float: left;
+
+
+}
+
+.over , .address a:hover{
+    color: gray !important;
+    cursor: pointer;
+}
+a.phone_delete{
+    display: none;
+}
+span.over a.phone_delete{
+    display: block;
+}
+span.new_phone{
+    background-color: #fef467 !important;
+}
+a.zoom{
+    color:#FF6600;
+    cursor:pointer;
+    display:inline;
+    margin:0 15px 0 0;
+    text-decoration:none;
+}
+.relac-thumb {
+    float: left;
+    font-size: 11px;
+    height: 62px;
+    margin: 0px 5px 0px 0px;
+    padding-bottom: 62px;
+    width: 62px;
+    word-wrap: break-word;
+    text-decoration: none;
+}
+.relac-thumb img {
+    background-color: white;
+    border: 1px solid #B4B4B4;
+    float: left;
+    height: 62px;
+    width: 62px;
+}

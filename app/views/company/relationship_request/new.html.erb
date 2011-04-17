@@ -1,0 +1,11 @@
+<div style="padding: 20px; float: left;">
+  <h2 style="font-size:16px ">Solicitação de Relacionamento</h2>
+<% form_tag url_for(:action=>:create,:id=>@company),:method=>:put, :class=>"relationship" do -%>
+<h1 style="width: 100%">Mensagem</h1>
+  <%= text_area_tag :observation %>
+  <%= submit_tag "Enviar" ,  :class=>"btn-small" %>
+<% end %>
+<script type="text/javascript">
+  $('form.relationship').submitWithAjax();
+</script>
+</div>

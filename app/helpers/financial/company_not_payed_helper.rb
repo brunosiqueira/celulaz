@@ -1,0 +1,2 @@
+module Financial::CompanyNotPayedHelper
+end

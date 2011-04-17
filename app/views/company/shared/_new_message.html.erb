@@ -1,0 +1,58 @@
+<div class="panel-form">
+
+  <div class="panel-new">
+
+    <% form_for :message, :url => { :controller => "company/sent", :action => "create" }, :html => { :id => "message-form" } do |f| -%>
+      <a href="#" class="close" id="close"></a>
+      <%= hidden_field_tag 'message[subject]', 'Mensagem enviada pelo sistema' %>
+      <label>Para:</label>
+      <div id="forIe7">
+        <%= hidden_field_tag 'message[to]', '', :id => "recipients" %>
+        <%= text_field_tag '', '', :id => "message_email" %>
+      </div>
+      <!--[if IE 7]>
+      <%= select 'message[to]', '', current_company.company.friends.collect {|f| [f.name, f.user_id]} %>
+            <![endif]-->
+      <label>Mensagem:</label>
+      <%= text_area_tag 'message[body]', '', :id => "message_content", :rows => "5" %>
+      <%= submit_tag 'Enviar', :class => "btn-input" %>
+      <div id="message-result"></div>
+    <% end -%>
+
+  </div>
+
+</div>
+<script type="text/javascript">
+  //to get contatcs
+  $(document).ready(function(){
+    if(is_ie7()){
+      $("#forIe7").remove();
+    } else {
+      var suggest_data = {items: [
+<% if current_company.company.friends_count > 0 %>
+{value: -1, name: "Enviar para todos"},
+<% end %>
+<% for c in current_company.company.auto_suggest_friends %>
+            {value: "<%= c.user_id %>", name: "<%= c.razao_social %>"},
+<% end %>
+        ]};
+      $("input#message_email")
+      .autoSuggest(
+      suggest_data.items,
+      {
+        minChars: 1,
+        startText: "Digite o nome do contato",
+        emptyText: "Nenhum contato encontrado",
+        limitText: "Não é permitido adicionar novos contatos",
+        selectedItemProp: "name",
+        searchObjProps: "name",
+        selectionLimit: 1,
+        selectionRemoved: function(elem) {
+          elem.fadeTo("fast", 0, function() {
+            elem.remove();
+          });
+        }
+      });
+    }
+  });
+</script>

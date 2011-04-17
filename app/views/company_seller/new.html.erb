@@ -1,0 +1,17 @@
+<div class="block">
+	<div class="content">
+		<h2 class="title">Associar <%=I18n.t("company.singular").capitalize%> X Vendedor</h2>
+		<div class="inner">
+			<p><strong><%=I18n.t("activerecord.attributes.company.razao_social") %>:</strong> <%=@company.razao_social%></p>
+			<p><strong><%= I18n.t("activerecord.attributes.company.cnpj") %>:</strong><%= h @company.document%></p>
+			  <% form_for(:company,@company,:url=>{:controller=>"company_seller",:action=>"create",:id=>@company.id}, :html => { :method => :put}) do |c| -%>
+					<p><strong>Vendedor:</strong>
+					<br />
+			    	<%= c.select "person_id", @sellers.collect{ |p|["#{p.name} #{ApplicationHelper.show_web_adm(p)}",p.id.to_s]  } %>				
+				</p>
+				<p><%= c.submit "Associar" %></p>
+			    <p><%=link_to('Excluir Vendedor' ,:action=>:destroy, :id=>@company.id,:method=>:delete)%> | <%= link_to "Voltar", :controller=>:company_management,:action=>"index",:method=>:get%></p>
+			  <% end %>
+		</div>	
+	</div>
+</div>

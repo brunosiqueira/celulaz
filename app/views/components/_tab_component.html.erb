@@ -1,0 +1,42 @@
+<% line = -1 %>
+<% color = @layout.color %>
+<% first_line = true %>
+
+<%=loading%>
+<% for tab_component in tab.tab_components do %>
+    <% if line < tab_component.line %>
+      <% line = tab_component.line %>
+      <%=  "</ul></div>" if line > 0 && !first_line%>
+      <% first_line = false %>
+      <div id="linha"><ul>
+        <% end %>
+
+        <li class="<%= tab_component.full_line ? "linha" : "coluna" %>">
+      
+          <% component = tab_component.component %>
+          <!-- Box do componente -->
+          <div id="box">
+            <div id="boxtopo">
+
+              <div id="boxtopodecor">
+                <%=image_tag "/#{@layout.component_decoration}" %>
+              </div>
+              <div id="boxtopotitulo" style="color:#<%=color.title%>;">
+                <%= component.title %>
+              </div>
+
+            </div>
+            <div id="boxconteudo" style="border-bottom: 2px solid #<%=color.tool_botton%>">
+                <%=render :partial=>"components/#{component[:type].underscore}",:locals=>{:color=>color,:component=>component,:tab_component=>tab_component}%>
+
+            </div>
+            <div id="boxpreenchimento" style="background-color:#<%=color.body%>;"></div>
+          </div>
+          <!-- fim Box do componente -->
+        </li>
+
+
+
+      <% end %>
+  </ul></div>
+  <!-- Id linha � a div q tem q ser injetada para adcionar outra linha-->

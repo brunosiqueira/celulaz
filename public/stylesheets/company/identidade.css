@@ -1,0 +1,400 @@
+#col-left {float:left;width:400px;}
+#col-right {width:300px;float:right;}	
+
+
+#ico_right {height:22px;width:22px;	position:relative;background-image:url(/images/company/layout/ico-right.png);}
+#ico_left {	height:22px;width:22px;	position:relative;background-image:url(/images/company/layout/ico-left.png);bottom:22px;left:30px;}
+
+.botoes-contrutor { margin-bottom:38px;}
+.alt-modelo {background:url("/images/company/layout/lapis_icon.png") no-repeat scroll 0 0 transparent;margin:0 0 0 15px;padding:10px 0 0 30px;}
+
+/*tela imagens*/
+
+ul.submenu-small {background:none repeat scroll 0 0 #EEE; float: left; margin-bottom:20px!important; padding: 5px 10px 0 20px !important; position:relative; width: 750px!important;}
+ul.submenu-small li {display:inline;padding:0;}
+ul.submenu-small li a {display:block;display:block;float:left; margin:0 3px; padding:10px 30px;text-decoration:none;color:#003366 !important;}
+ul.submenu-small li.ui-tabs-selected a {background:none repeat scroll 0 0 white;  color:#003366 !important;}
+
+
+.item-identidade {float: left}
+.item-identidade ul  {display:block;float:left;list-style:none outside none;padding:0;position:relative;width:100%; margin: 0px;}
+.item-identidade ul li.normal {	cursor:pointer;float:left; margin-right: 20px;  }
+.item-identidade ul li.normal a {color:#394754;display:block;font-weight:bold;float:left; text-align:center;height:120px; width: 95px;}
+.item-identidade ul li.ui-tabs-selected  {background: url("/images/company/ico-seta-box-novo-conteudo.gif") no-repeat scroll bottom center transparent}
+.item-identidade ul li.normal a img  {float: left; margin-bottom: 5px;}
+
+
+.show-bck-choices{border:5px solid #EFEFEF;height:180px;margin-bottom:20px;width:100%;overflow:hidden;}
+.show-top-choices{border:5px solid #EFEFEF;height:180px;margin-bottom:20px;width:770px;overflow:hidden;}
+
+
+/* topo preview  #Logo */
+
+div.show-top-choices #logo {
+    position: absolute;
+    height: 60px;
+    margin: 0;
+    padding: 20px 0px 0px 0px;
+
+}
+div.show-top-choices #logo h1, #logo p {
+    margin: 0;
+    width: 700px;
+    padding: 0;
+}
+div.show-top-choices #logo h1 {
+    background-image: none;
+    padding-left: 30px;
+    letter-spacing: -1px;
+    text-transform: lowercase;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 64px;
+    font-weight: normal !important;
+}
+
+div.show-top-choices #logo h1 input {
+    font-size: 50px
+}
+
+div.show-top-choices #logo p {
+    margin: 0;
+    padding: 10px 0 0 34px;
+    font: italic 18px Georgia,"Times New Roman",Times,serif !important ;
+    font-style: italic;
+}
+div.show-top-choices #logo a {
+    border: none;
+    background: none;
+    text-decoration: none;
+}
+/* Search */
+div.show-top-choices #search {
+    position: absolute;
+    width: 120px;
+    height: 80px;
+    padding: 0;
+    top: 115px; right: 20px
+}
+
+
+.top-example-box, .bg-example-box{width:740px;position:relative; float: left;background-color:#FDFDFD;border:1px solid #EFEFEF;margin-bottom:30px;padding:20px;}
+.top-example-box ul.img-gallery , .bg-example-box ul.img-gallery  {position: absolute; padding-left:0px;width:10000px !important; height:82px}
+.top-example-box ul.img-gallery li , .bg-example-box ul.img-gallery li {background-color:#F6F6F6;border:1px solid #B4B4B4;float:left;height:79px;list-style-type:none;margin:0 18px 0 0;position:relative;width:79px;z-index:88;}
+.top-example-box ul.img-gallery li img , .bg-example-box ul.img-gallery li img {border:#fff 2px solid; width:75px; height:75px; float:left; }
+.top-example-box ul.img-gallery li .img-gallery-checkbox  , .bg-example-box ul.img-gallery li .img-gallery-checkbox{position:absolute; top:2px; left:1px; z-index: 99;}
+.top-example-box .scroll , .bg-example-box .scroll{margin-right:20px;text-align:right; cursor:pointer;}
+.ui-tabs-hide{display:none;}
+.ui-tabs-panel{position: relative;float: left;width: 780px;}
+.conteudo_miolo{display:none;}
+.bx-prev{width: 22px;height:22px;margin-left: 330px;}
+.bx-next{width: 22px;height:22px;}
+
+
+#bloco {margin-bottom: 20px; border-bottom: 1px #eee solid; padding-bottom: 20px;}
+#bloco a.active img {border-bottom:3px solid orange}
+
+#bloco a:hover img {border-bottom:3px solid #ccc}
+
+
+#form_item {
+    height:0px;
+    position:relative;
+    width:440px;
+    background-color:white;
+    padding:0px;
+    border:none;
+    list-style:none;
+    right: 32px;
+    margin-top: 12px;
+    bottom: 5px;
+
+}
+#list {
+    height:345px;
+    list-style:none;
+}
+#li list {
+    list-style: none;
+    text-decoration:none;
+}
+#ul list {
+    list-style: none;
+
+}
+
+a#fechar {
+background:url("/images/company/btn-remove-aba.gif") no-repeat scroll 0 50% transparent;
+bottom:25px;
+display:block;
+height:8px;
+left:205px;
+float: right;
+width:8px;
+}
+.jcarousel-prev{background-image: url(/images/company/layout/ico-right.gif);width: 22px;height: 22px; float: left;}
+.jcarousel-next{background-image: url(/images/company/layout/ico-left.gif);width: 22px;height: 22px;float: left;}
+
+
+
+
+
+
+/*************Div criada para ajustes das ids seguintes: #sugestao_cores, #quadro_cores, #cancelar, #salvar. Posição***********/
+#barra
+{
+    /*border: solid 1px red;*/
+    height: 40px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #eee;
+    
+}
+
+#sugestao_cores
+{
+    float: left;
+    margin: 10px 0px 0px 10px;
+    font-family: Arial, Verdana, Trebuchet, Sans-Serif;
+    font-weight:bold;
+    font-size: 15px;
+}
+
+#quadro_cores{
+    background-color:#FFF;
+    border:1px solid #ccc;
+    height: 40px;
+    width: 220px;
+    float: left;
+}
+
+#quadrado_cores_opcoes {
+    padding:4px 0px;
+    background-color:#FFF;
+    border:solid 1px #cccccc;
+    border-top:none;
+    width: 220px;
+    position:absolute;
+    top: 60px;
+    left: 157px;
+    z-index:99999999;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 300px;
+}
+
+/************Class e ids que compõem a id=##quadro_cores*************/
+
+
+.quadro {
+    float:left;
+    margin: 4px 0px 0px 3px;
+    height: 34px;
+width: 34px;
+background-image: url(/images/company/mask-color-thumb.gif);
+    background-position: -9px -8px;
+    background-repeat: no-repeat;
+}
+}
+
+#cubo1
+{
+    background-color: #E8A516;
+}
+
+
+#cubo2
+{
+    background-color: #FF6501;
+}
+
+#cubo3
+{
+    background-color: #4D4D4D;
+}
+
+#cubo4
+{
+    background-color: #F3F1DA;
+}
+
+#cubo5
+{
+    background-color: #FFFFFF;
+}
+
+#cubo6
+{
+    background:url("/images/company/ico-down.gif") no-repeat scroll 1px 1px transparent;
+    border:medium none !important;
+    height:25px;
+    margin:9px 0 0 7px;
+    width:25px;
+}
+
+/***************Botão Cancelar***********/
+#cancelar
+{
+    float:right;
+
+    width: 150px;
+    background-color: #394754;
+}
+
+/***************Botão Salvar***********/
+#salvar
+{
+    float:right;
+
+    width: 150px;
+    background-color: #EB850E;
+}
+
+/************Palavras contida dentro dos botões, estilização delas***********/
+.word
+{
+
+    color: #FFF;
+    font-weight:bold;
+    font-size: 14px;
+    font-family: Arial, Verdana, Trebuchet, Sans-Serif;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/**************Termino das divs class e ids que compõem a div id=#barra*****************/
+
+/**************Inicio do quadro interdo da class=.rodape e seu componentes*****************/
+#menu_cores
+{
+    float: left;
+    width: 780px;
+}
+
+
+
+/******Class de estilização dos links contido no quadro interno do layout*******/
+.menu_links
+{
+    float:left;
+    margin: 0px 0px 0px 10px;
+    height: 20px;
+    width: 290px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    background-color:#6B757F;
+    color: #FFF;
+    font-weight:bold;
+    font-size: 12px;
+    font-family: Arial, Verdana, Trebuchet, Sans-Serif;
+    padding-top: 5px;
+}
+
+/******Class de estilização dos titulos contido nos links do quadro interno do layout*******/
+.titulo
+{
+    width: 260px;
+    margin: 0px 0px 0px 10px;
+}
+
+/******Id de ajuste de posição*******/
+#final
+{
+    height: 250px;
+    width: 910px;
+    margin: -5px 0px 0px 16px;
+    /*border: solid 1px red;*/
+}
+
+/******Classe de ajuste de posição*******/
+.quadrado
+{
+    float:left;
+    width: 254px;
+    color: #FFF;
+    font-weight:bold;
+    font-size: 14px;
+
+    /*border: solid 1px green;*/
+
+}
+
+/******Classe de ajuste de posição*******/
+.retangulo
+{
+    float:left;
+    margin: 4px 0px 0px 0px;
+    /*border: solid 1px black;*/
+    height: 40px;
+    width: 254px;
+}
+
+/******Classe de estilização dos quadradinhos no quadro interno do layout*******/
+.quadro2
+{
+    float:left;
+    height: 37px;
+    width: 37px;
+background-image: url(/images/company/mask-color-thumb.gif);
+    background-position: -8px -8px;
+    background-repeat: no-repeat;
+}
+
+.quadro3
+{ 
+    float:left;
+    height: 35px;
+    width: 35px;
+}
+
+.button-transparent {
+    background-image: url("/images/new_version/icons-no-color.gif");
+    background-position: -10px 50%;
+    float: left !important;
+    height: 38px !important;
+    position: absolute !important;
+    right: 12px !important;
+    top: 52px !important;
+    width: 38px !important;
+}
+/******Classe de estilização da imagem esquerda no quadro interno do layout*******/
+.simbolos
+{
+    margin: 10px 0px 0px 0px;
+    background-image: url(/images/company/simbolo.png);
+    background-repeat: no-repeat;
+    height: 35px;
+    width: 35px;
+}
+
+/******Classe de estilização da imagem direita no quadro interno do layout*******/
+.simbolos2
+{
+    margin: 10px 0px 0px 0px;
+    background-image: url(/images/company/simbolo2.png);
+    background-repeat: no-repeat;
+    height: 35px;
+    width: 35px;
+}
+
+/******Classe de posicionamento do segundo quadradinho no quadro interno do layout*******/
+.cubo
+{
+    margin: 0px 0px 0px 6px;
+    
+}
+
+/******Classe para armazenamento dos titulos e posicionamento no quadro interno do layout*******/
+
+
+/******Classe de estilização dos titulos e posicionamento no quadro interno do layout*******/
+.text
+{
+    margin: 10px 0px 0px 10px;
+    text-align:left;
+    font-size: 13px;
+    height:20px;
+    color: #1E5071;
+    float: left;
+}
+
+#colorPickerTool{z-index: 1000;}

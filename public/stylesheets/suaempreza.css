@@ -1,0 +1,892 @@
+@charset "utf-8";
+/* CSS Document */
+#bgcorpo,html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin:0;
+    padding:0;
+}
+a {
+    font-family:Arial;
+    text-decoration:none;
+}
+img{
+    border:none;
+}
+#pai {
+    position:relative;
+    width:975px;
+}
+/* commented backslash hack \*/ 
+html, body{height:100%; overflow:hidden;} 
+/* end hack */
+#outer{
+    min-height:100%;
+    height:auto;
+}
+#screen{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:auto;
+}
+body {
+    margin: 0px;
+    background-color:#FFFFFF ;
+
+}
+#topoall{
+    background-image:url(../images/perfil/funsotopo.jpg);
+    background-repeat:repeat-x;
+}
+#topoall-autonomoz{
+    background-image:url(../images/autonomoz/perfil/funsotopo.jpg);
+    background-repeat:repeat-x;
+}
+#fundobody{
+    width:auto;
+}
+.divTopo {
+    position:relative;  background-image:url(../images/perfil/toposite.jpg);
+    background-repeat:no-repeat;
+    background-position:150px;
+    width: 975px;
+    height: 80px;
+    position: relative;
+}
+.divTopo-autonomoz {
+    position:relative;
+    background-image:url(#);
+    background-repeat:no-repeat;
+    background-position:150px;
+    width: 975px;
+    height: 80px;
+    position: relative;
+}
+.divFundoTopo2 {
+    background-image: url(../images/perfil/fundoTopo2.jpg);
+    background-repeat:repeat-x;
+    height:46px;
+    position:relative;
+    width:auto;
+    z-index:1;
+}
+.divFundoTopo2-autonomoz {
+    background-image: url(../images/autonomoz/perfil/fundoTopo2.jpg);
+    background-repeat:repeat-x;
+    height:46px;
+    position:relative;
+    width:auto;
+    z-index:1;
+}
+#logo{
+    background-image:url(../images/perfil/logo_suaempreza.gif);
+    background-repeat:no-repeat;
+    position:absolute;
+    left:15px;
+    top:5px;
+    width:500px;
+    height:64px;
+    font-size: 10px;
+    color: #FFFFFF;
+}
+#logo-autonomoz{
+    background-image:url(../images/autonomoz/perfil/logo_suaempreza.gif);
+    background-repeat:no-repeat;
+    position:absolute;
+    left:15px;
+    top:5px;
+    width:500px;
+    height:64px;
+    font-size: 10px;
+    color: #FFFFFF;
+}
+.divFundoMenu {
+    /*position:relative;*/
+    left:0px;
+    width: 975px;
+
+}
+#logoutarea{
+    position:absolute;
+    width:432px;
+    right:15px;
+    top:50px;
+    height: auto;
+}
+.txtLogodo {
+    text-align:right;
+    font-family: Arial;
+    font-size: 14px;
+    line-height: normal;
+    font-weight: bold;
+    font-variant: normal;
+    color: #1b75bb;
+    text-decoration: none;
+    font-style: normal;
+}
+.txtLogout {
+    font-family: Arial;
+    font-size: 11px;
+    line-height:normal;
+    font-weight: normal;
+    font-variant: normal;
+    color: #1b75bb;
+    text-decoration: none;
+}
+#menusuporte{
+    position:absolute;
+    right:15px;
+    top:12px;
+    font-size: 10px;
+    color: #1B75BB;
+}
+a.txtMenu1{
+    text-align:right;
+    font-family: Arial;
+    font-size: 10px;
+    line-height: normal;
+    font-weight: normal;
+    color: #FFFFFF;
+    text-decoration: none;
+
+}
+a.txtMenu1-autonomoz{
+    text-align:right;
+    font-family: Arial;
+    font-size: 10px;
+    line-height: normal;
+    font-weight: bold;
+    color: #1B75BB;
+    text-decoration: none;
+}
+a:hover.txtMenu1    {
+    font-family: Arial;
+    font-size: 10px;
+    line-height: normal;
+    font-weight: bolder;
+    color: #1B75BB;
+    text-decoration: none;
+}
+#bgcorpo-autonomoz{
+    width:auto;
+    height:auto;
+    background-image:url(../images/autonomoz/perfil/fundo2.jpg);
+    background-repeat:repeat-x;
+    background-color:#ffffff;
+}
+#bgcorpo{
+    width:auto;
+    height:auto;
+    background-image:url(../images/perfil/fundo2.jpg);
+    background-repeat:repeat-x;
+    background-color:#01227e;
+}
+
+#corpotopo{
+    position:relative;
+    width:975px;
+    height:inherit;
+
+}
+#sombramenu{
+    background-image:url(../images/perfil/sombramenu.jpg);
+    background-repeat:repeat-x;
+    position:relative;
+    left:8px;
+    width:960px;
+    height:30px;
+}
+#sombramenu-autonomoz{
+    background-image:url(../images/autonomoz/perfil/sombramenu.jpg);
+    background-repeat:repeat-x;
+    position:relative;
+    width:975px;
+    height:30px;
+}
+#corpo{
+    background-image:url(../images/perfil/fundo_conteudo.png);
+    background-repeat:repeat-y;
+    position:relative;
+    width:975px;
+    height:auto;
+    padding-bottom:20px;
+}
+
+#corpo-autonomoz{
+    background-image:url(../images/autonomoz/perfil/fundo_conteudo.png);
+    background-repeat:repeat-y;
+    position:relative;
+    width:975px;
+    height:auto;
+    padding-bottom:20px;
+}
+#conteudo2{
+    left:0px;
+    margin:0px;
+    position:relative;
+    padding-left:15px;
+    padding-right:15px;
+    height:auto;
+    min-height:500px;
+}
+#Miolo01 {
+    position: relative;
+    top:0px;
+    height:auto;
+    left: 0px;
+    width: 760px;
+    margin-bottom:20px;
+}
+#Miolo01 ul {
+    background-image:url(../images/perfil/fundoTopMiolo.jpg);
+    text-align: left;
+    background-repeat:repeat-x;
+    height: 25px;
+    margin:0px;
+    padding:0px;
+}
+#Miolo01 ul li{
+    list-style:none;
+    height: 25px;
+    width:auto;
+}
+#Miolo01 ul li.nome{
+    font-family:Arial;
+    font-size:18px;
+    color:#FF6600;
+    width:inherit;
+    float:left;
+    font-weight:bold;
+    background:#FFFFFF;
+    height: 25px;
+    padding-right:3px;
+}
+#Miolo01 ul li.starbar{
+    background-image:url(../images/perfil/start_bar.jpg);
+    background-repeat:no-repeat;
+    float:left;
+    width:18px;
+    height: 25px;
+}
+#Miolo01 ul li.endbar{
+    background-image:url(../images/perfil/imgCartaoVisitaCurva.jpg);
+    background-repeat:no-repeat;
+    float:right;
+    width:11px;
+    height: 25px;
+}
+#titulofinal{
+    position:absolute;
+    right:0px;
+    top:0px;
+    background-image:url(../images/perfil/imgCartaoVisitaCurva.jpg);
+    background-repeat:no-repeat;
+    background-position:right;
+    height: 25px;
+    width:11px;
+}
+#barrabt{
+    position:relative;
+    background-image:url(../images/perfil/texturabarrabt.jpg);
+    width:760px;
+    height:auto;
+    padding:5px 0px;
+    margin-top:1px;
+    min-height:14px;
+    background-color:#AACBE6;
+}
+#btformdescart{
+    position:absolute;
+    height:25px;
+    width:104px;
+    margin-left:530px;
+    top:0px;
+}
+#btformgerengaleria{
+    position:absolute;
+    height:25px;
+    width:104px;
+    top:99px;
+    margin-left:256px;
+}
+#btformsalvar{
+    position:absolute;
+    height:25px;
+    width:106px;
+    margin-left:640px;
+    top:0px;
+    line-height: 25px !impotant;
+}
+#btmedium{
+    width:auto;
+    height:25px;
+}
+#btmedium-autonomoz{
+    width:auto;
+    height:25px;
+}
+.btsendfor{
+    margin-top:10px;
+    margin-left:10px;
+}
+.btgerenciar {
+    margin-left:650px;
+}
+.formsalvar {
+    position:relative;
+}
+.btgalery {
+    position:absolute!important;
+}
+.btpesquisa{
+    position:absolute;
+    width:144px;
+    top:24px;
+    left:0px;
+    margin-left:590px;
+}
+.brverficou{
+    margin-left:602px !important;
+}
+#btmedium ul{
+    list-style:none;
+    text-decoration:none;
+}
+#btmedium ul li{
+    float:left;
+}
+#btmedium ul li.orangebt1{
+    width:7px;
+    height:25px;
+    background-image:url(../images/buttom/orange/fundo_01.gif);;
+}
+#btmedium ul li.orangebt2  {
+    display:block;
+    height:25px;
+    background-image:url(../images/buttom/orange/fundo_02.jpg);
+}
+#btmedium ul li.orangebt2  a {
+    text-decoration:none;
+    padding:5px 16px;
+    display:block;
+    font-family:arial;
+    font-size:12px;
+    color:white;
+    font-weight:bold;
+}
+#btmedium ul li.orangebt3{
+    height:25px;
+    background-image:url(../images/buttom/orange/fundo_03.gif);
+    width:7px;
+}
+#btmedium ul li.bluebt1{
+    width:7px;
+    height:25px;
+    background-image:url(../images/buttom/blue/fundo_01.jpg);;
+}
+#btmedium ul li.bluebt2  {
+    display:block;
+    height:25px;
+    background-image:url(../images/buttom/blue/fundo_02.jpg);
+}
+#btmedium ul li.bluebt2  a {
+    text-decoration:none;
+    padding:5px 16px;
+    display:block;
+    font-family:arial;
+    font-size:12px;
+    color:white;
+    font-weight:bold;
+}
+#btmedium ul li.bluebt3{
+    height:25px;
+    background-image:url(../images/buttom/blue/fundo_03.jpg);
+    width:7px;
+}
+#btbig{
+    width:auto;
+    height:35px;
+}
+#btbig ul{
+    float:left;
+    list-style:none;
+    text-decoration:none;
+}
+#btbig ul li{
+    float:left;
+}
+#btbig ul li.orangebt1{
+    width:9px;
+    height:35px;
+    background-image:url(../images/buttom/orange/fundobig_01.gif);;
+}
+#btbig ul li.orangebt2{
+    height:35px;
+    background-image:url(../images/buttom/orange/fundobig_02.gif);
+    font-family:arial;
+    font-weight:bold;
+}
+#btbig ul li.orangebt2  a {
+    text-decoration:none;
+    display:block;
+    padding:9px 16px;
+    font-family:arial;
+    font-size:14px;
+    color:white;
+    font-weight:bold;
+}
+#btbig ul li.orangebt3{
+    height:35px;
+    background-image:url(../images/buttom/orange/fundobig_03.gif);
+    width:9px;
+}
+/*css do autonomoz*/
+div#btmedium-autonomoz ul {
+    list-style:none;
+    text-decoration:none;
+}
+#btmedium-autonomoz ul li{
+    float:left;
+    text-decoration:none;
+    list-style:none;
+}
+#btmedium-autonomoz ul li.orangebt1{
+    width:7px;
+    height:25px;
+    padding:0px !important;
+
+    background: transparent url(../images/autonomoz/buttom/orange/fundo_01.png);;
+}
+#btmedium-autonomoz ul li.orangebt2  {
+    display:block;
+    height:25px;
+    background:transparent url(../images/autonomoz/buttom/orange/fundo_02.png);
+    padding:0px !important;
+
+}
+#btmedium-autonomoz ul li.orangebt2  a {
+    text-decoration:none;
+    padding:5px 16px;
+    display:block;
+    font-family:arial;
+    font-size:12px;
+    color:white;
+    font-weight:bold;
+}
+#btmedium-autonomoz ul li.orangebt3{
+    height:25px;
+    background: transparent url(../images/autonomoz/buttom/orange/fundo_03.png);
+    width:7px;
+    padding:0px !important;
+
+}
+#btmedium-autonomoz ul li.bluebt1{
+    width:7px;
+    height:25px;
+    background:transparent url(../images/autonomoz/buttom/blue/fundo_01.png);;
+}
+#btmedium-autonomoz ul li.bluebt2  {
+    display:block;
+    height:25px;
+    background: transparent url(../images/autonomoz/buttom/blue/fundo_02.png);
+}
+#btmedium-autonomoz ul li.bluebt2  a {
+    text-decoration:none;
+    padding:5px 16px;
+    display:block;
+    font-family:arial;
+    font-size:12px;
+    color:white;
+    font-weight:bold;
+}
+#btmedium-autonomoz ul li.bluebt3{
+    height:25px;
+    background: transparent url(../images/autonomoz/buttom/blue/fundo_03.png);
+    width:7px;
+}
+#btmediumtext{
+    padding:0px !important;
+
+}
+#btbig-autonomoz{
+    width:auto;
+    height:35px;
+}
+#btbig-autonomoz ul{
+    float:left;
+    list-style:none;
+    text-decoration:none;
+}
+#btbig-autonomoz ul li{
+    float:left;
+}
+#btbig-autonomoz ul li.orangebt1{
+    width:9px;
+    height:35px;
+    background: transparent url(../images/autonomoz/buttom/orange/fundobig_01.png);
+}
+#btbig-autonomoz ul li.orangebt2{
+    height:35px;
+    background: transparent url(../images/autonomoz/buttom/orange/fundobig_02.png);
+    font-family:arial;
+    font-weight:bold;
+}
+#btbig-autonomoz ul li.orangebt2  a {
+    text-decoration:none;
+    display:block;
+    padding:9px 16px;
+    font-family:arial;
+    font-size:14px;
+    color:white;
+    font-weight:bold;
+}
+#btbig-autonomoz ul li.orangebt3{
+    height:35px;
+    background: transparent url(../images/autonomoz/buttom/orange/fundobig_03.png);
+    width:9px;
+}
+#descrisao{
+    background-image:url(../images/perfil/rabo.jpg);
+    background-repeat:no-repeat;
+    background-position:left;
+}
+#rodapesp{
+    font-family: Arial;
+    font-size: 11px;
+    text-align:center;
+    position:relative;
+    color:#F2F2F2;
+    padding-top:40px;
+    padding-bottom:5px;
+}
+#rodapesp-autonomoz{
+    background-image:url(../images/autonomoz/perfil/funsotopo.jpg);
+    font-family: Arial;
+    font-size: 11px;
+    text-align:center;
+    position:relative;
+    color:#1B75BB;
+    height:20px;
+    padding-top:80px;
+    padding-bottom:5px;
+}
+#mapasite{
+    height:70px;
+    background-color:#F2F2F2;
+    font-family: Arial;
+    font-size: 11px;
+    text-align:center;
+    position:relative;
+    color:#CCCCCC;
+    padding-top:40px;
+    padding-bottom:5px;
+}
+#mapasite-autonomoz{
+    height:70px;
+    background-color:#F2F2F2;
+    font-family: Arial;
+    font-size: 11px;
+    text-align:center;
+    position:relative;
+    color:#CCCCCC;
+    padding-top:40px;
+    padding-bottom:5px;
+}
+#rodaconteudo2-autonomoz{
+    width:975px;
+    height:32px;
+    background-image:url(../images/autonomoz/perfil/roda_pe_conteudo.gif);
+    background-position:bottom;
+    background-repeat:no-repeat;
+}
+#rodaconteudo2{
+    width:975px;
+    background-position:bottom;
+    background-repeat:no-repeat;
+}
+#corposub-menu{
+    position:relative;
+    width:975px;
+    height:auto;
+}
+#submenu-autonomoz{
+    position:absolute;
+    width:960px;
+    height:30px;
+    margin:0px;
+    top:15px;
+    left:0px;
+    padding:0px;
+}
+#submenu{
+    position:absolute;
+    width:960px;
+    height:30px;
+    margin:0px;
+    top:15px;
+    left:8px;
+    padding:0px;
+}
+ul#sub-menu{
+    position:absolute;
+    width:760px;
+    height:36px;
+    margin:0px 0px;
+    top:0px;
+    padding:0px;
+}
+ul#sub-menu li, ul#sub-menu li a:link, ul#sub-menu li a:visited{
+    display:block;
+    width:129px;
+    height:30px;
+    float:left;
+    padding:6px 0px 0px 0px ;
+    margin:0px;
+    text-align:center;
+    text-decoration:none;
+    list-style-type:none;
+    color:#FF3300;
+    font-family:Arial;
+    font-weight:normal;
+    font-size:11px;
+}
+ul#sub-menu li .hover{
+    background-image:url(../images/company/menu/submenu.gif);
+    background-repeat:no-repeat;
+    font-size:11px !important;
+    font-weight:bold !important;
+}
+ul#sub-menu li a:hover{
+    display:block;
+    float:left;
+    margin:0px;
+    text-align:center;
+
+    list-style-type:none;
+    color:#FF3300;
+    font-family:Arial;
+    font-size:11px;
+    font-weight:normal;
+}
+#msglog {
+    width:auto;
+    border:#FFCC66 solid 1px;
+    line-height:30px;
+    background:#FFFF99;
+    font-family:Arial;
+    font-size:12px;
+    font-weight:bold;
+    text-align:center;
+    z-index:2;
+}
+#uploadtopo{
+    border:#FFCC66 solid 1px;
+    line-height:30px;
+    background:#FFFF99;
+    font-family:Arial;
+    font-size:12px;
+    font-weight:bold;
+    z-index:2;
+    padding-left:5px;
+    width:755px;
+    text-align:left;
+}
+#uploadtopo fieldset{
+    border:#FFCC66 solid 1px;
+    line-height:20px;
+    background:#FFFF99;
+    font-family:Arial;
+    font-size:12px;
+    font-weight:normal;
+    z-index:2;
+    padding-left:5px;
+    width:743px;
+    text-align:left;
+    margin-bottom:5px;
+}
+#uploadtopo h1{
+    line-height:30px;
+    font-family:Arial;
+    font-size:16px;
+    font-weight:bold;
+    z-index:2;
+    text-align:left;
+}
+#uploadtopo img{
+    border:#FFCC66 solid 1px;
+    z-index:2;
+    margin-left:5px;
+    width:745px;
+    height:150px;
+    overflow:hidden;
+}
+div#tituloconteudo {
+    background:#FFFFFF none repeat scroll 0 0;
+    color:#FF6600;
+    font-family:Arial;
+    font-size:18px;
+    font-weight:bold;
+    height:25px;
+    padding-right:3px;
+    width:inherit;
+}
+#ferIdent{
+    width:760px;
+    height:600px;
+    position:relative;
+    left:0px;
+}
+#ferConstrucao{
+    width:760px;
+    height:880px;
+    position:relative;
+    left:0px;
+}
+
+#menumeusite{
+    height:50px;
+    width:760px;
+}
+ul#menumeusite{
+    border-bottom:10px solid #1B75BB;
+    height:40px;
+    list-style-type:none;
+    text-decoration:none;
+    width:760px;
+}
+
+ul#menumeusite li {
+height:40px;
+list-style-type:none;
+text-decoration:none;
+width:380px;
+float:left;
+}
+
+ul#menumeusite li a, ul#menumeusite li a:visited, ul#menumeusite li a:link {
+background-image:url(../images/perfil/menumeusiteclaro.gif);
+color:#FFFFFF;
+display:block;
+font-size:18px;
+font-weight:bold;
+height:18px;
+list-style-type:none;
+padding:11px;
+text-decoration:none;
+width:356px;
+}
+
+ul#menumeusite li a:hover {
+background-image:url(../images/perfil/menumeusite.gif);
+color:#FFFFFF;
+display:block;
+font-size:18px;
+font-weight:bold;
+height:18px;
+list-style-type:none;
+padding:11px;
+text-decoration:none;
+width:356px;
+}
+
+ul#menumeusite li a.select {
+background-image:url(../images/perfil/menumeusite.gif);
+color:#FFFFFF;
+display:block;
+font-size:18px;
+font-weight:bold;
+height:18px;
+list-style-type:none;
+padding:11px;
+text-decoration:none;
+width:356px;
+}
+
+
+/* Barra lateral*/
+div.barralatera{
+    position:relative !important;
+    right:7px;
+}
+#barralayout{
+    width:180px;
+    display:block;
+    height:100%;
+    background-image:url(../images/perfil/barralateralcorpo.jpg);
+    background-repeat:repeat-y;
+    z-index:0;
+}
+#topolateral{
+    position:relative;
+    background-image:url(../images/perfil/topolateral.jpg);
+    background-repeat:no-repeat;
+    height:15px;
+}
+#rodapedireito{
+    position:relative;
+    background-image:url(../images/perfil/rodapedireito.jpg);
+    background-repeat:no-repeat;
+    background-position:bottom;
+    margin:0px;
+    height:15px;
+}
+#barralateraconteudo{
+    position:absolute;
+    right:15px;
+    width:150px;
+    padding:0 15px;
+    font-family:Arial;
+    font-size:10pt;
+    z-index:1;
+}
+#barralateraconteudo h1{
+    color:#FF6600;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:10pt;
+    font-weight:normal;
+    margin-bottom:10px;
+}
+.message_submit {
+    padding:0px  15px!important;
+    border:0px solid #FFF !important;
+    color:#fff;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:12px;
+    font-family:arial;
+    display:block;
+    height:25px;
+    background-image:url(../images/buttom/orange/fundo_02.jpg);
+}
+.message_submit-autonomoz {
+    padding:0px  15px!important;
+    border:0px solid #FFF !important;
+    color:#fff;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:12px;
+    font-family:arial;
+    display:block;
+    height:25px;
+    background:transparent url(../images/autonomoz/buttom/orange/fundo_02.png);
+}
+table#pagamentos {
+    border:1px solid #FFCC66;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+table#pagamentos th{
+    color:#FF6600;
+    font-family: Arial,Helvetica,sans-serif;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table#pagamentos .linha-par{
+    background-color: #FFFF99;
+}

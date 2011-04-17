@@ -1,0 +1,31 @@
+<script type="text/javascript">
+
+	//reativa botao fechar
+	$('.box-novo-conteudo span.remove').click(function(){
+		$('#box-incluir-conteudo').slideUp('fast');
+		$('#openMenu').removeClass('active');
+		$('#box-incluir-conteudo').load('conteudo-menu.html');
+	});
+
+	trataCampos('.input');
+
+	//ajusta altura sidebar
+	$('#box-sidebar').css('height', $('#box-content').height());
+
+	$('.btn-add-image').click(function(){
+		var titulo = $('#titulo1').val();
+		$('#box-incluir-conteudo').load('conteudo-galeria2.php',{acc:titulo});
+		$('#box-sidebar').css('height', $('#box-content').height());
+	});
+
+</script>
+
+<div class="icon-seta"></div>
+<div id="box-sidebar"> <img src="/images/company/ico-novo-galeria.png" width="95" height="81" alt="Imagem" /> </div>
+<div id="box-content">
+  <!--<form name="form1">-->
+  <input type="text" name="titulo1" id="titulo1" class="input radius" value="Titulo da nova galeria de imagens" />
+  <input type="submit" value="ADICIONAR IMAGEM" class="btn-add-image" />
+  <!--</form>-->
+</div>
+<span class="remove"></span> <br class="clearfloat" />

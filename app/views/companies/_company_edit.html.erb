@@ -1,0 +1,29 @@
+<% fields_for :company,company_edit do |c| %>
+	<%= c.error_messages %>
+	<div class="group">
+		<%= c.label :razao_social, I18n.t('activerecord.attributes.company.razao_social')+not_nil_label, :class => "label" %>
+		<%= c.text_field :razao_social,:class => "text_field" %>
+	</div>
+	<% if !current_user.is_company? %>
+		<div class="group">
+			<%= c.label :drawee_code, "Código do Sacado"+not_nil_label, :class => "label" %>
+			<%= c.text_field :drawee_code, :class => "text_field" %>
+		</div>
+	<% end %>
+	<% if I18n.locale == "pt-BR" %>
+		<div class="group">
+			<%= c.label :cnpj, I18n.t("activerecord.attributes.company.cnpj"), :class => "label" %>
+			<%= c.text_field :cnpj, :disabled => true, :onkeypress => "mascara(this,cnpj)", :class => "text_field" %>
+		</div>
+	<% else %>
+		<div class="group">
+			<%= c.label :register_number, "Número do Registro", :class => "label" %>
+			<%= c.text_field :register_number, :disabled => true, :class => "text_field" %>
+		</div>
+	<% end %>
+	<div class="group">
+		<%= c.label :segment, "Segmento"+not_nil_label, :class => "label" %>
+		<%= c.select :segment_id, Segment.find(:all).collect { |p| [p.name, p.id.to_s] } ,{:class=>"selectbox"}%>
+	</div>
+
+<% end %>

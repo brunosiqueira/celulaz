@@ -1,0 +1,49 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: messages
+#
+#  id               :integer(4)      not null, primary key
+#  sender_id        :integer(4)
+#  receiver_id      :integer(4)
+#  subject          :string(256)
+#  body             :text
+#  created_at       :datetime
+#  updated_at       :datetime
+#  sender_name      :string(50)
+#  sender_email     :string(50)
+#  answer_id        :integer(4)
+#  receiver_email   :string(255)
+#  first_answer     :boolean(1)
+#  deleted_sent_box :boolean(1)
+#
+
+valid_user_message:
+  id: 1
+  sender_id: 8
+  subject: ValidUserMessage
+  body: MyText
+  created_at: 2008-12-10
+
+invalid_user_message:
+  id: 2
+  sender_id: 
+  subject: InvalidUserMessage
+  body: 
+  created_at: 2008-12-11
+
+valid_public_message:
+  id: 3
+  sender_id: null
+  subject: ValidPublicMessage
+  body: MyText
+  sender_email: fulano@gmail.com
+  created_at: 2008-12-12
+
+invalid_public_message:
+  id: 4
+  sender_id: null
+  subject: InvalidPublicMessage
+  body: 
+  sender_email: 
+  created_at: 2008-12-12

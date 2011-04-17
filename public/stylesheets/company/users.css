@@ -1,0 +1,12 @@
+div#change-password{display:none;}
+form.image_profile_logo{display:none}
+.col-left {   clear: none;float: left;margin: 0 20px 20px 0;width: 170px;}
+.col-right {float: right;width: 510px;}
+.profile-thumb{border: 5px solid #EFEFEF;height: 180px;margin-bottom: 20px;width: 160px;position: relative}
+.profile-thumb .alt-thumb {background:url("/images/company/layout/lapis_icon.png") no-repeat scroll 0 0 transparent; bottom:0; cursor:pointer; display:block; height:25px; position:absolute; right:0; width:25px;}
+.col-right label{float: left;width: 470px;}
+.col-right #password , .col-right #password_confirmation, input#old_password, input#user_email {width: 320px; margin-bottom: 20px;}
+#change-password {    background-color: #EEEEEE;
+    float: left;
+    padding: 9px;}
+.col-right a {margin-bottom: 20px; float: left}

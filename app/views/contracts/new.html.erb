@@ -1,0 +1,48 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Contratos d#{I18n.t("company.the_singular").downcase}", :action => :index  %></li>
+      <li class="active"><%= link_to 'Novo Contrato', new_company_contract_path(@company) %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Novo Contrato</h2>
+    <div class="inner">
+      <% form_for([:company,@contract], :html => {:class => "form"}) do |f| %>
+        <%= f.error_messages %>
+        <div class="group">
+          <%= f.label :parcel, nil, :class => "label" %>
+          <%= f.select :parcel,[1,2,3,4,5,6,7,8,9,10,11,12],{ :include_blank => true } %>
+        </div>
+        <p>
+          <%= f.label :value, nil, :class => "label" %><br />
+          <%= f.text_field :value,:size=>15,  :class => "text_field" %>
+          <script type="text/javascript">jQuery("input#contract_value").decimalMask({
+            separator: ",",
+            decSize: 2,
+            intSize: 4
+          });</script>
+        </p>
+        <p>
+          <%= f.label :initial_date, nil, :class => "label" %><br />
+          <%= f.date_select :initial_date %>
+          <small>Esta data será a base para a data de vencimento da fatura. No caso da empresa mensal, o vencimento será sempre no dia definido. </small>
+        </p>
+        <p>
+          <%= f.label :end_date, nil, :class => "label" %><br />
+          <%= f.date_select :end_date %>
+          <small>Deve ser após um ano da data de início</small>
+        </p>
+        <p>
+          <%= f.label :status, nil, :class => "label" %><br />
+          <%= f.select :status, Contract.status_list %>
+        </p>
+        <p>
+          <%= f.submit "Salvar" %>
+        </p>
+      <% end %>
+
+      <%= link_to 'Voltar', company_contracts_url(@company) %>
+    </div>
+  </div>
+</div>

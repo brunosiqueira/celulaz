@@ -1,0 +1,6 @@
+//to get contatcs
+var suggest_data = { items: [
+			<% for c in @contacts %>
+			{value: <%= c.user_id %>, name: "<%= c.razao_social %>"},
+			<% end %>
+]};

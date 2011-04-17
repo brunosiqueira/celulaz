@@ -1,0 +1,34 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", people_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_person_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_person_path %></li>
+    </ul>
+  </div>          
+  <div class="content">            
+    <h2 class="title"><%= t("web-app-theme.edit", :default => "Edit") %> dados</h2>
+    <div class="inner">
+		<% form_for @person, :url => person_path(@person), :html => { :class => :form } do |f| -%>
+        	<%= render :partial => "form", :locals => {:f => f} %>
+        	<% if (@person.user.nil? || @person.user.is_company?) %>
+          		<!-- Exibe este campo apenas se a pessoa for um vendedor-->
+			        <div class="group">
+						<%= f.label :user_web_adm_id, "Administrador Web", :class => "label" %>
+						<%= f.select(:user_web_adm_id, current_user.web_administrators.collect { |u| [u.person.name, u.id.to_s] },{:include_blank=>true }) %>
+					</div>
+		        
+			<% end %>
+			<div class="group navform wat-cf">
+			  <button class="button" type="submit">
+			    <%= image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Salvar")}") %> <%= t("web-app-theme.save", :default => "Salvar") %>
+			  </button>
+			  <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Voltar")}")} #{t("web-app-theme.cancel", :default => "Voltar")}", people_path, :class => "button" %>
+			</div>
+      	<% end -%>
+      	<%= render :partial=>"person_phone/phones",:locals=>{:person=>@person} %>
+	</div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

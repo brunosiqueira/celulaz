@@ -1,0 +1,35 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Gerar títulos", :controller => :main  %></li>
+      <li><%= link_to "Títulos", :controller=>"titles" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+      <li><%=link_to 'Remessas',:controller=>"shippings"%></li>
+      <li><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+      <li class="active"><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2>Remessa</h2>
+
+    <h3>Títulos Processados</h3>
+    <table>
+      <tr>
+        <th><%=I18n.t("activerecord.attributes.title.your_number") %></th>
+        <th><%=I18n.t("activerecord.attributes.title.our_number") %></th>
+        <th><%=I18n.t("activerecord.attributes.title.status") %></th>
+        <th><%=I18n.t("activerecord.attributes.title.emission_date") %></th>
+        <th><%=I18n.t("activerecord.attributes.title.due_date") %></th>
+        <th><%=I18n.t("activerecord.attributes.title.value") %></th>
+      </tr>
+      <% for title in @titles %>
+        <tr class="<%= cycle('linha-par', 'linha-impar')%>">
+          <%=render :partial=>"titles/title",:object=>title%>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= link_to I18n.t("link.back"), :action=>"new" %>
+  </div>
+</div>

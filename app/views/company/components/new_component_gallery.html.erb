@@ -1,0 +1,66 @@
+<script type="text/javascript">
+
+  //reativa botao fechar
+  $('.box-novo-conteudo span.remove').click(function(){
+    $('#box-incluir-conteudo').slideUp('fast');
+    $('#openMenu').removeClass('active');
+    $('#box-incluir-conteudo').load('/company/conteudo-menu.html');
+  });
+
+  trataCampos('.input');
+
+  //ajusta altura sidebar
+  $('#box-sidebar').css('height', $('#box-content').height());
+
+  /// $('.btn-add-image').click(function(){
+  //var titulo = $('#titulo1').val();
+  //$('#box-incluir-conteudo').load('conteudo-galeria2.php',{acc:titulo});
+  //$('#box-sidebar').css('height', $('#box-content').height());
+  //});
+  var uploader = new qq.FileUploader({
+    // pass the dom node (ex. $(selector)[0] for jQuery users)
+    element: $('#file-uploader')[0],
+    allowedExtensions: ["jpg","png","gif","bmp","tif"],
+    multiple: false,
+    label: 'INSERIR IMAGEM',
+    onSubmit: function(id, fileName){
+      uploader.setParams({
+        authenticity_token: AUTH_TOKEN,
+        tipo: 'galeria',
+        component: {
+          title: $('input#titulo1').val()
+        }
+      });
+    },
+    onComplete: function(id, fileName, responseJSON){
+      $('.qq-upload-list').html('');
+      $('#box-incluir-conteudo').load('/company/components/edit.html',
+      {id: responseJSON.id, authenticity_token: AUTH_TOKEN},
+      function(){
+        var value = "<img src='/images/company/ico-novo-galeria.png' width='65' height='51' alt='Imagem' />";
+        fillCreatedContent(responseJSON,value)
+      });
+      return true;
+    },
+    // path to server-side upload script
+    action: '/component_create'
+  });
+
+</script>
+
+<div class="icon-seta"></div>
+<div id="box-sidebar"> <img src="/images/company/ico-novo-galeria.png" width="95" height="81" alt="Imagem" /><p>Galeria</p> </div>
+<div id="box-content">
+  <!--<form name="form1">-->
+  <input type="text" name="titulo1" id="titulo1" class="input radius" value="Titulo da nova galeria de imagens" />
+    <div style="width: 500px; float: left; height: 35px; z-index: 9999">
+  <div id="file-uploader">
+    <noscript>
+      <p>Por favor, habilite o javascript do seu browser.</p>
+      <!-- or put a simple form for upload here -->
+    </noscript>
+  </div>
+    </div>
+  <!--</form>-->
+</div>
+<span class="remove"></span> <br class="clearfloat" />

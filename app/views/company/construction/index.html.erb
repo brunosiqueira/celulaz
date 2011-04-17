@@ -1,0 +1,72 @@
+<% stylesheet "third/smoothness/jquery-ui-1.8.10.custom","company/construtor","third/colorbox","third/fileuploader"%>
+<% javascript "third/jquery-ui-1.8.4.custom.min", "third/jquery.colorbox-min", "/ckeditor/ckeditor","third/fileuploader", "company/functions"%>
+
+<div id="constructor">
+  <div class="submenu">
+    <ul>
+      <li class="active"><%=link_to "Construção",:controller=>"company/construction"%></li>
+      <li><%=link_to "Identidade",:controller=>"company/identity"%></li>
+      <li><%= link_to "Banner", company_banners_path %></li>
+      <li><%= link_to "Contato", :controller=>"company/contacts",:action=>"edit" %></li>
+      <li><%= link_to "SEO", :controller=>"company/seo",:action=>"edit" %></li>
+    </ul>
+
+    <!-- <a class="publish" href="javascript:;">Publicar</a>-->
+    <%= link_to "Publicar", "javascript:",:class=>"publish" %>
+    <%= link_to "Ver como ficou", z_path(current_company.login),:class=>"preview",:popup=>true %>
+    <br class="clearfloat" />
+  </div><!-- .submenu -->
+  <div class="publish-message orientation-msg" style="display: none"></div>
+  <!-- .submenu -->
+  <div class="botoes-contrutor"> <a href="#" class="btn add" id="openMenu">Adicionar conteúdo</a> <a href="#" class="btn remove">Excluir selecionados</a> <div class="clearfloat"></div>
+  </div>
+  <!-- .botoes-contrutor -->
+  <div id="box-incluir-conteudo" class="box-novo-conteudo">
+    <div class="icon-seta"></div>
+    <ul id="menu-novo-conteudo">
+      <li><a href="#texto" rel="texto"><img src="/images/company/ico-novo-texto.png" />Texto</a></li>
+      <li><a href="#imagem" rel="imagem"><img src="/images/company/ico-novo-imagem.png" />Imagem</a></li>
+      <li><a href="#galeria" rel="galeria"><img src="/images/company/ico-novo-galeria.png" />Galeria</a></li>
+      <li><a href="#video" rel="video"><img src="/images/company/ico-novo-video.png" />Vídeo</a></li>
+      <li><a href="#formulario" rel="formulario"><img src="/images/company/ico-novo-formulario.png" />Formulário</a></li>
+    </ul>
+    <span class="remove"></span> <div class="clearfloat"></div>
+  </div>
+  <!-- .box-novo-widget-conteudo -->
+  <div class="box-construtor">
+    <div class="site-menu">
+      <h4 class="title">Menu</h4>
+      <!-- MENU -->
+      <ul id="menu-abas">
+      </ul>
+      <div id="box-nova-aba" class="input">Nome da nova aba: <br />
+        <input type="text" class="input" maxlength="30"/>
+        <input id="submit-nova-aba" type="image" src="/images/company/ico-check.gif" />
+      </div>
+      <a href="#" class="btn" id="btn-adicionar-aba">Adicionar aba</a> <div class="clearfloat"></div>
+    </div>
+    <div class="wrap-site-content">
+      <h4 class="title">Conteúdo</h4>
+      <!-- CONTEUDO ATIVO -->
+      <!--<div class="site-content"></div>-->
+      <!--<div id="aba1" class="site-content">-->
+      <div id="wrap-show-hide"></div>
+      <a href="#" class="btn" id="adicionar-linha">Adicionar Linha</a><a href="#" class="btn remove-linha" id="remover-linha">Remover Linha</a> </div>
+    <div id="site-conteudos">
+      <h4 class="title">Conteúdo ocioso</h4>
+      <div id="mask-conteudos">
+        <!-- CONTEUDO INATIVO -->
+        <div id="page-conteudos" class="connected"></div>
+      </div>
+      <div class="scroll"> <img id="prev-carrocel" src="/images/company/ico-up.gif" /> <img id="next-carrocel" src="/images/company/ico-down.gif" /> </div>
+    </div>
+  </div>
+  <!-- .box-construtor -->
+</div>
+<div id="dialog-tab-form" style="display:none;" title="Editar Aba">
+	<form>
+		<label for="name">Nome da Aba</label>
+		<input type="text" maxlength="30" name="name" id="name" class="text ui-widget-content ui-corner-all" /><br/>
+                <span class="error"></span>
+	</form>
+</div>

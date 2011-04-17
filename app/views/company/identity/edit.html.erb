@@ -1,0 +1,44 @@
+<% javascript "third/jquery-ui-1.8.4.custom.min","third/jquery.bxSlider/jquery.bxSlider.min", "third/jquery.jeditable.mini","third/fileuploader","company/identidade" %>
+<% javascript "third/colorpicker/js/colorpicker" %>
+<% stylesheet "company/identidade","company/construtor","/javascripts/third/colorpicker/css/colorpicker","/javascripts/third/colorpicker/css/layout","third/fileuploader"%>
+
+<div class="submenu">
+  <ul>
+    <li><%=link_to "Construção",:controller=>"company/construction"%></li>
+    <li class="active"><%=link_to "Identidade",:controller=>"company/identity"%></li>
+    <li><%= link_to "Banner", company_banners_path %></li>
+    <li><%= link_to "Contato", :controller=>"company/contacts",:action=>"edit" %></li>
+    <li><%= link_to "SEO", :controller=>"company/seo",:action=>"edit" %></li>
+  </ul>
+
+    <!-- <a class="publish" href="javascript:;">Publicar</a>-->
+    <%= link_to "Publicar", "javascript:",:class=>"publish" %>
+    <%= link_to "Ver como ficou", z_path(current_company.login),:class=>"preview",:popup=>true %>
+    <br class="clearfloat" />
+  </div><!-- .submenu -->
+  <div class="publish-message orientation-msg" style="display: none"></div>
+
+<div class="template-box">
+  <h1> Modelo<a href="javascript:" class="alt-modelo">Alterar</a><br class="clearfloat"/>
+  </h1>
+</div>
+<div id="conteudo_miolo" style="display:none;">
+  <%= render :partial=>"layout_type" %>
+</div>
+<div class="item-identidade">
+  <ul>
+
+    <li class="active icon-seta normal"><%= link_to  "#{image_tag("company/icon-pallete.png")}Cores","#tab-colors" %></li>
+    <li class="normal"><%= link_to "#{image_tag("company/icon-images.png")}Imagens","#tab-images" %></li>
+  </ul>
+  <br class="clearfloat"/>
+  <div id="tab-colors">
+    <%= render :partial=>"/company/colors/edit" %>
+  </div>
+  <div id="tab-images">
+    <%= render :partial=>"/company/layout/index" %>
+  </div>
+</div>
+
+
+

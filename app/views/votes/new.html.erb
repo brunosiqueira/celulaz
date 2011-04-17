@@ -1,0 +1,22 @@
+<div id="redboxmsg" style="display:block;" >
+  <div id="closebox"><%=link_to_close_redbox('Fechar')%></div>
+ <div id="msgtitulo">
+    <div id="voteico"></div>
+    <h1><%=I18n.t "company.vote"%></h1>
+  </div>
+<div id="escolhavoto">
+<ul id="escolhavoto">
+    
+<li>
+<div id="ico_pos"></div>
+  <%=  link_to_remote "Positivo",:url=>{:controller=>"votes",:action=>"create",:id=>@company.id,:vote_type=>"vote_for"}, :method=>:put %>
+
+</li>
+<li>
+ 
+ <div id="ico_neg"></div>
+<%=  link_to_remote "Negativo",:url=>{:controller=>"votes",:action=>"create",:id=>@company.id,:vote_type=>"vote_against"}, :method=>:put %>
+</li>
+</ul>
+</div>
+</div>

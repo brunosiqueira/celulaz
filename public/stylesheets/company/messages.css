@@ -1,0 +1,32 @@
+.message-page #message-form{display:none}
+#message-actions{float:left;margin-bottom:20px;width:100%}
+#message-actions a#new{background-image:url("../../images/new_version/ico-msg-color.gif");padding-left:38px;width:122px}
+#message-actions a.active{background-image:url("../../images/new_version/ico-msg-gray.gif")!important;color:#333;background-color:#fff!important}
+#message-actions a#delete{background-image:url("../../images/new_version/ico-excluir.gif");padding-left:38px;width:122px;background-position:8px 3px}
+.panel{width:770px}
+.panel .panel-head,.panel .panel-body,.panel .panel-body .panel-body-head,.panel .panel-body .item,.item-read,.panel .pagination{float:left;width:770px}
+.panel .panel-head span{float:right;margin-top:15px}
+.panel .panel-body .panel-body-head{margin-bottom:10px;font-weight:bold}
+.panel .panel-body .panel-body-head .sender-label{float:left;width:44%}
+.panel .panel-body .panel-body-head .message-label{float:left;width:55%}
+.panel .panel-body .item.new{background:AliceBlue}
+.panel .panel-body .item .delete{float:left;padding-top:2px;width:4%}
+.panel .panel-body .item a{float:left;width:86%}
+.panel .panel-body .item a .sender-info{font-weight:bold;float:left;width:46%}
+.panel .panel-body .item a .content{float:left;color:gray;width:54%}
+.panel .panel-body .item-read .content{border-left:1px solid #efefef;color:#333;margin:15px 0 20px 6px;padding:0 0 0 20px;width:752px}
+.panel .panel-body .item-read .sender-info{width:738px;font-weight:bold}
+.panel .panel-body a{color:#333;margin:3px 0;float:left;text-decoration:none}
+.panel .panel-body a:hover .item{color:#333;border:1px orange solid}
+.panel .panel-body .sender-info .date,.panel .panel-body .item-read .sender-info .date{font-size:11px;font-weight:normal;margin:5px 0}
+.panel .panel-body .item-read .sender-info .date{background:url("../../images/new_version/ico-msg-flat.gif") no-repeat scroll -6px -7px transparent;margin:20px 0 0;padding:0 0 0 18px;color:gray}
+span .item-read .sender-info .date,.msg-return{background:url("../../images/new_version/ico-return.gif") no-repeat scroll -6px -7px transparent!important;margin:20px 0 0;padding:0 0 0 18px}
+.panel .panel-body .item{border:solid 1px #efefef;background-color:#fdfdfd;padding:10px 20px;margin-bottom:-1px;width:738px}
+.panel .panel-body .item-read{width:780px}
+.panel-form{float:left;width:100%}
+#message-form,.panel-answer form{float:left;position:relative;border:10px solid #efefef;padding:20px;width:490px;margin-bottom:40px}
+.panel-answer,.panel-new{position:relative;background:url("../../../images/new_version/ico-seta-box-novo-conteudo.gif") no-repeat scroll 42px 3px transparent;float:left;font-weight:bold;padding:15px 0 0 0}
+#message-form label,.panel-answer form label{background:url("../../images/new_version/title-decor.gif") no-repeat scroll 0 2px transparent;clear:right;display:block;font-weight:800;line-height:1.25;margin-bottom:10px;padding-left:10px}
+#message-form textarea,.panel-answer form textarea{float:none!important;margin-bottom:10px;width:230px}
+#message-form input.btn .panel-answer form input.btn{width:170px}
+#message-form textarea,.panel-answer form textarea{width:480px}

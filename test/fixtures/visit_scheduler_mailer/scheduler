@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Sua EmpreZa</title>
+</head>
+<body>
+  <h1> Solicitação de Agendamento de Visita</h1>
+
+  <p>
+    <b>Nome:</b>
+    Paulo
+  </p>
+
+  <p>
+    <b>Email:</b>
+    emailfrom@yahoo.com.br
+  </p>
+
+  <p>
+    <b>Telefone:</b>
+    21 88888888
+  </p>
+
+  <p>
+    <b>Endereço:</b>
+    Rua louca - Niteroi
+  </p>
+
+  <p>
+    <b>Filial:</b>
+    Rio de Janeiro
+  </p>
+
+  <p>
+    <b>Segmento:</b>
+    Alimentação
+  </p>
+
+  <p>
+    <b>Horário de Preferência para Visita:</b>
+    Indiferente
+  </p>
+
+  <p>
+    <b>Observações:</b>
+    blablabla
+  </p>
+</body>

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Celula Z</title>
+    <!--[if lt IE 8]>
+    <%= javascript_include_tag  "third/json2" %>
+    <![endif]-->
+    <%= stylesheet_link_tag "layout" %>
+    <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.to_json};" if protect_against_forgery? %>
+    <%= javascript_include_tag "third/jquery-1.4.4.min.js", "third/jquery.corner", "application" %>
+
+    <script type="text/javascript">
+      
+      $(document).ready(function (){
+        $('.input-search').click(function (){
+          if ('<%= I18n.t "company.search" %>'== $(this).val()) {
+            $(this).val("");
+           
+          }
+          
+        } );
+        
+        $('.input-search').blur(function (){
+          
+          if (''== $(this).val()) {
+            $(this).val("<%= I18n.t "company.search" %>");
+           
+          }
+          
+        } );
+      });
+      
+    </script>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <%=analytics_script%>
+    <div id="wrapper">
+      <div id="header">
+        <a id="logo" href="#">Célula Z</a>
+        <ul class="top-nav">
+          <li><%=link_to "Inicial",company_root_path,:class=>"inicial"%></li>
+          <% if logged_as_company_z? %>
+            <li><%=link_to "Site",{:controller=>"company/construction"},:class=>"site"%></li>
+          <% end %>
+          <li><%=link_to "Mensagens",inbox_path,:class=>"mensagens"%></li>
+          <% if !current_user[:type].eql?(UserCompany.name)%>
+            <li>
+              <%= link_to "Voltar Administração",{:controller=>"/company_management", :action=>"loggout_as_company"},:class=>"orientation-msg", :style=>"font-style: normal;padding: 4px !important;" %>
+            </li>
+          <% end %>
+        </ul>
+        <div class="profile-thumb"><%=link_to image_tag(current_company.company.profile_logo.url(:small)) , :controller=>"company/users", :action=>"edit",:id=>current_company%> <div class="alt-thumb"></div></div>
+        <div class="info-login">
+        	Bem-vindo,<br />
+          <%=current_company.person.name%><br />
+          <%= link_to "Sair", logout_path %>
+        </div>
+        
+        <% form_tag url_for(:controller=>"company/search", :action=>"index"),:method=>:get do %>
+          <%= text_field_tag  'search', I18n.t("company.search"), :class=>'input-search'%><br/>
+          <small><%=link_to "ver todos","/company/search",:class=>"link_ver_todos"%></small>
+        <% end %>
+      </div><!-- #header -->
+      <div id="menu">
+        <ul>
+          <li <%= active_tab(:initial) %>><%=link_to "Inicial",company_root_path, :class=>"inicial"%></li>
+          <% if logged_as_company_z? %>
+            <li <%= active_tab(:site) %>><%=link_to "Site",company_construction_path, :class=>"site"%></li>
+          <% end %>
+          <li <%= active_tab(:card) %>><%=link_to "Cartão de Visita",company_business_card_path, :class=>"cartao-visitas"%></li>
+          <li <%= active_tab(:mail) %>><%= link_to "Mensagens", inbox_path, :class => 'mensagens' %></li>
+          <li <%= active_tab(:relationships) %>><%= link_to "Relacionamento",company_relationships_path, :class=>"relacionamento"%></li>
+          <li <%= active_tab(:business) %>><%= link_to "Meus Negócios",company_businesses_path, :class=>"negocio"%></li>
+          <li <%= active_tab(:company) %>><%= link_to "Configurações",edit_company_user_path(current_company.company.user), :class=>"dados-empresa"%></li>
+          
+        </ul>
+        <div id="banner-mailmkt">
+          <%=link_to image_tag("new_version/btn-mailmkt.jpg",:alt=>"E-mail Marketing"), "http://www.celulazmail.com.br",:popup=>true,:style=>"display: block; width: 100px; margin-left: 30px; margin-top: 30px;"%>
+        </div>
+      </div><!-- #sidebar -->
+
+      <div class="content">
+        <%= yield %>
+      </div>
+      <!-- #content -->
+      <br class="clearfloat" />
+
+      <div id="footer">
+        <%=link_to "Inicial",company_root_path%>
+        <% if logged_as_company_z? %>
+          <%=link_to "Site",{:controller=>"company/construction"}%>
+        <% end %>
+        <%=link_to "Mensagens",inbox_path%>
+        <% form_tag url_for(:controller=>"company/search", :action=>"index"),:method=>:get do %>
+          <%= text_field_tag 'search', I18n.t("company.search"),:class=>'input-search'%>
+          <%= submit_tag "", :class=>"submit-search"  %>
+        <% end %>
+        <span class="copyright">Todos os direitos reservados. <%=SITE_URL%> - Copyrigth@ <%= Time.now.year %></span>
+      </div><!-- #footer -->
+
+    </div><!-- #wrapper -->
+  </body>
+</html>

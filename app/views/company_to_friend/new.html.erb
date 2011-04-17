@@ -1,0 +1,35 @@
+<div id="redboxmsg" style="display:block;" >
+  <div id="closebox"><%=link_to_close_redbox('Fechar')%></div>
+  <div id="sendfortitulo">
+    <div id="sendforico"></div>
+    <h1>ENVIE PARA UM AMIGO</h1>
+  </div>
+  <% form_remote_tag  :url=>{:controller=>"company_to_friend",:action=>"create"},:method=>:put do %>
+    <%=hidden_field_tag :id,@company_id%>
+    <div id="sendforremetente">
+      <label><h2>MEU NOME:</h2>
+        <%= text_field_tag :name_from,@name_from %>
+      </label>
+      <label><h2>MEU E-MAIL:</h2>
+        <%= text_field_tag :email_from,@email_from %>
+      </label>
+    </div>
+    <div id="sendfor">
+      <label><div id="sendforform">ENVIAR PARA:</div>
+        <div id="sendforform">
+          <%= text_field_tag :email_to %>
+        </div>
+    </label></div>
+  
+    <div id="btmedium<%=I18n.t "sufix-css"%>" class="btsendfor" >
+      <ul>
+        <li class="orangebt1"></li>
+        <li><%= submit_tag 'Enviar',:id=>"inputsendfor#{I18n.t "sufix-css"}" %> </li>
+        <li class="orangebt3"></li>
+      </ul>
+    </div>
+
+
+  <% end %>
+
+</div>

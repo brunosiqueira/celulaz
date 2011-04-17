@@ -1,0 +1,29 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: phones
+#
+#  id         :integer(4)      not null, primary key
+#  company_id :integer(4)
+#  person_id  :integer(4)
+#  ddd        :integer(3)
+#  number     :integer(8)
+#  created_at :datetime
+#  updated_at :datetime
+#  owner_type :string(255)
+#  owner_id   :integer(4)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  owner_id: 5
+  owner_type: Company
+  ddd: 1
+  number: 1878787
+
+two:
+  owner_id: 8
+  owner_type: Person
+  ddd: 123
+  number: 222221

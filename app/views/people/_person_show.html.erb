@@ -1,0 +1,67 @@
+<h3>Dados Pessoais:</h3>
+<p>
+  <b><%= t("activerecord.attributes.people.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
+  <%= person_show.name %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.people.cpf", :default => t("activerecord.labels.cpf", :default => "Cpf")) %>:</b>
+  <%= person_show.cpf %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.people.rg", :default => t("activerecord.labels.rg", :default => "Rg")) %>:</b>
+  <%= person_show.rg %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.people.rg_exp", :default => t("activerecord.labels.rg_exp", :default => "Rg exp")) %>:</b>
+  <%= person_show.rg_exp %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.people.rg_exp_date", :default => t("activerecord.labels.rg_exp_date", :default => "Rg exp date")) %>:</b>
+  <%= person_show.rg_exp_date.to_s_br unless person_show.rg_exp_date.nil? %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.people.date_birth", :default => t("activerecord.labels.date_birth", :default => "Date birth")) %>:</b>
+  <%= person_show.date_birth.to_s_br unless person_show.date_birth.nil? %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.people.subsidiary_id", :default => t("activerecord.labels.subsidiary_id", :default => "Subsidiary")) %>:</b>
+  <%= person_show.subsidiary %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.people.user_create_id", :default => t("activerecord.labels.user_create_id", :default => "User create")) %>:</b>
+  <%= person_show.user_create.name unless person_show.user_create.nil? %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.people.user_confirm_id", :default => t("activerecord.labels.user_confirm_id", :default => "User confirm")) %>:</b>
+  <%= person_show.user_confirm unless person_show.user_confirm.nil? %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.people.user_web_adm_id", :default => t("activerecord.labels.user_web_adm_id", :default => "User web adm")) %>:</b>
+  <%= person_show.user_web_adm_id %>
+</p>
+
+
+<h3>Dados Bancarios</h3>
+<p>
+  <b><%= t("activerecord.attributes.people.bank_id", :default => t("activerecord.labels.bank_id", :default => "Bank")) %>:</b>
+  <%= person_show.bank_id %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.people.agency", :default => t("activerecord.labels.agency", :default => "Agency")) %>:</b>
+  <%= person_show.agency %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.people.account_number", :default => t("activerecord.labels.account_number", :default => "Account number")) %>:</b>
+  <%= person_show.account_number %>
+</p>

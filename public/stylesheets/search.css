@@ -1,0 +1,10 @@
+
+body{
+    overflow:auto;!important
+}
+
+.pagination a,.pagination span{padding:4px 4px;margin-right:5px;display:block;float:left}
+.pagination span.current{font-weight:bold;color:gray}
+.pagination a{text-decoration:none}
+.next_page{background-image:url("/images/company/layout/ico-left.gif");width:15px;height:15px}
+.prev_page{background-image:url("/images/company/layout/ico-right.gif");width:15px;height:15px}

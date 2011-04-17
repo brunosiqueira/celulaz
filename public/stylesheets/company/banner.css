@@ -1,0 +1,18 @@
+root{display:block}
+.col-right{clear:none;float:right;width:370px}
+.col-left{float:left;margin:0 20px 20px 0;width:370px}
+.btn{border:none!important;line-height:3;text-transform:uppercase}
+.new-banner label{float:left;position:relative;width:330px;background-image:none!important;padding-left:0!important}
+.new-banner input{margin-bottom:10px;float:left}
+.hd-banner-list{float:left;margin-bottom:10px;width:100%;border-bottom:1px solid #efefef;padding-bottom:10px}
+strong.hd-banner-link{width:64%;float:left}
+strong.hd-banner-titulo{width:35%;float:left}
+.banner-list{float:left;width:100%}
+.banner-list ul{margin:0;padding:0;list-style:none}
+.banner-list li{border-bottom:1px solid #efefef;display:block;display:block;margin-bottom:-1px;padding:10px;width:350px;float:left}
+.banner-list li a{color:#036}
+.banner-list li a.excluir{background:url("/images/new_version/ico-cancel.gif") no-repeat scroll 0 0 transparent;display:block;float:right;height:15px;margin-left:0;text-decoration:none;width:15px}
+.banner-list li h1{margin:0!important}
+.banner-list img{margin:10px 0}
+.banner-view a{background:url("/images/new_version/icons-view.gif") no-repeat scroll 0 -5px transparent;color:#039!important;width:10%;display:block;float:left;height:15px}
+.image_banner{display:none}

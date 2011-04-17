@@ -1,0 +1,43 @@
+<div id="tituloconteudo">Cadastro: Vendedor e Administrador Web</div>
+<div id="rodapetitulo"></div>
+<div id="formadm">
+
+  <h2>Usuário: <%=h @user.login %></h2>
+  <p>
+    Cadastrado em: <%= @user.created_at.to_s_br %>
+  </p>
+
+
+
+
+  <%= error_messages_for :user %>
+  <%= error_messages_for :person %>
+  <%= error_messages_for :company %>
+
+  <div id="formadm">
+    <% form_for :user,@user, :url => {:controller=>"users",:action=>"create_page_2",:id=>@user.id},:update=>"conteudo"  do |f| -%>
+
+      <% fields_for @user.person do |f| %>
+        <!-- Exibe este campo apenas se a pessoa for um vendedor-->
+
+        <div id="labell" class="fullline" for="user_web_adm_id">Administrador Web</div>
+        <div id="labell" class="fullline" for="user_web_adm_id">
+          <%= f.select(:user_web_adm_id, current_user.web_administrators.collect { |u| [u.person.name, u.id.to_s] },{:include_blank=>true }) %>
+        </div>
+      <% end %>
+
+      <% fields_for :company,@user.company do |c| %>
+        <div id="labell" for="person_id" class="fullline">Vendedor:
+          <%= c.select :person_id, @sellers.collect{ |p|["#{p.name} #{ApplicationHelper.show_web_adm(p)}",p.id.to_s]  },{:include_blank=>true } %>
+        </div>
+      <% end %>
+      <%=f.submit "Salvar"%>
+    <% end %>
+  </div>
+
+  <% if @user.is_company? %>
+    <h2><%=I18n.t "company.header"%></h2>
+    <%= render :partial=>"companies/company_show",:object=>@user.company %>
+  <% end %>
+</div>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>  

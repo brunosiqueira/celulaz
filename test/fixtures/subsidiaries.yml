@@ -1,0 +1,30 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: subsidiaries
+#
+#  id         :integer(4)      not null, primary key
+#  title      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  enabled    :boolean(1)      default(TRUE), not null
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  title: Filial 1
+
+two:
+  id: 2
+  title: Filial 2
+
+no_people:
+  id: 3
+  title: Filial 3
+
+four:
+  id: 4
+  title: Filial 4
+

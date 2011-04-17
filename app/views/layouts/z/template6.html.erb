@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="keywords" content="<%=@layout.meta_keywords%>" />
+    <meta name="description" content="<%=@layout.meta_description%>" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title><%=yield :title_header%></title>
+        <%= stylesheet_link_tag "http://#{SITE_URL}/stylesheets/z/template6","http://#{SITE_URL}/stylesheets/z/template","http://#{SITE_URL}/stylesheets/third/colorbox2"  %>
+    <%= javascript_include_tag "http://#{SITE_URL}/javascripts/third/jquery-1.4.4.min.js", "http://#{SITE_URL}/javascripts/third/jquery.corner.js", "http://#{SITE_URL}/javascripts/third/jquery.lightbox-0.5.min.js","http://#{SITE_URL}/javascripts/third/jquery.colorbox-min.js","http://#{SITE_URL}/javascripts/third/jquery.bxSlider/jquery.bxSlider.min.js","http://#{SITE_URL}/javascripts/z.js" %>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=pt-BR"/>
+    <script type="text/javascript">
+      var map = null;
+      var marker = null;
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function (){
+        $('.post .link a').corner("5px");
+        $('#sidebar ul li#contato a').corner("5px");
+        $('.content-top-bar').corner("3px");
+      });
+    </script>
+    <style type="text/css">
+<%= yield :style%>
+
+
+      #page {
+        background-color:#<%=@layout.color.body_sidebar%> !important;
+
+      }
+      
+
+      #content {
+    
+        background-color:#<%=@layout.color.body%>!important;
+      }
+      #page {border-color:#<%=@layout.color.menu_selected_background%>!important;}
+
+    </style>
+
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <div id="logo">
+          <h1><%= yield :title %></h1>
+          <p><%= yield :slogan %></p>
+        </div>
+        <div id="search">
+          <%=yield :social%>
+        </div>
+        <div id="menu">
+          <ul>
+            <%= yield :tabs %>
+          </ul>
+        </div>
+        <!-- end #menu -->
+      </div>
+      <!-- end #header -->
+
+      <div id="page">
+        <div id="page-bgtop">
+          <div id="page-bgbtm">
+            <div id="content">
+              <%= yield :content%>
+            </div>
+            <!-- end #content -->
+            <div id="sidebar">      
+
+              <%= yield :sidebar_address  %>
+              <%= yield :sidebar  %>
+
+            </div>
+            <!-- end #sidebar -->
+
+          </div>
+        </div>
+      </div>
+      <!-- end #page -->
+    </div>
+    <div id="footer">
+      <%= yield :address %>
+    </div>
+    <!-- end #footer -->
+  </body>
+</html>
+<%= yield :analytics %>

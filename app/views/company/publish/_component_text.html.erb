@@ -1,0 +1,7 @@
+<div id="texto">
+  <%= component_text.show_all_content ? component_text.description : html_truncate(component_text.description,100) %>
+  <br/><br/>
+  <% if component_text.description.length > 1000 && !component_text.show_all_content %>
+    <div class="link"><%= link_to "Saiba mais...","/sites/#{URI::escape @user.login}/conteudo#{component_text.id}.html" %></div>
+  <% end %>
+</div>

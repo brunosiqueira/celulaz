@@ -1,0 +1,2 @@
+module Financial::SendShippingHelper
+end

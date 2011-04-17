@@ -1,0 +1,64 @@
+<% set_content_for :style do %>
+  <%=render :partial=>"style.html"%>
+<% end %>
+<% set_content_for :title_header do %>
+  <%=@layout.name %>
+<% end %>
+<% set_content_for :title do %>
+  <%=layout.name if layout.show_name%>
+<% end %>
+<% set_content_for :slogan do %>
+  <%=layout.slogan if layout.show_slogan %>
+<% end %>
+<% set_content_for :social do %>
+  <%= render :partial=>"social.html" %><% end %>
+<% set_content_for :tabs do %>
+  <%= render :partial=>"tabs.html",:locals=>{:tab_selected=>tab_selected} %>
+<% end %>
+<% set_content_for :sidebar_address do %>
+  <%= render :partial=>"sidebar_address.html" %>
+<% end %>
+<% set_content_for :content do %>
+  <div class="post">
+    <h2><%= component.title %></h2>
+    <%= component.description %>
+  </div>
+  <div class="link" style="height: 50px">
+    <%= link_to "Voltar", "/sites/#{URI::escape @user.login}/index#{component.tab_component.tab.id if component.layout.tabs_with_components.first != component.tab_component.tab}.html" %>
+  </div>
+<% end %>
+<% set_content_for :address do %>
+  <%= render :partial=>"address.html" %>
+<% end %>
+<% set_content_for :social do %>
+  <%= link_to("<div class='facebook'></div>",layout.facebook,:popup=>true,:class=>"facebook") unless layout.facebook.nil? %>
+  <%= link_to("<div class='orkut'></div>",layout.orkut,:popup=>true,:class=>"orkut") unless layout.orkut.nil? %>
+  <%= link_to("<div class='twitter'></div>",layout.twitter,:popup=>true,:class=>"twitter") unless layout.twitter.nil? %>
+  <%= link_to("<div class='flickr'></div>",layout.flickr,:popup=>true,:class=>"flickr") unless layout.flickr.nil? %>
+<% end %>
+<% set_content_for :sidebar do %>
+  <ul>
+    <% layout.banners.each do |banner| %>
+      <li>
+        <a href="<%=banner.url%>" title="<%=banner.title%>" target="new">
+          <%=image_tag banner.banner_image.url(:small)%>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<% set_content_for :analytics do %>
+  <%unless @layout.analytics.blank?%>
+    <script type=\"text/javascript\">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', '<%=@layout.analytics%>']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+    </script>
+  <% end %>
+<% end %>

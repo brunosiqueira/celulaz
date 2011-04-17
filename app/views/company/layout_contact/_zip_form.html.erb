@@ -1,0 +1,10 @@
+<div id="form_space4" class="zip-form" style="display:none;">
+	<% form_for :address, @company.layout.address_site, :url => {:controller=>"company/layout_contact", :action=>"update_component"}, :html => { :class => "edit_layout_zip"} do |f|%>
+		<%= hidden_field_tag "component_type", "zip" %>
+		<%= f.text_field :zip,:onkeypress=>"mascara(this,cep)", :title=>"CEP", :class => 'text_field',:style=>"width:80px" %>
+		<div class="actions">
+			<%= f.submit "Salvar" %>
+		    <a href="#">Cancelar</a>
+		</div>
+	<% end %>				
+</div>

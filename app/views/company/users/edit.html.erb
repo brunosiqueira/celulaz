@@ -1,0 +1,32 @@
+<%=javascript "company/users"%>
+<%=stylesheet "company/users","scaffold"%>
+<div class="panel-head">
+  <ul class="panel-actions">
+    <li class="active"><%= link_to "Dados do Usuário", edit_company_user_path(current_company) %></li>
+    <li><%= link_to "Dados Pessoais", edit_company_person_path(current_company.person) %></li>
+  </ul>
+</div>
+<div id="notice"><%=flash[:notice]%></div>
+<div class="col-left">
+<div class="profile-thumb">
+<%=image_tag @company.profile_logo.url(:big),:class=>"image_profile_logo",:title=>"Clique para alterar..."%>
+  <div class="alt-thumb"></div>
+</div>
+<% form_for :company,@company,:url=>{:action=>"update_profile_logo"},:html => {:class=>"image_profile_logo", :multipart => true} do |l|%>
+  <%= l.file_field :profile_logo,:size=>12  %>
+  <%= l.submit "Atualizar"%>
+<% end %>
+</div>
+<div class="col-right gray-box">
+
+
+<% form_for :user,:url=>company_user_path(@user), :html => { :method => :put, :class => "form" } do |f| %>
+  <%= error_messages_for :user %>
+  <%= f.label :email, "E-mail" %>
+  <%= f.text_field :email, :class => 'text_field' %>
+
+  <%= f.submit 'Salvar' %>
+<% end %>
+<%= render :partial=>"company/accounts/password" %>
+
+</div>

@@ -1,0 +1,14 @@
+<% if @phone.valid? %>
+  $('h2.phones').prepend('<%=render :partial=>"company/phones/phone",:object=>@phone, :locals=>{:classe=>"new_phone"}%>');
+  $('a[name=<%=@phone.id%>]').click(function(){delete_phone(this);});
+  <% @phone = Phone.new %>
+  $('span.create_phone').replaceWith('<%= render(:partial=>"company/phones/form").gsub(/\n/,'') %>');
+  $('a.phone_add').show();
+  $('span.new_phone').mouseOverFunction();
+  $('div#error-messages').html('');
+<% else %>
+  $('span.create_phone').replaceWith('<%= render(:partial=>"company/phones/form").gsub(/\n/,'') %>');
+  $('span.create_phone').show();
+  $('div#error-messages').html('<%=error_messages_for :phone, :header_message=>nil%>');
+<% end %>
+$(document).createPhoneForm();

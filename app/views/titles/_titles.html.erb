@@ -1,0 +1,11 @@
+<h3>Títulos Disponíveis</h3>
+<div class="group">
+	<ul>
+  		<% for title in @titles %>
+  			<li><%= check_box_tag("shipping[title_ids][]","#{title.id}",@shipping.titles.include?(title)) %><%="#{title.company.name} - Vencimento: #{title.due_date.to_s_br} "%></li>
+  		<% end %>
+	</ul>
+</div>
+
+
+

@@ -1,0 +1,69 @@
+<% stylesheet "company/messages" %>
+<% stylesheet "third/autoSuggest" %>
+<% javascript "third/jquery.autoSuggest.minified" %>
+<% javascript "company/messages" %>
+
+<div class="message-page">
+  <%= render :partial => "company/shared/message_actions" %>
+  <%= render :partial => "company/shared/new_message" %>
+  <div class="panel">
+    <div class="panel-head">
+      <%= render :partial => "company/shared/message_box_label" %>
+    </div>
+    <div class="panel-body">
+      <%= show_received_message(@message).gsub('\n',"<br/>") %>
+    </div>
+    <% if @message.answered? %>
+      <div class="panel-body">
+        <span>
+          <%= show_received_message(@message.answer).gsub('\n',"<br/>") %>
+        </span>
+      </div>
+    <% end %>
+
+
+    <% unless @message.answered? || @message.message.is_external?  %>
+      <div class="panel-answer">
+
+        <% form_tag ("/company/messages/reply"), :id => "answer-form" do -%>
+          <%= hidden_field_tag  'message[id]', @message.id %>
+          <%= hidden_field_tag  'message[sender_id]', current_company.id %>
+          <label>Resposta:</label>
+          <%= text_area_tag 'message[body]', '', :id => "answer_message_content", :rows => "5" %>
+          <%= submit_tag 'Enviar', :class => "btn-input" %>
+        <% end -%>
+        <div id="answer-message-result"></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  //to get contatcs
+  var suggest_data = { items: [
+
+<% for c in current_company.company.friends %>
+        {value: <%= c.user_id %>, name: "<%= c.razao_social %>"},
+<% end %>
+    ]};
+
+  $(document).ready(function(){
+    $("#message-form input#message_email")
+    .autoSuggest(
+    suggest_data.items,
+    {
+      minChars: 1,
+      startText: "Digite o nome do contato",
+      emptyText: "Nenhum contato encontrado",
+      limitText: "Não é permitido adicionar novos contatos",
+      selectedItemProp: "name",
+      searchObjProps: "name",
+      selectionLimit: 1,
+      selectionRemoved: function(elem) {
+        elem.fadeTo("fast", 0, function() {
+          elem.remove();
+        });
+      }
+    });
+  });
+</script>

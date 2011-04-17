@@ -1,0 +1,70 @@
+body{ margin:0;  padding:0;  font-family:Arial,Helvetica,sans-serif;  font-size:12px}
+h1, h2, h3{ margin:0;  padding:0;  font-weight:normal}
+h1{ font-size:24px}
+#content h2{ font-size:1.4em;  margin:0 0 1em 0 !important}
+h3{ font-size:0.6em}
+p, ul, ol{ margin-top:0;  line-height:180%}
+ul, ol{}
+a{ text-decoration:none}
+a:hover{}
+#page img, .componente-galeria li a{border-width:4px; border-style:solid}
+
+#wrapper{ margin:0 auto;  padding:0}
+
+#header{ position:relative;  width:960px;  height:150px;  margin:0 auto}
+
+#logo{ position:absolute;  height:60px;  margin:0;  padding:20px 0px 0px 0px}
+#logo h1, #logo p{ margin:0;  width:900px;  padding:0}
+#logo h1{ padding-left:30px;  letter-spacing:-1px;  text-transform:lowercase;  font-family:Georgia,"Times New Roman",Times,serif;  font-size:64px}
+#logo p{ margin:0;  padding:10px 0 0 34px;  font:normal 18px Georgia,"Times New Roman",Times,serif;  font-style:italic}
+#logo a{ border:none;  background:none;  text-decoration:none}
+
+#search{ position:absolute;  width:120px;  height:80px;  padding:0;  top:115px; right:20px}
+
+#menu{ width:960px;  height:50px;  margin:0;  padding:10px 0 0 0}
+#menu ul{ margin:0;  float:left;  list-style:none;  line-height:normal;  padding:0 10px}
+#menu li{ float:left}
+#menu a{ border:medium none;  display:block;  font-family:Arial,Helvetica,sans-serif;  font-size:12px;  font-weight:normal;  margin-right:5px;  padding:13px 40px;  text-decoration:none;  text-transform:uppercase}
+#menu .current_page_item a{}
+#menu a:hover{ text-decoration:none}
+
+#page{ width:960px;  margin:0 auto;  padding:0}
+#page-bgtop{ padding:0 10px 0 0}
+#page-bgbtm{ margin:0px;  padding:0px}
+
+#content{ float:left;  padding:20px 20px 0;  width:700px}
+
+.post .title{ letter-spacing:-1px}
+.links{ display:block;  width:96px;  padding:2px 0px 2px 0px;  text-align:center;  text-transform:uppercase;  font-size:10px}
+.link a, input.input-msg{padding:5px 15px}
+
+.content-top-bar{ float:left;  height:20px;  margin:0 0 0 20px;  width:940px}
+
+#sidebar{ float:right;  width:180px;  padding:10px;  margin-top:10px}
+
+#sidebar img{border:none 0px}
+#sidebar ul{ margin:0;  padding:0;  list-style:none}
+#sidebar ul{ margin:0 0 40px 0;  padding:0;  float:left;  list-style:none}
+#sidebar li{ margin:0px;  padding:0}
+
+#sidebar h2{ font-size:1.2em;  margin:0 0 15px 0;  letter-spacing:-1px}
+
+#sidebar a{ border:none}
+#sidebar a:hover{ text-decoration:underline}
+
+#footer{ width:960px;  margin:5px auto 40px auto;  font-family:Arial,Helvetica,sans-serif}
+#footer p{ margin:0;  padding:22px 0px;  line-height:normal;  font-size:10px;  text-transform:uppercase;  text-align:center}
+#footer a{}
+
+#sidebar ul li#contato h2{padding:5px 0px; width:180px; margin-bottom:0px!important; border-bottom:1px solid}
+#sidebar ul li#contato a{font-size:10px;  line-height:120%;  margin-top:10px;  padding:2px 15px}
+#sidebar ul li#contato p{margin:1px 0px; padding:5px 0px; text-align:justify; width:180px; border-bottom: 1px solid}
+#sidebar ul li#contato .link{font-size:11px; padding:10px 0px;  width:180px; line-height:140%}
+#sidebar ul li#contato .link p{padding:5px 0px 0; width:150px; border:none !important}
+
+
+.full-line li{ margin:0 0px 0 0; width:116px}
+.column li{width:108px}
+li.pager{position:relative; float:left}
+li.pager a{width:100px; height:100px; display:block}
+.componente-galeria img{border:0px solid !important}

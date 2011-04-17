@@ -1,0 +1,13 @@
+<div id="form_space" class="address-form" style="display:none;">
+	<% form_for :address, @company.layout.address_site, :url => {:controller=>"company/layout_contact", :action=>"update_component"}, :html => { :class => "edit_layout_address"} do |f|%>
+		<%= hidden_field_tag "component_type", "address" %>
+		<%= f.text_field :street, :class => 'text_field',:style=>"width:280px", :title=>"Rua, Avenida..."%>
+	    <%= f.text_field :number, :class => 'text_field', :title=>"Número", :maxlength => 6, :onkeypress=>"mascara(this,soNumeros)",:style=>"width:55px" %>
+		<%= f.text_field :complement, :class => 'text_field', :title=>"Complemento",:style=>"width:55px" %>
+		<%= f.text_field :neighborhood, :class => 'text_field', :title=>"Bairro",:style=>"width:155px" %>
+		<div class="actions">
+			<%= f.submit "Salvar" %>
+		    <a href="#">Cancelar</a>
+		</div>
+	<% end %>
+</div>

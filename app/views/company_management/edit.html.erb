@@ -1,0 +1,23 @@
+<div class="block">
+	<div class="secondary-navigation">
+		<ul class="wat-cf">
+			<li class="first"><%= link_to I18n.t("company.plural").capitalize, :action => :index  %></li>
+			<li><%= link_to "Dados do #{I18n.t("company.singular").capitalize}", :action => :show, :id => @company %></li>
+			<li class="active"><%= link_to "Editar", :action => :edit, :id => @company %>
+		</ul>
+	</div>          
+  	<div class="content">          
+		<h2 class="title"><%=I18n.t "company.header"%></h2>
+		<div class="inner">
+			<% form_for(:company,@company,:url=>{:action=>"update",:id=>@company}, :html => { :method => :put, :class => "form" } ) do |f| %>
+		      	<%= render :partial=>"companies/company_edit", :object=>@company %>
+		      
+				<div class="group navform wat-cf">
+			  		<button class="button" type="submit">
+			    		<%= image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Salvar")}") %> <%= t("web-app-theme.save", :default => "Salvar") %>
+			  		</button>  
+			  	</div>
+		    <%end%>
+		</div>
+	</div>
+</div>

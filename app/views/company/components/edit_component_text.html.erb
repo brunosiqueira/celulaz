@@ -1,0 +1,85 @@
+<script type="text/javascript">
+    //reativa botao fechar
+    $('.box-novo-conteudo span.remove').click(function(){
+      $('#box-incluir-conteudo').slideUp('fast');
+      $('#openMenu').removeClass('active');
+      CKEDITOR.instances.editortexto.destroy();
+      $('#box-incluir-conteudo').load('/company/conteudo-menu.html');
+    });
+
+    //ajusta altura sidebar
+    $('#box-sidebar').css('height', $('#box-content').height()+10);
+
+    //cria novo conteudo
+    $('.btn-concluir').click(function(){
+      var value = CKEDITOR.instances.editortexto.getData();
+      createContentEditado($('input#id').val(), $('#box-content #titulo1').val(), value,null,null,null,null,null,null,$('input#show-all').attr('checked'));
+      $('.box-novo-conteudo span.remove').trigger('click');
+    });
+
+    trataCampos('.input');
+  
+    $('select#template_text').change(
+    function(){
+      var valueSelected = $('select#template_text :selected').attr('value');
+      if (valueSelected != ''){
+        $('body').css('cursor', 'wait');
+        $.ajax({
+          type: "POST",
+          url: "/template_texts/show",
+          //data: { json: jsonData },
+          //data: { json: JSON.stringify(jsonData) },
+          data: {
+            id: valueSelected,
+            authenticity_token: AUTH_TOKEN
+          },
+          //contentType: "application/json; charset=utf-8",
+          success: function(result) {
+            CKEDITOR.instances.editortexto.setData(result);
+            $('body').css('cursor', 'auto');
+          },
+          error: function(request, status, errorThrown) {
+            alert('Erro na Ação!'+status);
+            //alert('erro '+status);
+          }
+        });
+      }
+    });
+</script>
+<div class="icon-seta"></div>
+<div id="box-sidebar"> <img src="/images/company/ico-novo-texto.png" width="95" height="81" alt="Texto" /> 
+  <p>TEXTO</p>
+</div>
+<%= hidden_field_tag :id,@component.id %>
+<div id="box-content">
+  <input type="text" name="titulo1" id="titulo1" class="input radius" value="<%=@component.title%>" />
+  <% cache do %>
+    <label>Textos de Exemplo: </label><%= select_tag :template_text,options_for_select([['','']].concat(TemplateText.find(:all,:select=>"id,title").collect{ |t| [t.title, t.id] })) %>
+  <% end %>
+  <textarea class="ckeditor" cols="60" id="editortexto" name="editortexto" rows="10"><%=@component.description%></textarea>
+  <input id="show-all" type="checkbox" value="show-all" <%="checked=\"checked\"" if @component.show_all_content%> class="check"/>Exibir todo o conteúdo<br />
+  <small>exibe todo o texto na aba.</small>
+  <br/>
+  <input type="submit" value="CONCLUIR" class="btn-concluir" />
+
+</div>
+<span class="remove"></span><div class="clearfloat"></div>
+<script type="text/javascript">
+  CKEDITOR.replace( 'editortexto',
+  {<%= ' toolbar: "UserCompany",' if current_user.is_company? %>
+    on :            {
+      instanceReady : function( ev )
+      {
+        // Output paragraphs as <p>Text</p>.
+        this.dataProcessor.writer.setRules( 'p',
+        {
+          indent : false,
+          breakBeforeOpen : true,
+          breakAfterOpen : false,
+          breakBeforeClose : false,
+          breakAfterClose : true
+        });
+      }
+    }
+  });
+</script>

@@ -1,0 +1,14 @@
+<%= image_tag @business.business_image.url(:big) %>
+<p>
+  <b>Total:</b>
+  <%=h @business.total %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @business.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_company_business_path(@business) %> |
+<%= link_to 'Back', company_businesses_path %>

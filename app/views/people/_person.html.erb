@@ -1,0 +1,12 @@
+<% different_subsidiary||=false %>
+
+<% fields_for person do |f| %>
+  <h3>Dados Pessoais</h3>
+  <% if different_subsidiary %>
+    <p id="errorExplanation">
+      Esta pessoa já está cadastrada no sistema, porém em outra filial.<br/>
+      Tente cadastrar <%=I18n.t("company.the_singular").downcase%> com outro responsável.
+    </p>
+  <% end %>
+  <%= render :partial=>"people/form", :locals=>{:f=>f} %>
+<% end %>

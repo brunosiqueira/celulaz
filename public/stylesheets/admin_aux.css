@@ -1,0 +1,88 @@
+div.user-info{
+	color:#fff;
+	left:1028px;
+	position:absolute;
+	font-weight:bold;
+	top:22px;
+	width:142px;
+}
+
+div.user-info img {
+	float:left;
+	height:33px;
+	margin-right:10px;
+	width:33px;
+}
+
+div.user-info ul {
+	list-style-type:none;
+	float:left;
+	width:90px;
+}
+
+.yellow{
+
+    background-color: #fefc8c;
+    color: #f7501a;
+    border-color:#f7501a
+
+}
+
+.blue{
+
+    background-color: #90d7ff;
+    color: #025eb0;
+    border-color:#025eb0
+}
+
+.red{
+
+    background-color: #f76764;
+    color: #025eb0;
+    border-color:#025eb0
+}
+
+.gray{
+
+    background-color: #dad1d1;
+    color: #3f3a3b;
+    border-color:#3f3a3b
+}
+
+div#square{
+    width:10px;
+    height:10px;
+    border:1pt;
+    border-style:solid;
+    float:left;
+    margin:0px 5px;
+    padding:0px;
+}
+
+div#legenda{
+    width:auto;
+    position:relative;
+    padding:5px;
+    margin:5px;
+    background-color: #ffffff;
+
+}
+
+div#legenda .line{
+    height:auto;
+    position:relative;
+    float:left;
+    margin-left:10px;
+    padding-top:3px;
+}
+
+div#legenda .label{
+    float:left;
+}
+div#filtro {
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:12px;
+    font-weight:600;
+    line-height:20px;
+    padding:10px;
+}

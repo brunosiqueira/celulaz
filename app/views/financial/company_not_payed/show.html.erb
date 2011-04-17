@@ -1,0 +1,36 @@
+<div class="block">
+	<div class="secondary-navigation">
+		<ul class="wat-cf">
+			<li class="first"><%= link_to "Gerar títulos", :controller => :main  %></li>
+			<li><%= link_to "Títulos", :controller=>"titles" %></li>
+			<li class="active"><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+			<li><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+			<li><%=link_to 'Remessas',:controller=>"shippings"%></li>
+			<li><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+			<li><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+		</ul>
+	</div>          
+	<div class="content">
+		<h2><%=I18n.t("company.singular").capitalize%></h2>
+		<div class="inner">
+			<%= render :partial=>"/companies/company_show", :object => @company %>
+			<h3>Títulos não Pagos</h3>
+			<table class="table">
+			  <tr>
+			    <th><%=I18n.t("activerecord.attributes.title.your_number") %></th>
+			    <th><%=I18n.t("activerecord.attributes.title.our_number") %></th>
+			    <th><%=I18n.t("activerecord.attributes.title.status") %></th>
+			    <th><%=I18n.t("activerecord.attributes.title.emission_date") %></th>
+			    <th><%=I18n.t("activerecord.attributes.title.due_date") %></th>
+			    <th><%=I18n.t("activerecord.attributes.title.value") %></th>
+			  </tr>
+			  <% for title in @company.titles_not_payed %>
+			    <tr class="<%= cycle('linha-par', 'linha-impar')%>">
+			      <%=render :partial=>"titles/title",:object=>title%>
+			    </tr>
+			  <% end %>
+			</table>
+			<%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Voltar")}")} #{t("web-app-theme.cancel", :default => "Voltar")}", :action => "index", :page=>@page, :class => "button" %>
+		</div>
+	</div>
+</div>

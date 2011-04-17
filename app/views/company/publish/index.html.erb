@@ -1,0 +1,88 @@
+<% set_content_for :style do %>
+  <%=render :partial=>"style.html"%>
+<% end %>
+
+<% set_content_for :title_header do %>
+  <%=@layout.name %>
+<% end %>
+<% content_for :title do %>
+  <%=@layout.name if @layout.show_name%>
+<% end %>
+<% content_for :slogan do %>
+  <%=@layout.slogan if @layout.show_slogan %>
+<% end %>
+<% set_content_for :social do %>
+  <%= render :partial=>"social.html" %><% end %>
+<% set_content_for :tabs do %>
+  <%= render :partial=>"tabs.html",:locals=>{:tab_selected=>tab_selected} %>
+<% end %>
+
+<% set_content_for :content do %>
+  <% line = -1 %>
+  <% line_old = nil %>
+  <% unless tab_selected.nil? %>
+    <% tab_selected.tab_components.each do |tab_component| %>
+      <%  if line_old.nil? || line_old < tab_component.line %>
+        <%= "</div>" unless line_old.nil? %>
+        <div class="post">
+        <% end %>
+        <% if tab_selected.tab_components.count(:conditions=>{:line=>tab_component.line})>1 %>
+          <% if (tab_component.column == 1) %>
+            <div class="postmeio">
+            <% else %>
+              <div class="postmeio" style="margin-left:50px">
+              <% end %>
+            <% end %>
+            <h2 class="title"><%=tab_component.component.title%></h2>
+            <div class="entry">
+              <%=render :partial=>"/company/publish/#{tab_component.component[:type].underscore}.html",:object=>tab_component.component,:locals=>{:full_line=>tab_component.full_line}%>
+            </div>
+            <%= "</div>" if tab_selected.tab_components.count(:conditions=>{:line=>tab_component.line})>1%>
+            <% line_old = tab_component.line %>
+          <% end %>
+        </div>
+      <% end %>
+      <script type="text/javascript">
+        //Registra a visita no site
+        $(document).ready(function(){
+                  
+          $.ajax({
+            type: 'POST',
+            url: 'http://<%=SITE_URL%>/z/register_visitor/'+"<%=@user.login%>"
+          });
+        });
+      </script>
+    <% end %>
+    <% set_content_for :sidebar_address do %>
+      <%= render :partial=>"sidebar_address.html" %>
+    <% end %>
+    <% set_content_for :address do %>
+      <%= render :partial=>"address.html" %>
+    <% end %>
+    <% set_content_for :sidebar do %>
+      <ul>
+        <% layout.banners.each do |banner| %>
+          <li>
+            <a href="<%=banner.url%>" title="<%=banner.title%>" target="new">
+              <%=image_tag banner.banner_image.url(:small)%>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% set_content_for :analytics do %>
+      <%unless @layout.analytics.blank?%>
+        <script type=\"text/javascript\">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', '<%=@layout.analytics%>']);
+                _gaq.push(['_trackPageview']);
+                (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+
+      </script>
+    <% end %>
+  <% end %>

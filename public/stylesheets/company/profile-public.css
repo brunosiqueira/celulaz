@@ -1,0 +1,37 @@
+.col-left {width:170px;clear:none;float:left;margin:0 30px 20px 0;}
+.col-right {width:340px;float:left;margin:0 30px 20px 0;}
+.col-right2 { width:210px; float:left}
+
+.profile-thumb {margin-bottom: 20px; height: 180px; width:160px; border: 5px solid rgb(239, 239, 239);}
+
+.relac-actions {float: left;}
+.relac-actions a {width: 120px; padding-left: 40px !important; }
+.relac-actions a.btn-msg{ background:  url("../../images/company/icon-site.gif") no-repeat 6px 1px;}
+.relac-actions a.btn-relac { background:url("../../images/company/icon-menu.png") no-repeat scroll 6px -170px }
+.relac-actions a.btn-stop-relac { background:url("../../images/company/icon-menu.png") no-repeat scroll 6px -170px }
+.relac-request{float:left; margin-top: 5px; width: 130px;}
+
+.cv-info-basic {clear:none;float:left;position: relative;margin:0 0 20px;}
+.cv-info-basic h1 {padding: 0px !important;background-image: none;color:#003399;float:left;font-size:21px;font-weight:normal;line-height:1;margin:3px 0;}
+.cv-info-basic h2 {float:left;font-size:12px;font-weight:800;margin:3px 5px 0 0;padding:5px 0;width:340px;}
+p {float:left;line-height:20px;margin:3px 0;}
+.cv-info-basic p {width: 100%;}
+
+
+.msg-box-profile-public {background: url(http://localhost:3000/images/new_version/ico-seta-box-novo-conteudo.gif) no-repeat scroll 15px 3px;float: left;font-weight: bold;padding: 15px 0px 0px;position: relative;margin:10px 0 10px ;}
+.msg-profile-public textarea {width: 100%!important;}
+.msg-profile-public{background-color:#EFEFEF;float:left;margin:0 ;padding:3px;width:334px;}
+.msg-profile-public .false-input {background-color: #FFF; border:1px solid ; border-color: #CCCCCC #F0f0f0  #F0f0f0 #CCCCCC ;cursor:text;padding:15px 9px 15px 34px; float: left; width:289px;font-weight: normal;}
+
+.msg-profile-public .false-input:hover{no-repeat 4px 10px #FFF;color:#333;cursor:text; width:289px; text-decoration: none !important; font-weight: normal;}
+
+.ok {
+padding-left:38px!important; background-image: url(/images/company/icon-check.gif)no-repeat left center;
+}
+
+.cancel {
+padding-left:38px!important; background-image: url(/images/company/icon-remove.gif) no-repeat left center;
+}
+
+.relationship {float: left}
+#observation {width: 220px}

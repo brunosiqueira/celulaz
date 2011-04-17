@@ -1,0 +1,39 @@
+<div class="block">
+	<div class="secondary-navigation">
+		<ul class="wat-cf">
+			<li class="first"><%= link_to "Gerar títulos", :controller => :main  %></li>
+			<li><%= link_to "Títulos", :controller=>"titles" %></li>
+			<li><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+			<li><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+			<li class="active"><%=link_to 'Remessas',:controller=>"shippings"%></li>
+			<li><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+			<li><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+		</ul>
+	</div>          
+	<div class="content">
+		<h2>Remessa</h2>
+		<div class="inner">
+			<h3><%= link_to 'Fazer Nova Remessa', new_financial_shipping_path %></h3>
+			<table class="table">
+			  <tr>
+			    <th><%= I18n.t("activerecord.attributes.shipping.processing_date") %></th>
+			    <th><%= I18n.t("activerecord.attributes.shipping.code") %></th>
+			    <th><%= I18n.t("activerecord.attributes.shipping.status") %></th>
+			    <th colspan="4">Download</th>
+			  </tr>
+
+			  <% for shipping in @shippings %>
+			    <tr class="<%= cycle('odd', 'even')%>">
+			      <td><%=h shipping.processing_date %></td>
+			      <td><%=h shipping.code %></td>
+			      <td><%=h shipping.status %></td>
+			      <td><%=render :partial=>"/financial/shippings/download",:locals=>{:shipping=>shipping} %></td>
+			      <td><%= link_to I18n.t("link.show"), financial_shipping_path(shipping) %></td>
+			      <td><%= link_to I18n.t("link.edit"), edit_financial_shipping_path(shipping) %></td>
+			      <td><%= link_to image_tag('buttom/del_small.png'), financial_shipping_path(shipping), :confirm => 'Tem Certeza?', :method => :delete %></td>
+			    </tr>
+			  <% end %>
+			</table>
+		</div>
+	</div>
+</div>

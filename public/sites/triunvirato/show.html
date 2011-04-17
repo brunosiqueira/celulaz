@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <script type="text/javascript">
+      function initialize() {
+        var latlng = new google.maps.LatLng(-30.0381799, -51.1816162);
+        var myOptions = {
+          zoom: 16,
+          center: latlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        marker = new google.maps.Marker({
+          position: latlng,
+          title:""
+        });
+
+        // To add the marker to the map, call setMap();
+        marker.setMap(map);
+      }
+
+    </script>
+  </head>
+  <body>
+    <div id="map_canvas" style="width:400px; height:400px"></div>
+  </body>
+</html>
+<script type="text/javascript">initialize();
+</script>

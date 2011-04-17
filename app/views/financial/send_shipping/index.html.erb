@@ -1,0 +1,33 @@
+<div class="block">
+	<div class="secondary-navigation">
+		<ul class="wat-cf">
+			<li class="first"><%= link_to "Gerar títulos", :controller => :main  %></li>
+			<li><%= link_to "Títulos", :controller=>"titles" %></li>
+			<li><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+			<li><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+			<li><%=link_to 'Remessas',:controller=>"shippings"%></li>
+			<li class="active"><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+			<li><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+		</ul>
+	</div>          
+	<div class="content">          
+		<h2>Enviar Remessa</h2>
+	    <div class="inner">
+			<table class="table">
+			  <tr>
+			    <th><%= I18n.t("activerecord.attributes.shipping.created_at") %></th>
+			    <th><%= I18n.t("activerecord.attributes.shipping.code") %></th>
+			    <th>Número de Títulos</th>
+			  </tr>
+
+			  <% for shipping in @shippings %>
+			    <tr class="<%= cycle('odd', 'even')%>">
+			      <td><%=link_to h(shipping.created_at.to_s_br), :action=>"show",:id=>shipping %></td>
+			      <td><%=h shipping.code %></td>
+			      <td><%=h shipping.titles.size %></td>
+			    </tr>
+			  <% end %>
+			</table>
+		</div>
+	</div>
+</div>

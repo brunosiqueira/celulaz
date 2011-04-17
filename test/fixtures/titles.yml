@@ -1,0 +1,215 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: titles
+#
+#  id                    :integer(4)      not null, primary key
+#  company_id            :integer(4)
+#  contract_id           :integer(4)
+#  emission_date         :date
+#  due_date              :date
+#  value                 :float
+#  fine_percent          :float
+#  days_to_charge_fine   :integer(2)
+#  interest_percent      :float
+#  abatement_value       :float
+#  discount_value        :float
+#  discount_type         :string(255)
+#  discount_limit_date   :date
+#  additional_data       :string(800)
+#  created_at            :datetime
+#  updated_at            :datetime
+#  status                :string(255)     default("Digitado")
+#  our_number            :string(7)
+#  your_number           :string(10)
+#  occurrency            :string(2)
+#  occurrency_complement :string(2)
+#  interest_type         :string(1)
+#  error_message         :string(255)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  company_id: 5
+  contract_id: 1
+  emission_date: 2009-02-13
+  due_date: 2009-02-15
+  value: 1.5
+  fine_percent: 1.5
+  days_to_charge_fine: 1
+  interest_percent: 1.5
+  abatement_value: 1.5
+  discount_value: 1.5
+  discount_type: Sem desconto
+  discount_limit_date: 2009-02-13
+  additional_data: MyString
+  status: Digitado
+  your_number: 21u0005
+
+two:
+  id: 2
+  company_id: 5
+  contract_id: 1
+  emission_date: 2009-02-13
+  due_date: 2009-02-15
+  value: 1.5
+  fine_percent: 1.5
+  days_to_charge_fine: 1
+  interest_percent: 1.5
+  abatement_value: 1.5
+  discount_value: 1.5
+  discount_type: Sem desconto
+  discount_limit_date: 2009-02-13
+  additional_data: MyString
+  status: Digitado
+  your_number: 21u0006
+
+associated_to_shipping:
+  id: 3
+  company_id: 5
+  contract_id: 1
+  emission_date: 2009-02-13
+  due_date: 2009-02-15
+  value: 1.5
+  fine_percent: 1.5
+  days_to_charge_fine: 1
+  interest_percent: 1.5
+  abatement_value: 1.5
+  discount_value: 1.5
+  discount_type: Sem desconto
+  discount_limit_date: 2009-02-13
+  additional_data: MyString
+  status: Selecionado
+  your_number: 21u0007
+
+associated_to_shipping_2:
+  id: 4
+  company_id: 5
+  contract_id: 1
+  emission_date: 2009-02-13
+  due_date: 2009-02-15
+  value: 1.5
+  fine_percent: 1.5
+  days_to_charge_fine: 1
+  interest_percent: 1.5
+  abatement_value: 1.5
+  discount_value: 1.5
+  discount_type: Sem desconto
+  discount_limit_date: 2009-02-13
+  additional_data: MyString
+  status: Selecionado
+  your_number: 21u0008
+
+associated_to_shipping_sent:
+  id: 5
+  company_id: 5
+  contract_id: 1
+  emission_date: 2009-02-13
+  due_date: 2009-02-15
+  value: 1.5
+  fine_percent: 1.5
+  days_to_charge_fine: 1
+  interest_percent: 1.5
+  abatement_value: 1.5
+  discount_value: 1.5
+  discount_type: Sem desconto
+  discount_limit_date: 2009-02-13
+  additional_data: MyString
+  status: Enviado
+  your_number: 21u0009
+six:
+  id: 6
+  company_id: 5
+  contract_id: 1
+  emission_date: 2009-02-13
+  due_date: 2009-02-15
+  value: 1.5
+  fine_percent: 1.5
+  days_to_charge_fine: 1
+  interest_percent: 1.5
+  abatement_value: 1.5
+  discount_value: 1.5
+  discount_type: Sem desconto
+  discount_limit_date: 2009-02-13
+  additional_data: MyString
+  status: Acatado
+  your_number: 22u0005
+  our_number: 22u0005
+
+seven:
+  id: 7
+  company_id: 5
+  contract_id: 1
+  emission_date: 2009-02-13
+  due_date: 2009-02-15
+  value: 1.5
+  fine_percent: 1.5
+  days_to_charge_fine: 1
+  interest_percent: 1.5
+  abatement_value: 1.5
+  discount_value: 1.5
+  discount_type: Sem desconto
+  discount_limit_date: 2009-02-13
+  additional_data: MyString
+  status: Acatado
+  your_number: 22u0006
+  our_number: 22u0006
+
+eight:
+  id: 8
+  company_id: 5
+  contract_id: 1
+  emission_date: 2009-02-13
+  due_date: 2009-02-15
+  value: 1.5
+  fine_percent: 1.5
+  days_to_charge_fine: 1
+  interest_percent: 1.5
+  abatement_value: 1.5
+  discount_value: 1.5
+  discount_type: Sem desconto
+  discount_limit_date: 2009-02-13
+  additional_data: MyString
+  status: Acatado
+  your_number: 22u0007
+  our_number: 22u0007
+
+nine:
+  id: 9
+  company_id: 5
+  contract_id: 1
+  emission_date: 2009-02-13
+  due_date: 2009-02-15
+  value: 1.5
+  fine_percent: 1.5
+  days_to_charge_fine: 1
+  interest_percent: 1.5
+  abatement_value: 1.5
+  discount_value: 1.5
+  discount_type: Sem desconto
+  discount_limit_date: 2009-02-13
+  additional_data: MyString
+  status: Acatado
+  your_number: 22u0008
+  our_number: 22u0008
+
+ten:
+  id: 10
+  company_id: 5
+  contract_id: 1
+  emission_date: 2009-02-13
+  due_date: 2009-02-15
+  value: 1.5
+  fine_percent: 1.5
+  days_to_charge_fine: 1
+  interest_percent: 1.5
+  abatement_value: 1.5
+  discount_value: 1.5
+  discount_type: Sem desconto
+  discount_limit_date: 2009-02-13
+  additional_data: MyString
+  status: Acatado
+  your_number: 22u0009
+  our_number: 22u0009

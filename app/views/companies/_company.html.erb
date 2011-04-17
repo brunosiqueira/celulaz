@@ -1,0 +1,60 @@
+<% fields_for :company, company do |c| %>
+  <%= c.error_messages %>
+  <h3><%=I18n.t "company.header"%></h3>
+
+  <% if params[:controller].eql? "users" %>
+    <div class="group">
+      <%= label_tag :company_type, "Tipo de Cadastro", :class => "label" %>
+      <%=h ApplicationHelper.humanize_company(CompanyS.name) %> <%= radio_button_tag :company_type,CompanyS.name,CompanyS.name.eql?(@company_type) %>
+      <%=h ApplicationHelper.humanize_company(CompanyZ.name) %> <%= radio_button_tag :company_type,CompanyZ.name,CompanyZ.name.eql?(@company_type) %>
+    </div>
+  <% end %>
+
+  <div class="group">
+    <%= c.label :razao_social, "Raz&atilde;o Social #{not_nil_label}", :class => "label" %>
+    <%= c.text_field :razao_social, :class => "text_field" %>
+  </div>
+
+  <% if I18n.locale == "pt-BR" %>
+    <div class="group">
+      <%= c.label :cnpj, "CNPJ", :class => "label" %>
+      <%= c.text_field :cnpj, :class => "text_field", :onkeypress=>"mascara(this,cnpj)" %>
+    </div>
+
+    <% if logged_in? && current_user.is_manager? %>
+      <div class="group">
+        <%= c.label :informal, "Informal?", :class => "label" %>
+        <%= c.check_box :informal %> <%= c.label :informal %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="group">
+      <%= c.label :register_number, "Numero de registro", :class => "label" %>
+      <%= c.text_field :register_number, :class => "text_field" %>(caso não possua cnpj)
+    </div>
+  <% end %>
+
+  <div class="group">
+    <%= c.label :segment_id, "Segmento #{not_nil_label}", :class => "label" %>
+    <%= c.select :segment_id, Segment.find(:all).collect { |p| [p.name, p.id.to_s] } ,{:class=>"selectbox"}%>
+  </div>
+  <h3>Contrato</h3>
+  <div class="group">
+    <%= c.label :value, nil, :class => "label" %>
+    <%= c.text_field :value, :size => 15, :class => "text_field zip" %>
+    <script type="text/javascript">jQuery("input#company_value").decimalMask({
+      separator: ",",
+      decSize: 2,
+      intSize: 4
+    });</script>
+  </div>
+
+  <div class="group">
+    <%= c.label :parcel, nil, :class => "label" %>
+    <%= c.select :parcel,[1,2,3,4,5,6,7,8,9,10,11,12],{ :include_blank => true } %>
+  </div>
+
+  <% fields_for company.address_business_card do |a| %>
+    <%= render :partial=>"address/form",:locals=>{:f=>a} %>
+  <% end %>
+<% end %>

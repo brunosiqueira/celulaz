@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title><%=I18n.t("company.site_title")%></title>
+</head>
+<body>
+  <h1> Solicitação de Agendamento de Visita</h1>
+
+  <p>
+    <b>Nome:</b>
+    <%=@name%>
+  </p>
+
+  <p>
+    <b>Email:</b>
+    <%=@email_from%>
+  </p>
+
+  <p>
+    <b>Telefone:</b>
+    <%="#{@ddd} #{@phone}"%>
+  </p>
+
+  <p>
+    <b>Endereço:</b>
+    <%="#{@address} - #{@city}"%>
+  </p>
+
+  <p>
+    <b>Filial:</b>
+    <%=@subsidiary_title%>
+  </p>
+
+  <p>
+    <b>Segmento:</b>
+    <%=@segment_name%>
+  </p>
+
+  <p>
+    <b>Horário de Preferência para Visita:</b>
+    <%=@time_to_visit%>
+  </p>
+
+  <p>
+    <b>Observações:</b>
+    <%=@description%>
+  </p>
+</body>

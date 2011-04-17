@@ -1,0 +1,87 @@
+<script type="text/javascript">
+
+  var uploader = new qq.FileUploader({
+    // pass the dom node (ex. $(selector)[0] for jQuery users)
+    element: $('#photo-uploader')[0],
+    allowedExtensions: ["jpg","png","gif","bmp","tif"],
+    multiple: false,
+    label: 'ALTERAR IMAGEM',
+    onSubmit: function(id, fileName){
+      uploader.setParams({
+        authenticity_token: AUTH_TOKEN,
+        component_id: <%= @component.id %>,
+        id: <%= @picture.id %>,
+        picture: {}
+      });
+    },
+    onComplete: function(id, fileName, responseJSON){
+      $('.qq-upload-list').html('');
+      $('#box-imx-thumb').attr('src',responseJSON.photo_thumb);
+      $('#gallery-picture-<%=@picture.id%>').attr('src',responseJSON.photo_thumb);
+      return true;
+    },
+    // path to server-side upload script
+    action: '/company/pictures/update'
+  });
+  $('#box-img-add2 .btn-concluir').click(function(){
+                $('body').css('cursor', 'wait');
+            jQuery.ajax({
+                async:true,
+                url:'/company/pictures/update.json',
+                type:'POST',
+                data: {
+                    _method:'PUT',
+                    authenticity_token: AUTH_TOKEN,
+                    component_id: <%=@component.id%>,
+                    id: <%=@picture.id%>,
+                    picture: {
+                      description: CKEDITOR.instances.editorimagemgallery.getData()
+                    }
+                },
+                success: function(){
+                    $('body').css('cursor', 'auto');
+                    $.colorbox.close();
+                },
+                error:function(request){
+                    alert('Sorry, there was an error!!!')
+                }
+            });
+  });
+</script>
+<div id="box-img-add">
+  <div class="img-preview"><img id="box-imx-thumb" src="<%=@picture.photo.url(:thumb)%>" width="77" height="77" alt="Texto" /></div>
+  <!--  <input type="input" value="Mudar Imagem" class="btn-change-image2-fake" />
+	<img src="/images/company/change-image2.gif" width="160" height="30" alt="Alterar Imagem" class="btn-change-image2-fake" /> -->
+<%#*<div id="wrap-btn-change-image"><input type="file" value="Mudar Imagem" class="btn-change-image2" /></div>%>
+  <div id="photo-uploader">
+    <noscript>
+      <p>Por favor, habilite o javascript do seu browser.</p>
+      <!-- or put a simple form for upload here -->
+    </noscript>
+  </div>
+</div>
+<br class="clearfloat" />
+<div id="box-img-add2">
+  <p>Descri&ccedil;&atilde;o</p>
+  <textarea class="ckeditor" cols="60" id="editorimagemgallery" name="editorimagemgallery" rows="10"><%= @picture.description %></textarea>
+  <script type="text/javascript">
+    //<![CDATA[
+
+    // Replace the <textarea id="editor"> with an CKEditor
+    // instance, using default configurations.
+    // formata botões e tamanho da caixa CKEditor
+    CKEDITOR.replace( 'editorimagemgallery',
+    {
+      extraPlugins : 'uicolor',
+      toolbar :
+        [
+        [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'About' ]
+      ],
+      width : "328",
+      height : "70"
+    });
+
+    //]]>
+  </script>
+  <input type="submit" value="CONCLUIR" class="btn-concluir" />
+</div>

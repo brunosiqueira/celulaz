@@ -1,0 +1,1 @@
+$("#person_fields").html('<%= render(:partial=>"people/person" ,:object=>@person, :locals=>{:different_subsidiary=>@different_subsidiary }).gsub(/\n/,'').gsub("'","\\'")%>');

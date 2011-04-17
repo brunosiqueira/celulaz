@@ -1,0 +1,82 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Gerar títulos", :controller => :main  %></li>
+      <li class="active"><%= link_to "Títulos", :controller=>"titles" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+      <li><%=link_to 'Remessas',:controller=>"shippings"%></li>
+      <li><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+      <li><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Título</h2>
+    <div class="inner">
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.emission_date")%></b>
+        <%=h @title.emission_date.to_s_br %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.status")%></b>
+        <%=h @title.status %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.error_message")%></b>
+        <%=h @title.error_message %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.due_date")%>:</b>
+        <%=h(@title.due_date.to_s_br) unless @title.due_date.nil? %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.your_number")%>:</b>
+        <%=h @title.your_number %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.our_number")%>:</b>
+        <%=h @title.our_number %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.value")%>:</b>
+        <%=h @title.value %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.fine_percent")%>:</b>
+        <%=h @title.fine_percent %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.days_to_charge_fine")%>:</b>
+        <%=h @title.days_to_charge_fine %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.interest_percent")%>:</b>
+        <%=h @title.interest_percent %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.abatement_value")%>:</b>
+        <%=h @title.abatement_value %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.discount_value")%>:</b>
+        <%=h @title.discount_value %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.discount_type")%>:</b>
+        <%=h @title.discount_type %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.discount_limit_date")%>:</b>
+        <%=h(@title.discount_limit_date.to_s_br) unless @title.discount_limit_date.nil? %>
+      </p>
+      <p>
+        <b><%=I18n.t("activerecord.attributes.title.additional_data")%>:</b>
+        <%=h @title.additional_data %>
+      </p>
+      <div class="group navform wat-cf">
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Editar")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_financial_company_title_url(:id=>@title,:company_id=>@company), :class => "button" %>
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Voltar")}")} #{t("web-app-theme.cancel", :default => "Voltar")}", financial_company_titles_path(@company), :class => "button" %>
+      </div>
+    </div>
+  </div>
+</div>

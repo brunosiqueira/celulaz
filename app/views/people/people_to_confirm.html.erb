@@ -1,0 +1,24 @@
+<div id="tituloconteudo">Usuários pendentes</div>
+<div id="rodapetitulo"></div>
+<div id="form">
+  <table>
+    <tr>      
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>Perfil</th>
+    </tr>
+    <% for person in @people do%>
+        <tr>
+          <td>
+            <%= link_to person.name, person_path(person), :method=>:get %>
+          </td>
+          <td>
+            <%= h person.cpf %>
+          </td>
+          <td>
+            <%= h person.user ? ApplicationHelper.humanize_user(person.user.class) : "Vendedor"%>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>

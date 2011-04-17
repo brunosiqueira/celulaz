@@ -1,0 +1,5 @@
+<div id=<%="phone_#{phone.id}"%>>
+  <%=h phone.ddd%>-
+  <%=h phone.number%>
+  <%=link_to_remote("Excluir",:url=>{:controller=>"person_phone",:action=>"destroy",:id=>phone.id},:method=>:delete )%>
+</div>

@@ -1,0 +1,42 @@
+.col-left {
+    clear: none;
+    float: left;
+    margin: 0 20px 0px 0;
+    width: 490px;
+}
+.col-right {
+    float: right;
+    width: 225px;
+    
+}
+.col-right input {
+    width: 210px;
+}
+
+.col-right label {width: 210px; }
+.col-right p{
+    
+    width: 210px; float: left;
+}
+
+.col-left textarea {
+    width: 476px;
+    height: 55px;
+}
+label{
+    float: left;
+}
+
+.group{
+    margin-bottom: 20px;
+    float: left
+    
+}
+
+.border-input{
+    background: none repeat scroll 0 0 #EFEFEF;
+    float: left;
+    padding: 3px;
+    margin-bottom: 10px
+}
+.col-right img{margin-right: 100px}

@@ -1,0 +1,49 @@
+<div id="tituloconteudo">Cadastro</div>
+<div id="rodapetitulo"></div>
+
+<%= error_messages_for :user%>
+<%= error_messages_for :person, :object=>@person %>
+<% if @company %>
+
+<% end  %>
+<div id="formadm">
+  <% form_for :user, :url => users_path,:update=>"conteudo"  do |f| -%>
+    <div id="labelltipo" for="type">Tipo de Usuário:
+      <%=select_tag :type, options_for_select(current_user.subusers.collect { |p|[ApplicationHelper.humanize_user(p),p]},@user_type),
+        {:include_blank=>false, :onchange=> remote_function(:update=>'company_div',:url=>{:controller=>'users',:action=>'change_user_type'},:with => 'Form.Element.serialize($("type"))')}%></div>
+
+    <div id="person_fields">
+      <%=render :partial=>"people/person" ,:object=>@person%>
+    </div>
+    <div id="labell" >
+      <div id="company_div">
+        <% if @company %>
+          <div id="labell" ><%=render :partial=>"companies/company" ,:object=>@company%></div>
+        <% end  %>
+      </div>
+    </div>
+    <fieldset>
+      <h1 class="big">Dados do Usuário</h1>
+
+      <div id="labell" class="fullline" for="login">Login:
+        <%= f.text_field :login %>
+        <small>O login não deve possuir espaços ou caractéres especiais (como vogais com acentos ou "ç")</small>
+      </div>
+
+      <div id="labell" class="fullline" for="email">Email:
+        <%= f.text_field :email %>
+      </div>
+
+      <div id="labell" class="fullline" for="password">Senha:
+        <%= f.password_field :password %>
+      </div>
+
+      <div id="labell" class="fullline" for="password_confirmation">Confirmar Senha:
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </fieldset>
+    <%= submit_tag 'Cadastrar' %>
+
+  <% end -%>
+</div>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>  

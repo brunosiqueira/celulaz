@@ -1,0 +1,516 @@
+<script type="text/javascript">
+  var colorNames = Array();
+  colorNames['aliceblue']= '#f0f8ff';
+  colorNames['antiqueWhite']= '#faebd7';
+  colorNames['aqua']= '#00ffff';
+  colorNames['aquamarine']= '#7fffd4';
+  colorNames['azure']= '#f0ffff';
+  colorNames['beige']= '#f5f5dc';
+  colorNames['bisque']= '#ffe4c4';
+  colorNames['black']= '#000000';
+  colorNames['blanchedalmond']= '#ffebcd';
+  colorNames['blue']= '#0000ff';
+  colorNames['blueviolet']= '#8a2be2';
+  colorNames['brown']= '#a52a2a';
+  colorNames['burlyWood']= '#deb887';
+  colorNames['cadetblue']= '#5f9ea0';
+  colorNames['chartreuse']= '#7fff00';
+  colorNames['chocolate']= '#d2691e';
+  colorNames['coral']= '#ff7f50';
+  colorNames['cornflowerblue']= '#6495ed';
+  colorNames['cornsilk']= '#fff8dc';
+  colorNames['crimson']= '#dc143c';
+  colorNames['cyan']= '#00ffff';
+  colorNames['darkblue']= '#00008b';
+  colorNames['darkcyan']= '#008b8b';
+  colorNames['darkgoldenrod']= '#b8860b';
+  colorNames['darkgray']= '#a9a9a9';
+  colorNames['darkgrey']= '#a9a9a9';
+  colorNames['darkgreen']= '#006400';
+  colorNames['darkKhaki']= '#bdb76b';
+  colorNames['darkmagenta']= '#8b008b';
+  colorNames['darkolivegreen']= '#556b2f';
+  colorNames['darkorange']= '#ff8c00';
+  colorNames['darkorchid']= '#9932cc';
+  colorNames['darkred']= '#8b0000';
+  colorNames['darksalmon']= '#e9967a';
+  colorNames['darkseagreen']= '#8fbc8f';
+  colorNames['darkslateblue']= '#483d8b';
+  colorNames['darkslategray']= '#2f4f4f';
+  colorNames['darkslategrey']= '#2f4f4f';
+  colorNames['darkturquoise']= '#00ced1';
+  colorNames['darkviolet']= '#9400d3';
+  colorNames['deeppink']= '#ff1493';
+  colorNames['deepskyblue']= '#00bfff';
+  colorNames['dimgray']= '#696969';
+  colorNames['dimgrey']= '#696969';
+  colorNames['dodgerblue']= '#1e90ff';
+  colorNames['firebrick']= '#b22222';
+  colorNames['floralWhite']= '#fffaf0';
+  colorNames['forestgreen']= '#228b22';
+  colorNames['fuchsia']= '#ff00ff';
+  colorNames['gainsboro']= '#dcdcdc';
+  colorNames['ghostWhite']= '#f8f8ff';
+  colorNames['gold']= '#ffd700';
+  colorNames['goldenrod']= '#daa520';
+  colorNames['gray']= '#808080';
+  colorNames['grey']= '#808080';
+  colorNames['green']= '#008000';
+  colorNames['greenyellow']= '#adff2f';
+  colorNames['honeydew']= '#f0fff0';
+  colorNames['hotpink']= '#ff69b4';
+  colorNames['indianred ']= '#cd5c5c';
+  colorNames['indigo ']= '#4b0082';
+  colorNames['ivory']= '#fffff0';
+  colorNames['Khaki']= '#f0e68c';
+  colorNames['lavender']= '#e6e6fa';
+  colorNames['lavenderblush']= '#fff0f5';
+  colorNames['lawngreen']= '#7cfc00';
+  colorNames['lemonchiffon']= '#fffacd';
+  colorNames['lightblue']= '#add8e6';
+  colorNames['lightcoral']= '#f08080';
+  colorNames['lightcyan']= '#e0ffff';
+  colorNames['lightgoldenrodyellow']= '#fafad2';
+  colorNames['lightgray']= '#d3d3d3';
+  colorNames['lightgrey']= '#d3d3d3';
+  colorNames['lightgreen']= '#90ee90';
+  colorNames['lightpink']= '#ffb6c1';
+  colorNames['lightsalmon']= '#ffa07a';
+  colorNames['lightseagreen']= '#20b2aa';
+  colorNames['lightskyblue']= '#87cefa';
+  colorNames['lightslategray']= '#778899';
+  colorNames['lightslategrey']= '#778899';
+  colorNames['lightsteelblue']= '#b0c4de';
+  colorNames['lightyellow']= '#ffffe0';
+  colorNames['lime']= '#00ff00';
+  colorNames['limegreen']= '#32cd32';
+  colorNames['linen']= '#faf0e6';
+  colorNames['magenta']= '#ff00ff';
+  colorNames['maroon']= '#800000';
+  colorNames['mediumaquamarine']= '#66cdaa';
+  colorNames['mediumblue']= '#0000cd';
+  colorNames['mediumorchid']= '#ba55d3';
+  colorNames['mediumpurple']= '#9370d8';
+  colorNames['mediumseagreen']= '#3cb371';
+  colorNames['mediumslateblue']= '#7b68ee';
+  colorNames['mediumspringgreen']= '#00fa9a';
+  colorNames['mediumturquoise']= '#48d1cc';
+  colorNames['mediumvioletred']= '#c71585';
+  colorNames['midnightblue']= '#191970';
+  colorNames['mintcream']= '#f5fffa';
+  colorNames['mistyrose']= '#ffe4e1';
+  colorNames['moccasin']= '#ffe4b5';
+  colorNames['navaKoWhite']= '#ffdead';
+  colorNames['navy']= '#000080';
+  colorNames['oldlace']= '#fdf5e6';
+  colorNames['olive']= '#808000';
+  colorNames['olivedrab']= '#6b8e23';
+  colorNames['orange']= '#ffa500';
+  colorNames['orangered']= '#ff4500';
+  colorNames['orchid']= '#da70d6';
+  colorNames['palegoldenrod']= '#eee8aa';
+  colorNames['palegreen']= '#98fb98';
+  colorNames['paleturquoise']= '#afeeee';
+  colorNames['palevioletred']= '#d87093';
+  colorNames['papayaWhip']= '#ffefd5';
+  colorNames['peachpuff']= '#ffdab9';
+  colorNames['peru']= '#cd853f';
+  colorNames['pink']= '#ffc0cb';
+  colorNames['plum']= '#dda0dd';
+  colorNames['powderblue']= '#b0e0e6';
+  colorNames['purple']= '#800080';
+  colorNames['red']= '#ff0000';
+  colorNames['rosybrown']= '#bc8f8f';
+  colorNames['royalblue']= '#4169e1';
+  colorNames['saddlebrown']= '#8b4513';
+  colorNames['salmon']= '#fa8072';
+  colorNames['sandybrown']= '#f4a460';
+  colorNames['seagreen']= '#2e8b57';
+  colorNames['seashell']= '#fff5ee';
+  colorNames['sienna']= '#a0522d';
+  colorNames['silver']= '#c0c0c0';
+  colorNames['skyblue']= '#87ceeb';
+  colorNames['slateblue']= '#6a5acd';
+  colorNames['slategray']= '#708090';
+  colorNames['slategrey']= '#708090';
+  colorNames['snow']= '#fffafa';
+  colorNames['springgreen']= '#00ff7f';
+  colorNames['steelblue']= '#4682b4';
+  colorNames['tan']= '#d2b48c';
+  colorNames['teal']= '#008080';
+  colorNames['thistle']= '#d8bfd8';
+  colorNames['tomato']= '#ff6347';
+  colorNames['turquoise']= '#40e0d0';
+  colorNames['violet']= '#ee82ee';
+  colorNames['Wheat']= '#f5deb3';
+  colorNames['White']= '#ffffff';
+  colorNames['Whitesmoke']= '#f5f5f5';
+  colorNames['yellow']= '#ffff00';
+  colorNames['yellowgreen']= '#9acd32';
+
+  function hideColorPicker(){
+    if(currentOpenedColorPicker)
+      $(currentOpenedColorPicker).one('mousedown', showingColorPicker);
+    $('#colorPickerTool').animate({height: 1}, function(){$('#colorPickerTool').hide()});
+    currentOpenedColorPicker= null;
+  }
+
+  var currentColorPicker = null;
+  $(document).ready(function(){
+    $('#colorpickerHolder').ColorPicker({
+      flat: true,
+      onChange: function (hsb, hex, rgb) {
+        $(currentColorPicker).css('backgroundColor', '#' + hex).attr('exColor', hex);
+        $(currentColorPicker).css('background-image','');
+      },
+      onBeforeShow: function(){
+        var color= '#B2B2B2';
+        if(currentColorPicker.getAttribute('exColor'))
+          color= currentColorPicker.getAttribute('exColor');
+        //$(currentColorPicker).ColorPickerSetColor(color);
+      }
+    });
+    hideColorPicker();
+    $('.quadro2').one('mousedown', showingColorPicker);
+
+    $('.colorpicker_submit').replaceWith("<span class=\"remove\" style='margin: 2px;' onclick='hideColorPicker()'></span><input type='button' value='' ='-webkit-box-shadow: 0px 0px 8px #444; position:absolute; left:322px; top:115px;height:35px; width:50px; text-align:center; background-color:#fff; margin-left:-30px; margin-top:3px; color:#222; border:solid 1px #777;' onclick='setTransparent();' class='button-transparent'/><input type='button' value='Ok' style='-webkit-box-shadow: 0px 0px 8px #444; position:absolute; left:322px; top:142px;height:18px; width:50px; text-align:center; background-color:#fff; margin-left:-30px; margin-top:3px; color:#222; border:solid 1px #777;' onclick='hideColorPicker()'/>");
+    $('#quadrado_cores_opcoes').attr('oldH', document.getElementById('quadrado_cores_opcoes').offsetHeight).css('height', 0).hide();
+    $('#quadro_cores').click(toggleOptions);
+    iniciarCores();
+    $('#cancelar').click(function(){
+      iniciarCores();
+    });
+    $('#salvar').click(function(){
+      $('body').css('cursor', 'wait');
+      $.ajax({
+        type: "POST",
+        url: "/company/colors/update",
+        data: {
+          color:{
+            menu_selected_background: convertHex($("#cubo7").css("background-color")),
+            menu_selected_text: convertHex($("#cubo8").css("background-color")),
+            menu_deselected_background: convertHex($("#cubo9").css("background-color")),
+            menu_deselected_text: convertHex($("#cubo10").css("background-color")),
+            menu_hover_background: convertHex($("#cubo11").css("background-color")),
+            menu_hover_text: convertHex($("#cubo12").css("background-color")),
+            title_background: convertHex($("#cubo13").css("background-color")),
+            title_text: convertHex($("#cubo14").css("background-color")),
+            subtitle_background: convertHex($("#cubo15").css("background-color")),
+            subtitle_text: convertHex($("#cubo16").css("background-color")),
+            text: convertHex($("#cubo18").css("background-color")),
+            link_background: convertHex($("#cubo19").css("background-color")),
+            link_text: convertHex($("#cubo20").css("background-color")),
+            background: convertHex($("#cubo21").css("background-color")),
+            slogan: convertHex($("#cubo22").css("background-color")),
+            body: convertHex($("#cubo23").css("background-color")),
+            name: convertHex($("#cubo24").css("background-color")),
+            body_sidebar: convertHex($("#cubo25").css("background-color")),
+            sidebar_text: convertHex($("#cubo26").css("background-color")),
+            border: convertHex($("#cubo27").css("background-color")),
+            name_company_text: convertHex($("#cubo22").css("background-color")),
+            slogan_company_text: convertHex($("#cubo24").css("background-color")),
+            footer_background: convertHex($("#cubo28").css("background-color")),
+            footer_text: convertHex($("#cubo29").css("background-color"))
+
+          },
+          authenticity_token: AUTH_TOKEN
+        },
+        //contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+          $('body').css('cursor', 'auto');
+        },
+        error: function(request, status, errorThrown) {
+          alert('Erro na Ação!'+status);
+        }
+      });
+    });
+  });
+  function convertHex(rgbString){
+    if (rgbString == null || rgbString.length == 0 || rgbString == "transparent" || rgbString == "rgba(0, 0, 0, 0)" ){
+      return "";
+    } else if (rgbString.substring(0,1) == '#'){
+      return rgbString.substring(1,6);
+    } else {
+      var parts = rgbString.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+      // parts now should be ["rgb(0, 70, 255", "0", "70", "255"]
+      delete (parts[0]);
+      for (var i = 1; i <= 3; ++i) {
+        parts[i] = parseInt(parts[i]).toString(16);
+        if (parts[i].length == 1) parts[i] = '0' + parts[i];
+      }
+      return parts.join(''); // "0070ff"
+    }
+  }
+  function iniciarCores(){
+    $('body').css('cursor', 'wait');
+    $.getJSON("/company/colors/show",{
+      authenticity_token:AUTH_TOKEN
+    }, function(json){
+      updateColors(json);
+      $('body').css('cursor', 'auto');
+    });
+  }
+  var currentOpenedColorPicker= null;
+  function setTransparent(){
+    $(currentColorPicker).css('background-color','transparent')
+    $(currentColorPicker).css('background-image','url(/images/new_version/icons-no-color.gif)')
+    hideColorPicker();
+  }
+  function showingColorPicker(event)
+  {
+    if(currentOpenedColorPicker)
+      $(currentOpenedColorPicker).one('mousedown', showingColorPicker);
+    currentOpenedColorPicker= this;
+    event= event||window.event; // corrigindo bug do ie, com events
+    currentColorPicker= this;
+    var cc= $('#colorPickerTool');
+    $(this).append(cc[0]);
+    cc.css({
+      //left: (event.clientX-(cc[0].offsetWidth/2)),
+      //top: (event.clientY-80) + document.body.scrollTop,
+      marginTop:'30px',
+      marginLeft: '-5px',
+      height:1,
+      display:''
+    });
+    $('#colorpickerHolder').ColorPickerSetColor(convertHex($(this).css('background-color')));
+    $('#colorPickerTool').animate({height:200}); // 176
+  }
+
+  function updateColors(json){
+    treatHex($("#cubo7"),json.menu_selected_background);
+    treatHex($("#cubo8"),json.menu_selected_text);
+    treatHex($("#cubo9"),json.menu_deselected_background);
+    treatHex($("#cubo10"),json.menu_deselected_text);
+    treatHex($("#cubo11"),json.menu_hover_background);
+    treatHex($("#cubo12"),json.menu_hover_text);
+    treatHex($("#cubo13"),json.title_background);
+    treatHex($("#cubo14"),json.title_text);
+    treatHex($("#cubo15"),json.subtitle_background);
+    treatHex($("#cubo16"),json.subtitle_text);
+    treatHex($("#cubo18"),json.text);
+    treatHex($("#cubo19"),json.link_background);
+    treatHex($("#cubo20"),json.link_text);
+    treatHex($("#cubo21"),json.background);
+    treatHex($("#cubo22"),json.slogan);
+    treatHex($("#cubo23"),json.body);
+    treatHex($("#cubo24"),json.name);
+    treatHex($("#cubo25"),json.body_sidebar);
+    treatHex($("#cubo26"),json.sidebar_text);
+    treatHex($("#cubo27"),json.border);
+    treatHex($("#cubo22"),json.name_company_text);
+    treatHex($("#cubo24"),json.slogan_company_text);
+    treatHex($("#cubo28"),json.footer_background);
+    treatHex($("#cubo29"),json.footer_text);
+
+  }
+
+  function treatHex(element,hex){
+    if (hex == null || hex.length == 0){
+      element.css('background-color','transparent');
+      element.css('background-image','url(/images/new_version/icons-no-color.gif)');
+    
+    } else if (hex.length == 6){
+      element.css('background-color','#'+hex);
+      element.css('background-image','');
+    } else {
+      while (hex.length<6){
+        hex = hex + hex.substring(hex.length-1,hex.length);
+      }
+      element.css('background-color','#'+hex);
+      element.css('background-image','');
+    }
+  }
+
+  function toggleOptions(){
+    opts= $('#quadrado_cores_opcoes');
+    if(opts.css('height') == '1px')
+    {
+      opts.show();
+      opts.css('height', '1px');
+      opts.animate({height:opts.attr('oldH')-3});
+    }else{
+      //opts.hide();
+      opts.animate({height:1}, function(){
+        $('#quadrado_cores_opcoes').hide();
+      });
+    }
+  }
+
+  function highlightColors(el){
+    //el.style.margin= 0;
+    //el.style.border= 'solid 1px #444';
+    el.style.backgroundColor= '#777';
+  }
+  function unHighlightColors(el){
+    //el.style.margin= 1;
+    //el.style.border= 'none';
+    el.style.backgroundColor= 'transparent';
+  }
+
+  function setColorGroup(g, b){
+    $('body').css('cursor', 'wait');
+    $.getJSON("/company/colors/show_template",{
+      id:$(g).attr('id'),
+      authenticity_token:AUTH_TOKEN
+    }, function(json){
+      updateColors(json);
+      $('body').css('cursor', 'auto');
+    });
+    if(!b)
+      toggleOptions();
+  }
+
+  function getColors(){
+    var ar= Array();
+    $('.quadro2').each(function(){
+      ar.push(this.getAttribute('exColor'));
+    });
+    return ar;
+  }
+</script>
+<div id="barra">
+  <h1 style="float:left;margin-right:14px;margin-top:11px;">Sugestão de Cores</h1>
+  <div class="quadroCores" id="quadro_cores">
+    <div class="quadro" id="cubo1"></div>
+    <div class="quadro" id="cubo2"></div>
+    <div class="quadro" id="cubo3"></div>
+    <div class="quadro" id="cubo4"></div>
+    <div class="quadro" id="cubo5"></div>
+    <div class="quadro" id="cubo6"></div>
+  </div>
+  <% cache do %>
+    <div id='quadrado_cores_opcoes'>
+      <!-- estes sao apenas exemplos, podes colocar aqui as cores que achares interessante como opção -->
+      <% ColorTemplate.find(:all,:select=>"id,background,menu_deselected_background,link_text,text,body").each do |color| %>
+        <div id="<%=color.id%>" style='height:38px;
+             width:200%;
+             margin:1px;'
+             onmouseover="highlightColors(this)"
+             onmouseout="unHighlightColors(this)"
+             onclick="setColorGroup(this)">
+          <!-- no value deste input, vão todas as opções de cor que este grupo deverá aplicar na ordem dos itens -->
+          <input type='hidden'
+                 value="red,blue,green,yellow,purple,green,purple,green,blue,red,grey,red,yellow,black,purple,red,green,blue,yellow,purple,green,blue"/>
+          <div class="quadro" style='background-color:#<%=color.background%>;'></div>
+          <div class="quadro" style='background-color:#<%=color.menu_deselected_background%>;'></div>
+          <div class="quadro" style='background-color:#<%=color.link_text%>;'></div>
+          <div class="quadro" style='background-color:#<%=color.text%>;'></div>
+          <div class="quadro" style='background-color:#<%=color.body%>;'></div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <div style="float: right; top: 0px; width: 270px">
+
+    <a id="cancelar" class="btn-small" style="margin:5px 10px 0 0!important;text-align:center;width:96px;" href="#cancelar">CANCELAR</a>
+    <a id="salvar" class="btn-small" style="margin:5px 10px 0 0!important;text-align:center;width:96px;" href="#salvar">SALVAR</a>
+  </div>
+
+
+</div>
+<div id="menu_cores">
+  <div class="quadrado"style="margin-right: 9px">
+    <h4>MENU</h4>
+    <div class="retangulo">
+      <div class="quadro3 simbolos" title="Fundo" ></div>
+      <div class="quadro3 simbolos2" title="Texto"></div>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2" id="cubo7"></div>
+      <div class="quadro2 cubo" id="cubo8"></div>
+      <span class="text"> Menu selecionado</span>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2" id="cubo9"></div>
+      <div class="quadro2 cubo" id="cubo10"></div>
+      <span class="text">Menu deselecionado</span>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2" id="cubo11" ></div>
+      <div class="quadro2 cubo" id="cubo12"></div>
+      <span class="text">Menu com o mouse sobre</span>
+    </div>
+  </div>
+  <div class="quadrado">
+    <h4>CONTEUDO / TEXTOS / LINKS</h4>
+    <div class="retangulo">
+      <div class="quadro3 simbolos" title="Fundo" ></div>
+      <div class="quadro3 simbolos2" title="Texto"></div>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2" id="cubo13" ></div>
+      <div class="quadro2 cubo" id="cubo14" ></div>
+      <span class="text">Titulos</span>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2 " id="cubo15" ></div>
+      <div class="quadro2 cubo" id="cubo16"></div>
+      <span class="text">Subtitulos</span>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2 " id="cubo17" ></div>
+      <div class="quadro2 cubo" id="cubo18"></div>
+      <span class="text">Textos</span>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2 " id="cubo19"></div>
+      <div class="quadro2 cubo" id="cubo20"></div>
+      <span class="text">Links</span>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2 "></div>
+      <div class="quadro2 cubo"  id="cubo22"></div>
+      <span class="text">Nome no Topo</span>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2 " ></div>
+      <div class="quadro2 cubo" id="cubo24"></div>
+      <span class="text">Slogan no Topo</span>
+    </div>
+  </div>
+  <div class="quadrado" style="float: right">
+
+    <h4>FUNDO / MOLDURAS</h4>
+    <div class="retangulo">
+      <div class="quadro3 simbolos" title="Fundo" ></div>
+      <div class="quadro3 simbolos2" title="Texto"></div>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2 " id="cubo21"></div>
+      <div class="quadro2 cubo" ></div>
+      <span class="text">Fundo do site</span>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2 " id="cubo23"></div>
+      <div class="quadro2 cubo" ></div>
+      <span class="text">Corpo do site</span>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2" id="cubo25"></div>
+      <div class="quadro2 cubo" id="cubo26"></div>
+      <span class="text">Barra lateral</span>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2 " id="cubo27"></div>
+      <div class="quadro2 cubo"></div>
+      <span class="text">Borda moldura</span>
+    </div>
+    <div class="retangulo">
+      <div class="quadro2 " id="cubo28"></div>
+      <div class="quadro2 cubo" id="cubo29"></div>
+      <span class="text">Rodapé</span>
+    </div>
+  </div>
+</div>
+<div id='colorPickerTool'>
+
+  <div style='float:right;'>
+    <!--<img src='closeColorPicker.gif'
+					 width='20'
+					 style='margin-bottom:-5px;cursor:pointer;'
+					 onclick="hideColorPicker()" />-->
+  </div>
+  <div id="colorpickerHolder"> </div>
+</div>

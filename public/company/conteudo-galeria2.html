@@ -1,0 +1,79 @@
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+
+	//reativa botao fechar
+	$('.box-novo-conteudo span.remove').click(function(){
+		$('#box-incluir-conteudo').slideUp('fast');
+		$('#openMenu').removeClass('active');
+		$('#box-incluir-conteudo').load('conteudo-menu.html');
+		//CKEDITOR.instances.editor1.destroy();
+	});
+
+	//ajusta altura sidebar
+	$('#box-sidebar').css('height', $('#box-content').height());
+
+	//ativa funcionalidade de resize do container
+	$(document).ready(function() {
+  		//$("#box-content").resizable({ maxWidth: 600 },{ minWidth: 600 },{ minHeight: 418 });
+		$(".img-edit").colorbox({
+					onCleanup:function(){CKEDITOR.instances.editorimagemgallery.destroy();}
+					//onLoad:function(){alert('onLoad: colorbox has started to load the targeted content');}
+		});
+		$(".btn-add-image").colorbox({
+					onCleanup:function(){CKEDITOR.instances.editorimagemgallery.destroy();}
+					//onLoad:function(){alert('onLoad: colorbox has started to load the targeted content');}
+		});
+	});
+
+	//cria novo conteudo
+	$('.btn-concluir').click(function(){
+		var conteudo = "<img src='/images/company/ico-novo-galeria.png' width='65' height='51' alt='Imagem' />";
+		createContent('galeria', $('#box-content #titulo1').val(),conteudo);
+		$('.box-novo-conteudo span.remove').trigger('click');
+	});
+
+	trataCampos('.input');
+
+</script>
+<div class="icon-seta"></div>
+<div id="box-sidebar"> <img src="/images/company/ico-novo-galeria.png" width="95" height="81" alt="Imagem" />
+  <p>35 IMAGENS</p>
+</div>
+<div id="box-content">
+  <!--<form name="form1">-->
+  <input type="text" name="titulo1" id="titulo1" class="input radius" value="Titulo da galeria" />
+  <span class="clearfloat"></span>
+  <ul class="img-gallery">
+    <li>
+      <input name="check-img1" type="checkbox" value="imagem1" class="img-gallery-checkbox"/>
+      <img src="/images/company/gal-img.jpg" width="105" height="100" alt="Imagem1" class="img-gallery-item" /><a class='img-edit' href="conteudo-galeria2-addimage.html"><img src="/images/company/icon-edit.png" width="22" height="22" alt="Editar" class="img-gallery-edit" /></a></li>
+    <li>
+      <input name="check-img2" type="checkbox" value="imagem2" class="img-gallery-checkbox"/>
+      <img src="/images/company/dot.gif" width="105" height="100" alt="Imagem2" class="img-gallery-item" /><a class='img-edit' href="conteudo-galeria2-addimage.html"><img src="/images/company/icon-edit.png" width="22" height="22" alt="Editar" class="img-gallery-edit" /></a></li>
+    <li>
+      <input name="check-img3" type="checkbox" value="imagem3" class="img-gallery-checkbox"/>
+      <img src="/images/company/dot.gif" width="105" height="100" alt="Imagem3" class="img-gallery-item" /><a class='img-edit' href="conteudo-galeria2-addimage.html"><img src="/images/company/icon-edit.png" width="22" height="22" alt="Editar" class="img-gallery-edit" /></a></li>
+    <li class="clearMargin">
+      <input name="check-img4" type="checkbox" value="imagem4" class="img-gallery-checkbox"/>
+      <img src="/images/company/dot.gif" width="105" height="100" alt="Imagem4" class="img-gallery-item" /><a class='img-edit' href="conteudo-galeria2-addimage.html"><img src="/images/company/icon-edit.png" width="22" height="22" alt="Editar" class="img-gallery-edit" /></a></li>
+    <li>
+      <input name="check-img5" type="checkbox" value="imagem5" class="img-gallery-checkbox"/>
+      <img src="/images/company/dot.gif" width="105" height="100" alt="Imagem5" class="img-gallery-item" /><a class='img-edit' href="conteudo-galeria2-addimage.html"><img src="/images/company/icon-edit.png" width="22" height="22" alt="Editar" class="img-gallery-edit" /></a></li>
+    <li>
+      <input name="check-img6" type="checkbox" value="imagem6" class="img-gallery-checkbox"/>
+      <img src="/images/company/dot.gif" width="105" height="100" alt="Imagem6" class="img-gallery-item" /><a class='img-edit' href="conteudo-galeria2-addimage.html"><img src="/images/company/icon-edit.png" width="22" height="22" alt="Editar" class="img-gallery-edit" /></a></li>
+    <li>
+      <input name="check-img7" type="checkbox" value="imagem7" class="img-gallery-checkbox"/>
+      <img src="/images/company/dot.gif" width="105" height="100" alt="Imagem7" class="img-gallery-item" /><a class='img-edit' href="conteudo-galeria2-addimage.html"><img src="/images/company/icon-edit.png" width="22" height="22" alt="Editar" class="img-gallery-edit" /></a></li>
+    <li class="clearMargin">
+      <input name="check-img8" type="checkbox" value="imagem8" class="img-gallery-checkbox"/>
+      <img src="/images/company/dot.gif" width="105" height="100" alt="Imagem8" class="img-gallery-item" /><a class='img-edit' href="conteudo-galeria2-addimage.html"><img src="/images/company/icon-edit.png" width="22" height="22" alt="Editar" class="img-gallery-edit" /></a></li>
+  </ul>
+  <a class='btn-add-image colorbox' href="conteudo-galeria2-addimage.html"><input type="submit" value="ADICIONAR IMAGEM" class="btn-add-image" /></a>
+  <input type="submit" value="CONCLUIR" class="btn-concluir" />
+  <label id="img-gallery-aba">
+    <input name="check-aba" type="checkbox" value="abainteira"/>
+    Utilizar aba inteira</label>
+  <!--</form>-->
+</div>
+<span class="remove"></span> <br class="clearfloat" />

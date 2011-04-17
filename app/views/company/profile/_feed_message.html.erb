@@ -1,0 +1,6 @@
+<% if feed_item.item.sender.nil? %>
+  Um usuário externo enviou uma <%= link_to "mensagem",company_message_path(feed_item.item.message_copies.last) %>
+<% else %>
+  <%=feed_item.item.sender.person.name%> enviou uma <%= link_to "mensagem",company_message_path(feed_item.item.message_copies.last) %>
+<% end %>
+

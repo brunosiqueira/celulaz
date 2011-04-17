@@ -1,0 +1,32 @@
+<div class="block">
+	<div class="secondary-navigation">
+		<ul class="wat-cf">
+			<li class="first"><%= link_to "Gerar títulos", :controller => :main  %></li>
+			<li><%= link_to "Títulos", :controller=>"titles" %></li>
+			<li><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+			<li><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+			<li class="active"><%=link_to 'Remessas',:controller=>"shippings"%></li>
+			<li><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+			<li><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+		</ul>
+	</div>          
+	<div class="content">
+		<h2>Editar Remessa</h2>
+		<div class="inner">
+			<% form_for(@shipping,:url=>financial_shipping_path(@shipping), :html => {:class=>"form"}) do |f| %>
+			  <%= f.error_messages %>
+			  <div class="group">
+					<%= f.label :code,I18n.t("activerecord.attributes.shipping.code"), :class => "label" %><br />
+			    	<%= f.text_field :code, :class => "text_field address_fields" %>
+			  </div>
+			  <%= render :partial=>"titles/titles" %>
+			  	<div class="group navform wat-cf">
+				  	<button class="button" type="submit">
+					    <%= image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Salvar")}") %> <%= t("web-app-theme.save", :default => "Salvar") %>
+					  </button>
+					  <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Voltar")}")} #{t("web-app-theme.cancel", :default => "Voltar")}", financial_shippings_path, :class => "button" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

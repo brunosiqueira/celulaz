@@ -1,0 +1,43 @@
+<div class="adress-edit-box">
+
+  <% form_for :address,@company.address_business_card, :url=>{:controller=>"company/address", :action=>"update"}, :html => { :class => "edit_company"} do |f|%>
+    <h3>Endere&ccedil;o</h3>
+    
+
+    <div class="group">
+      <%= f.text_field :street, :class => 'text_field',:style=>"width:280px", :title=>"Rua, Avenida..."%>
+    </div>
+    <div class="group">
+      <%= f.text_field :number, :class => 'text_field', :title=>"Número", :maxlength => 6, :onkeypress=>"mascara(this,soNumeros)",:style=>"width:55px" %>
+    </div>
+
+    <div class="group">
+      <%= f.text_field :complement, :class => 'text_field', :title=>"Complemento",:style=>"width:55px" %>
+    </div>
+
+    <div class="group">
+      <%= f.text_field :zip,:onkeypress=>"mascara(this,cep)", :title=>"CEP", :class => 'text_field',:style=>"width:80px" %>
+    </div>
+
+    <div class="group">
+      <%= f.text_field :neighborhood, :title=>"Bairro", :class => 'text_field',:style=>"width:120px" %>
+    </div>
+
+    <div class="group">
+      <%= f.text_field :city, :class => 'text_field',:style=>"width:120px", :title=>"Cidade" %>
+    </div>
+
+    <div class="group">
+      <%= f.select :state, State.find(:all).collect { |p| [p.acronym, p.acronym] },{:include_blank=>true },:style=>"padding:2px;", :title=>"UF" %>
+    </div>
+    
+    <div style="width: 120px; clear: left; margin: 10px 0 ;">
+      <%= f.check_box :show , :style=>'border:none !important;'%> 
+      Exibir endereço
+    </div>
+
+    <%= f.submit " ",:onclick=>"$(\"body\").css(\"cursor\", \"wait\");" %>
+    <a href="#" class="address_cancel" ></a>
+
+  <% end %>
+</div>

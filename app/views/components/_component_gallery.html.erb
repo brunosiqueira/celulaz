@@ -1,0 +1,19 @@
+
+
+<div id="gallery<%= component.id %>">
+  <ul>
+    <% component.pictures.each do |picture| %>
+      <li>
+        <a href="<%= picture.photo.url(:big) %>" title="<%= h(picture.description) %>. $('#gallery').lightBox();">
+          <img src="<%= picture.photo.url(:thumb) %>" width="72" height="72" alt="" />
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<script type="text/javascript">
+  jQuery(function() {
+    jQuery('#gallery<%= component.id %> a').lightBox();
+  });
+
+</script>

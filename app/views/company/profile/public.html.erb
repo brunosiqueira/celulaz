@@ -1,0 +1,64 @@
+<% stylesheet "third/smoothness/jquery-ui-1.8.10.custom","company/profile-public", "third/colorbox" %>
+<% javascript "third/jquery.colorbox-min","third/jquery-ui-1.8.4.custom.min","third/jquery.jeditable.mini","company/profile-public" %>
+<%= hidden_field_tag :user_id,@company.user.id,:class=>"hidden_id" %>
+<div class="col-left">
+  <div class="profile-thumb"><%= image_tag @company.profile_logo.url(:big) %></div>
+  <div class="relac-actions">
+    <% if @company.site_enable? %>
+      <%= link_to 'Meu site',site_path(@company.user), :popup=>true, :class=>"btn-msg" %>
+    <% end %>
+    <span class="relac-request">
+      <% if current_company.company.origins.include?(@company) || current_company.company.destinies.include?(@company) %>
+        <%=link_to 'Remover',{:controller=>"company/relationship_request",:action=>"destroy",:id=>@company}, :class=>"btn-stop-relac",:confirm=>"Deseja interromper o relacionamento?"%>
+      <% else %>
+        <%=link_to 'Relacionar-se',{:controller=>"company/relationship_request",:action=>"new",:id=>@company}, :class=>"btn-relac"%>
+      <% end %>
+    </span>
+  </div>
+</div>
+<div class="col-right">
+  <div class="cv-info-basic">
+    <h1> <%=@company.name%> </h1>
+    <h2 class="phones"> <%for phone in @company.phones%>(<%=phone.ddd%>) <%=phone.number%>&nbsp;&nbsp;&nbsp;<% end %></h2>
+    <p style="clear: both" >
+      <% if @company.address_business_card.show %>
+        <%=h(@company.address_business_card.street) %>,
+        <%=h(@company.address_business_card.number) %>
+        <% if @company.address_business_card.complement != '' %>, <%=h(@company.address_business_card.complement)%><% end %>
+                                          , <%=h(@company.address_business_card.neighborhood)%>,
+        <%=h(@company.address_business_card.city)%> / <%=h(@company.address_business_card.state)%>
+      <% end %>
+    </p>
+    <div class="msg-box-profile-public">
+      <div class="msg-profile-public">
+        <div class="false-input">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 340px; float: left">
+    <h1>Descri&ccedil;&atilde;o</h1>
+    <p><%= h(@company.layout.presentation_text).gsub(/\n/,'<br>')%></p>
+  </div>
+  <div style="width: 340px; float: left">
+    <h1 class="space">Servi&ccedil;os</h1>
+
+    <% for service in @company.services do %>
+        <%= image_tag "services/small/#{service.image_path}", :alt=>service.title, :id => "cv-thumb" %>
+      <% end %>
+    </div>
+    <div id="cv-relac-master-box">
+      <h1 class="space"><%= I18n.t "company.friends" %></h1>
+      <% @company.friends(5).each do |company| %>
+        <%=link_to "#{img_tag(company)} #{h company.layout.name} ",{:action=>:public,:id=>company}, :class=>"relac-thumb"%>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-right2">
+    <div>
+      <h1>Últimas atividades</h1>
+      <div class="feeds-small"><%= render :partial=>"feeds",:object=>@feed_items %></div>
+      <%=will_paginate @feed_items,:params=>{:id=>@company}%>
+    </div>
+  </div>

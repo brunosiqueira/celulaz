@@ -1,0 +1,13 @@
+<% form_for :banner,@banner, company_banners_path,:html => {:multipart => true} do |f| %>
+  <%= f.error_messages :header_message=>nil %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :banner_image %>
+    <%= f.file_field :banner_image %>
+<div style="width: 330px;">
+  <%= f.submit 'Salvar', :class=>'btn-small' %>
+</div>
+<% end %>

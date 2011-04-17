@@ -1,0 +1,16 @@
+$('div.adress-edit-box').replaceWith('<%= @form %>');
+$('form.edit_company').submitWithAjax();
+<% if @company.address_business_card.valid? %>
+  $('div.adress-edit-box').hide();
+  $('p.address').html('<%= @address %>');
+  $('p.address').show();
+  $('a.address').click(function(){edit_address();});
+  $('div#error-messages').html('');
+<% else %>
+  $('div#error-messages').html('<%=error_messages_for :company,:object=>@company.address_business_card, :header_message=>nil%>');
+  $('div.adress-edit-box').show();
+  $('a.address_cancel').click(function(){
+  closeAddressEdit();
+  });
+<% end %>
+$('body').css('cursor', 'auto');

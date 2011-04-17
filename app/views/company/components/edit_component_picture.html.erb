@@ -1,0 +1,109 @@
+<script type="text/javascript">
+  function closeContent(){
+    CKEDITOR.instances.editorimagem.destroy();
+    $('#box-incluir-conteudo').slideUp('fast');
+    $('#openMenu').removeClass('active');
+    $('#box-incluir-conteudo').load('/company/conteudo-menu.html');
+  }
+  //reativa botao fechar
+  $('.box-novo-conteudo span.remove').click(function(){
+    closeContent();
+  });
+
+  //ajusta altura sidebar
+  $('#box-sidebar').css('height', '310px');
+
+  //cria novo conteudo
+  $('.btn-concluir').click(function(){
+    //$(CKEDITOR.instances.editorimagem.getData()).text();
+    //var value = "<img src='"+ $('#add-content-img').attr('src') +"' width='73' height='50' alt='imagem' /></a>";
+    var value = CKEDITOR.instances.editorimagem.getData();
+    createContentEditado(<%=@component.id%>, $('#titulo1').val(), value);
+    closeContent();
+  });
+
+  trataCampos('.input');
+
+  //volta para a tela de upload de imagem
+  //    var uploader = new qq.FileUploader({
+  //        element: document.getElementById('btn-add-image'),
+  //        action: 'do-nothing.htm',
+  //        debug: true
+  //    });
+  var uploader = new qq.FileUploader({
+    // pass the dom node (ex. $(selector)[0] for jQuery users)
+    element: $('#file-uploader')[0],
+    label: 'ALTERAR IMAGEM',
+    allowedExtensions: ["jpg","png","gif","bmp","tif"],
+    multiple: false,
+    onSubmit: function(id, fileName){
+      uploader.setParams({
+        id: <%=@component.id%>,
+        authenticity_token: AUTH_TOKEN,
+        component: {id: <%=@component.id%>}
+      });
+    },
+    onComplete: function(id, fileName, responseJSON){
+      $('.qq-upload-list').html('');
+      $('img#add-content-img').attr('src',responseJSON.picture_thumb);
+      $('input#url-big').attr('value','http://<%=SITE_URL%>'+responseJSON.picture_big);
+      return true;
+    },
+    // path to server-side upload script
+    action: '/component_update'
+  });
+</script>
+
+<div class="icon-seta"></div>
+<div id="box-sidebar"> <img src="/images/company/ico-novo-imagem.png" width="95" height="81" alt="Imagem" /> </div>
+<div id="box-content">
+  <%=hidden_field_tag :id, @component.id%>
+  <input type="text" name="titulo1" id="titulo1" class="input radius" value="<%= h @component.title %>" />
+
+  <img src="<%=@component.picture_thumb%>" width="250" height="170" alt="Imagem" id="add-content-img" />
+
+  <div id="desc-content-img">
+    <p>Descri&ccedil;&atilde;o</p>
+    <input type="hidden" id="id-imagem-component" value=""/>
+    <textarea class="ckeditor" cols="60" id="editorimagem" name="editorimagem" rows="10"><%=@component.description%></textarea>
+    <script type="text/javascript">
+      //<![CDATA[
+
+      // Replace the <textarea id="editor"> with an CKEditor
+      // instance, using default configurations.
+      // formata botões e tamanho da caixa CKEditor
+      CKEDITOR.replace( 'editorimagem',
+      {
+        extraPlugins : 'uicolor',
+        toolbar :
+          [
+          [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'About' ]
+        ],
+        width : "319",
+        height : "70"
+      });
+
+      //]]>
+    </script>
+  </div>
+
+  <div class="orientation-msg"style="float: left; width: 555px;text-align: center;">
+    Para adicionar esta imagem em algum texto copie a URL do campo abaixo:
+    <br/>
+    <b>URL da imagem:</b> <input id="url-big" type="text" value ="http://<%=SITE_URL%><%=@component.picture.url(:big)%>" />
+
+  </div>
+
+
+  <div style="width: 500px; float: left; height: 35px; ">
+    <div id="file-uploader">
+      <noscript>
+        <p>Por favor, habilite o javascript do seu browser.</p>
+        <!-- or put a simple form for upload here -->
+      </noscript>
+    </div>
+    <input type="submit" value="CONCLUIR" class="btn-concluir" />
+  </div>
+</div>
+<span class="remove"></span> <br class="clearfloat" />
+<!--<script type="text/javascript"> CKEDITOR.replace('editorimagem'); </script>-->

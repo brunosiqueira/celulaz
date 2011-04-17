@@ -1,0 +1,58 @@
+<% stylesheet "company/construtor","company/seo"%>
+<% javascript "company/seo" %>
+
+<div class="submenu">
+  <ul>
+    <li><%=link_to "Construção",:controller=>"company/construction"%></li>
+    <li><%=link_to "Identidade",:controller=>"company/identity"%></li>
+    <li><%= link_to "Banner", company_banners_path %></li>
+    <li><%= link_to "Contato", :controller=>"company/contacts",:action=>"edit" %></li>
+    <li class="active"><%= link_to "SEO", :controller=>"company/seo",:action=>"edit" %></li>
+  </ul>
+
+  <!-- <a class="publish" href="javascript:;">Publicar</a>-->
+  <%= link_to "Publicar", "javascript:",:class=>"publish" %>
+  <%= link_to "Ver como ficou", z_path(current_company.login),:class=>"preview",:popup=>true %>
+  <br class="clearfloat" />
+</div><!-- .submenu -->
+<div class="publish-message orientation-msg" style="display: none"></div>
+
+
+<% form_for @layout, :url => {:action=>"update"} do |f| -%>
+  <div class="col-left">
+    <div class="group">
+      <%= f.label :meta_description,nil, :class => :label %>
+      <div class="border-input">
+        <%= f.text_area :meta_description, :class => 'text_area' %>
+      </div>
+      <div class="orientation-msg"style="float: left;" >
+        Aqui você pode descrever, com um curto texto, o seu negócio. Este texto será rastreado pelos sistemas de busca e será visualizado como descrição de seus resultados, como o Google.  </div>
+    </div>
+
+    <div class="group">
+      <%= f.label :meta_keywords, nil, :class => :label %>
+      <div class="border-input">
+        <%= f.text_area :meta_keywords, :class=>"text_area" %>
+      </div>
+      <div class="orientation-msg"style="float: left;" >
+        A palavra-chave serve para relacionar o seu site e negócio às pesquisas que contenham essas palavras. Exemplo: Cachorro-quente , Cidade , Bairro, Serviços que você presta, etc.
+     </div>
+    </div>
+  </div>
+  <div class="col-right gray-box">
+    <img src="/images/company/analytics_logo.jpg">
+    <p>O Google Analytics é a solução de análise da web de cunho empresarial que fornece a você uma ótima visibilidade do tráfego e da eficiência do marketing de seu website. </p>
+    <%= f.label :analytics, nil, :class => :label %>
+    <div class="border-input">
+      <%= f.text_field :analytics, :class => 'text_field' %>
+      <br/><small>Exemplo de código: UA-1193872-9</small>
+    </div>
+    <p>Não conhecia o Google Analytics?<br/><a href="http://www.google.com/intl/pt-BR/analytics/index.html" target="_blank">Clique aqui para saber mais</a></p>
+
+  </div>
+  <div style=" width: 780px; float: left">
+    <%= f.submit "Salvar", :class=>"btn"%>
+  </div>
+<% end %>
+<br class="clearfloat" />
+

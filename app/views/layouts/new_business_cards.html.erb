@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Busca por empresas</title>
+    <%= stylesheet_link_tag "search_out", "business_cards_cv", "layout" %>
+    <%= javascript_include_tag "third/jquery-1.4.2.min", "business_cards","third/jquery.thumbhover" %>
+    <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.to_json};" if protect_against_forgery? %>
+  </head>
+  <body>
+    <%=  analytics_script %>
+    <div id="wrapper">
+      <div id="header"> <%= link_to "", root_path, :id=>"logo"  %>
+        <div id="busca-padrao">
+          <% form_tag( '/search', :method => :get ) do %>
+            <fieldset>
+              <%= text_field_tag 'search', @search.blank? ? I18n.t("company.search") : @search , :id => "busca-campo", :class=>'estadoInicial', :onfocus=>"clearSearch(this)", :onblur=>"writeSearch(this)" %>
+              <%= select_tag :segment_id, options_for_select( ["Todos"]+Segment.find(:all).collect { |p| [p.name, p.id.to_s] },@segment_id ),:class=>"styleCombobox" %>
+              <%= submit_tag 'Pesquisar', :class => "submit" %>
+            </fieldset>
+          <% end %>
+          <script type="text/javascript">
+            function clearSearch(obj){
+              if (obj.value == '<%=  I18n.t "company.search"%>'){
+                obj.value = '';
+              }
+            }
+            function writeSearch(obj){
+              if (obj.value == ''){
+                obj.value = '<%=  I18n.t "company.search"%>';
+              }
+            }
+          </script>
+        </div>
+      </div>
+      <div class="content-left">
+        <%= yield %>
+      </div>
+      <% cache do %>
+        <div id="side-bar">
+          <%= google_add_bar %>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>

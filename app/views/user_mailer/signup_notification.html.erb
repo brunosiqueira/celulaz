@@ -1,0 +1,8 @@
+<h1 style="background-image: none;clear: right !important;color: #000;font-size: 21px;font-weight: normal;line-height: 1;margin: 3px 0;padding: 0 !important;text-align: left;">Bem vindo ao <%=I18n.t "company.site_title"%>!</h1><br>
+<%= @user.login %>, sua conta foi criada.
+<br>
+Precisamos que você confirme a validade do seu email. Para isso,  visite o endereço abaixo para ativar a sua conta:<br>
+<p>
+  <%= link_to @url,@url %><br>
+</p>
+<br>

@@ -1,0 +1,10 @@
+<div id="form_space9" class="flickr-form" style="display:none;">
+	<% form_for :layout, @company.layout, :url => {:controller=>"company/layout_contact", :action=>"update_component"}, :html => { :class => "edit_layout_flickr"} do |f|%>
+		<%= hidden_field_tag "component_type", "flickr" %>
+		<%= f.text_field :flickr, :class => 'text_field',:style=>"width:280px"%>
+		<div class="actions">
+			<%= f.submit "Salvar" %>
+		    <a href="#">Cancelar</a>
+		</div>
+	<% end %>				
+</div>

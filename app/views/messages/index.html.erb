@@ -1,0 +1,30 @@
+<div id="Miolo01"> 
+  <ul>
+    <li class="nome">Mensagens</li>
+    <li class="starbar"></li>
+    <li class="endbar"></li>
+  </ul>
+</div>
+
+
+
+<div id="msgrelacionadas">
+  <div id="menumsg">
+    <ul id="menumsg">
+      <li>
+        <%=link_to "<h1>Mensagens Recebidas</h1>",messages_path,:class=>menu_class("in"),:id=>"link_in" %>
+      </li>
+      <li>
+        <%=link_to "<h1>Mensagens Enviadas</h1>",{:controller=>"messages",:action=>"index",:message_view=>"sent"},:class=>menu_class("out"),:id=>"link_out" %>
+      </li>
+      <li>
+       <%=link_to_remote  "<h1>Escrever Mensagem</h1>",:url=>new_message_path,:update=>"msgcaixa",:loaded=>"document.getElementById('link_in').className='';document.getElementById('link_out').className='';document.getElementById('link_new').className='selected';",:html=>{:id=>"link_new"}%>
+      </li>
+    </ul>
+  </div>
+  <div id="msgcaixa">
+    <%=  will_paginate @messages %>
+    <%=render :partial=>"message_list"%>
+    <%=  will_paginate @messages %>
+  </div>
+</div>

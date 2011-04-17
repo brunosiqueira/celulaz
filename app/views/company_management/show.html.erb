@@ -1,0 +1,28 @@
+<div class="block">
+	<div class="secondary-navigation">
+		<ul class="wat-cf">
+			<li class="first"><%= link_to I18n.t("company.plural").capitalize, :action => :index  %></li>
+			<li class="active"><%= link_to "Dados do #{I18n.t("company.singular").capitalize}", :action => :show %></li>
+		</ul>
+	</div>          
+  	<div class="content">          
+		<h2 class="title"><%="#{I18n.t("company.singular").capitalize} #{@user.company.razao_social}"%></h2>
+		<div class="inner">
+			<div class="group">
+				<%= link_to "Visualizar Contratos",:controller=>"contracts",:company_id=>@user.company %> |
+				  <% if CompanyS.name.eql? @user.company[:type] %>
+				    <%= link_to "Alterar Para Conta Z",:controller=>"company_management",:action=>"change_to_z",:id=>@user.company,:method=>:put %>
+				  <% else  %>
+				    <%= link_to "Alterar Para Conta S",:controller=>"company_management",:action=>"change_type_to_s",:id=>@user.company,:method=>:put %>
+				  <% end %>
+			</div>
+			<%= render :partial=>"companies/company_show",:object=>@user.company %>
+
+			<%= render :partial=>"people/person_show",:object=>@user.person %>
+			
+			<div class="wat-cf">
+		        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default =>  "Edit")}")} #{t("web-app-theme.edit", :default=> "Editar")}", { :action => "edit",:id => @user.company }, :class => "button" %> 
+			</div>
+		</div>
+	</div>
+</div>

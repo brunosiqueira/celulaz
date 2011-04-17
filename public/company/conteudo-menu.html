@@ -1,0 +1,20 @@
+<script type="text/javascript">
+	//reativa botao fechar
+	$('.box-novo-conteudo span.remove').click(function(){
+		$('#box-incluir-conteudo').slideUp('fast');
+		$('#openMenu').removeClass('active');
+		$('#box-incluir-conteudo').load('conteudo-menu.html');
+		CKEDITOR.instances.editortexto.destroy();
+	});
+</script>
+
+<div class="icon-seta"></div>
+<ul id="menu-novo-conteudo">
+    <li><a href="#texto" rel="texto"><img src="/images/company/ico-novo-texto.png" />Texto</a></li>
+    <li><a href="#imagem" rel="imagem"><img src="/images/company/ico-novo-imagem.png" />Imagem</a></li>
+    <li><a href="#galeria" rel="galeria"><img src="/images/company/ico-novo-galeria.png" />Galeria</a></li>
+    <li><a href="#video" rel="video"><img src="/images/company/ico-novo-video.png" />Vídeo</a></li>
+    <li><a href="#formulario" rel="formulario"><img src="/images/company/ico-novo-formulario.png" />Formulário</a></li>
+</ul>
+<span class="remove"></span>
+<br class="clearfloat" />

@@ -1,0 +1,8 @@
+<a title="Clique para editar" class="address" href="#">
+<%=h(@company.address_business_card.street) %>,
+<%=h(@company.address_business_card.number) %>
+<% if @company.address_business_card.complement != '' %>, <%=h(@company.address_business_card.complement)%><% end %>
+				, <%=h(@company.address_business_card.neighborhood)%>,
+<%=h(@company.address_business_card.city)%> / <%=h(@company.address_business_card.state)%>
+
+  </a>

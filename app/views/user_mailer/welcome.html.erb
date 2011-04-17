@@ -1,0 +1,12 @@
+<h1 style="background-image: none;clear: right !important;color: #003399;font-size: 21px;font-weight: normal;line-height: 1;margin: 3px 0;padding: 0 !important;text-align: left;">Bem vindo ao <%=I18n.t "company.site_title"%>!</h1><br>
+Sua conta foi criada por um de nossos administradores web com os seguintes dados:
+<p>
+  <b>Login do usuário:</b> <%= @user.login %><br>
+  Para criar uma senha para seu usuário, <%=link_to "clique aqui",@url%>)
+</p>
+<br>
+<br>Aguarde a confirmação de seus dados pela nossa equipe.
+<br>Após a confirmação, você receberá um e-mail informando que já poderá se logar no site.
+<br>
+Guarde este email, caso esqueça sua senha.
+<br>

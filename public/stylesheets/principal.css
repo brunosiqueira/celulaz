@@ -1,0 +1,165 @@
+@charset "utf-8";
+
+body{    background:#636363;     margin:0px;     color:#646464;     font-family:Arial,Helvetica,sans-serif;     font-size:9pt;     line-height:180%;     padding:0px;     height:100%}
+#msglog{    width:auto;     border:#FC6 solid 1px;     line-height:30px;     background:#FF9;     font-family:Arial;     font-size:12px;     font-weight:bold;     text-align:center;     z-index:2}
+a.buttom{    color:#fff;     font-size:11px;     font-weight:bold;     padding:3px 10px;     background-color:#039;     -moz-border-radius:5px}
+
+a.buttom:hover{    color:#fff;     font-size:11px;     font-weight:bold;     padding:3px 10px;     background-color:#0f6;     -moz-border-radius:5px}
+
+#content input, #content textarea, #content select{background:#fff; border:1px solid; border-color:#91907E #F0f0f0 #f0f0f0 #CCC; padding:2px; font:normal 12px Arial,Helvetica,sans-serif; color:#333; margin:0 0 10px 0}
+ input.normal, textarea.normal{width:90%}
+textarea#visit_schedule_description{height:80px}
+input#visit_schedule_submit{margin-top:30px; float:left}
+
+form h1, form label{background:url("/images/new_version/title-decor.gif") no-repeat scroll 0 1px transparent; color:#333; font-size:12px; font-weight:800!important; line-height:1.25; margin:0; padding-left:15px; margin-bottom:10px}
+a, img{    border:0px none;     color:#039;     text-decoration:none;     float:left}
+
+a:hover{    text-decoration:underline}
+
+#links{width:760px; padding:20px 0 0 40px}
+
+#links a{margin:5px 0 0 0; display:block; float:none !important;  font-size:14px}
+
+.link-btn-orange{    padding:0px 15px;     background-color:#f90;     color:#fff;     font-weight:normal;     font-size:9px;     text-transform:uppercase}
+
+.link-btn-orange-big{  background-color:#F90 !important; border:medium none !important; color:#FFF !important; font-size:12px !important; font-weight:normal !important; padding:10px 50px !important; text-transform:uppercase !important;     text-transform:uppercase !important}
+
+.link-btn-gray{    padding:0px 15px;     background-color:#eee;     color:#646464;     font-size:9px;     font-weight:normal;     text-transform:uppercase}
+
+p{    width:auto;     padding:0 0 0 20px;     float:left;     color:#91907E;     margin:0 0 20px 0}
+
+h1, h2, h3{    font-family:Arial,Helvetica,sans-serif;     font-weight:normal!important;     text-align:left}
+
+h1{    font-size:24px;     font-weight:bold!important;     margin:0px 0 30px;     color:#1D4482;     padding:0px 0px 0px 25px;     background: url(../images/seta-h1.jpg) transparent left 1px no-repeat}
+
+h2{    font-size:18px;     margin:10px 0 20px;     padding:0px 0px 0px 25px;     background: url(../images/seta-h2.jpg) transparent left 0px no-repeat}
+
+h3{    font-size:11px;     margin:0 0 10px 0}
+
+#header{    height:355px;     background:url(../images/bg-repeat.jpg) repeat-x center bottom #fff;     width:expression(document.body.clientWidth <960? "1000px":"auto");     min-width:1000px}
+.warp{    width:1000px;     margin:auto}
+
+#content{    padding-top:60px;     overflow:hidden;     margin-bottom:20px;     background:url(../images/bg-content.jpg) center top no-repeat}
+
+#content2{    background-color:#FFF;     margin:auto;     min-width:1000px;     overflow:hidden;     padding-bottom:40px}
+#colleft{    float:left;     padding:0 0 0 40px;     width:500px}
+
+#colleftmeio{    float:left;     width:450px;     margin-left:20px}
+
+#collefttres{    float:left;     width:300px;     margin-left:20px}
+#colright{    background:url(../images/separador-vertical.jpg) no-repeat scroll left center transparent;  float:right;    width:340px;  padding-left:20px; margin-right: 10px;}
+
+#colright p{margin-bottom:10px!important}
+
+#colright p a{color:#91907e; text-decoration:none}
+#colright p a:hover{text-decoration:underline}
+
+#colrightmeio{ float:right;  margin-right:20px;  width:450px;  padding-left:18px}
+#subtitle{ height:15px;  margin-top:24px}
+
+#checkdomain-area{    background-color:#F7F7F7;     font-size:16px;     padding:10px;     float:left;     width:320px;     position:relative}
+#checkdomain-area input{    margin:0px 10px}
+#whoischeck-button{        position:absolute;     top:10px;     right:10px;     background-color:#F90 !important;     border:0px none !important;     color:#FFF !important;     cursor:pointer;     color:#fff;     margin:0!important;     padding:3px 10px!important;     width:50px}
+
+#footer{    background:url(../images/bg-footer.jpg) no-repeat scroll center top transparent;  font-size:11px;  height:45px;  line-height:17px;  padding-top:15px;  text-align:center}
+
+#thumbs{ text-decoration:none!important;  color:#333!important;  float:left;  font-size:11px;  font-weight:bold;  padding-top:110px !important;  width:100px;  height:60px;  line-height:normal !important}
+
+#thumbsonly{ text-decoration:none!important;  color:#333!important;  float:left;  font-size:11px;  font-weight:bold;  width:100px;  height:110px;  line-height:normal !important}
+
+#date{color:#333; font-weight:normal; line-height:13px}
+
+.space{ margin:0px 0px 20px 20px;  overflow:hidden}
+
+.empresas-box{ background-color:#f7f7f7;   float:left;  margin:0 5px 5px 0;  overflow:hidden;  padding:10px;  width:80px;  word-wrap:break-word;  line-height:120%;  height:110px;  color:#91907E}
+
+.empresas-box img{ overflow:hidden;  margin-bottom:5px}
+
+#noticias{ clear:none;  width:400px;  float:left;  padding-right:50px;  display:block}
+
+#contato{ border-left:2px solid #220400;  padding-left:10px;  text-align:left !important}
+
+#contato h2{ font-size:24px;  font-weight:normal;  margin:0px;  color:#039}
+#contato h3{ font-size:12px;  font-weight:normal;  margin:0px}
+
+#logo{width:174px; height:65px; display:block; background:url(../images/logo-home.gif) no-repeat center; text-indent:-9999px; overflow:hidden; position:absolute; left:55px; top:5px}
+.info-login{color:#006ab0; width:220px; text-align:right; position:absolute; top:15px; right:0}
+.info-login a{font-weight:bold; color:#f90; font-size:11px}
+.top-nav{list-style:none; position:absolute; left:180px; top:30px}
+.top-nav li{display:inline}
+.top-nav li a{color:#039; text-decoration:none; padding:3px 50px 3px 28px; display:inline-block; background-position:0 2px; background-repeat:no-repeat}
+.top-nav li a:hover{text-decoration:underline}
+.top-nav .inicial{background-image:url(/images/company/ico-top-inicio.gif)}
+.top-nav .site{background-image:url(/images/company/ico-top-site.gif)}
+.top-nav .mensagens{background-image:url(/images/company/ico-top-msg.gif)}
+.input-search{width:160px; height:15px; position:absolute; bottom:13px; right:0; background:url(/images/company/ico-search.gif) no-repeat 148px center #fff}
+
+#busca-padrao{float:left;     height:50px;     margin-left:253px;     overflow:hidden;     position:relative;     margin-top:20px;     width:420px}
+#busca-campo{    background-color:transparent!important;     border:0 solid #CCC !important;     color:#333;     float:left;     font-family:arial;     font-size:14px;     margin:0;     padding:5px;     width:200px}
+
+#busca-padrao form{    width:420px;     height:50px}
+
+#busca-padrao form fieldset input.submit{    background:url(../images/new_version/pesquisa-submit.gif) no-repeat scroll top transparent;  width:28px;  padding:5px;  border:none;  top:-3px;  color:#f60;  float:left;  text-indent:-9999px;  display:block;  cursor:pointer;  margin:1px 0 0 5px}
+abbr, acronym, img, fieldset{ border:0 none}
+
+fieldset{ margin:5px 0px 0px 5px;  padding:0px 3px!important}
+
+.styleCombobox{ background:#fff;  float:left;  width:150px !important;  padding:4px;  margin:0 0 0 4px;  background-color:transparent!important;  border:0 solid #CCC !important;  font-size:14px;  color:#333}
+
+#busca-padrão form fieldset select{border:0 solid #fff!important}
+
+#topologin{    float:right;     margin:10px 67px 0 0;     width:230px}
+
+#topologin form{         width:230px;     font-family:Arial,Helvetica,sans-serif;         font-weight:normal;     margin:0 0 0 0;     position:relative;     float:left}
+#topologin form input{float:left;  margin-bottom:10px; font-size:11px !important}
+
+#topologin form input#login{border:0px #fff  solid; background:transparent; margin:8px 8px 8px 0px; width:83px; margin-left:2px; color:#333!important}
+
+ form input.btlogin{cursor:pointer; background:url(../images/btn-login.gif) center no-repeat!important; border:medium none !important; color:#FFF; padding:3px 10px; width:50px; margin:5px 0px}
+
+#remember_me{width:10px;  height:10px; float:left; margin:5px 5px auto 10px}
+
+#topologin form input#password{border:0px #fff solid; margin:8px 8px 8px 0px; background:transparent; width:65px}
+
+#topologin form a, #topologin form a:link,  form a:visited{ text-decoration:none;  margin:0px;  padding:0px;  text-align:right;  font-family:Arial,Helvetica,sans-serif;  font-size:11px;  color:#069;  font-weight:normal;  float:left}
+
+form label a:hover{ text-align:right;  font-family:Arial,Helvetica,sans-serif;  font-size:11px;  color:#069;  text-decoration:underline}
+
+div#menu{        float:left;    position:absolute;    width:700px;     text-align:left;     left:0px;     top:324px;         margin:0px 0px 0px 40px}
+
+ul#menu{    margin:0px;     list-style:none;     text-decoration:none;     float:left;     width:700px;     padding:0px}
+
+ul#menu li{    float:left;     color:#fff;     text-align:center}
+
+ul#menu li.green-menu a, ul#menu li.purple-menu a, ul#menu li.orange-menu a, ul#menu li.gray-menu a, ul#menu li.pink-menu a{    background-image:url(../images/menu-bg-deselect.gif)}
+
+ul#menu li.gray-menu a{    background-position:2px -2px}
+
+ul#menu li.green-menu a{    background-position:365px -2px}
+
+ul#menu li.purple-menu a{    background-position:243px -2px}
+
+ul#menu li.orange-menu a{    background-position:-120px -2px}
+
+ul#menu li.pink-menu a{    background-position:122px -2px}
+
+ul#menu li a{    color:#FFF;     display:block;     font-size:10px;     text-transform:uppercase;     font-weight:bold;     padding:3px 0 7px;     text-align:center;     width:120px;     margin:0px 5px 0px 0px!important;     text-decoration:none}
+
+ul#menu li.select a{    font-size:12px;     background:url(../images/seta.gif) center 24px no-repeat!important;  padding:0 0 10px !important;  color:#1D4482}
+
+#errorExplanation{ color:red;  line-height:120%;  font-family:Arial;  font-size:12px;  font-weight:bold;  padding-top:9px;  float:left}
+#errorExplanation ul{width:100%; float:left}
+
+form.fale-conosco ul li input.ddd{ width:40px;  font-size:13px;  letter-spacing:1px;  padding:2px}
+
+form.fale-conosco ul li input.fone{}
+
+.content{display:none}
+.image_location{    float: left;
+    margin-left: 10px;
+    margin-top: 20px;
+    padding: 10px 0;
+    width: 280px;}
+.image_location a{    border: 2px solid #EEEEEE;margin-left: 10px;}
+.image_location a img{    border: 2px solid #ffffff;}
+

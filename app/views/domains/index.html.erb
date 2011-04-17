@@ -1,0 +1,81 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", :controller=>"/domains"  %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Layouts</h2>
+    <div class="inner">
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        <%= will_paginate @companies %>
+      </div>
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+          <th>
+            <%= t("activerecord.attributes.layout.name", :default => t("activerecord.labels.company_id", :default => "Company_id")) %>
+          </th>
+          <th style="width: 250px;">
+            <%= t("activerecord.attributes.layout.domain", :default => t("activerecord.labels.company_id", :default => "Company_id")) %>
+          </th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @companies.each do |company| -%>
+          <tr class="<%= cycle("odd", "even") %>">
+            <td>
+              <%= company.user.id %>
+            </td>
+            <td>
+              <%= company.user.name %>
+            </td>
+            <td>
+              <span id="domain<%= company.user.id %>"><%= company.user.domain %></span>
+            </td>
+            <td class="last"></td>
+          </tr>
+          <script type="text/javascript">
+            $(document).ready(function(){
+              $('span#domain<%=company.user.id%>').editable('/domains/update',{
+                cancel:'Cancelar',
+                submit:'Ok',
+                cssclass:'text_field',
+                indicator:"<img src='/images/colorbox/loading.gif'/>",
+                placeholder:'Clique para editar...',
+                submitdata:{
+                  authenticity_token:AUTH_TOKEN,
+                  id:<%=company.user.id%>
+                },
+                onsubmit:function(settings,element){
+                  var original = $("input",element).attr("value");
+                  if(original==null||original==''){
+                    alert('O campo \'Domínio\' deve ser preenchido');
+                    return false;
+                  } else if (!/^([a-z0-9A-Z_\-]+)[.][a-z0-9A-Z_\-]+([.][a-z0-9A-Z_\-]+){0,1}$/.test(original)){
+                    alert('O campo \'Domínio\' não está no formato correto');
+                    return false;
+                  } else if (original.substring(0,4) == "www."){
+                    alert('O campo \'Domínio\' não está no formato correto');
+                    return false;
+                  }
+                  return true
+                }
+              });
+            });
+          </script>
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        <%= will_paginate @companies %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>  
+
+

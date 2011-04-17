@@ -1,0 +1,8 @@
+<ul>
+  <li class="img">
+    <div id="divimg"><img src="<%= tab_component.full_line ? component.picture.url : component.picture.url(:thumb) %>"></div>
+  </li>
+  <li class="descriimg" style="color:#<%=color.text%>">
+    <div id="imgdescri"><%=  h(component.description.nil? ? "" : component.description[0,50]) %> <%=link_to_remote_redbox "ver mais",:url=>{:controller=>"tab_components",:action=>"show",:id=>tab_component.id},:method=>:get%></div>
+  </li>
+</ul>

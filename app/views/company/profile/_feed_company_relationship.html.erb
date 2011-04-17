@@ -1,0 +1,3 @@
+<% relation_first = feed_item.item.origin.eql?(@company) ? feed_item.item.origin : feed_item.item.destiny%>
+<% relation = feed_item.item.origin.eql?(@company) ? feed_item.item.destiny : feed_item.item.origin %>
+<%= relation_first.eql?(current_company.company) ? "Você" : truncate(relation_first.name,:length=>15) %> começou a se relacionar com <%=link_to truncate(relation.name,:length=>15), :controller=>"company/profile",:action=>"public",:id=>relation %>

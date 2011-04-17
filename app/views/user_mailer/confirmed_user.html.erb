@@ -1,0 +1,8 @@
+<h1 style="background-image: none;clear: right !important;color: #000;font-size: 21px;font-weight: normal;line-height: 1;margin: 3px 0;padding: 0 !important;text-align: left;">Parabéns, <%= @user.login %>!</h1><br>
+As informações de seu usuário foram confirmadas pela nossa equipe.<br>
+Você já pode se logar no <%=I18n.t "company.site_title"%> e começar a divulgar os seus negócios na internet.<br><br>
+Visite o endereço abaixo para se logar:<br>
+<p>
+  <%= link_to @url,@url %><br>
+</p>
+<br>

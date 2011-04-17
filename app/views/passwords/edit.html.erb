@@ -1,0 +1,9 @@
+<% form_tag "/passwords/update?id=#{params[:id]}" do %>
+  <h1>Senha:</h1>
+  <%= password_field_tag :password %><br />
+  <h1>Confirmar senha:</h1>
+  <%= password_field_tag :password_confirmation %><br />
+  <%= submit_tag "Reiniciar Senha" %>
+<% end %>
+
+

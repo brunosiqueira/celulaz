@@ -1,0 +1,62 @@
+<% content_for :style do %>
+  <%= render :partial=>"style" %>
+<% end %>
+
+<% content_for :title do %>
+  <%=@layout.name if @layout.show_name%>
+<% end %>
+<% content_for :slogan do %>
+  <%=@layout.slogan if @layout.show_slogan %>
+<% end %>
+<% content_for :tabs do %>
+  <%= create_tabs_separator %>
+<% end %>
+<% content_for :social do %>
+  <%= render :partial=>"social" %>
+<% end %>
+<% content_for :content do %>
+  <% line = -1 %>
+  <% line_old = nil %>
+  <% unless @tab.nil? %>
+    <% @tab.tab_components.each do |tab_component| %>
+      <%  if line_old.nil? || line_old < tab_component.line %>
+        <%= "</div>" unless line_old.nil? %>
+        <div class="post">
+        <% end %>
+        <% if @tab.tab_components.count(:conditions=>{:line=>tab_component.line})>1 %>
+          <% if (tab_component.column == 1) %>
+            <div class="postmeio">
+            <% else %>
+              <div class="postmeio" style="margin-left:50px">
+              <% end %>
+            <% end %>
+            <h2 class="title"><%=tab_component.component.title%></h2>
+            <div class="entry">
+              <%=render :partial=>tab_component.component[:type].underscore,:object=>tab_component.component,:locals=>{:full_line=>@tab.tab_components.count(:conditions=>{:line=>tab_component.line})== 1}%>
+            </div>
+            <%= "</div>" if @tab.tab_components.count(:conditions=>{:line=>tab_component.line})>1%>
+            <% line_old = tab_component.line %>
+          <% end %>
+        </div>
+      <% end %>
+
+    <% end %>
+
+    <% content_for :address do %>
+      <%= render :partial=>"address" %>
+    <% end %>
+    <% content_for :sidebar_address do %>
+      <%= render :partial=>"sidebar_address" %>
+    <% end %>
+
+    <% content_for :sidebar do %>
+      <ul>
+        <% @layout.banners.each do |banner| %>
+          <li>
+            <a href="<%=banner.url%>" title="<%=banner.title%>" target="new">
+              <%=image_tag banner.banner_image.url(:small)%>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>

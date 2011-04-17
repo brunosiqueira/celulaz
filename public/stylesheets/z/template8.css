@@ -1,0 +1,68 @@
+body{margin:0; padding:0; font-family:Arial,Helvetica,sans-serif; font-size:14px}
+h1, h2, h3{margin:0; padding:0; font-weight:normal}
+h1{font-size:12px}
+h2{font-size:1.8em; margin:0 0 0.5em !important}
+h3{font-size:1.6em}
+p, ul, ol{margin-top:0; line-height:180%}
+ul, ol{}
+a{text-decoration:none}
+a:hover{}
+
+.link a, input.input-msg{padding:10px 15px; border:none !important}
+#page img, .componente-galeria li a{border-width:4px; border-style:solid}
+
+#wrapper{margin:0 auto; padding:0}
+
+#header{width:960px; position:relative; height:250px; margin:0 auto}
+
+#logo{ position:absolute;  height:60px;  margin:0;  padding:60px 0px 0px 0px}
+#logo h1, #logo p{ margin:0;  width:900px;  padding:0}
+#logo h1{ padding-left:30px;  letter-spacing:-1px;  text-transform:lowercase;  font-family:Georgia,"Times New Roman",Times,serif;  font-size:64px}
+#logo p{ margin:0;  padding:10px 0 0 34px;  font:normal 18px Georgia,"Times New Roman",Times,serif;  font-style:italic}
+#logo a{ border:none;  background:none;  text-decoration:none}
+
+#search{ position:absolute;  width:120px;  height:80px;  padding:0;  top:20px; right:20px}
+
+#menu{    bottom:-1px;     float:right;     height:33px;     margin:0 auto;     padding:0;     position:absolute;     right:1px;     width:960px}
+#menu ul{    margin:0;     padding:0px 0px 0px 0px;     list-style:none;     float:right;     line-height:normal}
+#menu li{    float:left}
+#menu a{    border:medium none;     display:block;     float:left;     font-family:Arial,Helvetica,sans-serif;     font-size:11px;     font-weight:normal;     height:22px;     margin-right:1px;     padding:10px 18px 0;     text-decoration:none;     text-transform:uppercase}
+#menu .current_page_item a{}
+#menu a:hover{    text-decoration:none}
+#splash{    width:1000px;     height:260px;     margin:0px auto;     background:url(images/img05.jpg) no-repeat left top}
+
+#page{ width:1000px;  margin:0 auto;  padding:0;  border-width:10px 0px 0px 0px;  border-style:solid}
+#page-bgtop{}
+#page-bgbtm{ margin:0px;  padding:0px}
+
+#content{ float:left;  width:700px;  padding:40px}
+
+.links{ display:block;  width:96px;  padding:2px 0px 2px 0px;  text-align:center;  text-transform:uppercase;  font-size:10px}
+.link a, input.input-msg{padding:10px 15px; font-size:12px}
+
+#sidebar{ float:right;  padding:40px 25px 0 15px;  width:180px}
+#sidebar ul{ margin:0 0 40px 0;  padding:0;  float:left;  list-style:none}
+#sidebar li{ margin:0;  padding:0}
+#sidebar img{border-width:2px}
+
+#sidebar h2{ font-size:22px;  margin:0 0 15px 0;  letter-spacing:-1px}
+
+#sidebar a{ border:none}
+#sidebar a:hover{ text-decoration:underline}
+
+#footer{ width:1000px;  padding:20px 0px;  margin:0px auto 40px auto;  font-family:Arial,Helvetica,sans-serif}
+#footer p{ margin:0;  line-height:normal;  font-size:10px;  text-transform:uppercase;  text-align:center}
+#footer a{}
+
+#sidebar ul li#contato h2{padding:5px 0px; width:180px; margin-bottom:0px!important; border-bottom:1px solid #eee}
+#sidebar ul li#contato a{font-size:11px; padding:3px 15px; line-height:120%; margin-top:10px}
+#sidebar ul li#contato p{margin:1px 0px; padding:5px 0px; text-align:justify; width:180px; border-bottom: 1px solid #eee}
+#sidebar ul li#contato .link{font-size:12px; padding:10px 0px;  width:180px; line-height:140%}
+#sidebar ul li#contato .link p{padding:5px 0px 0; width:150px; border:none !important}
+
+
+.full-line li{ margin:0 10px 0 0; width:116px}
+.column li{width:108px}
+li.pager{position:relative; float:left}
+li.pager a{width:100px; height:100px; display:block}
+.componente-galeria img{border:0px solid !important}

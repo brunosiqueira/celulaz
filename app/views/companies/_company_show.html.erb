@@ -1,0 +1,41 @@
+<p>
+  <b>
+    <%=label :company,:razao_social %>:
+  </b>
+  <%= h company_show.razao_social %>
+</p>
+<p>
+  <b><%=label :company,:cnpj %>:</b>
+  <%= h company_show.document %>
+</p>
+<p>
+  <b><%=label :company,:drawee_code %>:</b>
+  <%= h company_show.drawee_code %>
+</p>
+
+<p>
+  <b><%=label :company,:segment%>:</b>
+  <%= h company_show.segment.name %>
+</p>
+
+<p>
+  <b><%=label :company,:type%>:</b>
+  <%= h ApplicationHelper.humanize_company(company_show[:type]) %>
+</p>
+
+<p>
+  <b><%=label :company,:created_at%>:</b>
+  <%= h company_show.created_at.to_s_br %>
+</p>
+
+<p>
+  <b><%=label :company,:web_administrator%>:</b>
+  <%= h ApplicationHelper.show_web_adm(company_show.user.person) %>
+</p>
+
+<p>
+  <b><%=label :company,:seller%>:</b>
+  <%= h company_show.seller ? h(CompanyManagementHelper.show_seller_detailed(company_show.seller)) : "" %>
+</p>
+
+<%= render :partial=>"address/address_show", :object=>company_show.address_business_card %>

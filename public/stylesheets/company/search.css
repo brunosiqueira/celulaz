@@ -1,0 +1,6 @@
+.cv-info-basic p{float:left}
+.cv-info-basic img{float:left;    border: 5px solid #F6F6F6;margin: 0 10px 0 0;overflow: hidden;word-wrap: break-word;}
+img{border:5px solid #f6f6f6;margin:0 10px 0 0}
+.cv-info-basic{clear:none;float:left;position:relative;margin:0 0 40px}
+.cv-info-basic a{width:690px;color:#039;float:left;font-size:16px;font-weight:normal;text-decoration:none;line-height:1;margin:3px 0;padding:0!important;background-image:none}
+.cv-info-basic p{margin:4px 0;display:inherit!important;width:690px}

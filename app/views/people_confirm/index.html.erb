@@ -1,0 +1,43 @@
+<div class="block">
+	<div class="secondary-navigation">
+		<ul class="wat-cf">
+			<li class="first active"><%= link_to "Comerciais pendentes", :action => :index  %></li>
+			<li><%= link_to "Empresas Pendentes", :action=>"index_companies" %></li>
+		</ul>
+	</div>          
+  	<div class="content">          
+		<h2 class="title">Aut&ocirc;nomos pendentes</h2>
+		<div class="inner">
+			<table class="table">
+		        <tr>
+					<th>Nome</th>
+				    <th>CPF</th>
+				    <th>Perfil</th>
+				</tr>
+				<% for person in @people do%>
+			        <tr class="<%= cycle("odd", "even") %>">
+			          <td>
+			            <%= link_to person.name, :action=>"show", :id=>person %>
+			          </td>
+			          <td>
+			            <%= h person.cpf %>
+			          </td>
+			          <td>
+			            <%= h person.user ? ApplicationHelper.humanize_user(person.user.class) : "Vendedor #{ApplicationHelper.show_web_adm(person)}"%>
+			          </td>
+			          <% if person.users.empty? %>
+			            <td class="last">
+			              <%=link_to "excluir",person_path(person),:confirm => 'Tem certeza?',:method=>:delete%>
+			            </td>
+			          <% end %>
+			        </tr>
+			      <% end %>
+			</table>	
+			<%= will_paginate @people %>
+		</div>
+	</div>
+</div>
+
+    
+    
+    

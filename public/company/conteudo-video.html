@@ -1,0 +1,33 @@
+<script type="text/javascript">
+	//reativa botao fechar
+		$('.box-novo-conteudo span.remove').click(function(){
+			$('#box-incluir-conteudo').slideUp('fast');
+			$('#openMenu').removeClass('active');
+			$('#box-incluir-conteudo').load('conteudo-menu.html');
+		});
+
+	//ajusta altura sidebar
+	$('#box-sidebar').css('height', $('#box-content').height());
+
+	//cria novo conteudo
+	$('.btn-concluir').click(function(){
+		var campoVideo = "<a href='"+ $('#box-content #urlvideo').val() +"' target='_blank'><img src='/images/company/icon-youtube.jpg' width='48' height='22' alt='YouTube' /></a>";
+		createContent('video', $('#box-content #titulo1').val(),campoVideo);
+		$('.box-novo-conteudo span.remove').trigger('click');
+	});
+
+	trataCampos('.input');
+	trataCampos('.urlvideo');
+</script>
+
+<div class="icon-seta"></div>
+<div id="box-sidebar"> <img src="/images/company/ico-novo-video.png" width="95" height="81" alt="Video" /> </div>
+<div id="box-content">
+  <input type="text" name="titulo1" id="titulo1" class="input radius" value="Titulo do video" />
+  <p>Url do v&iacute;deo</p>
+  <input type="text" name="urlvideo" id="urlvideo" class="urlvideo radius" value="" />
+  <br class="clearfloat" />
+  <img src="/images/company/icon-youtube.jpg" width="48" height="22" alt="YouTube" class="urlvideo-img" /> <br class="clearfloat" />
+  <input type="submit" value="CONCLUIR" class="btn-concluir" />
+</div>
+<span class="remove"></span> <br class="clearfloat" />

@@ -1,0 +1,6 @@
+<h1 style="background-image: none;clear: right !important;color: #000;font-size: 21px;font-weight: normal;line-height: 1;margin: 3px 0;padding: 0 !important;text-align: left;"><%= @user.login %>,</h1><br> você possui pagamentos pendentes no site.
+<br>Para sua comodidade, você pode visualisar seu boleto online <%= link_to "clicando aqui",@url_boleto %>.
+<br>Ou pode acessar todos os seus pagamentos pendentes a partir do endereço abaixo:
+<p>
+  <%= link_to @url,@url %>
+</p>

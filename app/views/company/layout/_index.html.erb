@@ -1,0 +1,105 @@
+<div class="img-site" >
+
+  <ul class="submenu-small">
+    <li><%=link_to "Fundo", "#tab-background"%></li>
+    <li><%=link_to "Topo", "#tab-top"%></li>
+  </ul>
+  <div id="tab-background">
+    <div id="col-left">
+      <div style="<%=background_style_div%>" class="show-bck-choices"> </div>
+    </div>
+    <div id="col-right">
+      <div style="width: 100%; margin-bottom: 20px; margin-top:20px; font-weight:bold;">
+        <%= check_box_tag :repeat_x,nil, @layout.repeat_background_x, :style=>"margin-right:10px; border:none 0px;" , :id=>"repeat_x"%>
+        Repetir horizontalmente</div>
+      <div style="width: 100%; margin-bottom: 20px;font-weight:bold;">
+        <%= check_box_tag :centralize,nil, @layout.repeat_background_y, :style=>"margin-right:10px; border:none 0px;" , :id=>"centralize"%>
+        Centralizar</div>
+      <div style="width: 100%; margin-bottom: 20px;font-weight:bold;">
+        <%= check_box_tag :repeat_y,nil, @layout.centralize_background, :style=>"margin-right:10px; border:none 0px;" , :id=>"repeat_y"%>
+        Repetir verticalmente</div>
+      <div id="file-uploader-background">
+        <noscript>
+          <p>Por favor, habilite o javascript do seu browser.</p>
+          <!-- or put a simple form for upload here -->
+        </noscript>
+      </div>
+    </div>
+    <div class= "bg-example-box">
+      <h1>Galeria de fundos</h1>
+      <ul class="img-gallery background">
+		<% background_small_list.each do |path| %>
+			<li>
+			<% if path.to_s =~ /my_backgrounds/ %>
+				<% path.each do |key, value| %>
+					<span><%= link_to "Excluir", '/company/layout/delete_background/' + value.to_s, :class => "delete_my_backgrounds" %></span>
+					<img alt="Clique para selecionar o novo fundo..." style="background-color: #<%=@layout.color.background%>" height="75" width="75" class="img-gallery-item" alt="Imagem1" src="<%= key %>"/>
+				<% end %>
+			<% else %>
+	        	<img alt="Clique para selecionar o novo fundo..." style="background-color: #<%=@layout.color.background%>" height="75" width="75" class="img-gallery-item" alt="Imagem1" src="<%= path %>"/>
+			<% end %>
+			</li>
+		<% end %>
+      </ul>
+    </div>
+  </div>
+  <div id="tab-top">
+    <div style="<%=style_background%>">
+      <div id="top-selected" class="show-top-choices" style="background-image: url(<%=@layout.background_top%>);background-repeat: no-repeat;">
+
+        <div id="logo">
+          <h1 class="name-company" style="color:#<%= @layout.color.name_company_text %>;">
+            <span id="name" style="display:<%= @layout.show_name ? 'inherit' : 'none' %>"><%= @layout.name%></span>
+          </h1>
+          <p style="color:#<%= @layout.color.slogan_company_text %>">
+            <span id="slogan"  style="display:<%= @layout.show_slogan ? 'inherit' : 'none' %>"><%= @layout.slogan %></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-bottom:20px;float: left; width: 780px;" >
+      <div style="width:400px; float:left;" class="orientation-msg">
+        <h1>Dimensões da imagem: largura de 960px e altura livre
+          Aceitamos arquivos: jpg, png, gif, bmp e tif. </h1>
+        <br/>
+        <h1> Caso não queira que essas informações apareçam no site, deixe os campos acima em branco. </h1>
+
+      </div>
+
+      <div style="float: left; width: 300px; padding: 19px;">
+        <div style="float: left; width: 300px; margin-bottom: 10px">
+          <%= check_box_tag :show_name,nil, @layout.show_name, :style=>"margin-right:10px; border:none 0px;" , :id=>"show_name"%>
+          Exibir Nome</div>
+        <div style="float: left; width: 300px;margin-bottom: 10px">      
+          <%= check_box_tag :show_slogan,nil, @layout.show_slogan, :style=>"margin-right:10px; border:none 0px;" , :id=>"show_slogan"%>
+          Exibir Slogan</div>
+
+
+        <div id="file-uploader">
+          <noscript>
+            <p>Por favor, habilite o javascript do seu browser.</p>
+            <!-- or put a simple form for upload here -->
+          </noscript>
+        </div>
+
+      </div>
+    </div>
+    <div class="top-example-box gray-box">
+      <h1>Galeria de fundos</h1>
+      <ul class="img-gallery top">
+        <% background_top_small_list.each do |path| %>
+          <li>
+			<% if path.to_s =~ /background_tops/ %>
+				<% path.each do |key, value| %>
+					<span><%= link_to "Excluir", '/company/layout/delete_background_top/' + value.to_s, :class => "exclude_background_top" %></span>
+					<img height="75" width="75" class="img-gallery-item" alt="Imagem1" src="<%= key %>"/>
+				<% end %>
+			<% else %>
+            	<img height="75" width="75" class="img-gallery-item" alt="Imagem1" src="<%= path %>"/>
+			<% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

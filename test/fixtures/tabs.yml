@@ -1,0 +1,38 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: tabs
+#
+#  id         :integer(4)      not null, primary key
+#  layout_id  :integer(4)
+#  title      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  order      :float
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  layout_id: 1
+  title: MyString
+  order: 1
+
+two:
+  id: 2
+  layout_id: 1
+  title: MyString
+  order: 2
+
+empresa_valid_2:
+  id: 3
+  layout_id: 2
+  title: MyString
+  order: 2
+
+empresa_valid_2_2:
+  id: 4
+  layout_id: 2
+  title: MyString
+  order: 3

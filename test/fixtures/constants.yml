@@ -1,0 +1,27 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: constants
+#
+#  id         :integer(4)      not null, primary key
+#  key        :string(255)
+#  value      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+agencia_cedente:
+  key: agencia_cedente
+  value: 0527
+
+conta_cedente:
+  key: conta_cedente
+  value: 5739694
+
+nome_cedente:
+  key: nome_cedente
+  value: Célula IP
+
+cnpj_cedente:
+  key: cnpj_cedente
+  value: 09.235.033/0001-95

@@ -1,0 +1,47 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Gerar títulos", :controller => :main  %></li>
+      <li class="active"><%= link_to "Títulos", :controller=>"titles" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+      <li><%=link_to 'Remessas',:controller=>"shippings"%></li>
+      <li><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+      <li><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2>Títulos</h2>
+    <div class="inner">
+      <p><%= link_to 'Novo Título', :action=>"index_new" %></p>
+      <table class="table">
+        <tr>
+          <th><%=I18n.t("activerecord.attributes.title.emission_date") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.due_date") %></th>
+          <th><%=I18n.t("activerecord.attributes.company.razao_social") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.your_number") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.our_number") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.value") %></th>
+          <th><%=I18n.t("activerecord.attributes.title.status") %></th>
+          <th colspan=2>&nbsp;</th>
+        </tr>
+
+        <% for title in @titles %>
+          <tr class="<%= cycle("odd", "even") %>">
+            <td><%= title.company.nil? ? "-" : link_to(title.emission_date.to_s_br, financial_company_title_url(:id=>title,:company_id=>title.company)) %></td>
+            <td><%=h title.due_date.to_s_br %></td>
+            <td><%=h title.your_number %></td>
+            <td><%=h title.company.nil? ? "Excluído" : title.company.razao_social %></td>
+            <td><%=h title.our_number %></td>
+            <td><%=h title.value %></td>
+            <td title="<%= title.error_message unless title.error_message.nil? %>"><%=h title.status %></td>
+            <td><%= link_to_if title.can_generate?, "Gerar Boleto",{:controller=>"titles_not_payed",:action=>"show_financial",:id=>title},:popup=>true%></td>
+            <td><%= title.company.nil? ? "-" : link_to(I18n.t('link.edit'), edit_financial_company_title_url(:id=>title,:company_id=>title.company))  %></td>
+            <td><%= title.company.nil? ? "-" : link_to(image_tag('del_small.png'), financial_company_title_url(:id=>title,:company_id=>title.company), :confirm => I18n.t("link.confirm"), :method => :delete) %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= will_paginate @titles %>
+    </div>
+  </div>
+</div>

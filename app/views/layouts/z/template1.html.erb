@@ -1,0 +1,180 @@
+<html>
+  <head>
+    <title>Template01</title>
+    <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.to_json};" if protect_against_forgery? %>
+    <%=  stylesheet_link_tag "z/template","z/template1", "third/jquery.lightbox-0.5"%>
+    <%= javascript_include_tag "third/jquery-1.4.4.min.js", "third/jquery.corner", "third/jquery.lightbox-0.5.min", "z" %>
+
+    <style type='text/css'>
+      #imagem
+      {
+        background-image: url(firefox.png);
+        background-repeat: no-repeat;
+        width: 150px;
+        height: 150px;
+        float: left;
+        margin: 25px 0px 0px 0px;/*top right bottom left*/
+      }
+
+      #menu a
+      {
+        font-weight:bold;
+        color: #669;
+        text-decoration:none;
+      }
+
+      #menu a:hover
+      {
+
+        border-bottom:solid 3px orange;
+      }
+
+      .head
+      {
+        background-image:url(back.jpg) !IMPORTANT;
+      }
+
+      #imagem2
+      {
+        background-image: url(firefox2.jpg);
+        background-repeat: no-repeat;
+        margin: 60px 0px 0px 8px; /*top right bottom left*/
+        width: 100px;
+        height: 100px;
+        float: left;
+      }
+
+      #imagem3
+      {
+        background-image: url(firefox2.jpg);
+        background-repeat: no-repeat;
+        margin: 60px 0px 0px 8px;
+        width: 100px;
+        height: 100px;
+        float: left;
+      }
+
+      #imagem4
+      {
+        background-image: url(firefox2.jpg);
+        background-repeat: no-repeat;
+        margin: 60px 0px 0px 8px;
+        width: 100px;
+        height: 100px;
+        float: left;
+      }
+
+      #icone
+      {
+        background-image: url(facebook.png);
+        background-repeat: no-repeat;
+        margin: 8px 0px 0px 2px;
+        width: 32px;
+        height: 32px;
+        float: left;
+      }
+
+      #icone2
+      {
+        background-image: url(twitter.png);
+        background-repeat: no-repeat;
+        margin: 8px 0px 0px 5px;
+        width: 32px;
+        height: 32px;
+        float: left;
+      }
+
+      #icone3
+      {
+        background-image: url(orkut.png);
+        background-repeat: no-repeat;
+        margin: 8px 0px 0px 5px;
+        width: 32px;
+        height: 32px;
+        float: left;
+      }
+
+      #icone4
+      {
+        background-image: url(/images/Z/flickr.png);
+        background-repeat: no-repeat;
+        margin: 8px 0px 0px 5px;
+        width: 32px;
+        height: 32px;
+        float: left;
+      }
+
+      #seta
+      {
+        background-image: url(/images/Z/buttons.png);
+        /* hover background-position: -30px; */
+        background-position: 0px;
+        background-repeat: no-repeat;
+        margin: 20px 0px 0px 10px;
+        width: 32px;
+        height: 32px;
+        float: left;
+      }
+
+      #seta2
+      {
+        background-position: -63px;
+        /* hover background-position: -94px; */
+        background-image: url(/images/Z/buttons.png);
+        background-repeat: no-repeat;
+        margin: 20px 0px 0px 0px;
+        width: 32px;
+        height: 32px;
+        float: left;
+      }
+
+      #seta:hover
+      {
+        background-position: -32px;
+      }
+      #seta2:hover
+      {
+        background-position: -94px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- criei um div com a id geral, e coloquei tudo dentro dele -->
+    <div id='geral'>
+      <div class="head">
+        <div id="titulo"><%=@layout.name%><br/>
+          <div id="subTitulo"><%=@layout.slogan%></div></div>
+      </div>
+
+      <div class="body">
+        <div id="menu">
+          <!-- aqui, coloquei um link para cada menu, assim tu pode
+					 personalizar no css
+				-->
+          <%= create_tabs_separator %>
+        </div>
+        <!-- aqui � onde vai o conteudo do site, mesmo -->
+        <!-- desta forma, o conteudo do site ira aumentar o corpo, e tu nao tem q t preocupar com o tamanho, mais -->
+        <div id='esquerda'>
+          <%=yield%>
+        </div>
+        <div id='direita'>
+          <div id="subtitulo4">Conecte-se!</div>
+          <div id="icone"></div>
+          <div id="icone2"></div>
+          <div id="icone3"></div>
+          <div id="icone4"></div>
+          <div id="subtitulo5">Parceiros</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div id="rodape1">Rua Humberto de Campos 987/212 - Leblon - Rio de Janeiro - RJ - Ver Mapa<br/>
+				021 3330.0003 | 021 4333.0494 |021 9887.6654 <br/><br/>
+          <div id="rodape2">Todos os diritos reservados. Copyright 2010.</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>	

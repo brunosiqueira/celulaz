@@ -1,0 +1,64 @@
+<script type="text/javascript">
+
+    //reativa botao fechar
+    $('.box-novo-conteudo span.remove').click(function(){
+        $('#box-incluir-conteudo').slideUp('fast');
+        $('#openMenu').removeClass('active');
+        $('#box-incluir-conteudo').load('conteudo-menu.html');
+    });
+
+    //ajusta altura sidebar
+    $('#box-sidebar').css('height', $('#box-content').height());
+
+    trataCampos('.input');
+    //	$('.btn-add-image').click(function(){
+    //		var titulo = $('#titulo1').val();
+    //		//faz upload e segue para a próxima página
+    //		$('#box-incluir-conteudo').load('conteudo-imagem2.php',{acc:titulo});
+    //		$('#box-sidebar').css('height', $('#box-content').height());
+    //	});
+    var uploader = new qq.FileUploader({
+        // pass the dom node (ex. $(selector)[0] for jQuery users)
+        element: $('#file-uploader')[0],
+        params: {
+            authenticity_token: AUTH_TOKEN,
+        },
+        allowedExtensions: ["jpg","png","gif","bmp","tif"],
+        multiple: false,
+        onSubmit: function(id, fileName){
+            uploader.setParams({
+                component: {
+                    titulo: $('input#titulo1').val(),
+                    tipo: 'imagem'
+                }
+            });
+        },
+        onComplete: function(id, fileName, responseJSON){
+            $('#box-incluir-conteudo').load('conteudo-imagem2.html',function(){
+                $("input#id-imagem-component").val(responseJSON.id);
+                $("img#add-content-img").attr("src",responseJSON.picture_thumb);
+                $("input#titulo1").val(responseJSON.title);
+            });
+        },
+        // path to server-side upload script
+        action: '/company/construction/create_component'
+    });
+</script>
+
+<div class="icon-seta"></div>
+<div id="box-sidebar"> <img src="/images/company/ico-novo-imagem.png" width="95" height="81" alt="Imagem" /> </div>
+<div id="box-content">
+    <form id="form1">
+        <input type="text" name="titulo1" id="titulo1" class="input radius" value="Titulo da imagem" />
+        <!--    <input type="file" name="filename" />-->
+        <div id="file-uploader">
+            <noscript>
+                <p>Por favor, habilite o javascript do seu browser.</p>
+                <!-- or put a simple form for upload here -->
+            </noscript>
+        </div>
+        <br />
+        <!--    <input type="submit" id="btn-add-image" value="ADICIONAR IMAGEM" class="btn-add-image" />-->
+    </form>
+</div>
+<span class="remove"></span> <br class="clearfloat" />

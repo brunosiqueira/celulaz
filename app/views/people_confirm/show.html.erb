@@ -1,0 +1,34 @@
+<div class="block">
+	<div class="secondary-navigation">
+		<ul class="wat-cf">
+			<li class="first"><%= link_to "Aut&ocirc;nomos pendentes", :action => :index  %></li>
+			<li><%= link_to "Empresas pendentes", :action=>"index_companies" %></li>
+			<li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", user_path %></li>
+		</ul>
+	</div>          
+  	<div class="content">          
+		<h2 class="title">Empresas pendentes</h2>
+		<div class="inner">
+			<% if !@person.confirmed? %>
+				<%= link_to "Confirmar cadastro",:action=>"create", :id=>@person.id,:method=>:put%>
+			<% end %>
+			<% if @person.user %>
+			    <h3>Dados do usuário</h3>
+			    <p><strong>Usuário:</strong> <%=h @person.user.login %></p>
+			    <p><strong>Cadastrado em:</strong> <%= @person.user.created_at.to_s_br %></p>
+			    <p><strong>E-Mail:</strong> <%= @person.user.email %></p>
+			<% end %>
+
+			<%= render :partial=>"people/person_show",:object=>@person %>
+
+			<% if  @person.user && @person.user.is_company? %>
+				<h3><%=I18n.t "company.header"%></h3>
+				<%= render :partial=>"companies/company_show",:object=>@person.user.company %>
+			<% end %>
+
+			<div class="wat-cf">
+		        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default =>  "Edit")}")} #{t("web-app-theme.edit", :default=> "Editar")}", { :action=>"edit", :id => @person.id }, :class => "button" %> 
+			</div>
+		</div>
+	</div>
+</div>

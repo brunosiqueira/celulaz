@@ -1,0 +1,30 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", template_texts_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_template_text_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", template_text_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+
+      <p>
+        <b><%= t("activerecord.attributes.template_text.title", :default => t("activerecord.labels.title", :default => "Title")) %>:</b>
+        <%= @template_text.title %>
+      </p>
+      <p>
+        <b><%= t("activerecord.attributes.template_text.content", :default => t("activerecord.labels.content", :default => "Content")) %>:</b>
+      <fieldset>
+        <%= @template_text.content %>
+      </fieldset>
+      </p>
+      <div class="wat-cf">
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_template_text_path(@template_text), :class => "button" %>
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", template_text_path(@template_text), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

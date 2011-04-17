@@ -1,0 +1,15 @@
+<% if !@layout.address_site.nil? && @layout.address_site.show %>
+  <p>
+    <%=@layout.address_site.street%> <%=@layout.address_site.number%>/<%=@layout.address_site.complement%> - <%=@layout.address_site.neighborhood%> - <%=@layout.address_site.city%> - <%=@layout.address_site.state%> -
+    <strong><%=link_to "Ver Mapa","/sites/#{URI::escape @user.login}/show.html",:id=>"map-link"%></strong><br />
+    <%= (@layout.phones.collect{|phone| "#{phone.ddd} #{phone.number}"}).join(" | ") %>
+
+  </p>
+  <script type="text/javascript">
+    $(document).ready(function(){
+       $("a#map-link").colorbox({onComplete:function(){
+          if (map!=null && map!=undefined){google.maps.event.trigger(map, 'resize');map.setCenter(marker.getPosition())}
+        }});
+    });
+  </script>
+<% end %>

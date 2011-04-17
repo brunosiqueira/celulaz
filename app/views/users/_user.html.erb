@@ -1,0 +1,45 @@
+<tr class="<%= cycle("odd", "even") %>" >
+  <td class="login">&nbsp;&nbsp;<%=h user.login %></td>
+  <td id="<%=user.id%>" class="email"><%=h user.email %></td>
+  <td class="<%= color_cell_type(user.is_company? ? user.company[:type] : "") %>"><%=h user.is_company? ? user.company.razao_social : ApplicationHelper.humanize_user(user[:type]) %></td>
+  <td class=<%= user.enabled ? "hab" : "desab" %>>
+    <% unless user == current_user %>
+      <% if user.enabled %>
+        <%= link_to('Habilitado', disable_user_path(user.id), :method => :delete) %>
+      <% else %>
+        <%= link_to('Desabilitado', enable_user_path(user.id), :method => :put) %>
+      <% end %>
+    <% end %>
+  </td>
+  <td><%=link_to image_tag('admin/e-mail.gif',:alt=>"Reenviar e-mail Boas vindas",:size=>"45x39",:title=>"Reenviar e-mail Boas vindas"),:action=>"resend_welcome_mail",:id=>user%></td>
+  <% if !user.active? || current_user.is_director? || current_user.is_administrator? %>
+    <td><%=link_to "Excluir o Usuário",user_path(user),:confirm => 'Tem certeza que deseja excluir o usuário?',:method=>:delete%></td>
+  <% end %>
+</tr>
+<% if current_user.is_administrator? || current_user.is_director? %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('td#<%=user.id%>').editable('/users/update_attribute',{
+        cancel:'Cancelar',
+        submit:'Ok',
+        cssclass:'text_field',
+        indicator:"<img src='/images/colorbox/loading.gif'/>",
+        placeholder:'Clique para editar...',
+        submitdata:{
+          authenticity_token:AUTH_TOKEN,
+          id:<%=user.id%>,
+          field:'email'
+        },
+        onsubmit:function(settings,original){
+          if(original==null||original==''){
+            alert('O campo \'Email\' deve ser preenchido');
+            return false
+          }
+          return true
+        }
+      });
+    });
+  </script>
+<% end %>
+
+

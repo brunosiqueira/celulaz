@@ -1,0 +1,26 @@
+<%=javascript "company/titles_not_payed"%>
+<%=stylesheet "company/titles_not_payed"%>
+<div class="panel-head">
+  <ul class="panel-actions">
+    <li><%= link_to "Dados do Usuário", edit_company_user_path(current_company) %></li>
+    <li><%= link_to "Dados Pessoais", edit_company_person_path(current_company.person) %></li>
+    <li class="active"><%= link_to "Pagamentos", titles_not_payed_path %></li>
+  </ul>
+</div>
+
+
+<table id="pagamentos">
+  <tr>
+    <th><%=I18n.t("activerecord.attributes.title.due_date") %></th>
+    <th><%=I18n.t("activerecord.attributes.title.value") %></th>
+  </tr>
+
+  <% for title in @titles %>
+    <tr class="<%= cycle('linha-par', 'linha-impar')%>">
+      <td><%=h title.due_date %></td>
+      <td><%=h title.value %></td>
+      <td><%=link_to "Gerar Boleto",{:action=>"show",:id=>title},:popup=>true%></td>
+    </tr>
+  <% end %>
+</table>
+

@@ -1,0 +1,53 @@
+
+<%= error_messages_for :visit_schedule,:header_message=>nil %>
+
+
+<% form_for :visit_schedule,:url=>{:action=>"create"},:method=>:put, :html=>{:class=>"fale-conosco"} do |f|%>
+<h2>Agende uma visita</h2>
+
+  <div id="colleft">
+
+
+    <h1> Nome:</h1>
+    <div id="line2"> <%= f.text_field :name,:class=>"normal" %></div>
+
+    <h1>Telefone: </h1>
+    <%= f.text_field :ddd,:size=>3,:maxlength=>3,:onkeypress=>"mascara(this,soNumeros)",:class=>"ddd" %>
+    <%= f.text_field :phone,:size=>8,:maxlength=>8, :onkeypress=>"mascara(this,soNumeros)" ,:class=>"fone"%>
+
+    <h1>E-mail: </h1>
+    <%= f.text_field :email ,:class=>"normal"%>
+    <h1>Endereço:</h1>
+    <%= f.text_field :address,:class=>"normal" %>
+    <h1>Cidade:</h1>
+    <%= f.text_field :city,:class=>"normal" %>
+    <h1>Observações:</h1>
+    <%= f.text_area :description,:class=>"normal" %>
+
+    <%=f.submit "Enviar",:class=>"link-btn-orange-big"%> 
+
+  </div>
+
+
+  <div id="colright">
+    <h1>Segmento de atuação:</h1>
+    <%= f.select :segment_id,Segment.find(:all,:order=>"name").collect { |seg| [seg.name,seg.id.to_s] },:class=>"normal"%>
+    <h1> Horário de preferência para contato:</h1>
+    <%= f.select :time_to_visit,["Indiferente","Manhã","Tarde","Noite"] %>
+    <h1>Área</h1>
+    <%= f.select :subsidiary_id,Subsidiary.find(:all,:order=>"title",:conditions=>{:enabled=>true}).collect { |sub| [sub.title,sub.id.to_s] },:class=>"normal" %>
+    <h3> (áreas onde atendemos hoje)</h3>
+
+
+
+
+  </div>
+
+
+
+
+
+
+<% end %>
+
+<%= javascript_include_tag "fields_masks" %>

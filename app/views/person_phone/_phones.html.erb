@@ -1,0 +1,21 @@
+<%  @phone||=Phone.new %>
+
+  <h3> Telefones:</h3>
+  <% remote_form_for :phone,:url=>{:controller=>"person_phone",:action=>"create",:id=>person.id},:html=>{:method=>:put, :class=>"form_phone form"} do |p|%>
+
+    <label class="linha1" for="Número">Número:<br/>
+      <%=p.text_field :ddd, :onkeypress=>"mascara(this,soNumeros)"%>
+      <%=p.text_field :number, :onkeypress=>"mascara(this,soNumeros)"%>
+    <br/>*permitido no máximo 4 números</label><br/>
+   <%= submit_tag 'Salvar',:class=>"botao#{I18n.t "sufix-css"}" %><br/>
+      
+      
+    
+  <% end %>
+  <div id="telefones">
+    <%  for phone in person.phones %>
+      <%= render :partial=>"person_phone/phone",:object=>phone %>
+    <% end %>
+    
+  </div>
+</fieldset>

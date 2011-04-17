@@ -1,0 +1,68 @@
+<script type="text/javascript">
+    //reativa botao fechar
+    $('.box-novo-conteudo span.remove').click(function(){
+        $('#box-incluir-conteudo').slideUp('fast');
+        $('#openMenu').removeClass('active');
+        $('#box-incluir-conteudo').load('conteudo-menu.html');
+        CKEDITOR.instances.editorimagem.destroy();
+    });
+
+    //ajusta altura sidebar
+    $('#box-sidebar').css('height', '310px');
+
+    //cria novo conteudo
+    $('.btn-concluir').click(function(){
+        //$(CKEDITOR.instances.editorimagem.getData()).text();
+        var value = "<img src='"+ $('#add-content-img').attr('src') +"' width='73' height='50' alt='imagem' /></a>";
+        createContent('imagem', $('#box-content #titulo1').val(), value);
+        $('.box-novo-conteudo span.remove').trigger('click');
+    });
+
+    trataCampos('.input');
+
+    //volta para a tela de upload de imagem
+//    var uploader = new qq.FileUploader({
+//        element: document.getElementById('btn-add-image'),
+//        action: 'do-nothing.htm',
+//        debug: true
+//    });
+    //	$('.btn-change-image').click(function(){
+    //		$('#box-incluir-conteudo').load('conteudo-imagem.html');
+    //		CKEDITOR.instances.editorimagem.destroy();
+    //	});
+</script>
+
+<div class="icon-seta"></div>
+<div id="box-sidebar"> <img src="/images/company/ico-novo-imagem.png" width="95" height="81" alt="Imagem" /> </div>
+<div id="box-content">
+    <input type="text" name="titulo1" id="titulo1" class="input radius" value="Titulo da imagem" />
+    <img src="/images/colorbox/loading.gif" width="250" height="170" alt="Imagem" id="add-content-img" />
+    <div id="desc-content-img">
+        <p>Descri&ccedil;&atilde;o</p>
+        <input type="hidden" id="id-imagem-component" value=""/>
+        <textarea class="ckeditor" cols="60" id="editorimagem" name="editorimagem" rows="10">Exemplo de texto</textarea>
+        <script type="text/javascript">
+            //<![CDATA[
+
+            // Replace the <textarea id="editor"> with an CKEditor
+            // instance, using default configurations.
+            // formata botões e tamanho da caixa CKEditor
+            CKEDITOR.replace( 'editorimagem',
+            {
+                extraPlugins : 'uicolor',
+                toolbar :
+                    [
+                    [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'About' ]
+                ],
+                width : "319",
+                height : "70"
+            });
+
+            //]]>
+        </script>
+    </div>
+    <input type="submit" value="ALTERAR IMAGEM" class="btn-change-image" />
+    <input type="submit" value="CONCLUIR" class="btn-concluir" />
+</div>
+<span class="remove"></span> <br class="clearfloat" />
+<!--<script type="text/javascript"> CKEDITOR.replace('editorimagem'); </script>-->

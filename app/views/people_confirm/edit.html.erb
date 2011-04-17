@@ -1,0 +1,39 @@
+<div class="block">
+	<div class="secondary-navigation">
+		<ul class="wat-cf">
+			<li class="first"><%= link_to "Aut&ocirc;nomos pendentes", :action => :index  %></li>
+			<li><%= link_to "Empresas Pendentes", :action=>"index_companies" %></li>
+			<li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", { :action=>"edit", :id => @person.id } %></li>
+		</ul>
+	</div>          
+  	<div class="content">          
+		<h2 class="title">Editar Cadastro Pendente</h2>
+		<div class="inner">
+			<% form_for(@person, :url=>{ :controller => "people_confirm", :action => "update", :person_id => @person.id }, :method => :put, :html => {:class => "form"}) do |f| %>
+		        
+				<%= f.error_messages %>
+
+		        <%=render :partial=>"people/form", :locals=>{:f=>f}%>
+		        
+				<% if (@person.user.nil? || @person.user.is_company?) %>
+		          <!-- Exibe este campo apenas se a pessoa for um vendedor-->
+
+		          <div id="labell" class="fullline" for="user_web_adm_id">Administrador Web
+		            <%= f.select(:user_web_adm_id, current_user.web_administrators.collect { |u| [u.person.name, u.id.to_s] },{:include_blank=>true }) %>
+		          </div>
+
+		          <% if @company %>
+		            <%=render :partial=>"companies/company" ,:object=>@company%>
+		          <% end %>
+
+		        <% end %>
+				<div class="group navform wat-cf">
+				  <button class="button" type="submit">
+				    <%= image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Atualizar")}") %> <%= t("web-app-theme.save", :default => "Atualizar") %>
+				  </button>  
+				  <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Cancel")}")} #{t("web-app-theme.cancel", :default => "Cancelar")}", { :controller => :people_confirm }, :class => "button" %> 
+				</div>
+		    <% end %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+#wrapper{ margin:0 auto;  padding:0}
+img{border:none}
+ul, ol{ list-style:none;  padding:0px;  margin:0px}
+
+p{line-height:180%}
+
+div.facebook{    background:url("/images/iconsrelaci.gif") no-repeat;     height:30px;     width:30px;     background-position:-12px 0px;     float:left}
+div.twitter{    background:url("/images/iconsrelaci.gif") no-repeat;     height:30px;     width:30px;     background-position:-46px 0px;     float:left}
+div.orkut{    background:url("/images/iconsrelaci.gif") no-repeat;     height:30px;     width:30px;     background-position:-80px 0px;     float:left}
+div.flickr{    background:url("/images/iconsrelaci.gif") no-repeat;  height:30px;  width:30px;  background-position:right;  float:left}
+.link{float:left; position:relative; width:100%}
+.link a{float:left}
+
+.column, .full-line{ height:155px; margin-bottom:20px; overflow:hidden}
+.column ul{margin-bottom:10px; width:325px; height:120px; float:left}
+.full-line ul{margin-bottom:10px; width:700px; height:120px; float:left}
+.bx-wrapper .bx-prev, .bx-wrapper .bx-next{width:25px; height:25px; float:left}
+.bx-wrapper .bx-prev img, .bx-wrapper .bx-next img{border:none 0px!important}
+
+#galeria li{margin:0 32px 10px 0; float:left}
+
+textarea, input, label{float:left; width:300px; positon:relative; margin:0 0 10px 0}
+#public_profile_ddd{width:20px}
+#public_profile_number{width:90px}
+.fieldWithError{color:red; font-size:11px}
+.input-msg{border:none 0px; text-transform:uppercase; font-size:11px}
+#public_profile_ddd{margin-right:5px}
+
+.postmeio{ float:left;  width:325px }
+.post{ float:left;  width:700px;  margin-bottom:3em}
+
+.post .title a{ border:none}
+.post .entry{ width:100%;  float:left;  text-align:justify;  margin-bottom:25px;  padding:10px 0px 0px 0px}
+ul.componente-galeria li{width:105px}
+

@@ -1,0 +1,16 @@
+<% stylesheet "company/messages" %>
+<% javascript "company/messages" %>
+
+<div class="message-page">
+	<%= render :partial => "company/shared/message_actions" %>
+	<%= render :partial => "company/shared/new_message" %>
+	<div class="panel">
+		<div class="panel-head">
+			<%= render :partial => "company/shared/message_box_label" %>
+		</div>
+		<div class="panel-body">
+			<%= show_sent_message(@message) %>
+		</div>
+	</div>
+</div>
+

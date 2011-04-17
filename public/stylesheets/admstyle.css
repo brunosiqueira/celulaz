@@ -1,0 +1,621 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body{
+    margin:0px;
+    padding: 0px;
+}
+
+#pai{
+    padding: 0;
+    margin: 0;
+    position:relative;
+    width:100%;
+    text-align:left;
+    background-color:#FFFFFF;
+}
+#topo{
+    position:relative;
+    width:100%;
+    height:100px;
+    background-color:#ffffff;
+}
+
+#conteudo2{
+    padding: 0px;
+    margin-top:20px;
+    list-style:none;
+}
+#conteudo{
+    position:relative;
+    padding: 0px 0px 20px 0px;
+    margin-top: 20px;
+    list-style:none;
+    min-height:500px;
+    height:auto;
+}
+
+#logo{
+    right: 10px;
+    margin-top:15px;
+    position:absolute;
+    background-color:#FFFFFF;
+    background-position:left;
+
+    background-repeat:no-repeat;
+    width:170px;
+    height:70px;
+    top: 0px;
+    background-image: url(../images/admin/logo.jpg);
+}
+
+#logo-autonomoz{
+    right: 10px;
+    margin-top:15px;
+    position:absolute;
+    background-color:#FFFFFF;
+    background-position:left;
+
+    background-repeat:no-repeat;
+    width:300px;
+    height:70px;
+    top: 0px;
+    background-image: url(../images/autonomoz/perfil/logo_suaempreza.gif);
+}
+#form{
+    position:relative;
+    background-color:#EAF4FF;
+    padding:0 0 20px;
+    margin-top:0px;
+    margin-left:10px;
+    margin-right:10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+}
+
+#show_form{
+    position:relative;
+    background-color:#EAF4FF;
+    margin-top:0px;
+    margin-left:10px;
+    margin-right:10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#infolog{
+    top:15px;
+    left:107px;
+    float:left;
+    position:absolute;
+    width:auto;
+
+}
+#foto{
+    top:15px;
+    left:10px;
+    float:left;
+    position:absolute;
+    width:81px;
+    height:81px;
+    background-image:url(../images/admin/userdefaul.jpg);
+    background-color:#CCCCCC;
+}
+
+#barra{
+
+    position:relative;
+    background-image:url(../images/admin/barra.jpg);
+    background-repeat:repeat-x;
+    height:26px;
+
+}
+#tituloconteudo{
+    padding-left:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    margin-top:20px;
+    margin-left:10px;
+    background-color:#0066CC;
+    width:170px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:18px;
+    color:#FFFFFF;
+    font-weight:bold;
+    list-style:none;
+}
+
+
+#iconuser{
+    position:absolute;
+    background-image:url(../images/admin/icouser.gif);
+    background-repeat:no-repeat;
+    width:23px;
+    height:23px;
+    left:5px;
+}
+
+/*classes de textos no topo */
+.nomelog{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:24px;
+    font-weight:bold;
+    color:#0066CC;
+
+}
+
+
+.cargolog{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    color:#FF9900;
+
+}
+
+
+.editlogado{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    color:#666666;
+    text-decoration:none;
+
+}
+a:hover.editlogado{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    color:#FF6600;
+    text-decoration:none;
+}
+/*classes corpo user*/
+
+
+#conteudo ul {
+    margin: 0;
+    padding: 0;
+    list-style:none;
+}
+#topo a:link ,#topo a:visited{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    color:#0000CC;
+    text-decoration:none;
+    text-align:right;
+    font-weight:normal;
+
+}
+
+
+#topo a:hover{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    color:#FF6600;
+
+    text-decoration:none;
+    font-weight:normal;
+    text-align:right;
+}
+.form a:link ,.form a:visited{
+    margin:10px 2px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    color:#0000CC;
+    font-weight:normal;
+
+    text-decoration:none;
+    text-align:right;
+}
+
+
+.form a:hover{
+    font-weight:normal;
+
+    margin:10px 0px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    color:#FF6600;
+    text-decoration:none;
+    text-align:right;
+}
+
+a:link , a:visited{
+    padding:5px 0px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#0000CC;
+    text-decoration:none;
+    text-align:right;
+}
+
+
+a:hover{
+    padding:5px 0px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#FF6600;
+    text-decoration:none;
+    text-align:right;
+}
+
+#rodapetitulo{
+    height:3px;
+    position:relative;
+    background-color:#0066CC;
+    margin-left:10px;
+
+}
+#rodapetab{
+    height:20px;
+    position:relative;
+    background-color:#0066CC;
+    margin-top:0px;
+    margin-left:10px;
+    margin-right:10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+
+}
+/*classes corpo cadastro*/
+
+
+
+
+#conteudo table{
+    width: 100%;
+    background-color: #ffffff;
+}
+
+#conteudo table th{
+    background-color: #cccccc;
+}
+
+table a{
+
+    font-size: 11px;
+}
+
+#conteudo .linha-par{
+    background-color: #ffffff
+}
+
+#conteudo .linha-impar{
+    background-color: #f2f2f2
+}
+
+.hab{
+    background-color:#99ff99;
+    text-align:center
+}
+
+.desab{
+    background-color:#ff6666;
+    text-align:center
+}
+
+img {
+    border:0;
+}
+#formadm {
+    width:970px;
+    position:relative;
+    z-index:0;
+    background-color:#EAF4FF;
+    height:auto;
+    padding: 0 0 20px 10px;
+    margin:0 0 0 10px;
+
+}
+
+#formadm form {
+    padding-top:10px;
+    padding-left:0px;
+    width:960px;
+    font-weight:bold;
+
+}
+
+h1.big{
+    font-size:16px;
+    background-color:#0066CC;
+    margin: 25px 0 10px 0;
+    width:952px;
+    padding:5px 0 5px 5px;
+    height:20px;
+    border:none;
+    color:#FFF;
+}
+h1{
+    width:957px;
+
+    margin:15px 0 5px 0;
+    text-align:left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    color:#0066CC;
+    line-height:20px;
+    border-bottom:#0066CC 1px solid;
+}
+
+h2{
+    width:957px;
+
+    margin:15px 0 5px 0;
+    text-align:left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    color:#0066CC;
+    line-height:20px;
+    border-bottom:#0066CC 1px solid;
+}
+
+fieldset {
+    position:relative;
+    margin:0px;
+    padding:0px;
+    width:auto;
+    border:none;
+    clear:left;
+}
+
+#labell {
+    float:left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight:600;
+    color:#0066CC;
+    margin: 0;
+    line-height:20px;
+    padding:5px 0px;
+
+}
+
+#labelltipo{
+    float:left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:18px;
+    line-height:24px;
+    font-weight:bold;
+    color:#0066CC;
+    margin: 10px 0;
+    padding:10px ;
+    background-color:white;
+    width:937px;
+
+}
+
+
+#formadm form fieldset #labell.floatleft {
+    padding-left:10px;
+}
+
+#labell.floatleft {
+    padding-left:10px;
+}
+.fullline {
+    display:block;
+    position:relative;
+    width:977px;
+    padding-top: 5px;
+    padding-left:0px;
+}
+#formadm form fieldset   #checkbox_area{
+    float:none;
+    width:740px;
+}
+
+#formadm form fieldset  #checkbox_area input {
+    padding:5px;
+    border:0px;
+    display:inherit;
+    padding:0px;
+    float:left;
+    margin:3px;
+}
+
+
+#formadm form fieldset #labell textarea {
+    width:500px;
+    height:80px;
+    font:13px arial, tahoma, sans-serif;
+    padding:3px;
+    border:1px solid #8CC6FF;
+    overflow:hidden;
+}
+#formadm form  #labell input {
+    display:block;
+    border:1px solid  #8CC6FF;
+    margin:10px 0;
+}
+
+#formadm form   select {
+    border:1px solid  #8CC6FF;
+    margin:10px 0;
+}
+#formadm form fieldset #labell  input.inpnome {
+    width:450px;
+}
+#formadm form fieldset #labell input.inprua {
+    width:530px;
+}
+#formadm form fieldset #labell input.inpcomplemento {
+    width:80px;
+}
+#formadm form fieldset #labell input.inpnumero {
+    width:70px;
+}
+#formadm form fieldset #labell input.inpbairro {
+    width:291px;
+}
+
+
+.form_phone{
+    margin:0px;
+    border:0px;
+    padding:0px 0 20px 0;
+}
+
+.form_phone label.linha1{
+    color:#0066CC;
+
+
+    font-weight:bold;
+    font-size:8pt;
+}
+.form_phone #phone_obs{
+    font-size:7pt;
+}
+.form_phone fieldset input.inptel {
+    width:291px;
+}
+
+td{
+    font-size: 10pt;
+}
+
+.yellow{
+
+    background-color: #fefc8c;
+    color: #f7501a;
+    border-color:#f7501a
+
+}
+
+.blue{
+
+    background-color: #90d7ff;
+    color: #025eb0;
+    border-color:#025eb0
+}
+
+.red{
+
+    background-color: #f76764;
+    color: #025eb0;
+    border-color:#025eb0
+}
+
+.gray{
+
+    background-color: #dad1d1;
+    color: #3f3a3b;
+    border-color:#3f3a3b
+}
+
+div#square{
+    width:10px;
+    height:10px;
+    border:1pt;
+    border-style:solid;
+    float:left;
+    margin:0px 5px;
+    padding:0px;
+}
+
+div#legenda{
+    width:auto;
+    height:20px;
+    position:relative;
+    padding:5px;
+    margin:5px;
+    background-color: #ffffff;
+
+}
+
+div#legenda .line{
+    height:auto;
+    position:relative;
+    float:left;
+    margin-left:10px;
+    padding-top:3px;
+}
+
+div#menu_admin{
+    padding:10px
+}
+
+div#filtro {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight:600;
+    color:#0066CC;
+    line-height:20px;
+    padding:10px;
+
+}
+
+div#flash_notice{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #7ee175;
+    text-align: center;
+    vertical-align: middle;
+    border-width: 2px;
+    border-color: #267b0a;
+    border-style: solid;
+    color: #267b0a;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 12px;
+}
+
+
+div#flash_error{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3544f;
+    text-align: center;
+    vertical-align: middle;
+    border-width: 2px;
+    border-color: #c90106;
+    border-style: solid;
+    color: #c90106;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 12px;
+}
+
+p {
+    color:#0000CC;
+}
+
+#news_principal{
+    border-style: solid;
+    border-width: 3px;
+    border-color: #3d4dc2;
+    padding: 5px;
+    background-color: #dde5f6;
+    width:800px;
+}
+
+#news_principal h2{
+    color: #2279db;
+    border-bottom-style: inset;
+}
+
+#news_principal small a{
+    
+        
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.notice{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #2279db;
+}
+.error{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #dc1e18;
+}

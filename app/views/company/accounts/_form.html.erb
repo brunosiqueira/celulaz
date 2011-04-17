@@ -1,0 +1,10 @@
+<% form_tag({:controller=>"accounts", :action => "update" },:class=>"change-password") do -%>
+  <%= label_tag :old_password, "Senha atual" %>
+  <%= password_field_tag 'old_password', @old_password, :size => 45 %>
+  <%= label_tag :password, "Nova senha" %>
+  <%= password_field_tag 'password', {}, :size => 45, :class => 'text_field' %>
+  <span>Entre 4 e 40 caracteres</span>
+  <%= label_tag :password_confirmation, "Repita a nova senha", :class => :label %>
+  <%= password_field_tag 'password_confirmation', {}, :size => 45, :class => 'text_field' %>
+  <%= submit_tag "Alterar Senha" %>
+<% end %>

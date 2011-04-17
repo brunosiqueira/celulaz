@@ -1,0 +1,15 @@
+<html>
+  <head>
+
+    <title><%=I18n.t("company.site_title")%></title>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "fields_masks" %>
+  </head>
+  <body>
+    <%= flash[:notice] %>
+    <%= flash[:error] %>
+    <div id="conteudo">
+      <%= yield %>
+    </div>
+  </body>
+</html>

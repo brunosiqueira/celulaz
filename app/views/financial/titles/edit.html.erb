@@ -1,0 +1,109 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Gerar títulos", :controller => :main  %></li>
+      <li class="active"><%= link_to "Títulos", :controller=>"titles" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+      <li><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+      <li><%=link_to 'Remessas',:controller=>"shippings"%></li>
+      <li><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+      <li><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Editar Título</h2>
+    <div class="inner">
+      <% form_for(@title,:url=>financial_company_title_url(:id=>@title,:company_id=>@company),:html=>{:method=>:put, :class => "form"}) do |f| %>
+        <%= f.error_messages %>
+        <p>
+          <label class="label"><%= I18n.t("activerecord.attributes.company.drawee_code") %>:
+            <%=h @company.drawee_code%>
+          </label>
+        </p>
+        <div class="group">
+          <%= f.label :contract, nil, :class => "label" %>
+          <%= f.select :contract_id,@company.open_contracts.collect { |p| ["#{p.initial_date} - #{p.end_date}", p.id.to_s] } %>
+        </div>
+        <div class="group">
+          <%= f.label :your_number, nil, :class => "label" %>
+          <%= f.text_field :your_number, :class => "text_field zip" %>
+        </div>
+        <% if current_user.is_director? || current_user.is_administrator? %>
+          <div class="group">
+            <%= f.label :our_number, nil, :class => "label" %>
+            <%= f.text_field :our_number, :class => "text_field zip" %>
+          </div>
+          <div class="group">
+            <%= f.label :status, nil, :class => "label" %>
+            <%= f.select :status,Title.status_list.collect { |p| [p, p] },{:include_blank=>false} %>
+          </div>
+        <% else %>
+          <div class="group">
+            <%= f.label :status, nil, :class => "label" %>
+            <%= h @title.status %>
+          </div>
+        <% end %>
+        <div class="group">
+          <%= f.label :emission_date, nil, :class => "label" %>
+          <%= f.date_select :emission_date %>
+        </div>
+        <div class="group">
+          <%= f.label :due_date, nil, :class => "label" %>
+          <%= f.date_select :due_date %>
+        </div>
+        <div class="group">
+          <%= f.label :value, nil, :class => "label" %>
+          <%= f.text_field :value, :size=>15, :onkeyup=>"maskIt(this,event,'#.###,##',true)", :class => "text_field zip" %>
+        </div>
+        <div class="group">
+          <%= f.label :fine_percent, nil, :class => "label" %>
+          <%= f.text_field :fine_percent,:size=>10, :class => "text_field zip" %>
+          <script type="text/javascript">jQuery("input#title_value").decimalMask({
+            separator: ",",
+            decSize: 2,
+            intSize: 4
+          });</script>
+        </div>
+        <div class="group">
+          <%= f.label :days_to_charge_fine, nil, :class => "label" %>
+          <%= f.text_field :days_to_charge_fine , :class => "text_field number" %>
+        </div>
+        <div class="group">
+          <%= f.label :interest_type, nil, :class => "label" %>
+          <%= f.select :interest_type,Title.interest_type_list.collect { |p| [p[1], p[0]] },{:include_blank=>true} %>
+        </div>
+        <div class="group">
+          <%= f.label :interest_percent, nil, :class => "label" %>
+          <%= f.text_field :interest_percent,:size=>10, :onkeyup=>"maskIt(this,event,'###,##',true)", :class => "text_field zip" %>
+        </div>
+        <div class="group">
+          <%= f.label :abatement_value, nil, :class => "label" %>
+          <%= f.text_field :abatement_value,:size=>15, :onkeyup=>"maskIt(this,event,'#.###,##',true)", :class => "text_field zip" %>
+        </div>
+        <div class="group">
+          <%= f.label :discount_value, nil, :class => "label" %>
+          <%= f.text_field :discount_value,:size=>15, :onkeyup=>"maskIt(this,event,'#.###,##',true)", :class => "text_field zip" %>
+        </div>
+        <div class="group">
+          <%= f.label :discount_type, nil, :class => "label" %>
+          <%= f.select :discount_type,Title.discount_type_list %>
+        </div>
+        <div class="group">
+          <%= f.label :discount_limit_date, nil, :class => "label" %>
+          <%= f.date_select :discount_limit_date, :include_blank=>true %>
+        </div>
+
+        <div class="group">
+          <%= f.label :additional_data, nil, :class => "label" %>
+          <%= f.text_area :additional_data, :onkeypress=>"maxLength(textAreaField, 800);", :class => "text_area" %>
+        </div>
+        <div class="group navform wat-cf">
+          <button class="button" type="submit">
+            <%= image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Salvar")}") %> <%= t("web-app-theme.save", :default => "Salvar") %>
+          </button>
+          <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Voltar")}")} #{t("web-app-theme.cancel", :default => "Voltar")}", financial_company_title_url(:id=>@title,:company_id=>@company), :class => "button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

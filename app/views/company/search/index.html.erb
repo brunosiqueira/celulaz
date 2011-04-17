@@ -1,0 +1,31 @@
+<%= stylesheet "company/search" %>
+<% if @companies.empty? %>
+  <div class="orientation-msg">
+    Nenhum resultado encontrado
+  </div>
+<% else %>
+  <div id="search-control">
+
+    <span style="color:#333;font-size:16px; line-height:1.6;float: left; margin-top: 10px;">Você procurou por <span style="font-style: italic; font-size: 16px;color:#00395F;"><%= @search %></span></span>
+
+    <%= will_paginate @companies,:previous_label=>" ",:next_label=>" ",:id=>'top', :params=>{:search=>@search,:order=>@order} %>
+
+  </div>
+
+  <div style="width: 780px;margin-bottom:20px; float: left">
+    Ordenar por: <%=link_to "Nome",:action=>"index",:search=>@search,:order=>"layout_name ASC"%> | <%=link_to "Ultimas atualizações",:action=>"index",:search=>@search,:order=>"updated_at DESC"%>
+  <% end %>
+</div>
+<% @companies.each do |company| %>
+  <% unless company.nil? %>
+    <div class="cv-info-basic">
+      <%= image_tag(company.profile_logo.url(:small), :size=>"63x63") %>
+      <%= link_to h(company.layout.name),:controller=>"company/profile",:action=>"public",:id=>company %>
+      <p><%= h(truncate(company.layout.presentation_text,:length=>200)) %></p>
+      <br/>
+    </div>
+  <% end %>
+<% end %>
+<div id="search-control-bottom">
+  <%= will_paginate @companies,:previous_label=>" ",:next_label=>" ",:id=>'top', :params=>{:search=>@search,:order=>@order} %>
+</div>

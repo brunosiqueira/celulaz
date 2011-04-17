@@ -1,0 +1,42 @@
+<div id="tituloconteudo"><%=" Alterar #{I18n.t("company.singular")} para Z"%> </div>
+<div id="rodapetitulo"></div>
+<div id="show_form">
+  <h1>Confirmar os Dados</h1>
+  <%= error_messages_for :company %>
+  <%= error_messages_for :person %>
+  <% form_for(:company,@company,:url=>{:action=>"change_type_to_z",:id=>@company}, :html => { :method => :put } ) do |f| %>
+
+    <p>
+      <%= f.label :cnpj %>
+      <%= f.text_field :register_number %>
+    </p>
+
+    <% fields_for @person do |p| %>
+      <p>
+        <%= p.label :cpf %>
+        <%= p.text_field :cpf, :onkeypress=>"mascara(this,cpf)" %>
+      </p>
+    <% end %>
+
+    <h2>Dados do contrato</h2>
+    <small>Caso a empresa já possua um contrato aberto, os dados serão ignorados</small>
+
+  <div class="group">
+    <%= f.label :value, nil, :class => "label" %>
+    <%= f.text_field :value, :size => 15, :class => "text_field zip" %>
+    <script type="text/javascript">jQuery("input#company_value").decimalMask({
+      separator: ",",
+      decSize: 2,
+      intSize: 4
+    });</script>
+  </div>
+
+  <div class="group">
+    <%= f.label :parcel, nil, :class => "label" %>
+    <%= f.select :parcel,[1,2,3,4,5,6,7,8,9,10,11,12],{ :include_blank => true } %>
+  </div>
+    <p>
+      <%= f.submit "Alterar Para Z" %>
+    </p>
+  <% end %>
+</div>

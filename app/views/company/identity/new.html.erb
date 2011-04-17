@@ -1,0 +1,24 @@
+<% stylesheet "company/identidade","company/construtor" %>
+<% javascript "company/identidade" %>
+
+<div class="submenu">
+  <ul>
+    <li><%=link_to "Construção",:controller=>"company/construction"%></li>
+    <li class="active"><%=link_to "Identidade",:controller=>"company/identity"%></li>
+    <li><%= link_to "Banner", company_banners_path %></li>
+  </ul>
+
+  <!-- <a class="publish" href="javascript:;">Publicar</a>-->
+  <%#= link_to "Publicar", {:controller=>"publish",:action=>"create"},:class=>"publish" %>
+  <%#= link_to "Ver como ficou", z_path(current_company.login),:class=>"preview",:popup=>true %>
+  <br class="clearfloat" />
+</div><!-- .submenu -->
+
+<!-- .submenu -->
+<!-- .botoes-contrutor -->
+<!-- identidade -->
+
+<!-- #conteúdo_miolo -->
+<div id="conteudo_miolo" >
+  <%= render :partial=>"layout_type" %>
+</div>

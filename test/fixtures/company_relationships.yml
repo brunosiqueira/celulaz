@@ -1,0 +1,27 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: company_relationships
+#
+#  id                 :integer(4)      not null, primary key
+#  company_origin_id  :integer(4)      not null
+#  company_destiny_id :integer(4)      not null
+#  confirmed          :boolean(1)      not null
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+missing_confirm:
+  company_destiny_id: 5
+  company_origin_id: 3
+  confirmed: false
+
+confirmed:
+  company_destiny_id: 5
+  company_origin_id: 7
+  confirmed: true
+
+two:
+  confirmed: false

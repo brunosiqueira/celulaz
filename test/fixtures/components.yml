@@ -1,0 +1,83 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: components
+#
+#  id                   :integer(4)      not null, primary key
+#  layout_id            :integer(4)
+#  type                 :string(255)
+#  title                :string(300)
+#  picture_file_name    :string(255)
+#  picture_content_type :string(255)
+#  picture_file_size    :string(255)
+#  created_at           :datetime
+#  updated_at           :datetime
+#  description          :text
+#  url                  :string(255)
+#  font_colors          :string(255)
+#  show_name            :boolean(1)      default(TRUE)
+#  show_email           :boolean(1)      default(TRUE)
+#  show_phone           :boolean(1)      default(TRUE)
+#  show_address         :boolean(1)      default(TRUE)
+#  show_message         :boolean(1)      default(TRUE)
+#  show_all_content     :boolean(1)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  layout_id: 2
+  type: ComponentText
+  title: MyString
+  description: MyString
+
+picture_1:
+  id: 2
+  layout_id: 2
+  type: ComponentPicture
+  title: MyString
+
+three:
+  id: 3
+  layout_id: 2
+  type: ComponentPicture
+  title: MyString
+
+component_form:
+  id: 4
+  layout_id: 2
+  type: ComponentForm
+  title: MyString
+
+four:
+  id: 5
+  layout_id: 1
+  type: ComponentText
+  description: MyString
+  title: MyString
+
+five:
+  id: 6
+  layout_id: 1
+  type: ComponentPicture
+  title: MyString
+
+picture_2:
+  id: 7
+  layout_id: 1
+  type: ComponentPicture
+  title: MyString
+
+gallery:
+  id: 8
+  layout_id: 1
+  type: ComponentGallery
+  title: MyString
+
+form:
+  id: 9
+  layout_id: 1
+  type: ComponentForm
+  title: MyString
+  show_phone: false

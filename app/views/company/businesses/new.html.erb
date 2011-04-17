@@ -1,0 +1,24 @@
+<h1>Novo Negócio</h1>
+
+<% form_for([:company,@business],:html => {:multipart => true} ) do |f| %>
+  <%= f.error_messages %>
+
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :business_image %><br />
+    <%= f.file_field :business_image %>
+  </p>
+  <p>
+    <%= f.label :total %><br />
+    <%= f.text_field :total %>
+  </p>
+  <p>
+    <%= f.submit 'Criar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', company_businesses_path %>

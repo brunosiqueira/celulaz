@@ -1,0 +1,50 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: company_services
+#
+#  id         :integer(4)      not null, primary key
+#  company_id :integer(4)
+#  service_id :integer(4)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+one:
+  service_id: 1
+  company_id: 7
+
+
+two:
+  service_id: 2
+  company_id: 7
+
+
+three:
+  service_id: 3
+  company_id: 7
+
+
+four:
+  service_id: 4
+  company_id: 7
+
+
+five:
+  service_id: 5
+  company_id: 7
+
+
+six:
+  service_id: 6
+  company_id: 7
+
+
+seven:
+  service_id: 7
+  company_id: 7
+
+
+eight:
+  service_id: 8
+  company_id: 7

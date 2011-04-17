@@ -1,0 +1,8 @@
+<h1 style="background-image: none;clear: right !important;color: #003399;font-size: 21px;font-weight: normal;line-height: 1;margin: 3px 0;padding: 0 !important;text-align: left;"><%= @company_relationship.origin.layout.name %></h1> quer se relacionar com você
+<img style="border:1px solid #ccc; margin:0px;" src="http://<%=SITE_URL%><%=@company_relationship.origin.profile_logo.url(:small)%>" />
+<p>
+ <%= @observations %>
+</p>
+<p>
+  Para aceitar/negar este pedido entre no seu <%=link_to "perfil","http://#{SITE_URL}#{url_for(company_relationships_path)}"%>
+</p>

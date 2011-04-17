@@ -1,0 +1,39 @@
+<%  if @lightbox %>
+  <div id="redboxmsg" style="display:block" >
+    <div id="closebox"><%=link_to_close_redbox('Fechar')%></div>
+    <div id="msgtitulo">
+      <div id="msgico"></div>
+      <h1>DEIXAR RECADO</h1>
+    </div>
+  <% end %>
+  <% remote_form_for(:message,@message,:url=>{:action=>"create",:lightbox=>@lightbox,:origin_id=>@message_origin,:message_view=>"sent"}) do |f| %>
+    <%= f.error_messages %>
+
+    <% if  @receiver %>
+      <%= f.hidden_field :receiver_id,:value=>@receiver.id.to_s %>
+    <% else %>
+      <div id="msgdestinatario" >
+        <h2> Para:</h2><h3>
+          <%= f.select :receiver_id, @receivers.collect { |r|[r.name,r.user_id.to_s]  } %>
+        </h3>
+      </div>
+    <% end %>
+    <div id="msg">
+      <div id="msgform" class="assunto">
+        Assunto:
+        <%= f.text_field :subject,:size=>100 %>
+      </div>
+      <div id="msgform" class="msge">
+        Texto:
+        <%= f.text_area :body %>
+      </div>
+      <div id="btmedium<%=I18n.t "sufix-css"%>" style="width:200px">
+        <ul>
+          <li class="orangebt1"></li>
+          <li id="btmediumtext"><%= f.submit "Enviar",:class=>"message_submit#{I18n.t "sufix-css"}"%></li>
+          <li class="orangebt3"></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <%="</div>"  if @lightbox %>

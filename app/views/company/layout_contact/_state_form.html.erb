@@ -1,0 +1,10 @@
+<div id="form_space3" class="state-form" style="display:none;">
+	<% form_for :address, @company.layout.address_site, :url => {:controller=>"company/layout_contact", :action=>"update_component"}, :html => { :class => "edit_layout_state"} do |f|%>
+		<%= hidden_field_tag "component_type", "state" %>
+		<%= f.select :state, State.find(:all).collect { |p| [p.acronym, p.acronym] },{:include_blank=>true },:style=>"padding:2px;", :title=>"UF" %>
+		<div class="actions">
+			<%= f.submit "Salvar" %>
+		    <a href="#">Cancelar</a>
+		</div>
+	<% end %>				
+</div>

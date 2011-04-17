@@ -1,0 +1,52 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: segments
+#
+#  id   :integer(4)      not null, primary key
+#  name :string(100)
+#  file :string(30)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+alimentacao:
+    id: 1
+    name: Alimentação
+    file: Mystring.jpg
+
+casa:
+    name: Casa
+    file: Mystring.jpg
+
+comercio:
+    name: Comércio
+    file: Mystring.jpg
+
+diversao:
+    name: Diversão
+    file: Mystring.jpg
+
+educacao:
+    name: Educação
+    file: Mystring.jpg
+
+saude:
+    name: Saúde
+    file: Mystring.jpg
+
+transporte:
+    name: Transporte
+    file: Mystring.jpg
+
+viagens:
+    name: Viagem
+    file: Mystring.jpg
+
+outros:
+    name: Outros
+    file: Mystring.jpg
+
+autonomos:
+    name: Autonomos
+    file: Mystring.jpg

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Administra&ccedil;&atilde;o Célula Z</title>
+    <%= stylesheet_link_tag "web_app_theme", "web_app_theme_override", "themes/amro/style", "admin_aux","scaffold" %>
+    <%= javascript_include_tag "third/jquery-1.4.2.min","third/jquery.jeditable.mini","third/jquery.caret.min","third/jquery.maskedinput-1.2.2.min","third/jquery.decimalMask.1.1.1.min","application" %>
+    <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.to_json};" if protect_against_forgery? %>
+    <%= javascript_include_tag "fields_masks" %>
+    <%= yield :head %>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1><%=link_to "Administra&ccedil;&atilde;o #{I18n.t("company.site_title")}", root_path %></h1>
+        <div class="user-info">
+          <%= image_tag(current_user.avatar.url(:thumb)) %>
+          <div class="user-content">
+            <ul>
+              <li><%=h current_user.person.name%></li>
+              <li><%=h ApplicationHelper.humanize_user(current_user[:type])%></li>
+            </ul>
+          </div>
+        </div>
+        <div id="user-navigation">
+          <ul class="wat-cf">
+            <li><%=link_to 'Alterar Senha', change_password_path, :class=>"editlogado" %></li>
+            <li><%= link_to 'Editar Dados Pessoais', edit_user_path(current_user) %></li>
+            <li><%=link_to 'E-Mail', "http://mail.#{I18n.t "scope_name"}.com.br"%></li>
+            <li><%=link_to 'Sair', logout_path, :class=>"logout" %></li>
+          </ul>
+        </div>
+        <div id="main-navigation">
+          <ul class="wat-cf">
+            <li class="<%= controller.controller_path == 'users' ? 'active' : '' %>">
+              <%=link_to 'Usu&aacute;rios', users_path %>
+            </li>
+            <% if current_user.is_administrator? || current_user.is_director? %>
+              <li class="<%= controller.controller_path == 'subsidiaries' ? 'active' : '' %>">
+                <%= link_to 'Filiais', subsidiaries_path %>
+              </li>
+            <% end%>
+            <li class="<%= controller.controller_path == 'people' ? 'active' : '' %>">
+              <%=link_to 'Pessoas', people_path %>
+            </li>
+            <li>
+              <%=link_to 'Pendências', :controller=>"/people_confirm" %>
+            </li>
+            <li>
+              <%=link_to "Clientes", :controller=>"/company_management"%>
+            </li>
+            <li class="<%= controller.controller_path.match('financial').to_s == 'financial' ? 'active' : '' %>">
+              <%=link_to_if current_user.is_director? || current_user.is_administrator?,"Financeiro", :controller=>"/financial/main" %>
+            </li>
+            <li class="<%= controller.controller_path == 'template_texts' ? 'active' : '' %>">
+              <%=link_to "Textos Padrões", template_texts_path%>
+            </li>
+            <li class="<%= controller.controller_path == 'domains' ? 'active' : '' %>">
+              <%=link_to "Domínios", :controller=>"/domains"%>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="wrapper" class="wat-cf">
+        <div class="flash">
+          <% flash.each do |type, message| -%>
+            <div class="message <%= type %>">
+              <p><%= message %></p>
+            </div>
+          <% end -%>
+        </div>
+        <div id="main">
+          <%= yield %>
+          <div id="footer">
+            <div class="block">
+              <p>Copyright &copy; <%= Time.now.year %>Célula Z.</p>
+            </div>
+          </div>
+        </div>
+        <div id="sidebar">
+          <%= yield :sidebar %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

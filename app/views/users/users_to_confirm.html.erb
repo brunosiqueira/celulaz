@@ -1,0 +1,25 @@
+<div id="tituloconteudo">Usuários pendentes</div>
+<div id="rodapetitulo"></div>
+<div id="form">
+  <table>
+    <tr>
+      <th>Login</th>
+      <th>Nome</th>
+      <th>Perfil</th>
+    </tr>
+    <% for user in @users do%>
+        <tr class="<%= cycle('linha-par', 'linha-impar')%>">
+          <td>
+            <%= link_to_remote user.login, :url=>{:action=>"show_user", :id=>user},:update=>"conteudo",:method=>:get %>
+          </td>
+          <td>
+            <%= h user.person ? user.person.name : "" %>
+          </td>
+          <td>
+            <%= h ApplicationHelper.humanize_user(user.class) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>  

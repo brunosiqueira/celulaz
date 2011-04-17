@@ -1,0 +1,110 @@
+<% javascript  "third/jquery.jeditable.mini" %>
+<% javascript "company/contacts_edit" %>
+<% stylesheet "company/contacts","company/construtor"%>
+
+<div class="submenu">
+  <ul>
+    <li><%=link_to "Construção",:controller=>"company/construction"%></li>
+    <li ><%=link_to "Identidade",:controller=>"company/identity"%></li>
+    <li><%= link_to "Banner", company_banners_path %></li>
+    <li class="active"><%= link_to "Contato", :controller=>"company/contacts",:action=>"edit" %></li>
+    <li><%= link_to "SEO", :controller=>"company/seo",:action=>"edit" %></li>
+  </ul>
+
+  <!-- <a class="publish" href="javascript:;">Publicar</a>-->
+  <%= link_to "Publicar", "javascript:",:class=>"publish" %>
+  <%= link_to "Ver como ficou", z_path(current_company.login),:class=>"preview",:popup=>true %>
+  <br class="clearfloat" />
+</div><!-- .submenu -->
+<div class="publish-message orientation-msg" style="display: none"></div>
+
+
+<div style="float: left; position: relative ; margin-top: 20px;width:760px;">
+
+  <div id="col-left" style="margin-left: 20px;">
+    <h1 class="text_legend_form">Endereço:</h1>
+
+    <div class="address_component_view info-texto">
+      <%= render :partial => "company/layout_contact/address_view" %>
+    </div>
+    <%= render :partial => "company/layout_contact/address_form" %>
+
+    <h1 class="text_legend_form">Cidade:</h1>
+    <div class="city_component_view info-texto">
+      <%= render :partial => "company/layout_contact/city_view" %>
+    </div>
+    <%= render :partial => "company/layout_contact/city_form" %>
+
+    <h1 class="text_legend_form">UF:</h1>
+    <div class="state_component_view info-texto">
+      <%= render :partial => "company/layout_contact/state_view" %>
+    </div>
+    <%= render :partial => "company/layout_contact/state_form" %>
+
+    <h1 class="text_legend_form ">Cep:</h1>
+    <div class="zip_component_view info-texto">
+      <%= render :partial => "company/layout_contact/zip_view" %>
+    </div>
+    <%= render :partial => "company/layout_contact/zip_form" %>
+
+    <h1 class="text_legend_form">E-mail:</h1>
+    <div class="email_component_view info-texto">
+      <%= render :partial => "company/layout_contact/email_view" %>
+    </div>
+    <%= render :partial => "company/layout_contact/email_form" %>
+
+
+    <h1 class="text_legend_form">Facebook:</h1>
+    <div class="facebook_component_view info-texto">
+      <%= render :partial => "company/layout_contact/facebook_view" %>
+    </div>
+    <%= render :partial => "company/layout_contact/facebook_form" %>
+
+    <h1 class="text_legend_form">Orkut: </h1>
+    <div class="orkut_component_view info-texto">
+      <%= render :partial => "company/layout_contact/orkut_view" %>
+    </div>
+    <%= render :partial => "company/layout_contact/orkut_form" %>
+
+    <h1 class="text_legend_form">Twitter:</h1>
+    <div class="twitter_component_view info-texto">
+      <%= render :partial => "company/layout_contact/twitter_view" %>
+    </div>
+    <%= render :partial => "company/layout_contact/twitter_form" %>
+
+    <h1 class="text_legend_form">Flickr:</h1>
+    <div class="flickr_component_view info-texto">
+      <%= render :partial => "company/layout_contact/flickr_view" %>
+    </div>
+    <%= render :partial => "company/layout_contact/flickr_form" %>
+
+  </div>
+
+
+
+  <div id="col-right">
+
+    <div class="gray-box">
+      <h4 style="width: 240px;" >TELEFONES</h4>
+      <div class="phones">
+        <%= render :partial => "company/layout_contact/phones_view" %>
+      </div>
+      <div id="inf_numero1">
+        <h1 style="float: left; width: 235px;" >Novo telefone</h1>
+        <div id="form_space_cinza">
+          <% form_tag '/company/layout_contact/add_phone', { :class => "add_phone"} do |f| %>
+            <%= text_field_tag 'phone[ddd]', '', :class => 'text_field', :size => 2,:maxlength=>3 %>
+            <%= text_field_tag 'phone[number]', '', :class => 'text_field', :size => 8,:maxlength=>8 %>
+            <div class="actions">
+              <%= submit_tag "Salvar" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="gray-box" style="width: 270px;" >
+      <p><%= check_box_tag(:show,nil,@layout.address_site.show,:id=>"show_address_site")%> Exibir endereço no rodapé</p>
+      <p><%= check_box_tag(:show_sidebar,nil,@layout.address_site.show_sidebar,:id=>"show_address_sidebar")%> Exibir na barra lateral</p>
+    </div>   
+  </div>
+</div>

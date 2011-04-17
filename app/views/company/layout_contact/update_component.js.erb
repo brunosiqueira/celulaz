@@ -1,0 +1,12 @@
+$('.<%= @component_type %>-form').replaceWith('<%= @component_form %>');
+
+<% if @company.layout.address_site.valid? %>
+  $('.<%= @component_type %>-form').hide();
+  $('div.<%= @component_type %>_component_view').html('<%= @component_view %>');
+  $('div.<%= @component_type %>_component_view').show();
+  $("a.<%= @component_type %>-view").fieldController({form:'<%= @component_type %>-form'});
+  $('form.edit_layout_<%= @component_type %>').submitWithAjax();
+<% else %>
+  $('div#error-messages').html('<%=error_messages_for :company,:object=>@company.layout.address_site, :header_message=>nil%>');
+  $('div.<%= @component_type %>-form').show();
+<% end %>

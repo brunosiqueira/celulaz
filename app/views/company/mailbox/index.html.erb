@@ -1,0 +1,42 @@
+<% stylesheet "company/messages", "third/autoSuggest" %>
+
+<% javascript "third/jquery.autoSuggest.minified","company/messages" %>
+
+<div class="message-page">
+  <%= render :partial => "company/shared/message_actions" %>
+  <%= render :partial => "company/shared/new_message" %>
+  <div class="panel">
+    <%= render :partial => "company/shared/message_box_label" %>
+    <div class="panel-body">
+      <div class="panel-body-head">
+        <div class="sender-label">Remetente</div>
+        <div class="message-label">Mensagem</div>
+      </div>
+      <% @messages.each do |m| %>
+        <div class="item <%= 'new' if m.unread? %>">
+          <div class="delete">
+            <%= check_box_tag("message[]", m.id, false) %>
+          </div>
+          <% link_to company_message_path(m) do %>
+            <div class="sender-info ">
+              <%=  m.message.sender_name %>
+
+              <div class="date <%= (m.answered?) ? 'msg-return' : '' %>">
+
+                <%= I18n.localize(m.created_at, :format => :long) %>
+
+              </div>
+
+            </div>
+            <div class="content">
+              <%= truncate m.body, :length=>200 %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div id="search-control-bottom">
+      <%= will_paginate @messages,:previous_label=>" ",:next_label=>" ",:id=>'top' %>
+    </div>
+  </div>
+</div>

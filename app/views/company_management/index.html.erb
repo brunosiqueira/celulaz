@@ -1,0 +1,61 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to I18n.t("company.plural").capitalize, :action => :index  %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title"><%=I18n.t("company.plural").capitalize%></h2>
+    <div class="inner">
+      <div class="group">
+        <p>
+          <% form_tag :url=>{:controller=>"/company_management" } do%>
+            <%= select_tag :segment_id,options_for_select(["Todos"] + Segment.find(:all,:order=>"name").collect{|segment|[segment.name, segment.id.to_s]}),:value=>@segment_id %>
+            <%=submit_tag "Filtrar" %>
+          <%  end %>
+        </p>
+      </div>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        <%= will_paginate @companies,:params=>{:segment_id=>@segment_id} %>
+      </div>
+      <table class="table">
+        <tr class="<%= cycle("odd", "even") %>">
+          <th><%=I18n.t("activerecord.attributes.company.razao_social") %></th>
+          <th><%=I18n.t("activerecord.attributes.company.cnpj") %></th>
+          <th><%=I18n.t("activerecord.attributes.company.subsidiary") %></th>
+          <th>Pagamento</th>
+          <th>Data de Criação</th>
+          <th>Segmento</th>
+          <th colspan=4>Vendedor</th>
+        </tr>
+        <% for company in @companies do %>
+            <tr class="<%= cycle('linha-par', 'linha-impar')%>">
+              <td class="<%= company.z? ? "blue" : "yellow" %>">
+                <%=link_to(company.razao_social,:action=>:show, :id=>company.user.id,:method=>:get)%>
+              </td>
+              <td><%=h company.document%></td>
+              <td><%=h company.user.person.subsidiary_title%></td>
+              <td>
+                <% if company[:type].eql?(CompanyZ.name) && !company.contracts.empty? %>
+                  <%= h "#{company.contracts.last.parcel} parcelas" %>
+                <% end %>
+              </td>
+              <td><%=h company.user.created_at.to_s_br%></td>
+              <td><%= h company.segment.name %></td>
+              <td><%=link_to(company.seller ? h(CompanyManagementHelper.show_seller_detailed(company.seller)) : "inserir",:controller=>:company_seller,:action=>:new, :id=>company.id,:method=>:get)%></td>
+              <td><%=link_to 'Editar Dados Pessoais', edit_person_path(company.user.person),:method=>:get %></td>
+              <td><%=link_to 'Editar Perfil', :action=>"loggin_as_company", :id=>company.user.id,:method=>:post %></td>
+              <td><%=link_to_if company.site_enable?, 'Ver site', site_path(company.user),:popup=>true %></td>
+            </tr>
+          <% end -%>
+        </table>
+        <div class="actions-bar wat-cf">
+          <div class="actions">
+          </div>
+          <%= will_paginate @companies,:params=>{:segment_id=>@segment_id} %>
+        </div>
+      </div>
+    </div>
+  </div>

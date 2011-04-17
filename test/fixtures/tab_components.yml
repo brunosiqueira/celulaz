@@ -1,0 +1,45 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: tab_components
+#
+#  id           :integer(4)      not null, primary key
+#  tab_id       :integer(4)
+#  component_id :integer(4)
+#  full_line    :boolean(1)
+#  line         :integer(4)
+#  column       :integer(4)
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+empresa_valid:
+  tab_id: 1
+  component_id: 5
+  full_line: false
+  line: 1
+  column: 1
+
+empresa_valid_2:
+  tab_id: 3
+  component_id: 1
+  full_line: false
+  line: 1
+  column: 1
+
+empresa_valid_2_2:
+  tab_id: 3
+  component_id: 3
+  full_line: false
+  line: 2
+  column: 1
+
+empresa_valid_2_3:
+  tab_id: 3
+  component_id: 4
+  full_line: false
+  line: 3
+  column: 1
+

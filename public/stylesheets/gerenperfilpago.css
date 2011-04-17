@@ -1,0 +1,500 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+    margin:0;
+    padding:0;
+}
+
+#boxphone{
+    width:300px;
+    height:150px;
+    background:#FFFFFF;
+    border:#000000 solid 1px;
+
+}
+.form_phone{
+    position:relative;
+    margin:0px;
+    top:15px;
+    left:130px;
+    font-family:Arial, Helvetica, sans-serif;
+    border:0px;
+    z-index:200;
+    width:150px;
+    height:80px;
+    background:#FFFFFF;
+    padding:0px 0px 0px 5px;
+}
+
+.form_phone label.linha1{
+
+    font-weight:bold;
+    font-size:8pt;
+}
+.form_phone #phone_obs{
+    color:#666666;
+    font-size:7pt;
+}
+.form_phone fieldset input.inptel {
+    width:291px;
+    border:0px solid #FFCC99;
+}
+#phoneicon{
+    margin-top:10px;
+    margin-left:10px;
+    background-image:url(../images/gerperfil/fone.jpg);
+    position:absolute;
+    width:105px;
+    height:83px;
+
+}
+div#telefones p{
+    float:left;
+}
+
+
+#informacoes{
+    position:relative;
+    width:760px;
+    height:330px;
+    border-bottom:30px  solid #F0F5F5;
+
+}
+
+
+
+div.infocadcolun{
+    position:absolute;
+
+}
+
+
+#fichacadastral{
+    position:relative;
+    background-color:#FFECD4;
+    width:410px;
+    height:300px;
+    border: 1px #FF9966 solid;
+    padding:5px 10px 5px 10px;
+}
+#textfixacadastral{
+    position:inherit;
+    width:100%;
+    height:273px;
+}
+
+#positionrodapebt{
+    position:relative;
+    top:0px;
+    width:100%;
+}
+#bteditinfocadast {
+    background-image:url(../images/gerperfil/btedit.jpg);
+    background-repeat:no-repeat;
+    width:64px;
+    height:23px;
+    margin-left:340px;
+}
+#bteditinfodescriempres {
+    background-image:url(../images/gerperfil/btedit.jpg);
+    background-repeat:no-repeat;
+    width:64px;
+    height:23px;
+    margin-left:240px;
+
+}
+
+
+#fichacadastral h1{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:20px;
+    color:#FF6600;
+    padding-bottom:5px;
+    border-bottom: 1px  solid #FF6600;
+}
+
+#fichacadastral h2{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px ;
+    font-weight:800;
+    line-height:16px;
+    color:#FF6600;
+    padding-bottom:5px;
+    border-bottom: 1px  solid #FF9966;
+}
+
+#fichacadastral h3{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:9px;
+    font-weight:normal;
+    color:#FF9966;
+    margin-top:2px;
+
+}
+
+#descricaoemp{
+    width:320px;
+    margin-left:435px;
+    background-color:#FFECD4;
+    display:block;
+    height:159px;
+    border: 1px #FF9966 solid;
+    top:0px;
+}
+
+
+
+#descricaoemp h2{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    color:#FF6600;
+    padding-bottom:5px;
+    border-bottom: 1px  solid #FF6600;
+}
+
+#descricaoemp h3{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    font-weight:normal;
+    color:#FF6600;
+    margin-top:10px;
+
+}
+
+
+#descricaoemp h4{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:10px;
+    font-weight:normal;
+    color:#FF9933;
+
+}
+
+
+
+#admweb{
+    margin-left:435px;
+    top:166px;
+    width:322px;
+    background-color:#FFECD4;
+    display:block;
+    height:144px;
+    border: 1px #FF9966 solid;
+    bottom:0px;
+}
+
+
+
+
+#admweb h1{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:9px;
+    line-height:20px;
+    font-weight:bold;
+    color:#FFFFFF;
+    background:#FF6600;
+    padding-left:5px;
+}
+
+
+#admwebicon{
+    position:absolute;
+    background:url(../images/gerperfil/ico_admweb.jpg);
+    width:75px;
+    height:104px;
+    bottom:10px;
+    left:5px;
+
+
+}
+
+#icoadmrec{
+    position:absolute;
+    background:url(../images/gerperfil/iconadmrec.jpg);
+    width:23px;
+    height:22px;
+    top:0px;
+    left:0px;
+
+
+}
+#icoadmquali{
+    position:absolute;
+    background:url(../images/gerperfil/iconadmvot.jpg);
+    width:23px;
+    height:22px;
+    top:22px;
+    left:0px;
+
+
+}
+
+#admwebinfo{
+    position:absolute;
+    width:220px;
+    height:104px;
+    bottom:10px;
+    left:90px;
+}
+
+
+
+#admwebinfo h1{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    line-height:15px;
+    font-weight:bold;
+    color:#FF3300;
+    width:220px;
+    background-color:#FFECD4;
+    padding-left:0px;
+
+}
+#admwebinfo h2{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    line-height:15px;
+    font-weight:normal;
+    color:#FF3300;
+    width:220px;
+    background-color:#FFECD4;
+
+}
+#admcomunic{
+    position:absolute;
+    width:100%;
+    bottom:0px;
+}
+#gerenservgalery{
+    margin-top:20px;
+    position:relative;
+    width:760px;
+    height: 330px;
+    display:block
+
+
+}
+#textdescricao{
+    position:relative;
+    width:300px;
+    height:125px;
+    margin:5px 10px 0px 10px;
+}
+
+#gerenservgalery h1{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#fff;
+    padding:5px;
+    background-color:#1B75BB;
+
+}
+
+#admwebinfo h2 a{
+    text-decoration:none;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    line-height:22px;
+    font-weight:bold;
+    color:#FF3300;
+    width:420px;
+    padding-left:25px;
+
+}
+#admwebinfo h2 a:hover{
+    text-decoration:underline;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    font-weight:bold;
+    color:#FF3300;
+}
+
+/* Gerencia de serviços */
+
+#gerenserv {
+    height:260px;
+    width:360px;
+    border-bottom:30px solid #F0F5F5;
+
+}
+#outerbox.floatleft {
+    position:absolute;
+    right:0;
+    top:0;
+}
+ul#gerenservplacasberco{
+    overflow:auto;
+    position:relative;
+    width:360px;
+    height:200px;
+
+    margin:10px 0px 0px 0px ;
+    list-style-type:none;
+
+
+
+}
+
+
+ul#gerenservplacasberco li{
+    position:relative;
+    width:55px;
+    margin:0 0 0 2px;
+    height:96px;
+    display:block;
+    text-decoration:none;
+    float:left;
+    background-color:#F0F5F5;
+    text-align:center;
+}
+
+#gerenservplacas{
+    position:relative;
+    width:55px;
+    height:77px;
+    top:0px;
+    background:#8DBADD;
+
+}
+
+#btcomofico{
+    position:relative;
+    background-image:url(../images/gerperfil/btverfico.png);
+    background-repeat:no-repeat;
+    width:164px;
+    height:36px;
+    margin-left:590px;
+
+}
+#gerenserv h2{
+    padding:5px 0px 0px 0px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    line-height:11px;
+    text-align:left;
+    color:#999999;
+    font-weight:normal;
+
+}
+
+/*Gerencia de galeria*/
+#gerengaleria {
+    height:260px;
+    position:relative;
+    width:360px;
+    border-bottom:30px solid #F0F5F5;
+}
+#outerbox {
+
+    width:360px;
+    height:290px;
+    padding:5px;
+    border:1px solid #AAD5FF;
+}
+
+#thumbnailcvgaleri {
+    position:relative;
+    height:115px;
+    margin:11px 0px;
+}
+#thumbnailgerenci1 {
+    background-color:#B9DCFF;
+    height:115px;
+    position:absolute;
+    width:115px;
+}
+
+#thumbnailgerenci2 {
+    width:115px;
+    height:115px;
+    background-color:#B9DCFF;
+    position:absolute;
+    margin-left: 121px;
+}
+
+#thumbnailgerenci3 {
+    width:115px;
+    height:115px;
+    background-color:#B9DCFF;
+    position:absolute;
+    margin-left:242px;
+}
+
+#icogerencvimagens {
+    position:absolute;
+    background-image:url(../images/gerperfil/icoimagens.jpg);
+    background-position:left;
+    background-repeat:no-repeat;
+    color:#0099FF;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    font-weight:bold;
+    height:24px;
+    left:5px;
+    width:50px;
+}
+
+#gerencieditimagem1 {
+    left:5px;
+    position:relative;
+    width:353px;
+    height:25px;
+    text-align:right;
+    padding: 1px 0px 0px 0px;
+    border-bottom:#F0F5F5 1px solid;
+}
+
+#gerencieditimagem2 {
+    left:5px;
+    position:relative;
+    width:353px;
+    height:25px;
+    text-align:right;
+    padding: 1px 0px 0px 0px;
+    border-bottom:#F0F5F5 1px solid;
+}
+
+#gerencieditimagem3 {
+    left:5px;
+    position:relative;
+    width:353px;
+    height:25px;
+    text-align:right;
+    border-bottom:#F0F5F5 1px solid;
+}
+#gerengaleria form input.gerenimgbotao{
+    cursor:pointer;
+    border:0px solid #FFF !important;
+    color:#fff;
+    font-weight:bold;
+    font-size:12px;
+    margin:0px;
+    font-family:arial;
+    display:block;
+    height:25px;
+    background-image:url(../images/buttom/blue/fundo_02.jpg);
+}
+
+#gerengaleria form input.gerenimgbotao-autonomoz{
+    cursor:pointer;
+    border:0px solid #FFF !important;
+    color:#fff;
+    font-weight:bold;
+    font-size:12px;
+    margin:0px;
+    font-family:arial;
+    display:block;
+    height:25px;
+    background-image:url(../images/autonomoz/buttom/blue/fundo_02.png);
+}
+#gerengaleria form {
+    position:relative;
+    margin:0px;
+    padding:0px;
+    border:0px;
+    width:100%;
+    height:80px;
+    background-color:#FFFFFF;
+}

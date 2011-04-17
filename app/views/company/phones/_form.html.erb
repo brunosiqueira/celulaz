@@ -1,0 +1,9 @@
+<span class="create_phone">
+  <% @phone ||= Phone.new %>
+  <% form_for @phone,:url=>{:controller=>"company/phones",:action=>"create"},:html=>{:class=>"create_phone" } do |f|%>
+    <%= f.text_field :ddd,:maxlength=>2,:onkeypress=>"mascara(this,soNumeros)" , :style=> " width:13px; float:left;" %>
+    <%= f.text_field :number,:onkeypress=>"mascara(this,soNumeros)", :style=> " width: 55px; float:left; margin: 0 0 0 5px; " %>
+    <%= f.submit " "  %>
+  <% end %>
+   <a href="#" class="phone_cancel"></a>
+</span>

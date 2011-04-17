@@ -1,0 +1,51 @@
+<% content_for :style do %>
+  <%= render :partial=>"style" %>
+<% end %>
+
+<% content_for :title do %>
+  <%=@layout.name if @layout.show_name%>
+<% end %>
+<% content_for :slogan do %>
+  <%=@layout.slogan if @layout.show_slogan %>
+<% end %>
+<% content_for :tabs do %>
+  <%= create_tabs_separator %>
+<% end %>
+<% content_for :social do %>
+  <%= render :partial=>"social" %>
+<% end %>
+<% content_for :sidebar_address do %>
+  <%= render :partial=>"sidebar_address" %>
+<% end %>
+<% content_for :content do %>
+
+  <div class="post">
+    <h2><%= @component.title %></h2>
+    <%= @component.description %>
+  </div>
+  <div class="link" style="height: 50px">
+    <%= link_to "Voltar", :action=>"index", :id=>@user.login, :tab_id=>@component.tab %>
+  </div>
+<% end %>
+<% content_for :social do %>
+  <%= link_to("<div class='facebook'></div>",@layout.facebook,:popup=>true,:class=>"facebook") unless @layout.facebook.nil? %>
+  <%= link_to("<div class='orkut'></div>",@layout.orkut,:popup=>true,:class=>"orkut") unless @layout.orkut.nil? %>
+  <%= link_to("<div class='twitter'></div>",@layout.twitter,:popup=>true,:class=>"twitter") unless @layout.twitter.nil? %>
+  <%= link_to("<div class='flickr'></div>",@layout.flickr,:popup=>true,:class=>"flickr") unless @layout.flickr.nil? %>
+<% end %>
+<% content_for :address do %>
+  <%= render :partial=>"address" %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <ul>
+    <% @layout.banners.each do |banner| %>
+      <li>
+        <a href="<%=banner.url%>" title="<%=banner.title%>" target="new">
+          <%=image_tag banner.banner_image.url(:small)%>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+

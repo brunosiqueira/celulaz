@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+  <head>
+    <meta name="verify-v1" content="e12iWDQ2NexYozpJgWLJ9wnYoZwVGKMd1UouDC6EHuM=" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Célula Z</title>
+    <%= stylesheet_link_tag "principal","third/colorbox2" %>
+    <%= javascript_include_tag "third/jquery-1.4.2.min","third/jquery.corner" ,"third/jquery.colorbox-min.js"%>
+    <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.to_json};" if protect_against_forgery? %>
+    <script type="text/javascript">
+      
+      $(document).ready(function (){
+        $('.link-btn-orange').corner("5px");
+        $('.link-btn-gray').corner("5px");
+        
+        $('#login').click(function (){
+          if ('Nome/E-mail'== $(this).val()) {
+            $(this).val('');
+           
+          }
+        } );
+        
+        $('input#login').blur(function (){
+          if (''== $(this).val()) {
+            $(this).val("Nome/E-mail");
+          }
+        } );
+      });
+    </script>
+    <%=yield :head%>
+  </head>
+  <body>
+    <%=analytics_script%>
+    <div style="position: relative;">
+      <% if  flash[:notice] || flash[:error]%>
+        <div id="msglog"  style="position: relative; margin: auto;">
+          <%= flash[:notice] %>
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+    </div>
+    <div id="header" >
+      <div class="warp" style="background:url(images/bg-center.jpg) no-repeat top center; position:relative; height: 355px;"> <a href="#" id="logo">Célula Z</a>
+        <div id="busca-padrao">
+          <% form_tag( '/search', :method => :get ) do %>
+            <fieldset>
+              <%= text_field_tag 'search', @search.blank? ? I18n.t("company.search") : @search , :id => "busca-campo", :class=>'estadoInicial', :onfocus=>"clearSearch(this)", :onblur=>"writeSearch(this)" %> <%= select_tag :segment_id, options_for_select( ["Todos"]+Segment.find(:all).collect { |p| [p.name, p.id.to_s] },@segment_id ),:class=>"styleCombobox" %> <%= submit_tag 'Pesquisar', :class => "submit" %>
+            </fieldset>
+          <% end %>
+          <script type="text/javascript">
+            function clearSearch(obj){
+              if (obj.value == '<%=  I18n.t "company.search"%>'){
+                obj.value = '';
+              }
+            }
+            function writeSearch(obj){
+              if (obj.value == ''){
+                obj.value = '<%=  I18n.t "company.search"%>';
+              }
+            }
+          </script>
+        </div>
+        <div id="topologin"> <%= render :partial=>"sessions/new"%> </div>
+        <div style="position:absolute;color:#1D4482; font-size:38px;top:130px; left:150px; padding:30px 0px; position:absolute;">Seu crescimento  pela internet<br/><br/>
+          <%=link_to image_tag("/images/btn-visita.gif"), visit_scheduler_path,:style=>"font-size: 20px; color: rgb(29, 68, 130); text-decoration: none; display: block; float: left"%>
+        </div>
+        <div style="height: 28px; background: url(images/iconsrelaci.gif) no-repeat scroll 94px 0px transparent; position: absolute; right: 60px; top: 315px;">
+          <div style="clear: none; display: block; float: left; font-size: 16px; margin-right: 5px; width: 100px; vertical-align: middle; height: 20px; margin-top: 5px; ">Conecte-se:</div>
+          <a href="http://pt-br.facebook.com/pages/Porto-Alegre-Brazil/Celula-Z/129424563769747" style="float: left; clear: none; width: 28px; height: 28px; display: block; margin-right: 5px;"></a> 
+          <a href="http://www.twitter.com/celulaz" style="float: left; clear: none; width: 28px; height: 28px; display: block; margin-right: 5px;"></a>
+          <a href="http://www.orkut.com.br/Main#Profile?uid=12599079356902495784"style="float: left; clear: none; width: 28px; height: 28px; display: block; margin-right: 5px;"></a>
+        </div>
+        <div id="menu">
+          <ul id="menu">
+            <li class="gray-menu <%= params[:action].eql?("index") ? "select" : ""%>"><%=link_to "Home",root_path%> </li>
+            <li class="purple-menu <%= params[:action].eql?("who") ? "select" : ""%>"><%=link_to "Quem Somos",who_path%></li>
+            <li class="pink-menu <%= params[:action].eql?("company") ? "select" : ""%>"><%=link_to "Empresa",main_company_path%></li>
+            <li class="green-menu <%= params[:action].eql?("location") ? "select" : ""%>"><%=link_to "Agências",location_path%></li>
+            <li class="orange-menu <%= params[:controller].eql?("contacts") ? "select" : ""%>"><%=link_to "Fale Conosco",contact_us_path%></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--fim header-->
+    <div id="content2">
+      <div id="content" class="warp">
+        <%=yield%>
+      </div>
+    </div>
+
+    <div id="footer" >
+      <div class="warp"> MATRIZ: <b> Contato: (51) 8210.0606 </b> | Rua Garibaldi 800, bairro: Bom Fim, Porto Alegre - RS
+        <br />
+        <span style="color:#91907e !important">Todos os direitos reservados.   © Copyright Célula Z Internet.</span> 
+      </div>
+    </div>
+  </body>
+</html>

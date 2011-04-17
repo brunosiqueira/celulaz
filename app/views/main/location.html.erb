@@ -1,0 +1,44 @@
+<% content_for :head do %>
+  <%= GMap.header :host=>SITE_URL %>
+<% end %>
+<div id="colleft" style="float:left !important; width: 300px !important;">
+  <h1>Sede <span style="font-size: 14px">(matriz)</span></h1>
+
+  <p>
+    Rua Garibaldi 800,Bom Fim, Porto Alegre - RS - Brasil<br/>
+    <b>Telefone:<span style="font-size: 14px">051 3086-3949</span></b> <br/>
+    E-mail: <%= SAC_EMAIL %>
+  </p>
+  <div style="float: left; margin-left: 20px;">
+    <%= @map.div :width=>"260", :height=>"200" %>
+    <%= @map.to_html %>
+  </div>
+</div>
+<div id="colright" style="float:left !important; width: 300px !important;">
+
+  <h2>Agência Garibaldi</h2>
+
+  <p>
+    Rua Garibaldi 800,Bom Fim, Porto Alegre - RS - Brasil<br/>
+    <b>Telefone:<span style="font-size: 14px">051 3086-3951</span></b> <br/>
+    E-mail: <%= SAC_EMAIL %>
+  </p>
+  <div style="float: left; margin-left: 20px;">
+    <%= @map_agencia_garibaldi.div :width=>"256", :height=>"200" %>
+    <%= @map_agencia_garibaldi.to_html %>
+  </div>
+</div>
+<div id="colright" style="float:right !important; width: 300px !important;">
+  <h2>Agência Shopping Total</h2>
+  <p>
+    Av.Cristovão Colombo, 545, Shopping Total, loja 1261, Floresta, Porto Alegre - RS - Brasil <br/>
+    <b>Telefone:<span style="font-size: 14px"> 051 3018-7261</span></b> <br/>
+    E-mail: <%= SAC_EMAIL %>
+  </p>
+  <div style="float: left; margin-left: 20px;">
+    <div style="float: left">
+      <%= @map_agencia.div :width=>"255", :height=>"200" %>
+      <%= @map_agencia.to_html%>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,236 @@
+@charset "utf-8";
+/* CSS Document */
+
+#msgrelacionadas {
+    position:relative;
+    width:760px;
+    height:100%;
+
+}
+#menumsg {
+    position:relative;
+    width:760px;
+    height:31px;
+
+}
+ul#menumsg {
+    position:relative;
+    border-bottom:1px solid #1B75BB;
+    height:30px;
+    margin:0;
+    width:760px;
+    background-color:#FFF;
+}
+ul#menumsg li , ul#menumsg li a:visited , ul#menumsg li a:link  {
+
+    float:left;
+    text-decoration:none;
+    list-style:none;
+    margin:0 2px 0 0;
+    width:195px;
+    background:#DFEDF7;
+    color:#003399;
+
+}
+
+
+
+ul#menumsg li a:hover , ul#menumsg li a:active {
+    display:block;
+    float:left;
+    text-decoration:none;
+    list-style:none;
+    margin:0 2px 0 0;
+    width:193px;
+    height:30px;
+    background:#FFF !important ;
+    border-width:1px 1px 0 1px;
+    border-style: solid;
+    border-color: #1B75BB #1B75BB #FFFFFF #1B75BB;
+
+}
+
+ul#menumsg a.selected {
+    display:block;
+    float:left;
+    text-decoration:none;
+    list-style:none;
+    margin:0 2px 0 0;
+    width:193px;
+    height:30px;
+    background:#FFF !important ;
+    border-width:1px 1px 0 1px;
+    border-style: solid;
+    border-color: #1B75BB #1B75BB #FFFFFF #1B75BB;
+
+}
+ul#menumsg li h1{
+    text-align:center;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    line-height:30px;
+    padding-left:5px;
+    color:#003399;
+    text-transform:uppercase;
+}
+
+
+
+
+#msgcaixa{
+    position:relative;
+    width:758px;
+    height:auto;
+    padding-top:5px;
+    border-bottom:1px solid #003399;
+
+}
+
+ul#msgcaixa{
+    border:0px ;
+    width:auto;
+    height:100%;
+}
+ul#msgcaixa li{
+    position:relative;
+    margin:10px 0px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    font-weight:normal;
+    line-height:14px;
+    text-decoration:none;
+    list-style-type:none;
+    width:auto;
+    color:#003399;
+
+}
+ul#msgcaixa li.new {
+    text-decoration:none;
+    list-style-type:none;
+    width:auto;
+}
+ul#msgcaixa li.new h1{
+    padding:5px 10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight:normal;
+    text-transform:capitalize;
+    line-height:14px;
+    color:#FF6600;
+}
+
+ul#msgcaixa li.new a:link , ul#msgcaixa li.new a:visited{
+    text-decoration:none;
+    list-style-type:none;
+    width:auto;
+
+}
+ul#msgcaixa li.new a:hover {
+    text-decoration:none;
+    width:auto;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    font-weight:normal;
+    line-height:14px;
+}
+ul#msgcaixa li a:link , ul#msgcaixa li a:visited{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    font-weight:normal;
+    line-height:14px;
+    text-decoration:none;
+    list-style-type:none;
+    width:auto;
+    color:#003399;
+    padding-right:10px;
+    padding-left:2px;
+
+}
+
+ul#msgcaixa li a:hover {
+    width:auto;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    font-weight:normal;
+    line-height:14px;
+    color:#003399;
+
+}
+ul#msgcaixa li h1{
+    padding:5px 10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight:normal;
+    text-transform:capitalize;
+    line-height:14px;
+    color:#003399;
+}
+
+ul#msgcaixa li h2{
+    padding:2px 10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight:normal;
+    line-height:14px;
+    color:#333333;
+}
+#imgempresa{
+    position:absolute;
+    width:63px;
+    height:63px;
+    background-color:#FFF;
+    border: silver 1px solid;
+    padding:5px;
+    margin-left:10px;
+
+
+}
+
+#msgsite{
+    background-image: url(../images/relacionamento/msgsite.gif);
+    position:absolute;
+    width:75px;
+    height:75px;
+    background-color:#FFF;
+    margin-left:10px;
+
+
+}
+#descri{
+    display:block;
+    padding-left:100px;
+    width:619px;
+}
+
+ul#msgcaixa li #msgaction{
+background-color:#DFEDF7;
+height:20px;
+margin-top:5px;
+padding-left:115px;
+padding-top:5px;
+}
+
+ul#msgcaixa li.new #msgaction{
+    background-color:#DFEDF7;
+    height:20px;
+    margin-top:5px;
+    padding-left:115px;
+    padding-top:5px;
+}
+
+
+#msgdate {
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:10px;
+    font-weight:normal;
+    margin-left:460px;
+    text-align:left;
+
+}
+#icoreponder{
+    background:url(../images/relacionamento/repondico.gif)  no-repeat scroll 0 0px;
+    width:10px;
+}
+
+

@@ -1,0 +1,5 @@
+<% form_for @layout,:url=>{:action=>"update_image",:field=>field},:html => { :multipart => true} do |l|%>
+  <%= l.file_field field,:size=>12  %>
+  <%= l.submit ""%>
+<% end %>
+<a class="image_cancel"></a>

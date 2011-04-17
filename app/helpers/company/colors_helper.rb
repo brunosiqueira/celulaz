@@ -1,0 +1,2 @@
+module Company::ColorsHelper
+end

@@ -1,0 +1,48 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "Contratos d#{I18n.t("company.the_singular").downcase}", :action => :index  %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Editar Contrato</h2>
+    <div class="inner">
+      <% form_for(:contract,@contract,:url=>company_contract_url(:id=>@contract,:company_id=>@company),:html=>{:class => "form",:method=>:put}) do |f| %>
+        <%= f.error_messages %>
+
+        <div class="group">
+          <%= f.label :value, nil, :class => "label" %>
+          <%= f.text_field :value, :size => 15, :class => "text_field zip" %>
+          <script type="text/javascript">jQuery("input#contract_value").decimalMask({
+            separator: ",",
+            decSize: 2,
+            intSize: 4
+          });</script>
+        </div>
+
+        <div class="group">
+          <%= f.label :parcel, nil, :class => "label" %>
+          <%= f.select :parcel,[1,2,3,4,5,6,7,8,9,10,11,12],{ :include_blank => true } %>
+        </div>
+        <p>
+          <%= f.label :initial_date %><br />
+          <%= f.date_select :initial_date %>
+        </p>
+        <p>
+          <%= f.label :end_date %><br />
+          <%= f.date_select :end_date %>
+        </p>
+        <p>
+          <%= f.label :status %><br />
+          <%= f.select :status, Contract.status_list %>
+        </p>
+        <p>
+          <%= f.submit "Update" %>
+        </p>
+      <% end %>
+
+      <%= link_to 'Exibir', company_contract_url(:id=>@contract,:company_id=>@company) %> |
+      <%= link_to 'Voltar', company_contracts_url(@company) %>
+    </div>
+  </div>
+</div>

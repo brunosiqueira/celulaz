@@ -1,0 +1,24 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: banks
+#
+#  id         :integer(4)      not null, primary key
+#  code       :integer(3)      not null
+#  name       :string(255)     not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+    654:
+      code: 654
+      name: BANCO A.J. RENNER S.A.
+    246:
+      code: 246
+      name: BANCO ABC BRASIL S.A.
+    356:
+      code: 356
+      name: BANCO ABN AMRO REAL S.A.
+    025:
+      code: 025
+      name: BANCO ALFA S/A.

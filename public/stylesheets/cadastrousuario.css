@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+form {
+    position:relative;
+    border:#FFCC99 1px solid;
+    background-color:#FFECD4;
+    width:580px;
+    height:1300px;
+}
+
+fieldset {
+    position:relative;
+    border:none;
+}
+p{
+
+    width:400px;
+    margin:5px;
+}
+.subtiulo{
+    width:500px;
+    text-align:left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#FF6600;
+    margin:0px;
+}
+
+label {
+    font:10px arial, tahoma, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    line-height:20px;
+    font-weight:normal;
+    color:#FF6600;
+    margin: 15px 0px 0px 0px;
+    width:400px;
+}
+
+#tituloconteudo{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:24px;
+    font-weight:bold;
+    color:#fff;
+    width:400px;
+}
+
+
+h1.subtitulo{
+    text-align:left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#FF6600;
+    width:400px;
+    border-bottom:#FF9966 1px solid;
+}

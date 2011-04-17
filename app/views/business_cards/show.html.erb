@@ -1,0 +1,59 @@
+<div class="cv-info-basic">
+  <h1><%= h @company.name %></h1>
+  <h2><%for phone in @company.phones%>(<%=phone.ddd%>) <%=phone.number%>&nbsp;&nbsp;&nbsp;<% end %></h2>
+  <p>
+    <% if @company.address_business_card.show %>
+      <%=h(@company.address_business_card.street) %>,
+      <%=h(@company.address_business_card.number) %>
+      <% if @company.address_business_card.complement != '' %>, <%=h(@company.address_business_card.complement)%><% end %>
+      , <%=h(@company.address_business_card.neighborhood)%>,
+      <%=h(@company.address_business_card.city)%> / <%=h(@company.address_business_card.state)%>
+    <% end %>
+  </p>
+  <div id="cv-menu-action-master-box">
+    <% if @company.site_enable? %>
+      <%= link_to "Site", site_path(@company.user),:id=>"cv-bt-site",:popup=>true %>
+    <% end %>
+    <div id="company-message">Fale conosco</div>
+    <div id="friend-message">Envie para um amigo</div>
+    <div id="print">Imprimir</div>
+  </div>
+</div>
+<div id="cv-img-master-box">
+  <div id="cv-thumb"> <%= image_tag(@company.layout.card3.url(:small) , :size=>"63x63") if @company.layout.card3.file? %></div>
+  <div id="cv-thumb"><%= image_tag(@company.layout.card2.url(:small) , :size=>"63x63") if @company.layout.card2.file?%></div>
+  <div id="cv-thumb"><%= image_tag(@company.layout.card1.url(:small) , :size=>"63x63") if @company.layout.card1.file? %></div>
+</div>
+<div id="more-info-box">
+
+  <%= render :partial => 'business_cards/interaction_box', :locals => {:search => @search } %>
+
+  <div class="col-left">
+    <h1>Descri&ccedil;&atilde;o</h1>
+    <p><%= h(@company.layout.presentation_text).gsub(/\n/,'<br>')%></p>
+    <h1 class="space">Servi&ccedil;os</h1>
+    <div id="cv-serv-master-box">
+      <% for service in @company.services do %>
+          <%= image_tag "services/small/#{service.image_path}", :alt=>service.title, :id => "cv-thumb" %>
+        <% end %>
+      </div>
+      <h1 class="space"><%= I18n.t "company.friends" %></h1>
+      <div id="cv-relac-master-box">
+        <% @company.friends.each do |company| %>
+          <%= link_to "#{img_tag(company)} #{h company.layout.name}", business_card_path(company), :class => 'relac-thumb' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-right">
+      <% if @company.address_business_card.show %>
+        <h1>Mapa</h1>
+        <div id="map-view">
+          <%= @map.div :width=>"348", :height=>"230" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <% if @company.address_business_card.show %>
+    <%= GMap.header :host=>SITE_URL %>
+    <%= @map.to_html %>
+  <% end %>

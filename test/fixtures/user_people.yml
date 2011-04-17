@@ -1,0 +1,65 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: user_people
+#
+#  id         :integer(4)      not null, primary key
+#  user_id    :integer(4)      not null
+#  person_id  :integer(4)      not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+ quentin:
+    person_id: 3
+    user_id: 1
+
+ gerente_geral:
+    person_id: 4
+    user_id: 2
+
+ admin:
+    person_id: 5
+    user_id: 3
+
+ gerente_segmento:
+    person_id: 6
+    user_id: 4
+
+ admin_web:
+    person_id: 8
+    user_id: 6
+
+ empresa:
+    person_id: 7
+    user_id: 5
+
+ empresa_first_confirm:
+    person_id: 9
+    user_id: 7
+
+ empresa_valid:
+    person_id: 10
+    user_id: 8
+
+ empresa_valid_no_layout:
+    person_id: 11
+    user_id: 9
+
+ web_no_subsidiary:
+    person_id: 12
+    user_id: 10
+
+ director:
+    person_id: 14
+    user_id: 11
+
+ empresa_valid_2:
+    person_id: 17
+    user_id: 12
+
+ gerente_geral_2:
+    person_id: 18
+    user_id: 13

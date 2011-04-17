@@ -1,0 +1,24 @@
+<div class="block">
+	<div class="secondary-navigation">
+		<ul class="wat-cf">
+			<li class="first"><%= link_to "Gerar títulos", :controller => :main  %></li>
+			<li><%= link_to "Títulos", :controller=>"titles" %></li>
+			<li><%= link_to "#{I18n.t("company.plural").capitalize} em atraso", :controller=>"company_not_payed" %></li>
+			<li><%= link_to "#{I18n.t("company.plural").capitalize} com contratos vencidos", :controller=>"company_no_active_contracts" %></li>
+			<li><%=link_to 'Remessas',:controller=>"shippings"%></li>
+			<li><%= link_to 'Enviar Remessa',:controller=>"send_shipping" %></li>
+			<li class="active"><%= link_to 'Receber Retorno',:controller=>"receive_return",:action=>"new"%></li>
+		</ul>
+	</div>          
+	<div class="content">
+		<h2>Arquivo de Retorno</h2>
+		<div class="inner">
+			<% form_tag({:action=>"create"},{:multipart=>true,:method=>:put, :class => "form"}) do %>
+			<div class="group">
+			  <%= file_field_tag :return %>
+			  <%= submit_tag "Enviar" %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>

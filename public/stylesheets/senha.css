@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body{
+background-image:url(../images/perfil/fundo2.jpg);
+background-repeat:repeat-x;
+background-color:#fff;
+
+}
+div.geral {
+margin-top:-100px;
+position:absolute;
+text-align:left;
+top:50%;
+margin-left:-200px;
+left:50%;
+}
+
+
+#boxsenha{
+width:400px;
+height:200px;
+background:#FFFFFF;
+}
+
+#rodabox{
+background-image:url(../images/perfil/roda_pe_conteudo.gif);
+background-repeat:no-repeat;
+background-position:center;
+
+bottom:0px;
+width:400px;
+height:15px;
+
+
+}
+.gray-box{background-color:#fdfdfd;border:1px solid #efefef;padding:20px}
+ h1{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+line-height:12px;
+height:16px;
+text-align:left;
+color:#333;
+font-weight:bold;
+margin:0px;
+padding:0px;
+
+}
+h2 {
+color:#000;
+font-family:Arial,Helvetica,sans-serif;
+font-size:14px;
+background:url("/images/new_version/title-decor.gif") no-repeat scroll 0 1px transparent;color:#333;font-size:12px;font-weight:800;line-height:1.25;margin:0;padding-left:15px;margin-bottom:10px
+}
+
+#boxsenha2 {
+	position:absolute;
+	
+	margin:15px 0 0 150px;
+	width:220px;
+	height:100px;
+	background:#E9E9E9;
+	padding:10px;
+	background-color: #F4F4F4;
+}
+
+
+#boxsenha2 input {
+	
+    font-weight:normal;
+    font-size:12px;
+	width:200px;
+}
+
+input.submit {
+    font-size:12px;
+	margin:0px 0 0 135px!important;
+	height:auto;
+	width:70px !important;
+
+
+
+}
+
+#senhaicon {
+background-image:url(../images/senha/senharemenber.jpg);
+height:133px;
+margin-left:25px;
+margin-top:15px;
+position:absolute;
+width:90px;
+}
+a {
+
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+line-height:12px;
+height:12px;
+color:#000000;
+font-weight:normal;
+margin:0px;
+padding:0px;
+}

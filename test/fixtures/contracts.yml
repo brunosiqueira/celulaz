@@ -1,0 +1,62 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: contracts
+#
+#  id           :integer(4)      not null, primary key
+#  company_id   :integer(4)
+#  initial_date :date
+#  end_date     :date
+#  status       :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#  value        :float
+#  parcel       :integer(4)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  company_id: 4
+  parcel: 12
+  initial_date: <%= (Time.now - 1.month).to_s(:db) %>
+  end_date: <%= (Time.now + 1.year).to_s(:db) %>
+  status: Aberto
+  value: 50.0
+
+two_old:
+  id: 2
+  company_id: 7
+  parcel: 12
+  initial_date: 2008-02-12
+  end_date: 2009-02-12
+  status: Aberto
+  value: 50.0
+
+two:
+  id: 3
+  company_id: 7
+  parcel: 12
+  initial_date: <%= (Time.now - 1.month).to_s(:db) %>
+  end_date: <%= (Time.now + 1.year).to_s(:db) %>
+  status: Aberto
+  value: 50.0
+
+three:
+  id: 4
+  company_id: 4
+  parcel: 12
+  initial_date: <%= (Time.now - 1.month).to_s(:db) %>
+  end_date: <%= (Time.now + 1.year).to_s(:db) %>
+  status: Aberto
+  value: 50.0
+
+four_old:
+  id: 5
+  company_id: 5
+  parcel: 12
+  initial_date: 2008-02-12
+  end_date: 2010-02-12
+  status: Aberto
+  value: 50.0

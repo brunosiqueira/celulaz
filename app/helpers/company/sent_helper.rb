@@ -1,0 +1,3 @@
+module Company::SentHelper
+  
+end

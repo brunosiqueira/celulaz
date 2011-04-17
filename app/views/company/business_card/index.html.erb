@@ -1,0 +1,113 @@
+<% stylesheet "scaffold", "business_cards_cv", "third/ui-lightness/jquery-ui-1.8.4.custom" %>
+<% javascript "http://maps.google.com/maps/api/js?sensor=true&language=pt-BR","third/jquery.jeditable.mini","third/jquery-ui-1.8.4.custom.min","application","company/business_card_edit","fields_masks" %>
+    <script type="text/javascript">
+      jQuery(document).ready(function(){
+        var latlng = new google.maps.LatLng(<%=@map.lat%>, <%=@map.lng%>);
+        var myOptions = {
+          zoom: 16,
+          center: latlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-view"), myOptions);
+        var marker = new google.maps.Marker({
+          position: latlng,
+          title:""
+        });
+
+        // To add the marker to the map, call setMap();
+        marker.setMap(map);
+      });
+
+    </script>
+<div id="error-messages"></div>
+<div class="orientation-msg icon-space-msg">
+  <img  src="/images/new_version/icons-inplace.gif" />
+  <h1>Clique para editar</h1>
+  <p>Para alterar as informações do seu cartão de visita, basta clicar sobre o texto ou imagem que automaticamente estará apto para editar. Simples!</p>
+</div>
+
+<div class="cv-info-basic">
+  <h1 id="name" class="edit inplace"><%= h @company.name %></h1>
+  <h2 class="phones"><%for phone in @company.phones do %><%=render :partial=>"company/phones/phone",:object=>phone, :locals=>{:classe=>""}%><% end %>
+      <%= render :partial=>"company/phones/form" %>
+      <a href="#" class="phone_add"><img style="height: 20px" alt="Adicionar" title="Adicionar telefone" src="/images/new_version/btn-add-small.gif"/></a>
+    </h2>
+    <p class="address inplace">
+      <%= render :partial=>"company/address/address" %>
+    </p>
+    <%= render :partial=>"company/address/form" %>
+  </div>
+  <div id="cv-img-master-box">
+    <div id="tabs">
+      <ul>
+        <li>
+          <a href="#tabs-1">
+            <%= image_tag(@layout.show_card("card1",:small), :title=>"Clique para alterar a imagem", :size=>"63x63",:class=>"upload",:id=>"card1") %>
+            <%= link_to("",{:action=>"destroy_image",:id=>"card1"},:class=>"img_delete",:title=>"Excluir Imagem",:confirm=>"Tem certeza de que deseja excluir a imagem?")  if @layout.card1.file?%>
+          </a>
+        </li>
+        <li>
+          <a href="#tabs-2"><%= image_tag(@layout.show_card("card2",:small), :title=>"Clique para alterar a imagem", :size=>"63x63",:class=>"upload",:id=>"card2") %></a>
+          <%= link_to("",{:action=>"destroy_image",:id=>"card2"},:class=>"img_delete",:title=>"Excluir Imagem",:confirm=>"Tem certeza de que deseja excluir a imagem?") if @layout.card2.file? %>
+        </li>
+        <li>
+          <a href="#tabs-3"><%= image_tag(@layout.show_card("card3",:small), :title=>"Clique para alterar a imagem", :size=>"63x63",:class=>"upload",:id=>"card3") %></a>
+          <%= link_to("",{:action=>"destroy_image",:id=>"card3"},:class=>"img_delete",:title=>"Excluir Imagem",:confirm=>"Tem certeza de que deseja excluir a imagem?") if @layout.card3.file? %>
+        </li>
+      </ul>
+      <div id="tabs-1">
+        <%= render :partial=>"card_image_form",:locals=>{:field=>:card1} %>
+      </div>
+      <div id="tabs-2">
+        <%= render :partial=>"card_image_form",:locals=>{:field=>:card2} %>
+      </div>
+      <div id="tabs-3">
+        <%= render :partial=>"card_image_form",:locals=>{:field=>:card3} %>
+      </div>
+    </div>
+  </div>
+  <div id="more-info-box">
+    <div class="col-left">
+      <h1>Descri&ccedil;&atilde;o</h1>
+      <p id="presentation_text" class="edit_area inplace"><%= h(@layout.presentation_text).gsub(/\n/,'<br>')%></p>
+      <h1 class="space">Servi&ccedil;os</h1>
+      <div id="cv-serv-master-box" class="inplace">
+        <% for service in @company.services do %>
+            <%= image_tag "services/small/#{service.image_path}", :alt=>service.title, :id => "cv-thumb" %>
+          <% end %>
+          <%="adicionar serviços" if @company.services.empty?%>
+        </div>
+        <div class="edit_services">
+
+          <% for service in Service.find(:all)  %>
+            <div><%=image_tag "services/normal/#{service.image_path}" , :alt=>service.title%>
+              <% check = @company.services.include?(service) %>
+              <%= check_box_tag "check_#{service.id}",'yes',check,:align=>"middle",:name=>service.id %>
+            </div>
+          <% end %>
+          <div style="display: block; width: 315px; background-color: #fff!important;">
+            <a href="#" style="display: block" class="service_cancel"></a></div>
+
+        </div>
+        <div id="cv-relac-master-box" title="Área de empresas relacionadas">
+          
+            <h1 class="space"><%= I18n.t "company.friends" %></h1>
+
+            <div id="cv-thumb"></div>
+            <div id="cv-thumb"></div>
+            <div id="cv-thumb"></div>
+            <div id="cv-thumb"></div>
+            <div id="cv-thumb"></div>
+          <a href="<%=url_for(company_relationships_path)%>"> Editar relacionamentos</a>
+        </div>
+      </div>
+      <div class="col-right">
+        <h1>Mapa</h1>
+        <div id="map-view">
+        </div>
+      </div>
+  </div>
+    <div class="cv-more-action-bar">
+
+<%=link_to "Visualizar meu cartão de visitas",business_card_path(@company),:class=>'business-card-view float-link' ,:popup=>true%>
+    </div>

@@ -1,0 +1,14 @@
+.col-left {clear:none;float:left;margin:0 20px 20px 0;width:540px;}
+.col-right {float:right;width:220px;}
+.form-filter {background-color:#FDFDFD;margin-bottom:20px;padding:10px 10px; border-bottom:1px solid #EFEFEF;}
+.box-gray {background-color:#FDFDFD;border:1px solid #EFEFEF;margin-bottom:30px;padding:20px;float:left;margin-bottom:30px;}
+.input-filter {background:url("/images/company/ico-search.gif") no-repeat scroll 148px center #FFFFFF;bottom:13px;height:15px;right:0;width:160px;}
+.jcarousel-skin-tango  a img {padding: 0px !important;background-color:#FFFFFF;border:1px solid #B4B4B4;float:left;height:62px;overflow:hidden;width:62px;}
+#friends-requests{display:block;float:left;margin-bottom:10px; ; width:  540px;}
+.relation-request { float: left;margin: 20px 0 0;width: 520px;  background-color: #FDFDFD;border: 1px solid #EFEFEF;padding: 10px;}
+.pagination {clear: both;display: block;float: left;border-bottom: 1px solid #EEEEEE;width: 100%;margin-top: 10px; padding-bottom:10px }
+.pagination a,.pagination span{padding:4px 4px;margin-right:5px;display:block;float:left}
+.pagination span.current{font-weight:bold;color:gray}
+.pagination a{text-decoration:none}
+.next_page{background-image:url("/images/company/layout/ico-left.gif");width:15px;height:15px}
+.prev_page{background-image:url("/images/company/layout/ico-right.gif");width:15px;height:15px}

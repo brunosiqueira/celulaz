@@ -1,0 +1,108 @@
+body{
+color:#<%=@layout.color.text%>;
+background-color:#<%=@layout.color.background%>;
+background-image: url(<%=@layout.background_file_name%>);
+<% if !@layout.repeat_background_x && !@layout.repeat_background_y %>
+  background-repeat: no-repeat;
+<% elsif !@layout.repeat_background_x || !@layout.repeat_background_y %>
+  <%= " background-repeat: repeat-x; " if @layout.repeat_background_x %>
+  <%= " background-repeat: repeat-y; " if @layout.repeat_background_y %>
+<% end %>
+<% if @layout.centralize_background %>
+  background-position: top center;
+<% else %>
+  background-position: top left;
+<% end %>
+}
+<% unless @layout.background_top.nil? %>
+  #header{
+  background-image: url(<%=@layout.background_top%>);
+  background-repeat: no-repeat;
+  height: <%=image_height(@layout.background_top)%>px !important;
+  }
+  .container{height: <%=image_height(@layout.background_top)%>px !important;}
+<% end %>
+
+#menu ul li.current_page_item a {
+background-color:#<%=@layout.color.menu_selected_background%>;
+color:#<%=@layout.color.menu_selected_text%>;
+
+}
+#menu ul li a:hover {
+background-color:#<%=@layout.color.menu_hover_background%>;
+color:#<%=@layout.color.menu_hover_text%>;
+}
+
+#logo h1{
+color:#<%=@layout.color.name_company_text%>;
+}
+
+#logo p{
+color:#<%=@layout.color.slogan_company_text%>;
+}
+
+
+.content-top-bar{
+background-color:#<%=@layout.color.menu_deselected_background%>;}
+
+
+#menu ul li a {
+background-color:#<%=@layout.color.menu_deselected_background%>;
+color:#<%=@layout.color.menu_deselected_text%>;
+}
+
+.post h2 , .post-meio h2 {
+background-color:#<%=@layout.color.title_background%>;
+color:#<%=@layout.color.title_text%>;
+}
+
+#footer a {color: #<%=@layout.color.footer_text%>;}
+.link a, input.input-msg {
+background-color:#<%=@layout.color.link_background%>;
+color:#<%=@layout.color.link_text%>;
+text-decoration:none;
+}
+
+.post h3 , post-meio h3 {
+background-color:#<%=@layout.color.subtitle_background%>;
+color:#<%=@layout.color.link_text%>;
+}
+
+
+body{
+color:#<%=@layout.color.text%>;
+}
+
+#footer {
+color: #<%=@layout.color.footer_text%>;
+background-color: #<%=@layout.color.footer_background%>;
+}
+
+
+img, .componente-galeria li a {
+<% if @layout.color.border.blank? %>
+  border: 0px!important
+<% else %>
+  border-color:#<%=@layout.color.border%>;
+<% end %>
+}
+
+#page {
+background-color:#<%=@layout.color.body%>;
+}
+
+
+#sidebar {
+background-color:#<%=@layout.color.body_sidebar%>;
+color:#<%=@layout.color.sidebar_text%>;
+
+}
+
+#sidebar h2 {
+color:#<%=@layout.color.sidebar_text%>;
+}
+
+#sidebar ul li#contato h2 {border-color:#<%=@layout.color.sidebar_text%>;
+}
+#sidebar ul li#contato p {border-color:#<%=@layout.color.sidebar_text%>;
+}

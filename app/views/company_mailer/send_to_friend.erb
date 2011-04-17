@@ -1,0 +1,25 @@
+<b><%= "#{@name_from} #{I18n.t("company.sent")}"%> </b>
+<h1 style="background-image: none;clear: right !important;color: #003399;font-size: 21px;font-weight: normal;line-height: 1;margin: 3px 0;padding: 0 !important;text-align: left;"><%=@layout.name%></h1>
+<p style=" color:#333333; margin: 0px; font-family:Arial,Helvetica,sans-serif; font-size:12px; padding:0px; text-align:left;display: block; font-weight:normal;width:470px; float: left;">
+  <%@layout.presentation_text%>
+</p>
+<h2 style="clear: both;   font-size: 12px;    font-weight: 800;    margin: 3px 5px 0 0;    padding: 5px 0;    width: 100%;text-align:left;">
+  <%for phone in @company.phones%>
+    <%=phone.ddd%> <%=phone.number%>
+  <% end %>
+</h2>
+<p style="   line-height: 20px; margin: 3px 0; font-family:Arial,Helvetica,sans-serif;font-size:12px; text-align:left; "> <%=@address.street%>,<%=@address.number%>,<%=@address.complement%> <%=@address.neighborhood%> <%=@address.city%> – <%=@address.state%> </p>
+<a style=" text-decoration:none;font-family:Arial; font-size:14px; font-weight:bold;color:#F60!important; width: 470px; display: block; margin:10px 0px 20px 0px" href="http://<%= SITE_URL %><%=url_for(:controller=>:business_cards,:action=>:show,:id=>@company.to_param)%>">
+  <ul style="margin:10px 0 10px 0; text-align:justify; height:130px; list-style:none;  padding:0px; ">
+            <li style="font-family:Arial; margin:0 30px 0 0 ; font-size:12px; text-align:right;  float:left; color:#000000; font-weight:normal ; background-color:#fff; padding: 3px; border:1px solid #ccc"><%=image_tag "http://#{SITE_URL}#{@layout.card1.url(:thumb)}", :style=>"border:1px solid #ccc; margin:0px;" %></li>
+            <% if @layout.card2.file? %>
+              <li style="font-family:Arial; margin:0 30px 0 0 ; font-size:12px; text-align:right;  float:left; color:#000000; font-weight:normal ; background-color:#fff; padding: 3px; border:1px solid #ccc"><%=image_tag "http://#{SITE_URL}#{@layout.card2.url(:thumb)}", :style=>"border:1px solid #ccc; margin:0px;" %></li>
+            <% end %>
+            <% if @layout.card3.file? %>
+             <li style="font-family:Arial; margin:0 30px 0 0 ; font-size:12px; text-align:right;  float:left; color:#000000; font-weight:normal ; background-color:#fff; padding: 3px; border:1px solid #ccc"><%=image_tag "http://#{SITE_URL}#{@layout.card3.url(:thumb)}", :style=>"border:1px solid #ccc; margin:0px;" %></li>
+            <% end %>
+          </ul>
+</a>
+<% if CompanyZ.name.eql? @company[:type] %>
+  <a style=" text-decoration:none;font-family:Arial; font-size:14px; font-weight:bold;color:#F60!important; width: 470px; display: block; margin:10px 0px 20px 0px" href="<%=site_path(@company.user)%>">Veja mais no site </a>
+<% end %>

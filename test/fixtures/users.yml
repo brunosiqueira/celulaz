@@ -1,0 +1,158 @@
+# == Schema Information
+# Schema version: 20110315144312
+#
+# Table name: users
+#
+#  id                        :integer(4)      not null, primary key
+#  login                     :string(255)
+#  email                     :string(255)
+#  crypted_password          :string(40)
+#  salt                      :string(40)
+#  created_at                :datetime
+#  updated_at                :datetime
+#  remember_token            :string(255)
+#  remember_token_expires_at :datetime
+#  activation_code           :string(40)
+#  activated_at              :datetime
+#  password_reset_code       :string(40)
+#  enabled                   :boolean(1)      default(TRUE)
+#  type                      :string(255)
+#  self_created              :boolean(1)
+#  avatar_file_name          :string(255)
+#  avatar_content_type       :string(255)
+#  avatar_file_size          :integer(4)
+#  avatar_updated_at         :datetime
+#  domain                    :string(255)
+#
+
+quentin:
+  id: 1
+  login: quentin
+  email: quentin@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 5.days.ago.to_s :db %>
+  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b 
+  activated_at: <%= 5.days.ago.to_s :db %> 
+  type: UserWebAdministrator
+
+gerente_geral:
+  id: 2
+  login: gerente_geral
+  email: gerente_geral@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 1.days.ago.to_s :db %>
+  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9a 
+  type: UserGeneralManager
+  
+admin:
+  id: 3
+  login: administrator
+  email: admin@admin.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 5.days.ago.to_s :db %>
+  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b 
+  activated_at: <%= 5.days.ago.to_s :db %> 
+  type: UserAdministrator
+  
+gerente_segmento:
+  id: 4
+  login: gerente_segmento
+  email: mg@mg.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 5.days.ago.to_s :db %>
+  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b 
+  activated_at: <%= 5.days.ago.to_s :db %>
+  type: UserSegmentManager
+
+admin_web:
+  id: 6
+  login: admin_web
+  email: mg@mg2.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 5.days.ago.to_s :db %>
+  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b
+  activated_at: <%= 5.days.ago.to_s :db %>
+  type: UserWebAdministrator
+  
+empresa:
+  id: 5
+  login: empresa
+  email: emp@emp.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 5.days.ago.to_s :db %>
+  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b 
+  activated_at: <%= 5.days.ago.to_s :db %> 
+  type: UserCompany
+
+empresa_first_confirm:
+  id: 7  
+  login: empresa_first_confirm
+  email: empconf222@emp.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 5.days.ago.to_s :db %>
+  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b
+  activated_at: <%= 5.days.ago.to_s :db %>
+  type: UserCompany
+
+empresa_valid:
+  id: 8
+  login: empresa_valid
+  email: empconfxx@emp.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 5.days.ago.to_s :db %>
+  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b
+  activated_at: <%= 5.days.ago.to_s :db %>
+  type: UserCompany
+
+web_no_subsidiary:
+  id: 10
+  login: web_no_subsidiary
+  email: web_no_subsidiary@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 5.days.ago.to_s :db %>
+  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b
+  activated_at: <%= 5.days.ago.to_s :db %>
+  type: UserWebAdministrator
+
+director:
+  id: 11
+  login: director
+  email: director@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 5.days.ago.to_s :db %>
+  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b
+  activated_at: <%= 5.days.ago.to_s :db %>
+  type: UserDirector
+
+
+empresa_valid_2:
+  id: 12
+  login: empresã _&valid_2
+  email: empconfxx2@emp.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 5.days.ago.to_s :db %>
+  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b
+  activated_at: <%= 5.days.ago.to_s :db %>
+  type: UserCompany
+
+
+gerente_geral_2:
+  id: 13
+  login: gerente_geral_2
+  email: gerente_geral_2@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 1.days.ago.to_s :db %>
+  activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9a
+  type: UserGeneralManager
