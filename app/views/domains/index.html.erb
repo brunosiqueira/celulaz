@@ -53,7 +53,7 @@
                   if(original==null||original==''){
                     alert('O campo \'Domínio\' deve ser preenchido');
                     return false;
-                  } else if (!/^([a-z0-9A-Z_\-]+)[.][a-z0-9A-Z_\-]+([.][a-z0-9A-Z_\-]+){0,1}$/.test(original)){
+                  } else if (!/^(([a-z0-9A-Z_\-]+)[.][a-z0-9A-Z_\-]+([.][a-z0-9A-Z_\-]+){0,1}(;){0,1})+$/.test(original)){
                     alert('O campo \'Domínio\' não está no formato correto');
                     return false;
                   } else if (original.substring(0,4) == "www."){

@@ -13,7 +13,7 @@
     $("#galeria<%=component_gallery.id%>").bxSlider({
         displaySlideQty: <%= full_line ? 6 : 3 %>,
         moveSlideQty: 2,
-        infiniteLoop: false,
+        infiniteLoop: <%=component_gallery.pictures.size > 3 ? "true" : "false" %>,
         prevImage: "/images/company/layout/ico-right-gallery.gif",
         nextImage: "/images/company/layout/ico-left-gallery.gif"
     });
