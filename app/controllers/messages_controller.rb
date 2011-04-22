@@ -20,4 +20,8 @@ class MessagesController < ApplicationController
         render :text=>"false"
       end
   end
+
+  def show
+    create
+  end
 end

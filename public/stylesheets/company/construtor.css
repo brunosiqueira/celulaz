@@ -76,11 +76,11 @@
 #box-content #img-gallery-aba{float:left;margin:35px 0 10px 15px}
 #box-content #img-gallery-aba input{margin-right:10px}
 #box-img-add{padding:11px;width:316px;float:left}
-#box-img-add .img-preview{border:1px solid #b4b4b4;padding:4px;width:77px;height:77px;float:left}
-#box-img-add2{padding:5px;width:328px;height:255px;overflow:hidden;background-color:#f6f6f6;margin:13px 0 0 0}
-#box-img-add2 p{font-weight:bold;margin-left:8px}
-#box-img-add2 input{margin:14px 0 0 12px}
-#box-content #add-content-img{float:left;border:1px solid #b5b5b5;padding:5px; margin-bottom: 20px;}
+#box-img-add .img-preview{border:1px solid #b4b4b4 !important;padding:4px !important;width:77px !important;height:77px !important;float:left !important}
+#box-img-add2{padding:5px !important;width:328px !important;height:255px !important;overflow:hidden;background-color:#f6f6f6 !important;margin:13px 0 0 0  !important}
+#box-img-add2 p{font-weight:bold !important;margin-left:8px !important}
+#box-img-add2 input{margin:14px 0 0 12px !important}
+#box-content #add-content-img{float:left !important;border:1px solid #b5b5b5 !important;padding:5px !important; margin-bottom: 20px !important;}
 #box-content #desc-content-img{float:right}
 #box-content p{font-weight:bold}
 #box-content .check{margin:30px 10px 0 0; border: 0px solid !important;}

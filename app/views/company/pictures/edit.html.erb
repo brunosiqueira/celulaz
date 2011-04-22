@@ -40,7 +40,7 @@
                 },
                 success: function(){
                     $('body').css('cursor', 'auto');
-                    $.colorbox.close();
+                    $("#dialog").dialog("close");
                 },
                 error:function(request){
                     alert('Sorry, there was an error!!!')

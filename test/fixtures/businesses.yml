@@ -1,9 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
+  company_id: 7
   total: 1
   title: MyString
 
 two:
+  company_id: 7
   total: 1
   title: MyString

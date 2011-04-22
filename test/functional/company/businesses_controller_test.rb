@@ -17,7 +17,7 @@ class Company::BusinessesControllerTest < ActionController::TestCase
 
   test "should create business" do
     assert_difference('Business.count') do
-      post :create, :business => { }
+      post :create, :business => {:total=>5,:title=>"test" }
     end
 
     assert_redirected_to company_business_path(assigns(:business))

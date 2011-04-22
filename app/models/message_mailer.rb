@@ -12,7 +12,7 @@ class MessageMailer < ActionMailer::Base
   end
 
   def to_friend(message_to_friend)
-    subject    "[#{I18n.t("company.site_title")}] #{message_to_friend.name_from} pensou que você poderia se interessar pela seguinte empresa/profissional"
+    subject    "[#{I18n.t("company.site_title")}] #{message_to_friend.name_from} enviou um e-mail"
     recipients "#{message_to_friend.email_to}"
     from       EMAIL
     sent_on    Time.now

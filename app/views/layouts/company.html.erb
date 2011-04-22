@@ -8,7 +8,7 @@
     <![endif]-->
     <%= stylesheet_link_tag "layout" %>
     <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.to_json};" if protect_against_forgery? %>
-    <%= javascript_include_tag "third/jquery-1.4.4.min.js", "third/jquery.corner", "application" %>
+    <%= javascript_include_tag "third/jquery-1.5.2.min.js", "third/jquery.corner", "application" %>
 
     <script type="text/javascript">
       

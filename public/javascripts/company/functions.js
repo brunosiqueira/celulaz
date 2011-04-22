@@ -18,9 +18,9 @@ function fillCreatedContent(result,conteudo){
     $('<div id="m-'+result.id+'" class="conteudo new conteudoInterno"><h5><a href="#">'+title+'</a></h5><p>'+conteudo+'</p><span class="remove"></span><input type="checkbox" /><span class="handle"></span></div>').prependTo('#page-conteudos');
     $('body').css('cursor','auto');
     $('#site-conteudos .remove').removeContent();
-    $('.conteudoInterno a').click(function(){
+    $('.conteudoInterno a').click(function(event){
         editContent($(this).parent().parent().attr('id').substring(2));
-        $(this).event.stopPropagation();
+        event.stopPropagation();
         return false
     })
 }

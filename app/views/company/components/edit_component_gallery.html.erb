@@ -11,22 +11,15 @@
 
   //cria novo conteudo
   $('.btn-concluir').click(function(){
-      //$(CKEDITOR.instances.editorimagem.getData()).text();
-      createContentEditado(<%=@component.id%>, $('#titulo1').val())
-      $('.box-novo-conteudo span.remove').trigger('click');
+    //$(CKEDITOR.instances.editorimagem.getData()).text();
+    createContentEditado(<%=@component.id%>, $('#titulo1').val())
+    $('.box-novo-conteudo span.remove').trigger('click');
   });
 
   //ajusta altura sidebar
   $('#box-sidebar').css('height', $('#box-content').height());
 
-  //ativa funcionalidade de resize do container
-  $(document).ready(function() {
-    //$("#box-content").resizable({ maxWidth: 600 },{ minWidth: 600 },{ minHeight: 418 });
-    $(".img-edit").colorbox({
-      onCleanup:function(){CKEDITOR.instances.editorimagemgallery.destroy();}
-      //onLoad:function(){alert('onLoad: colorbox has started to load the targeted content');}
-    });
-  });
+ 
 
   //cria novo conteudo
   //$('.btn-concluir').click(function(){
@@ -74,9 +67,24 @@
       <li <%="class=\"clearMargin\"" if ((index+1) % 4 )== 0 %>>
         <input name="check-img-<%=picture.id%>" type="checkbox" value="imagem1" class="img-gallery-checkbox"/>
         <img id="gallery-picture-<%=picture.id%>" src="<%=picture.photo.url :thumb%>" width="105" height="100" alt="Imagem1" class="img-gallery-item" />
-        <%= link_to image_tag("company/icon-edit.png", :width=>"22", :height=>"22", :alt=>"Editar", :class=>"img-gallery-edit"),edit_company_component_picture_path(@component,picture), :class=>'img-edit'%>
+        <%= link_to image_tag("company/icon-edit.png", :width=>"22", :height=>"22", :alt=>"Editar", :class=>"img-gallery-edit"),"#", :class=>'img-edit', :id=>"link-gallery-#{picture.id}"%>
       </li>
-
+      <script type="text/javascript">
+        //ativa funcionalidade de resize do container
+        $(document).ready(function() {
+          //$("#box-content").resizable({ maxWidth: 600 },{ minWidth: 600 },{ minHeight: 418 });
+          $("#link-gallery-<%=picture.id%>").click(function(){
+            $("#dialog").load('<%= url_for(edit_company_component_picture_path(@component,picture))%>');
+            $("#dialog").dialog({
+              width: 360,
+              height: 450,
+              modal: true,
+              close:function(){CKEDITOR.instances.editorimagemgallery.destroy(); $("#dialog").html('');}
+              //onLoad:function(){alert('onLoad: colorbox has started to load the targeted content');}
+            });
+          });
+        });
+      </script>
     <% end %>
   </ul>
   <div style="width: 500px; float: left; height: 35px; z-index: 9999">
@@ -95,3 +103,4 @@
   </div>
 </div>
 <span class="remove"></span> <br class="clearfloat" />
+<div id="dialog" title="Editar Imagem"></div>

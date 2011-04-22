@@ -47,7 +47,7 @@ class Company::BusinessesController < ApplicationController
     @business = @company.businesses.build(params[:business])
     respond_to do |format|
       if @business.save
-        format.html { redirect_to(@business, :notice => 'O Negócio foi criado com sucesso.') }
+        format.html { redirect_to(company_business_path(@business), :notice => 'O Negócio foi criado com sucesso.') }
         format.xml  { render :xml => @business, :status => :created, :location => @business }
       else
         format.html { render :action => "new" }
@@ -63,7 +63,7 @@ class Company::BusinessesController < ApplicationController
 
     respond_to do |format|
       if @business.update_attributes(params[:business])
-        format.html { redirect_to(@business, :notice => 'Business was successfully updated.') }
+        format.html { redirect_to(company_business_path(@business), :notice => 'Business was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

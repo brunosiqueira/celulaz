@@ -15,7 +15,7 @@
         </p>
         <br/>
         <p style=" color:#333333; margin: 0px; font-family:Arial,Helvetica,sans-serif; font-size:12px; padding:0px; text-align:left;display: block; font-weight:normal;width:470px; float: left;">
-          <label>Observações:</label> <%=@observations.gsub '\n','<br/>'%>
+          <label>Observações:</label> <%=@observations.gsub('\n','<br/>') unless @observations.blank?%>
         </p>
         <h2 style="clear: both;   font-size: 12px;    font-weight: 800;    margin: 3px 5px 0 0;    padding: 5px 0;    width: 100%;text-align:left;">
           <%for phone in @company.phones%>
