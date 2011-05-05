@@ -76,15 +76,15 @@
 #box-content #img-gallery-aba{float:left;margin:35px 0 10px 15px}
 #box-content #img-gallery-aba input{margin-right:10px}
 #box-img-add{padding:11px;width:316px;float:left}
-#box-img-add .img-preview{border:1px solid #b4b4b4 !important;padding:4px !important;width:77px !important;height:77px !important;float:left !important}
-#box-img-add2{padding:5px !important;width:328px !important;height:255px !important;overflow:hidden;background-color:#f6f6f6 !important;margin:13px 0 0 0  !important}
-#box-img-add2 p{font-weight:bold !important;margin-left:8px !important}
-#box-img-add2 input{margin:14px 0 0 12px !important}
-#box-content #add-content-img{float:left !important;border:1px solid #b5b5b5 !important;padding:5px !important; margin-bottom: 20px !important;}
+#box-img-add .img-preview{border:1px solid #b4b4b4;padding:4px;width:77px;height:77px;float:left}
+#box-img-add2{padding:5px;width:328px;height:255px;overflow:hidden;background-color:#f6f6f6;margin:13px 0 0 0}
+#box-img-add2 p{font-weight:bold;margin-left:8px}
+#box-img-add2 input{margin:14px 0 0 12px}
+#box-content #add-content-img{float:left;border:1px solid #b5b5b5;padding:5px; margin-bottom: 20px;}
 #box-content #desc-content-img{float:right}
 #box-content p{font-weight:bold}
 #box-content .check{margin:30px 10px 0 0; border: 0px solid !important;}
-.btn-concluir{overflow:hidden;color:#FFF;font-size:10px;font-family:Arial,Helvetica,sans-serif;border:none;padding:7px 20px;cursor:pointer;float:left;background-color:#394754}
+.btn-concluir{overflow:hidden;color:#FFF;font-size:10px;font-family:Arial,Helvetica,sans-serif;border:none;padding:7px 0px;cursor:pointer;float:left;background-color:#394754;width: 95px }
 .btn-add-image{width:160px;height:30px;background:url(/images/company/add-image.gif) no-repeat;overflow:hidden;color:#FFF;font-size:10px;font-family:Arial,Helvetica,sans-serif;border:none;margin:30px 0 10px;cursor:pointer;float:left;padding-left:20px}
 .btn-add-image2{width:160px;height:30px;background:url(/images/company/add-image2.gif) no-repeat;overflow:hidden;color:#FFF;font-size:10px;font-family:Arial,Helvetica,sans-serif;border:none;margin:30px 0 10px;cursor:pointer;float:left;padding-left:20px}
 .btn-change-image{width:160px;height:30px;background:url(/images/company/change-image.gif) no-repeat;overflow:hidden;color:#FFF;font-size:10px;font-family:Arial,Helvetica,sans-serif;border:none;margin:30px 0 10px;cursor:pointer;clear:both;float:left;margin-right:12px}

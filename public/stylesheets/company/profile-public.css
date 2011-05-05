@@ -26,11 +26,11 @@ p {float:left;line-height:20px;margin:3px 0;}
 .msg-profile-public .false-input:hover{no-repeat 4px 10px #FFF;color:#333;cursor:text; width:289px; text-decoration: none !important; font-weight: normal;}
 
 .ok {
-padding-left:38px!important; background-image: url(/images/company/icon-check.gif)no-repeat left center;
+ background-image: url(/images/company/icon-check.gif)no-repeat left center;
 }
 
 .cancel {
-padding-left:38px!important; background-image: url(/images/company/icon-remove.gif) no-repeat left center;
+background-image: url(/images/company/icon-remove.gif) no-repeat left center;
 }
 
 .relationship {float: left}
