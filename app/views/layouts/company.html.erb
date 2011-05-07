@@ -72,7 +72,7 @@
           <li <%= active_tab(:card) %>><%=link_to "Cartão de Visita",company_business_card_path, :class=>"cartao-visitas"%></li>
           <li <%= active_tab(:mail) %>><%= link_to "Mensagens", inbox_path, :class => 'mensagens' %></li>
           <li <%= active_tab(:relationships) %>><%= link_to "Relacionamento",company_relationships_path, :class=>"relacionamento"%></li>
-          <li <%= active_tab(:business) %>><%= link_to "Meus Negócios",company_businesses_path, :class=>"negocio"%></li>
+          <!--<li <%= active_tab(:business) %>><%= link_to "Meus Negócios",company_businesses_path, :class=>"negocio"%></li>-->
           <li <%= active_tab(:company) %>><%= link_to "Configurações",edit_company_user_path(current_company.company.user), :class=>"dados-empresa"%></li>
           
         </ul>

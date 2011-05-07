@@ -1,4 +1,4 @@
-<% form_tag ("http://#{SITE_URL}#{url_for(:controller=>:messages,:action=>:create)}"), :id => "message_form", :class => "message_form_#{object.id.to_s}", :data => "#{object.id.to_s}" do -%>
+<% form_tag "http://#{SITE_URL}/messages/create", :id => "message_form", :class => "message_form_#{object.id.to_s}", :data => "#{object.id.to_s}" do -%>
   <%= hidden_field_tag  'message[subject]', 'Mensagem enviada pelo site' %>
   <%= hidden_field_tag  'message[to]', @company.user.id %>
   <div style="float: left; width: 300px; margin-bottom: 20px;">

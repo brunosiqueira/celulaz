@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
   has_one :company,:dependent=>:destroy
   
   # messaging system
-  has_many :sent_messages, :class_name => 'Message', :conditions=>["deleted_sent_box = ? or deleted_sent_box is null", false], :foreign_key => 'sender_id',:dependent=>:destroy
+  has_many :sent_messages, :class_name => 'Message', :conditions=>["deleted_sent_box = ? or deleted_sent_box is null", false], :foreign_key => 'sender_id'
   has_many :received_messages, :class_name => 'MessageCopy', :conditions=>["deleted = ? or deleted is null",false],:foreign_key => 'recipient_id',:dependent=>:destroy
   has_many :folders,:dependent=>:destroy
   

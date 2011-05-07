@@ -14,5 +14,5 @@
 class Tab < ActiveRecord::Base
   belongs_to :layout
   has_many :tab_components,:include=>:component,:dependent => :destroy,:order=>"tab_components.line, tab_components.column"
-  has_many :components, :through => :tab_components
+  has_many :components, :through => :tab_components,:dependent => :destroy
 end
