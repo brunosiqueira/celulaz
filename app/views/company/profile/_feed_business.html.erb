@@ -1,3 +1,25 @@
 <%= image_tag feed_item.item.business_image.url() %>
 <br/>
-<a href="#"></a>
+<a href="#" class="link-comprar" id="comprar-<%=feed_item.item.id%>">Comprar</a>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#comprar-<%=feed_item.item.id%>').click(function(){
+      $.ajax({
+        type:"POST",
+        url:'/company/businesses/buy',
+        data:{
+          id:<%=feed_item.item.id%>,
+          authenticity_token:AUTH_TOKEN
+        },
+        dataType:"json",
+        success:function(result){
+          $('body').css('cursor','auto')
+        },
+        error:function(request,status,errorThrown){
+          alert('Erro na Ação!'+status)
+        }
+      });
+    });
+  });
+</script>

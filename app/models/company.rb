@@ -37,6 +37,9 @@ class Company < ActiveRecord::Base
   validates_presence_of  :segment
 
   has_many :businesses, :dependent=>:destroy
+
+  has_many :business_companies, :dependent=>:destroy
+  has_many :businesses_bought, :through => :business_companies,:source=>:business
   has_many :feeds,:dependent=>:destroy
   has_many :news,:dependent=>:destroy
   has_many :feed_items, :through => :feeds, :order => 'feed_items.updated_at desc'
