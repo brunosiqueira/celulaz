@@ -1,0 +1,66 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", businesses_path  %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", business_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+
+      <p>
+        <b><%= t("activerecord.attributes.business.company_id", :default => t("activerecord.labels.company_id", :default => "Company")) %>:</b>
+        <%= @business.company.layout.name %>
+      </p>
+
+      <p>
+        <b><%= t("activerecord.attributes.business.total", :default => t("activerecord.labels.total", :default => "Total")) %>:</b>
+        <%= @business.total %>
+      </p>
+
+      <p>
+        <b><%= t("activerecord.attributes.business.title", :default => t("activerecord.labels.title", :default => "Title")) %>:</b>
+        <%= @business.title %>
+      </p>
+
+      <p>
+        <b><%= t("activerecord.attributes.business.business_image", :default => t("activerecord.labels.business_image", :default => "Business image file name")) %>:</b>
+        <%= image_tag @business.business_image.url(:big) %>
+      </p>
+
+      <div class="wat-cf">
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", business_path(@business), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>
+
+      <h2>Compradores</h2>
+
+      <table class="table">
+        <tr>
+          <th class="first">ID</th>
+          <th>
+            <%= t("activerecord.attributes.business_company.company_id", :default => t("activerecord.labels.company_id", :default => "Company_id")) %>
+          </th>
+          <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @business.business_companies.each do |business| -%>
+          <tr class="<%= cycle("odd", "even") %>">
+            <td>
+              <%= business.id %>
+            </td>
+            <td>
+              <%= business.company.layout.name %>
+            </td>
+            <td>
+              <%= business.created_at %>
+            </td>
+            <td class="last">
+            </td>
+          </tr>
+        <% end -%>
+      </table>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
