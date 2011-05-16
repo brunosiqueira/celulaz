@@ -29,6 +29,7 @@ ActionController::Routing::Routes.draw do |map|
     map.resources :company_to_friend
     map.resources :business_cards
     map.resources :colors
+    map.resources :businesses
     map.resources :people
     map.resources :subsidiaries
     map.resources :layouts
