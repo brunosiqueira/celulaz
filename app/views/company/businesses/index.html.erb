@@ -1,22 +1,23 @@
-<h1>Meus Negócios</h1>
-
-<table>
-  <tr>
-    <th>Total</th>
-    <th>Title</th>
-  </tr>
+<% stylesheet "company/business"%> 
+<% javascript "company/business"%>
+<h1>Meus negócios</h1>
+<ul class="tab-negocios" style="border-right: 0px; font-weight: bold; ">
+  <li id="title"> Title</li>
+    <li id="total"  >Total</li>
+    <li>&nbsp;</li>
+    <li>&nbsp;</li>
+  </ul>
 
 <% @businesses.each do |business| %>
-  <tr>
-    <td><%=h business.total %></td>
-    <td><%=h business.title %></td>
-    <td><%= link_to 'Show', company_business_path(business) %></td>
-    <td><%= link_to 'Edit', edit_company_business_path(business) %></td>
-    <td><%= link_to 'Destroy', company_business_path(business), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <ul class="tab-negocios" >
+    
+    
+    <li id="title"><%= link_to business.title, company_business_path(business) %></li>
+    <li id="total"><%=h business.total %>,00</li>
+    <li class="edit"><%= link_to '&nbsp;',  edit_company_business_path(business)  %></li>
+    <li class="delete"><%= link_to '&nbsp;', company_business_path(business), :confirm => 'Você tem certeza que quer excluir este negócio? ', :method => :delete %></li>
+  </ul>
 <% end %>
-</table>
 
-<br />
 
-<%= link_to 'Novo Negócio', new_company_business_path %>
+<%= link_to 'Novo Negócio', new_company_business_path,:class=>'btn-small' %>
