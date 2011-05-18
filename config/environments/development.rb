@@ -6,7 +6,7 @@
 config.cache_classes = false
 config.cache_store = :mem_cache_store, '127.0.0.1:11211', {:namespace => "dev"}
 DNS_PATH = ""
-SITE_URL = "127.0.0.1:3000"
+SITE_URL = "201.37.245.179:3000"
 EMAIL="bsiqueira@suaempreza.com.br"
 SAC_EMAIL="bsiqueira@suaempreza.com.br"
 # Log error messages when you accidentally call methods on nil.

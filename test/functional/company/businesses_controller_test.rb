@@ -45,4 +45,11 @@ class Company::BusinessesControllerTest < ActionController::TestCase
 
     assert_redirected_to company_businesses_path
   end
+
+  test "buy business" do
+    login_as :empresa_valid
+    assert_difference('BusinessCompany.count', 1) do
+      get :buy, :id => businesses(:one).to_param
+    end
+  end
 end

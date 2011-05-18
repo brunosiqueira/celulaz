@@ -83,4 +83,10 @@ class Company::BusinessesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def buy
+    @business = Business.find params[:id]
+    @company.businesses_bought << @business
+    render :text=>"true"
+  end
 end
