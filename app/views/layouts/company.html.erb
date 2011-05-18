@@ -72,13 +72,15 @@
           <li <%= active_tab(:card) %>><%=link_to "Cartão de Visita",company_business_card_path, :class=>"cartao-visitas"%></li>
           <li <%= active_tab(:mail) %>><%= link_to "Mensagens", inbox_path, :class => 'mensagens' %></li>
           <li <%= active_tab(:relationships) %>><%= link_to "Relacionamento",company_relationships_path, :class=>"relacionamento"%></li>
-          <!--<li <%= active_tab(:business) %>><%= link_to "Meus Negócios",company_businesses_path, :class=>"negocio"%></li>-->
+          <li <%= active_tab(:business) %>><%= link_to "Meus Negócios",company_businesses_path, :class=>"negocio"%></li>
+          <li><a class="emails" href="http://www.celulazmail.com.br">Campanha de e-mail</a> </li>
+          <li><a class="arquivos" href="http://www.celulazmail.com.br">Meus Arquivos</a> </li>
           <li <%= active_tab(:company) %>><%= link_to "Configurações",edit_company_user_path(current_company.company.user), :class=>"dados-empresa"%></li>
           
         </ul>
-        <div id="banner-mailmkt">
+        <!--<div id="banner-mailmkt">
           <%=link_to image_tag("new_version/btn-mailmkt.jpg",:alt=>"E-mail Marketing"), "http://www.celulazmail.com.br",:popup=>true,:style=>"display: block; width: 100px; margin-left: 30px; margin-top: 30px;"%>
-        </div>
+        </div>-->
       </div><!-- #sidebar -->
 
       <div class="content">
