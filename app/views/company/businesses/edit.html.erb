@@ -1,20 +1,29 @@
+<% javascript "company/business"%>
+<% stylesheet "company/business"%> 
 <h1>Editar Meu Negócio</h1>
+<div style="width: 740px" class="gray-box">
+  <%= image_tag @business.business_image.url(:big), :class=>'negocio' %>
+  <div style="float: left; width:300px;">
 
-<% form_for([:company,@business]) do |f| %>
-  <%= f.error_messages %>
 
-  <p>
-    <%= f.label :total %><br />
-    <%= f.text_field :total %>
-  </p>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.submit 'Salvar' %>
-  </p>
-<% end %>
+    <% form_for([:company,@business]) do |f| %>
+      <%= f.error_messages %>
+      <p>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </p>
+      <p>
+        <%= f.label :total %><br>
+        <%= f.text_field :total %>
+      </p>
 
-<%= link_to 'Show', company_business_path(@business) %> |
-<%= link_to 'Back', company_businesses_path %>
+      <p >
+        <%= f.submit 'Salvar', :class=>'btn-input' %>
+      </p>
+    <% end %>
+      <p style="width: 100%; float: left">
+    <%= link_to 'Ver', company_business_path(@business)  %> |
+    <%= link_to 'Voltar', company_businesses_path %>
+      </p>
+  </div>
+</div>
