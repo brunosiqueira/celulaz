@@ -13798,3 +13798,60 @@ ActionController::RoutingError (No route matches "/card1s/253/small/cleber_cart%
   /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
 
 Rendering rescues/layout (not_found)
+DEPRECATION WARNING: require "activesupport" is deprecated and will be removed in Rails 3. Use require "active_support" instead. (called from /Users/felipesantiago/.rvm/gems/ruby-1.8.7-p302@rails2/gems/activesupport-2.3.8/lib/activesupport.rb:2)
+** vote_fu: setting up load paths
+** vote_fu: initialized properly.
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Company::ProfileController#index (for 127.0.0.1 at 2011-05-24 18:02:34) [GET]
+  [4;35;1mUser Columns (24.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUserAdministrator Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUserCompany Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUserCompany Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 330) AND ( (`users`.`type` = 'UserCompany' ) ) LIMIT 1[0m
+  [4;36;1mCompany Load (0.3ms)[0m   [0;1mSELECT * FROM `companies` WHERE (`companies`.user_id = 330) LIMIT 1[0m
+  [4;35;1mCompany Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCompanyZ Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mLayout Load (1.6ms)[0m   [0mSELECT * FROM `layouts` WHERE (`layouts`.company_id = 240) LIMIT 1[0m
+  [4;36;1mCompany Load (0.5ms)[0m   [0;1mSELECT `companies`.id FROM `companies` INNER JOIN `company_relationships` ON `companies`.id = `company_relationships`.company_origin_id WHERE ((`company_relationships`.company_destiny_id = 240)) [0m
+  [4;35;1mCompany Load (0.4ms)[0m   [0mSELECT `companies`.id FROM `companies` INNER JOIN `company_relationships` ON `companies`.id = `company_relationships`.company_destiny_id WHERE ((`company_relationships`.company_origin_id = 240)) [0m
+  [4;36;1mFeedItem Load (9.0ms)[0m   [0;1mSELECT distinct feed_items.* FROM `feed_items` INNER JOIN `feeds` ON feeds.feed_item_id = feed_items.id WHERE (feeds.company_id in (267,245,263,271,294,283,321,322,420,408,206,436,240) and (is_public = 1 or company_id = 240)) ORDER BY feed_items.updated_at desc LIMIT 0, 10[0m
+  [4;35;1mFeedItem Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `feed_items`[0m
+  [4;36;1mCompanyRelationship Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `company_relationships`[0m
+  [4;35;1mCompanyRelationship Load (0.4ms)[0m   [0mSELECT * FROM `company_relationships` WHERE (`company_relationships`.`id` IN (1086,953,1508,1099,1477,1478,848,1072,1352,181)) [0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mSELECT count(DISTINCT feed_items.id) AS count_distinct_feed_items_id FROM `feed_items` INNER JOIN `feeds` ON feeds.feed_item_id = feed_items.id WHERE (feeds.company_id in (267,245,263,271,294,283,321,322,420,408,206,436,240) and (is_public = 1 or company_id = 240)) [0m
+Rendering template within layouts/company
+Rendering company/profile/index
+  [4;35;1mCompany Load (0.6ms)[0m   [0m
+ SELECT companies.* FROM companies as companies 
+ JOIN company_relationships as destinies 
+ ON (companies.id = destinies.company_origin_id and confirmed=false) 
+ WHERE (destinies.company_destiny_id=240)[0m
+Rendered company/news/_news (2.0ms)
+  [4;36;1mCompany Load (0.4ms)[0m   [0;1mSELECT * FROM `companies` WHERE (`companies`.`id` = 271) [0m
+  [4;35;1mCompany Load (0.2ms)[0m   [0mSELECT * FROM `companies` WHERE (`companies`.`id` = 446) [0m
+  [4;36;1mLayout Load (0.4ms)[0m   [0;1mSELECT * FROM `layouts` WHERE (`layouts`.company_id = 446) LIMIT 1[0m
+  [4;35;1mLayout Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `layouts`[0m
+  [4;36;1mLayout Load (0.5ms)[0m   [0;1mSELECT * FROM `layouts` WHERE (`layouts`.company_id = 271) LIMIT 1[0m
+Rendered company/profile/_feed_company_relationship (26.2ms)
+  [4;35;1mFeedItem Load (0.4ms)[0m   [0mSELECT `feed_items`.id FROM `feed_items` INNER JOIN `feeds` ON `feed_items`.id = `feeds`.feed_item_id WHERE (`feed_items`.`id` = 5374) AND ((`feeds`.company_id = 240)) ORDER BY feed_items.updated_at desc LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `feed_likes_count' for #<FeedItem:0x4310e94>) on line #17 of app/views/company/profile/_feeds.html.erb:
+14:         </script>
+15:       <% end %>
+16:       <a class="like-count-feed">
+17:         <%= feed.feed_likes_count if feed.feed_likes_count > 0 %>
+18:       </a>
+19:       <script type="text/javascript">
+20:         $(document).ready(function(){
+
+    app/views/company/profile/_feeds.html.erb:17
+    app/views/company/profile/_feeds.html.erb:1:in `each'
+    app/views/company/profile/_feeds.html.erb:1
+    app/views/company/profile/index.html.erb:9
+    app/controllers/company/profile_controller.rb:12:in `index'
+
+Rendered rescues/_trace (184.7ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
