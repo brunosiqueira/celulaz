@@ -29,7 +29,7 @@
 # and open the template in the editor.
 
 class UserCompany <User
-  validates_format_of       :domain, :with => /^([a-z0-9A-Z_\-]+)[.][a-z0-9A-Z_\-]+([.][a-z0-9A-Z_\-]+){0,1}$/,:allow_nil=>true
+  validate :multiple_domains
   validate :domain_not_start_www
   def before_destroy
     unless self.company.titles.empty?
@@ -64,6 +64,20 @@ class UserCompany <User
   def domain_not_start_www
     if (!domain.nil? && domain.start_with?("www."))
       errors.add :domain, :invalid
+    end
+  end
+  
+  def multiple_domains
+    if domain.match(";") != nil
+      for d in domain.split(";")
+        if d.match(/^([a-z0-9A-Z_\-]+)[.][a-z0-9A-Z_\-]+([.][a-z0-9A-Z_\-]+){0,1}$/)[0] != d
+          errors.add :domain, :invalid
+        end
+      end
+    else
+      if domain.match(/^([a-z0-9A-Z_\-]+)[.][a-z0-9A-Z_\-]+([.][a-z0-9A-Z_\-]+){0,1}$/)[0] != d
+        errors.add :domain, :invalid
+      end
     end
   end
 end

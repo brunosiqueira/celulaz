@@ -34,3 +34,5 @@ config.action_mailer.raise_delivery_errors = false
 
 config.middleware.use "Rack::Bug",
   :secret_key => "bunda"
+  
+config.action_mailer.default_url_options = { :host => "localhost:3000" }
