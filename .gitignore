@@ -4,3 +4,4 @@ log/*.log
 tmp/
 backup/files/return/*.txt
 backup/files/shipping/*.txt
+public/photos/3/*
