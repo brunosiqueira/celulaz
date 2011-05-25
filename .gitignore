@@ -2,6 +2,7 @@
 db/*.sqlite3
 log/*.log
 tmp/
+backup/
 backup/files/return/*.txt
 backup/files/shipping/*.txt
 public/photos/3/*
