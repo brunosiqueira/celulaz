@@ -40,7 +40,7 @@ test:
   adapter: mysql
   socket: /tmp/mysql.sock
   encoding: utf8
-  database: suaempreza_test
+  database: proj_celulaz_test
   username: root
   password: 
   host: localhost

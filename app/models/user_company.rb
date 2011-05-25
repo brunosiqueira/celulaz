@@ -68,16 +68,20 @@ class UserCompany <User
   end
   
   def multiple_domains
-    if domain.match(";") != nil
-      for d in domain.split(";")
-        if d.match(/^([a-z0-9A-Z_\-]+)[.][a-z0-9A-Z_\-]+([.][a-z0-9A-Z_\-]+){0,1}$/)[0] != d
+    if !domain.nil?
+      if !domain.match(";").nil?
+        for d in domain.split(";")
+          if d.match(/^([a-z0-9A-Z_\-]+)[.][a-z0-9A-Z_\-]+([.][a-z0-9A-Z_\-]+){0,1}$/)[0] != d
+            errors.add :domain, :invalid
+          end
+        end
+      else
+        if domain.match(/^([a-z0-9A-Z_\-]+)[.][a-z0-9A-Z_\-]+([.][a-z0-9A-Z_\-]+){0,1}$/).nil?
           errors.add :domain, :invalid
         end
       end
     else
-      if domain.match(/^([a-z0-9A-Z_\-]+)[.][a-z0-9A-Z_\-]+([.][a-z0-9A-Z_\-]+){0,1}$/)[0] != d
-        errors.add :domain, :invalid
-      end
+      errors.add :domain, :invalid
     end
   end
 end

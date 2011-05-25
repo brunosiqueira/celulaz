@@ -128,44 +128,42 @@ class UserTest < ActiveSupport::TestCase
     assert !users(:empresa).is_manager?
   end
 
-  def test_invalid_domain
+  test "should be invalid with invalid domain string" do
     user = users(:empresa_valid)
-    assert user.valid?
     user.domain = "*"
     assert !user.valid?
   end
-
-  def test_valid_domain
+  
+  test "should be invalid with invalid www domain " do
     user = users(:empresa_valid)
-    assert user.valid?
+    user.domain = "www.empresa.com"
+    assert !user.valid?
+  end
+  
+  test "should be invalid with invalid www and br domain" do
+    user = users(:empresa_valid)
+    user.domain = "www.empresa.com.br"
+    assert !user.valid?
+  end
+  
+  test "should be valid with *.com domain" do
+    user = users(:empresa_valid)
     user.domain = "empresa.com"
     assert user.valid?
   end
-  def test_valid_domain_br
+  
+  test "should be valid with *.com.br domain" do
     user = users(:empresa_valid)
-    assert user.valid?
     user.domain = "empresa.com.br"
     assert user.valid?
   end
 
-    def test_randon_domain
+  def test_randon_domain
     users(:empresa_valid).update_attribute :domain, "empresa.com"
     users(:empresa_valid).reload
     assert_equal "empresa.com",users(:empresa_valid).domain
   end
-  def test_invalid_domain_www
-    user = users(:empresa_valid)
-    assert user.valid?
-    user.domain = "www.empresa.com"
-    assert !user.valid?
-  end
-  def test_invalid_domain_www_br
-    user = users(:empresa_valid)
-    assert user.valid?
-    user.domain = "www.empresa.com.br"
-    assert !user.valid?
-  end
-
+  
   def test_get_subusers_non_companies_admin
     users = User.find(:all,:conditions=>['id<>? and type<>?',users(:admin).id,UserCompany.name],:order=>"login")
     assert_equal users, users(:admin).get_subusers_non_companies
