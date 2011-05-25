@@ -2,16 +2,20 @@
 <div id="colleft">
   <h1>Nossos Clientes </h1>
   <div class="space">
-<%# cache({:action => 'index', :action_suffix => 'show_companies'}, :expires_in => 2.days) do %>
-<%#  Layout.find(:all,:limit=>4,:include=>:company,:conditions=>"companies.type = 'CompanyZ'", :order=>"layouts.updated_at").each do |layout| %>
-<%#= link_to "#{image_tag layout.card1.url(:thumb),:width=>80,:height=>80}#{truncate layout.name, :length=>15}",business_card_path(layout.company),:style=>"float:left" , :class=>'empresas-box'%>
-<%# end %>
-<%# end %>
-    <% cache({:action => 'index', :action_suffix => 'show_companies'}) do %>
-      <%  Layout.find(:all,:limit=>8,:include=>:company,:conditions=>["companies.type = 'CompanyZ' and companies.id in (?)",[176,173,207,213,206,47,178,28,182]], :order=>"layouts.updated_at").each do |layout| %>
-        <%= link_to "#{image_tag layout.card1.url(:thumb),:width=>80,:height=>80}#{truncate layout.name, :length=>15}",business_card_path(layout.company),:style=>"float:left" , :class=>'empresas-box'%>
-      <% end %>
-    <% end %>
+	<%= link_to "#{image_tag Layout.find_by_company_id(549).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(549).name, :length=>15}",business_card_path(549),:style=>"float:left" , :class=>'empresas-box'%>
+	<%= link_to "#{image_tag Layout.find_by_company_id(531).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(531).name, :length=>15}",business_card_path(531),:style=>"float:left" , :class=>'empresas-box'%>
+	<%= link_to "#{image_tag Layout.find_by_company_id(427).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(427).name, :length=>15}",business_card_path(427),:style=>"float:left" , :class=>'empresas-box'%>
+	<%= link_to "#{image_tag Layout.find_by_company_id(354).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(354).name, :length=>15}",business_card_path(354),:style=>"float:left" , :class=>'empresas-box'%>
+
+	<%= link_to "#{image_tag Layout.find_by_company_id(305).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(305).name, :length=>15}",business_card_path(305),:style=>"float:left" , :class=>'empresas-box'%>
+	<%= link_to "#{image_tag Layout.find_by_company_id(261).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(261).name, :length=>15}",business_card_path(261),:style=>"float:left" , :class=>'empresas-box'%>
+	<%= link_to "#{image_tag Layout.find_by_company_id(411).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(411).name, :length=>15}",business_card_path(411),:style=>"float:left" , :class=>'empresas-box'%>
+	<%= link_to "#{image_tag Layout.find_by_company_id(290).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(290).name, :length=>15}",business_card_path(290),:style=>"float:left" , :class=>'empresas-box'%>
+    <%# cache({:action => 'index', :action_suffix => 'show_companies'}) do %>
+      <%#  Layout.find(:all,:limit=>8,:include=>:company,:conditions=>["companies.type = 'CompanyZ' and companies.id in (?)",[176,173,207,213,206,47,178,28,182]], :order=>"layouts.updated_at").each do |layout| %>
+        <%#= link_to "#{image_tag layout.card1.url(:thumb),:width=>80,:height=>80}#{truncate layout.name, :length=>15}",business_card_path(layout.company),:style=>"float:left" , :class=>'empresas-box'%>
+      <%# end %>
+    <%# end %>
   </div>
 
   <%= link_to  "Ver Mais...",search_path, :class=>'link-btn-orange space'%>
