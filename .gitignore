@@ -2,4 +2,5 @@
 db/*.sqlite3
 log/*.log
 tmp/
-
+backup/files/return/*.txt
+backup/files/shipping/*.txt
