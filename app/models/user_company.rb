@@ -80,8 +80,6 @@ class UserCompany <User
           errors.add :domain, :invalid
         end
       end
-    else
-      errors.add :domain, :invalid
     end
   end
 end

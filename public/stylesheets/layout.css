@@ -70,7 +70,7 @@ div.panel-head,div.submenu{background:none repeat scroll 0 0 #daefff;height:38px
 .btn.add{width:122px;padding-left:38px;background-image:url(/images/company/icon-add.gif)}
 .btn.add.active{background:white;color:#333;background:url(/images/company/icon-add-active.gif) no-repeat 8px 6px}
 .btn.remove{width:122px;padding-left:38px;background-image:url(/images/company/icon-remove.gif)}
-.btn-input,#message_to_friend_submit,.content .col-left .relac-actions a,.btn-small,div.msg-profile-public button{text-align: center; line-height:3;background-color: #394754; width: 94px; border:0 none;color:#fff;cursor:pointer;display:block;float:left;font-size:10px;height:30px;margin:10px 0 0;overflow:hidden;padding:0 10px;text-decoration:none;text-transform:uppercase}
+.btn-input,#message_to_friend_submit,.content .col-left .relac-actions a,.btn-small,div.msg-profile-public button{text-align: center; line-height:3;background-color: #394754; width: 78px; border:0 none;color:#fff;cursor:pointer;display:block;float:left;font-size:10px;height:30px;margin:10px 0 0;overflow:hidden;padding:0 10px;text-decoration:none;text-transform:uppercase}
 .btn-input,#message_to_friend_submit,div.msg-profile-public button, .btn-concluir, #banner_submit {background:url(/images/new_version/btn-input-small-mask.gif) no-repeat center center #394754!important;}
 .warning-msg{padding:15px;margin:0 0 30px;border:solid 1px #dd3c10;background-color:#ffebe8}
 .warning-msg p,.orientation-msg p{margin-top:5px!important;margin-left:15px}
