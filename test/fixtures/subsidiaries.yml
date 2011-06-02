@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110315144312
+# Schema version: 20110416172335
 #
 # Table name: subsidiaries
 #

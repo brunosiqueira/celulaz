@@ -186,6 +186,8 @@ pt-BR:
         total: 'Total'
         title: 'Título'
         business_image: 'Imagem'
+        value: 'Preço'
+        per_company: 'Máximo de Compras por Pessoa'
       layout:
         name: 'Nome'
         domain: 'Domínio'
