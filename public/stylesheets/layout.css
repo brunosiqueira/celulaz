@@ -120,18 +120,26 @@ a.accept_relationship {margin-right: 5px }
 	width:70%;
 }
 
+.feeds .item div.feed_content div.shared{
+	margin-bottom:10px;
+	overflow:hidden;
+}
+
 .feeds .item div.feed_content span.author{
 	font-size:12px;
 }
 
 .feeds .item div.feed_content div.actions span.date{
+	display:block;
+	float:left;
 	font-size:11px;
 	font-weight:normal;
-	margin:5px 0;
+	width:40%;
 }
 
 .feeds .item div.feed_content div.actions div.data{
-	
+	float:right;
+	width:60%;
 }
 
 .feeds .item div.feed_content div.actions div.data .like-count-feed{
