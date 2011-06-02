@@ -88,12 +88,65 @@ div.panel-head,div.submenu{background:none repeat scroll 0 0 #daefff;height:38px
 a.accept_relationship {margin-right: 5px }
 #cv-relac-master-box{width:100%;margin-bottom:30px;float:left}
 #cv-relac-master-box #cv-thumb{background-color:#fff;border:1px solid #b4b4b4;height:62px;width:62px;margin:0 5px 0 0;float:left}
-.feeds{margin-bottom:10px;}
-.feeds .item{border:solid 1px #efefef;padding:10px 20px 10px 80px;margin-bottom:-1px;font-weight:bold;position: relative}
-.feeds .item .date{font-size:11px;font-weight:normal;margin:5px 0}
+
+.feeds {
+	margin-bottom:10px;
+}
+
+.feeds .item {
+	border:solid 1px #efefef;
+	font-weight:bold;
+	margin-bottom:-1px;
+	overflow:hidden;
+	padding:10px 0px 10px 0px;
+	position: relative
+}
+
+.feeds .item a.avatar{
+	display:block;
+	float:left;
+	margin-right:10px;
+	height:63px;
+	width:63px;
+}
+
+.feeds .item a.avatar img{
+	height:63px;
+	width:63px;
+}
+
+.feeds .item div.feed_content {
+	float:left;
+	width:70%;
+}
+
+.feeds .item div.feed_content span.author{
+	font-size:12px;
+}
+
+.feeds .item div.feed_content div.actions span.date{
+	font-size:11px;
+	font-weight:normal;
+	margin:5px 0;
+}
+
+.feeds .item div.feed_content div.actions div.data{
+	
+}
+
+.feeds .item div.feed_content div.actions div.data .like-count-feed{
+	background:url("/images/new_version/icons-like.gif") no-repeat -5px center; 
+	height: 11px;
+	margin-right: 2px;
+	padding-left: 15px; 
+}
+
+
+/*
 .feeds .feed_company, .feeds .feed_component, .feeds .feed_news{background:url("/images/new_version/icons-new-ativ01.gif") no-repeat 15px 10px scroll #fdfdfd;}
 .feeds .feed_message{background:url("/images/new_version/icons-new-ativ02.gif") no-repeat 15px 10px scroll #fdfdfd;}
-.feeds .feed_companyrelationship{background:url("/images/new_version/icons-new-ativ03.gif") no-repeat 15px  10px scroll #fdfdfd;}
+.feeds .feed_companyrelationship{background:url("/images/new_version/icons-new-ativ03.gif") no-repeat 15px  10px scroll #fdfdfd;}*/
+
 .feeds-small .item{background:url("/images/new_version/icons-new-ativ.gif") no-repeat scroll 0 0 #fdfdfd;border:1px solid #efefef;font-size:0.9em;font-weight:normal;margin-bottom:-1px;padding:5px 5px 5px 40px}
 .feeds-small .item .date{font-size:10px;font-weight:normal!important;color:buttonshadow}
 .feeds-small .feed_company, .feeds-small .feed_news{background:url("/images/new_version/icons-new-small-ativ01.gif") no-repeat 4px 8px;}
@@ -102,7 +155,6 @@ a.accept_relationship {margin-right: 5px }
 .feeds-small .feed_companyrelationship{background:url("/images/new_version/icons-new-small-ativ03.gif") no-repeat 4px 8px;}
 .link_ver_todos{margin-top: 80px;position: absolute;right: 0;}
 .like-feed, .like-count-feed, .undo-like-feed{font-size: 11px; font-weight: normal; cursor: pointer; }
-.like-count-feed{background:url("/images/new_version/icons-like.gif") no-repeat -5px center; padding-left: 15px; float: left;height: 11px;margin-right: 2px}
 .pagination{padding:10px 0;height:20px; float:right}
 #search-control{width:100%;text-align: right;border-bottom:1px solid #eee;margin-bottom:5px; float: left}
 #search-control-bottom{width:100%;text-align: right;border-top:1px solid #eee;margin-bottom:5px; float: left}
