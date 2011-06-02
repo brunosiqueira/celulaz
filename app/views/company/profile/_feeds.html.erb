@@ -1,38 +1,22 @@
 <% feeds.each do |feed| %>
   <% unless feed.item.nil? %>
     <div id="<%=feed.id%>" class="item feed_<%=feed.item_type.downcase%>">
-      <%= render :partial=>"feed_#{feed.item_type.underscore}",:locals=>{:feed_item=>feed} %><br/>
-      <div class="date">
-        <%= feed.updated_at.to_s_br %>
-      </div>
-      <% if @company.feed_items.exists? :id=>feed.id %>
+	  <!-- avatar -->
+	  <%= render :partial => "feed_avatar", :locals => { :feed_item => feed } %>
+	
+	  <!-- content -->
+	  <div class="feed_content">
+	  	<%= render :partial => "feed_#{feed.item_type.underscore}", :locals => { :feed_item =>feed } %>
+      
+	  	<!-- actions -->
+	  	<%= render :partial => "feed_actions", :locals => { :feed_item => feed, :company => @company } %>
+	  </div>
+	
+	  <% if @company.feed_items.exists? :id=>feed.id %>
         <a class="remove-feed img_delete"></a>
         <script type="text/javascript">
           $(document).ready(function(){
             $("#<%=feed.id%> .remove-feed").removeFeed();
-          });
-        </script>
-      <% end %>
-      <a class="like-count-feed">
-        <%= feed.feed_likes_count if feed.feed_likes_count > 0 %>
-      </a>
-      <script type="text/javascript">
-        $(document).ready(function(){
-          $("#<%=feed.id%> .like-count-feed").showWhoLikeFeed();
-        });
-      </script>
-      <% unless @company.feed_likes.exists? :feed_item_id=>feed.id %>
-        <a class="like-feed">creditar</a>
-        <script type="text/javascript">
-          $(document).ready(function(){
-            $("#<%=feed.id%> .like-feed").likeFeed();
-          });
-        </script>
-      <% else %>
-        <a class="undo-like-feed">desfazer</a>
-        <script type="text/javascript">
-          $(document).ready(function(){
-            $("#<%=feed.id%> .undo-like-feed").undoLikeFeed();
           });
         </script>
       <% end %>

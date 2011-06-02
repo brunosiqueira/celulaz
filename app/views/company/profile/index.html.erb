@@ -2,7 +2,9 @@
 <%= stylesheet  "third/smoothness/jquery-ui-1.8.10.custom",'company/profile' %>
 <div class="col-left">
   <% unless @company.friend_requests.empty? %>
-    Você possui <%= link_to "solicitações de relacionamento", company_relationships_path %>.
+	<div class="warn">
+    	Você possui <%= link_to "solicitações de relacionamento", company_relationships_path %>.
+	</div>
   <% end %>
   <%= render :partial=>"/company/news/news" %>
   <h1>Últimas atividades</h1>
