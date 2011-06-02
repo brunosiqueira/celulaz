@@ -1,7 +1,7 @@
-<%= image_tag feed_item.item.business_image.url() %>
+<%= image_tag feed_item.item.business_image.url(:big) %>
 <br/>
 <% if can_buy(feed_item.item) %>
-  <a href="#" class="link-comprar" id="comprar-<%=feed_item.item.id%>">Comprar (<%= feed_item.item.value %>)</a><img id="img-comprar-<%=feed_item.item.id%>" style="display:none;" alt="Carregando" src="colorbox/loading.gif"/>
+  <a href="#" class="link-comprar" id="comprar-<%=feed_item.item.id%>">Comprar (<%= feed_item.item.value.reais_formatado %>)</a><img id="img-comprar-<%=feed_item.item.id%>" style="display:none;" alt="Carregando" src="colorbox/loading.gif"/>
 
   <script type="text/javascript">
     $(document).ready(function(){
@@ -27,5 +27,5 @@
     });
   </script>
 <% else %>
-  Este item já foi comprado anteriormente
+  Este item não pode ser comprado por você
 <% end %>

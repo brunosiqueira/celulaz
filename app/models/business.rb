@@ -17,6 +17,7 @@
 
 class Business < ActiveRecord::Base
   attr_accessor :total_mask
+  validates_presence_of :business_image, :on=>:create
   validates_presence_of :total, :company_id, :value, :per_company
   belongs_to :company
   has_many :business_companies, :dependent=>:destroy

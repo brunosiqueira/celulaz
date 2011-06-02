@@ -468,10 +468,6 @@ ActiveRecord::Schema.define(:version => 20110602185123) do
 
   add_index "pictures", ["component_id"], :name => "fk_pictures_component_id"
 
-  create_table "proj_celulaz_test", :id => false, :force => true do |t|
-    t.integer "id"
-  end
-
   create_table "segments", :force => true do |t|
     t.string "name", :limit => 100
     t.string "file", :limit => 30
