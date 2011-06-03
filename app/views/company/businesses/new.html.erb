@@ -1,3 +1,5 @@
+<% javascript "third/jquery.decimalMask.1.1.1.min","third/jquery.maskedinput-1.2.2.min","company/business"%>
+<% stylesheet "company/business","scaffold" %>
 <h1>Novo Negócio</h1>
 
 <% form_for([:company,@business],:html => {:multipart => true} ) do |f| %>
@@ -15,6 +17,21 @@
   <p>
     <%= f.label :total %><br />
     <%= f.text_field :total %>
+  </p>
+  <p>
+    <%= f.label :per_company %><br />
+    <%= f.text_field :per_company %>
+  </p>
+  <p>
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+    <script type="text/javascript">
+      jQuery("input#business_value").decimalMask({
+        separator: ",",
+        decSize: 2,
+        intSize: 4
+      });
+    </script>
   </p>
   <p>
     <%= f.submit 'Criar' %>

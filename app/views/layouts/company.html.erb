@@ -73,8 +73,8 @@
           <li <%= active_tab(:mail) %>><%= link_to "Mensagens", inbox_path, :class => 'mensagens' %></li>
           <li <%= active_tab(:relationships) %>><%= link_to "Relacionamento",company_relationships_path, :class=>"relacionamento"%></li>
           <li <%= active_tab(:business) %>><%= link_to "Meus Negócios",company_businesses_path, :class=>"negocio"%></li>
-          <li><a class="emails" href="http://www.celulazmail.com.br">Campanha de e-mail</a> </li>
-          <li><a class="arquivos" href="http://www.celulazmail.com.br">Meus Arquivos</a> </li>
+          <li><a class="emails" href="http://www.celulazmail.com.br">Envio de e-mails</a> </li>
+          <li><a class="arquivos" href="http://www.computadorz.com.br/">Computador</a> </li>
           <li <%= active_tab(:company) %>><%= link_to "Configurações",edit_company_user_path(current_company.company.user), :class=>"dados-empresa"%></li>
           
         </ul>

@@ -2,14 +2,28 @@
 <% stylesheet "company/business"%> 
 <h1>Meus Negócios</h1>
 <div style="width: 740px" class="gray-box">
-<%= image_tag @business.business_image.url(:big), :class=>'negocio' %>
+  <%= image_tag @business.business_image.url(:big), :class=>'negocio' %>
   <div style= "  float: left;">
-    
-  <b><%=h @business.title %></b><br><br>
-    por:<%=h @business.total %>,00<br><br>
-  
-  <%= link_to 'Editar', edit_company_business_path(@business) %> | 
-  <%= link_to 'Voltar', company_businesses_path %>
-  
+
+    <b><%=h @business.title %></b><br/><br/>
+    total:<%=h @business.total %><br/><br/>
+    por:<%=h @business.value %><br/><br/>
+
+    <h2>Compradores</h2>
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Data de Compra</th>
+      </tr>
+      <% @business.business_companies.each do |business_company| %>
+        <tr>
+          <td><%= business_company.company.layout.name %></td>
+          <td><%= business_company.created_at.to_s_br %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to 'Editar', edit_company_business_path(@business) %> |
+    <%= link_to 'Voltar', company_businesses_path %>
+
   </div>
 </div>
