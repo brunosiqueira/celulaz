@@ -1,6 +1,43 @@
 jQuery.ajaxSetup({'beforeSend':function(xhr){xhr.setRequestHeader("Accept","text/javascript")}});jQuery.fn.submitWithAjax=function(){this.submit(function(){$.post(this.action,$(this).serialize(),null,"script");return false;})
 return this;};function isValidEmail(email){var filter=/^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;return filter.test(email)}
-$.fn.removeFeed=function(){$(this).click(function(){$('body').css('cursor','wait');var id=$(this).parent().attr("id");var element=$(this);$("#dialog-confirm").dialog({resizable:false,height:140,modal:true,buttons:{"Ok":function(){$('body').css('cursor','wait');$.ajax({type:"POST",url:"/company/profile/destroy",data:{id:id,authenticity_token:AUTH_TOKEN},success:function(result){element.parent().remove();$('body').css('cursor','auto');},error:function(request,status,errorThrown){alert('Erro na Ação!'+status);$('body').css('cursor','auto');}});$(this).dialog("close");},"Cancelar":function(){$(this).dialog("close");$('body').css('cursor','auto');}}});});}
+$.fn.removeFeed=function(){
+	$(this).click(function(){
+		$('body').css('cursor','wait');
+		var id=$(this).attr("id");
+		var element=$(this);
+		$("#dialog-confirm").dialog({
+			resizable:false,
+			height:140,
+			modal:true,
+			buttons:{
+					"Ok":function(){
+						$('body').css('cursor','wait');
+						$.ajax({
+							type:"POST",
+							url:"/company/profile/destroy",
+							data:{
+								id:id,
+								authenticity_token:AUTH_TOKEN
+								},
+								success:function(result){
+									element.parent().parent().parent().parent().remove();
+									$('body').css('cursor','auto');
+								},
+								error:function(request,status,errorThrown){
+									alert('Erro na Ação!'+status);
+									$('body').css('cursor','auto');
+								}
+						});
+						$(this).dialog("close");
+					},
+					"Cancelar":function(){
+							$(this).dialog("close");
+							$('body').css('cursor','auto');
+					}
+			}
+		});
+	});
+}
 
 $.fn.likeFeed=function(){
 	var id = $(this).attr("id");

@@ -13,7 +13,7 @@
 		<% end %>
 		
 	  <% if company.feed_items.exists? :id=>feed_item.id %>
-        <a class="remove-feed img_delete"></a>
+        <a id="<%=feed_item.id%>" class="remove-feed img_delete"></a>
         <script type="text/javascript">
           $(document).ready(function(){
             $("#<%=feed_item.id%> .remove-feed").removeFeed();
