@@ -1,7 +1,8 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", businesses_path  %></li>
+      <li class="first"><%= link_to I18n.t("company.plural").capitalize, :action => :index  %></li>
+      <li class="first active"><%= link_to "Negócios", businesses_path  %></li>
     </ul>
   </div>          
   <div class="content">          
@@ -11,7 +12,7 @@
         <tr>             
           <th class="first">ID</th>
                     <th>
-            <%= t("activerecord.attributes.business.company_id", :default => t("activerecord.labels.company_id", :default => "Company_id")) %>
+            <%= t("activerecord.attributes.business.company", :default => t("activerecord.labels.company", :default => "Company_id")) %>
           </th>
                     <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
           <th class="last">&nbsp;</th>
@@ -22,10 +23,10 @@
             <%= business.id %>
           </td>
                     <td>
-            <%= link_to business.company_id, business_path(business) %>
+            <%= link_to business.company.layout.name, business_path(business) %>
           </td>
                     <td>
-            <%= business.created_at %>
+            <%= business.created_at.to_s_br %>
           </td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", business_path(business) %> |
