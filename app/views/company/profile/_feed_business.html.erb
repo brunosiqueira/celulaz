@@ -5,7 +5,8 @@
 
   <script type="text/javascript">
     $(document).ready(function(){
-      $('body').css('cursor','auto');
+      $('body').css('cursor','wait');
+      $('img-comprar-<%=feed_item.item.id%>').show();
       $('#comprar-<%=feed_item.item.id%>').click(function(){
         $.ajax({
           type:"POST",
@@ -18,6 +19,7 @@
           success:function(result){
             $('body').css('cursor','auto');
             $('img-comprar-<%=feed_item.item.id%>').hide();
+            $('#comprar-<%=feed_item.item.id%>').replaceWith('Item comprado com sucesso. Aguarde o contato do vendedor.');
           },
           error:function(request,status,errorThrown){
             alert('Erro na Ação!'+status)

@@ -17,7 +17,7 @@
       </tr>
       <% @business.business_companies.each do |business_company| %>
         <tr>
-          <td><%= business_company.company.layout.name %></td>
+          <td><%= link_to business_company.company.layout.name, :controller=>"company/profile",:action=>"public",:id=>business_company.company %></td>
           <td><%= business_company.created_at.to_s_br %></td>
         </tr>
       <% end %>

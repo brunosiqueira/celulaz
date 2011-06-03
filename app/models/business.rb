@@ -29,6 +29,10 @@ class Business < ActiveRecord::Base
     :styles => { :small=>"63x63", :big=>"300x300" }
   usar_como_dinheiro :value
 
+  def before_destroy
+    FeedItem.destroy_all(:item_id=>self.id,:item_type=>"Business")
+  end
+
   def can_buy?(company)
     self.per_company > self.companies.count(:conditions=>{:id=>company.id})
   end
