@@ -8,7 +8,9 @@
   <% end %>
   <%= render :partial=>"/company/news/news" %>
   <h1>Últimas atividades</h1>
-  <div class="feeds"><%= render :partial=>"feeds",:object=>@feed_items %></div>
+  <div class="feeds">
+	<%= render :partial=>"feeds",:object=>@feed_items %>
+  </div>
   <%=will_paginate @feed_items %>
 </div>
 <div class="col-right">

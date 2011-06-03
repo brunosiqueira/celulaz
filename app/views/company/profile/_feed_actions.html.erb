@@ -3,28 +3,37 @@
 	    Em <%= feed_item.item.updated_at.to_s_br %>
 	</span>
 	<div class="data">
-		<a class="like-count-feed">
+		<a id="<%= feed_item.id %>" class="like-count-feed">
 			<%= feed_item.feed_likes_count if feed_item.feed_likes_count > 0 %>
 	    </a>
-	    <script type="text/javascript">
-        	$(document).ready(function(){
-	          $("#<%= feed_item.item.id %> .like-count-feed").showWhoLikeFeed();
-	        });
-      	</script>
-	<% unless company.feed_likes.exists? :feed_item_id => feed_item.item.id %>
-		<a class="like-feed">Creditar</a>
-		<script type="text/javascript">
-			$(document).ready(function(){
-			  $("#<%=feed_item.item.id%> .like-feed").likeFeed();
-			});
-		</script>
-	<% else %>
-		<a class="undo-like-feed">Creditar(desfazer)</a>
-		<script type="text/javascript">
-		$(document).ready(function(){
-		  $("#<%=feed_item.item.id%> .undo-like-feed").undoLikeFeed();
-		});
-		</script>
-	<% end %>
+		<% unless company.feed_likes.exists? :feed_item_id => feed_item.id %>
+		<a id="<%= feed_item.id %>" class="like-feed">Creditar</a>
+		<% else %>
+		<a id="<%= feed_item.id %>" class="undo-like-feed">Creditar(desfazer)</a>
+		<% end %>
+		
+	  <% if company.feed_items.exists? :id=>feed_item.id %>
+        <a class="remove-feed img_delete"></a>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $("#<%=feed_item.id%> .remove-feed").removeFeed();
+          });
+        </script>
+      <% end %>
 	</div>
 </div>
+<script type="text/javascript">
+     $(document).ready(function(){
+       $("#<%= feed_item.id %> .like-count-feed").showWhoLikeFeed();
+     });
+  </script>
+  <script type="text/javascript">
+		$(document).ready(function(){
+		  $("#<%= feed_item.id %> .like-feed").likeFeed();
+		});
+  </script>
+  <script type="text/javascript">
+	$(document).ready(function(){
+		$("#<%= feed_item.id %> .undo-like-feed").undoLikeFeed();
+	});
+  </script>

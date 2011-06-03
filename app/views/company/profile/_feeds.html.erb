@@ -7,20 +7,10 @@
 	  <!-- content -->
 	  <div class="feed_content">
 	  	<%= render :partial => "feed_#{feed.item_type.underscore}", :locals => { :feed_item =>feed } %>
-      
-	  	<!-- actions -->
+      	<!-- actions -->
 	  	<%= render :partial => "feed_actions", :locals => { :feed_item => feed, :company => @company } %>
 	  </div>
-	
-	  <% if @company.feed_items.exists? :id=>feed.id %>
-        <a class="remove-feed img_delete"></a>
-        <script type="text/javascript">
-          $(document).ready(function(){
-            $("#<%=feed.id%> .remove-feed").removeFeed();
-          });
-        </script>
-      <% end %>
-    </div>
+	 </div>
   <% end %>
 <% end %>
 <div id="companies-like" title="Profissionais/empresas que creditaram" style="display:none;"></div>
