@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110529215506) do
+ActiveRecord::Schema.define(:version => 20110602185123) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "owner_id",                                      :null => false
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20110529215506) do
     t.integer  "business_image_file_size"
     t.datetime "business_image_updated_at"
     t.float    "value"
+    t.integer  "per_company"
   end
 
   add_index "businesses", ["company_id"], :name => "fk_businesses_company_id"
