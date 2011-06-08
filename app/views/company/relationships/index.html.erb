@@ -24,7 +24,7 @@
         <%= text_field_tag "q", params[:q], :id => "filter", :title => "Filtrar", :class => "input-filter"%>
       <% end -%>
     </div>
-    <p>Você tem <%= @company.friends_count %> amigos</p>
+    <p>Você tem <%= @company.friends_count %> parceiro(s)</p>
     <% @friends.each do |f| %>
       <%= link_to "#{img_tag(f)} #{h f.layout.name} ", { :action => :public, :controller => 'company/profile', :id => f }, :class => "relac-thumb" %>
     <% end %>

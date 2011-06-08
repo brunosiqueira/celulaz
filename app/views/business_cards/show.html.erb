@@ -29,9 +29,9 @@
   <%= render :partial => 'business_cards/interaction_box', :locals => {:search => @search } %>
 
   <div class="col-left">
-    <h1>Descri&ccedil;&atilde;o</h1>
+    <h1>Descri&ccedil;&atilde;o/Atividades</h1>
     <p><%= h(@company.layout.presentation_text).gsub(/\n/,'<br>')%></p>
-    <h1 class="space">Servi&ccedil;os</h1>
+    <h1 class="space">Conv&ecirc;nios/Conveni&ecirc;ncias</h1>
     <div id="cv-serv-master-box">
       <% for service in @company.services do %>
           <%= image_tag "services/small/#{service.image_path}", :alt=>service.title, :id => "cv-thumb" %>

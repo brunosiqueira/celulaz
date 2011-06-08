@@ -62,7 +62,8 @@ class Person < ActiveRecord::Base
   end
 
   def subsidiary_title
-    subsidiary ? subsidiary.title : ''
+    logger.info("##People_ID:"+id.to_s+" "+name+"\n")
+    !subsidiary.nil? ? subsidiary.title : ''
   end
 
   private

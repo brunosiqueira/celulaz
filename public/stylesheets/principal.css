@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-body{    background:#636363;     margin:0px;     color:#646464;     font-family:Arial,Helvetica,sans-serif;     font-size:9pt;     line-height:180%;     padding:0px;     height:100%}
+body {margin:0px;     color:#646464;     font-family:Arial,Helvetica,sans-serif;     font-size:9pt;     line-height:180%;     padding:0px;     height:100%}
 #msglog{    width:auto;     border:#FC6 solid 1px;     line-height:30px;     background:#FF9;     font-family:Arial;     font-size:12px;     font-weight:bold;     text-align:center;     z-index:2}
 a.buttom{    color:#fff;     font-size:11px;     font-weight:bold;     padding:3px 10px;     background-color:#039;     -moz-border-radius:5px}
 
@@ -42,12 +42,12 @@ h3{    font-size:11px;     margin:0 0 10px 0}
 #content{    padding-top:60px;     overflow:hidden;     margin-bottom:20px;     background:url(../images/bg-content.jpg) center top no-repeat}
 
 #content2{    background-color:#FFF;     margin:auto;     min-width:1000px;     overflow:hidden;     padding-bottom:40px}
-#colleft{    float:left;     padding:0 0 0 40px;     width:500px}
+#colleft{    float:left;     padding:0 0 0 40px;     width:450px}
 
 #colleftmeio{    float:left;     width:450px;     margin-left:20px}
 
 #collefttres{    float:left;     width:300px;     margin-left:20px}
-#colright{    background:url(../images/separador-vertical.jpg) no-repeat scroll left center transparent;  float:right;    width:340px;  padding-left:20px; margin-right: 10px;}
+#colright{    background:url(../images/separador-vertical.jpg) no-repeat scroll left center transparent;  float:right;    width:418px;  padding-left:34px; margin-right: 40px;}
 
 #colright p{margin-bottom:10px!important}
 
@@ -61,7 +61,7 @@ h3{    font-size:11px;     margin:0 0 10px 0}
 #checkdomain-area input{    margin:0px 10px}
 #whoischeck-button{        position:absolute;     top:10px;     right:10px;     background-color:#F90 !important;     border:0px none !important;     color:#FFF !important;     cursor:pointer;     color:#fff;     margin:0!important;     padding:3px 10px!important;     width:50px}
 
-#footer{    background:url(../images/bg-footer.jpg) no-repeat scroll center top transparent;  font-size:11px;  height:45px;  line-height:17px;  padding-top:15px;  text-align:center}
+#footer{    background:#bae4de;  font-size:11px;  height:45px;  line-height:17px;  padding-top:15px;  text-align:center}
 
 #thumbs{ text-decoration:none!important;  color:#333!important;  float:left;  font-size:11px;  font-weight:bold;  padding-top:110px !important;  width:100px;  height:60px;  line-height:normal !important}
 
@@ -131,7 +131,7 @@ ul#menu{    margin:0px;     list-style:none;     text-decoration:none;     float
 
 ul#menu li{    float:left;     color:#fff;     text-align:center}
 
-ul#menu li.green-menu a, ul#menu li.purple-menu a, ul#menu li.orange-menu a, ul#menu li.gray-menu a, ul#menu li.pink-menu a{    background-image:url(../images/menu-bg-deselect.gif)}
+ul#menu li.green-menu a, ul#menu li.purple-menu a, ul#menu li.orange-menu a, ul#menu li.gray-menu a, ul#menu li.pink-menu a{ background-image:url(../images/menu-bg-deselect.gif); }
 
 ul#menu li.gray-menu a{    background-position:2px -2px}
 

@@ -38,11 +38,9 @@ ActionController::Routing::Routes.draw do |map|
     
     map.root :controller => "main",:action=>"index"
     map.who '/quem-somos',:controller => "main",:action=>"who"
-    map.main_company '/sobre-a-empresa',:controller => "main",:action=>"company"
     map.advantages '/vantagens',:controller => "main",:action=>"advantages"
     map.contact_us '/fale-conosco',:controller => "contacts",:action=>"new"
     map.visit_scheduler '/agendar-visita',:controller => "visit_scheduler",:action=>"new"
-    map.location '/localizacao',:controller => "main",:action=>"location"
     map.search '/busca', :controller => "search"
     map.component_update '/component_update', :controller => "company/components",:action=>"update"
     map.component_create '/component_create', :controller => "company/components",:action=>"create"

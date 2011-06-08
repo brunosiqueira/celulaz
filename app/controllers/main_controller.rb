@@ -11,18 +11,9 @@ class MainController < ApplicationController
   def who
   end
 
-  def company
-  end
-
   def advantages
   end
 
-  def location
-    @map = get_map("Rua Garibaldi 800 Bom Fim Porto Alegre - RS Brasil","map_agencia")
-    @map_agencia_garibaldi = get_map("Rua Garibaldi 800 Bom Fim Porto Alegre - RS Brasil","map_garibaldi")
-    @map_agencia = get_map("Av.Cristovão Colombo, 545, Shopping Total, loja 1261, Floresta, Porto Alegre RS Brasil")
-  end
-  
   def natal
   end
   

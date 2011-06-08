@@ -29,7 +29,7 @@
           <th>Pagamento</th>
           <th>Data de Criação</th>
           <th>Segmento</th>
-          <th colspan=4>Vendedor</th>
+          <th colspan=5>Vendedor</th>
         </tr>
         <% for company in @companies do %>
             <tr class="<%= cycle('linha-par', 'linha-impar')%>">
@@ -37,8 +37,12 @@
                 <%=link_to(company.razao_social,:action=>:show, :id=>company.user.id,:method=>:get)%>
               </td>
               <td><%=h company.document%></td>
-              <td><%=h company.user.person.subsidiary_title%></td>
-              <td>
+			  <% unless company.user.person.nil? %>
+              <td><%= company.user.person.subsidiary_title %></td>
+			  <% else %>
+			  <td><%#= company.subsidiary.title %></td>
+			  <% end %>
+			  <td>
                 <% if company[:type].eql?(CompanyZ.name) && !company.contracts.empty? %>
                   <%= h "#{company.contracts.last.parcel} parcelas" %>
                 <% end %>

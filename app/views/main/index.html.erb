@@ -1,13 +1,13 @@
 
 <div id="colleft">
-  <h1>Nossos Clientes </h1>
+  <h1>Participantes da rede</h1>
   <div class="space">
 	<%= link_to "#{image_tag Layout.find_by_company_id(549).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(549).name, :length=>15}",business_card_path(549),:style=>"float:left" , :class=>'empresas-box'%>
 	<%= link_to "#{image_tag Layout.find_by_company_id(531).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(531).name, :length=>15}",business_card_path(531),:style=>"float:left" , :class=>'empresas-box'%>
 	<%= link_to "#{image_tag Layout.find_by_company_id(427).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(427).name, :length=>15}",business_card_path(427),:style=>"float:left" , :class=>'empresas-box'%>
 	<%= link_to "#{image_tag Layout.find_by_company_id(354).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(354).name, :length=>15}",business_card_path(354),:style=>"float:left" , :class=>'empresas-box'%>
 
-	<%= link_to "#{image_tag Layout.find_by_company_id(305).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(305).name, :length=>15}",business_card_path(305),:style=>"float:left" , :class=>'empresas-box'%>
+	<%= link_to "#{image_tag Layout.find_by_company_id(182).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(182).name, :length=>15}",business_card_path(182),:style=>"float:left" , :class=>'empresas-box'%>
 	<%= link_to "#{image_tag Layout.find_by_company_id(261).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(261).name, :length=>15}",business_card_path(261),:style=>"float:left" , :class=>'empresas-box'%>
 	<%= link_to "#{image_tag Layout.find_by_company_id(411).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(411).name, :length=>15}",business_card_path(411),:style=>"float:left" , :class=>'empresas-box'%>
 	<%= link_to "#{image_tag Layout.find_by_company_id(290).card1.url(:thumb),:width=>80,:height=>80}#{truncate Layout.find_by_company_id(290).name, :length=>15}",business_card_path(290),:style=>"float:left" , :class=>'empresas-box'%>
@@ -18,23 +18,19 @@
     <%# end %>
   </div>
 
-  <%= link_to  "Ver Mais...",search_path, :class=>'link-btn-orange space'%>
+  <%= link_to  "Ver Mais...", search_path, :class => 'link-btn-orange space' %>
 </div>
-<div id="colright" >
-  <h2>Nossos Serviços </h2>
-  <div style="    border-bottom: 1px solid #F7F7F7; float: left;margin-bottom: 10px;padding-bottom: 20px;">
-  <p style="width:157px; padding: 0 0 0 10px!important; " ><img style="float:left;  margin-right:20px;" src="images/textdecoration02.gif" /><a href="/vantagens#content_1">Conta Z e Z.A</a></p>
-  <p style="width:157px; padding: 0 0 0 10px!important; " ><img style="float:left;  margin-right:20px" src="images/textdecoration02.gif" /><a href="/vantagens#content_2">Link Patrocinado</a> </p>
-  <p style="width:157px; padding: 0 0 0 10px!important;"><img style="float:left; margin-right:20px" src="images/textdecoration02.gif" /><a href="/vantagens#content_3">E-mail Marketing</a></p>
-  <p style="width:157px; padding: 0 0 0 10px!important;"><img style="float:left; margin-right:20px" src="images/textdecoration02.gif" /><a href="/vantagens#content_4">Newsletter</a></p>
-  <p style="width:157px;padding: 0 0 0 10px!important; "><img style="float:left; margin-right:20px" src="images/textdecoration02.gif" /><a href="/vantagens#content_5">E-commerce</a></p>
-  <p style="clear: both; width: 90%!important;padding: 0 0 0 10px!important; float: left; display: block " ><%= link_to  "Ver Mais...",advantages_path, :class=>'link-btn-gray'%></p>
+<div id="colright">
+  <h2>Rede de neg&oacute;cios</h2>
+  <div style="border-bottom: 1px solid #F7F7F7; float: left;margin-bottom: 10px;padding-bottom: 20px;">
+  <p style="width:198px; padding: 0 0 0 10px!important;font-size:8.5pt;" ><img style="float:left;  margin-right:20px;" src="images/textdecoration02.gif" /><a href="/vantagens#content_1"><strong>C&aacute;talogo digital</strong></a></p>
+  <p style="width:198px; padding: 0 0 0 10px!important;font-size:8.5pt;" ><img style="float:left;  margin-right:20px" src="images/textdecoration02.gif" /><a href="/vantagens#content_2"><strong>Cart&atilde;o de visitas on line</strong></a></p>
+  <p style="width:198px; padding: 0 0 0 10px!important;font-size:8.5pt;"><img style="float:left; margin-right:20px" src="images/textdecoration02.gif" /><a href="/vantagens#content_3"><strong>Disco virtual</strong></a></p>
+  <p style="width:198px; padding: 0 0 0 10px!important;font-size:8.5pt;"><img style="float:left; margin-right:20px" src="images/textdecoration02.gif" /><a href="/vantagens#content_4"><strong>Relacionamento corporativo</strong></a></p>
+  <p style="width:198px;padding: 0 0 0 10px!important;font-size:8.5pt;"><img style="float:left; margin-right:20px" src="images/textdecoration02.gif" /><a href="/vantagens#content_5"><strong>Envios de newsletter</strong></a></p>
+  <p style="width:198px;padding: 0 0 0 10px!important;font-size:8.5pt;"><img style="float:left; margin-right:20px" src="images/textdecoration02.gif" /><a href="/vantagens#content_5"><strong>Site auto-gerenci&aacute;vel</strong></a></p>
+  <%= link_to  "Ver Mais...", who_path , :class => 'link-btn-orange space' %>
   </div> 
-  <h2 style="clear: both; float: left; width: 300px">Verifique seu domínio aqui:</h2>
-  <div id="checkdomain-area">
-     www.<input type="text" id="whoischeck"/>.com.br<input type="submit" value="ok" id="whoischeck-button"/>
-     <span></span>
-  </div>
 </div>
 <script type="text/javascript">
   $(document).ready(function(){

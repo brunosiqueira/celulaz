@@ -61,22 +61,19 @@
           </script>
         </div>
         <div id="topologin"> <%= render :partial=>"sessions/new"%> </div>
-        <div style="position:absolute;color:#1D4482; font-size:38px;top:130px; left:150px; padding:30px 0px; position:absolute;">Seu crescimento  pela internet<br/><br/>
+        <div style="position:absolute;color:#1D4482; font-size:32px;top:130px; left:150px; padding:30px 0px; position:absolute;">A constru&ccedil;&atilde;o inteligente do seu neg&oacute;cio na internet<br/><br/>
           <%=link_to image_tag("/images/btn-visita.gif"), visit_scheduler_path,:style=>"font-size: 20px; color: rgb(29, 68, 130); text-decoration: none; display: block; float: left"%>
         </div>
         <div style="height: 28px; background: url(images/iconsrelaci.gif) no-repeat scroll 94px 0px transparent; position: absolute; right: 60px; top: 315px;">
-          <div style="clear: none; display: block; float: left; font-size: 16px; margin-right: 5px; width: 100px; vertical-align: middle; height: 20px; margin-top: 5px; ">Conecte-se:</div>
-          <a href="http://pt-br.facebook.com/pages/Porto-Alegre-Brazil/Celula-Z/129424563769747" style="float: left; clear: none; width: 28px; height: 28px; display: block; margin-right: 5px;"></a> 
-          <a href="http://www.twitter.com/celulaz" style="float: left; clear: none; width: 28px; height: 28px; display: block; margin-right: 5px;"></a>
-          <a href="http://www.orkut.com.br/Main#Profile?uid=12599079356902495784"style="float: left; clear: none; width: 28px; height: 28px; display: block; margin-right: 5px;"></a>
+        	<div style="clear: none; display: block; float: left; font-size: 16px; margin-right: 5px; width: 100px; vertical-align: middle; height: 20px; margin-top: 5px; ">Conecte-se:</div>
+			<a href="http://pt-br.facebook.com/pages/Porto-Alegre-Brazil/Celula-Z/129424563769747" style="float: left; clear: none; width: 28px; height: 28px; display: block; margin-right: 5px;"></a> 
+          	<a href="http://www.twitter.com/celulaz" style="float: left; clear: none; width: 28px; height: 28px; display: block; margin-right: 5px;"></a>
         </div>
         <div id="menu">
           <ul id="menu">
-            <li class="gray-menu <%= params[:action].eql?("index") ? "select" : ""%>"><%=link_to "Home",root_path%> </li>
-            <li class="purple-menu <%= params[:action].eql?("who") ? "select" : ""%>"><%=link_to "Quem Somos",who_path%></li>
-            <li class="pink-menu <%= params[:action].eql?("company") ? "select" : ""%>"><%=link_to "Empresa",main_company_path%></li>
-            <li class="green-menu <%= params[:action].eql?("location") ? "select" : ""%>"><%=link_to "Agências",location_path%></li>
-            <li class="orange-menu <%= params[:controller].eql?("contacts") ? "select" : ""%>"><%=link_to "Fale Conosco",contact_us_path%></li>
+            <li class="purple-menu <%= params[:action].eql?("index") ? "select" : ""%>"><%= link_to "Home", root_path%> </li>
+            <li class="purple-menu <%= params[:action].eql?("who") ? "select" : ""%>"><%= link_to "Quem Somos", who_path%></li>
+            <li class="purple-menu <%= params[:controller].eql?("contacts") ? "select" : ""%>"><%= link_to "Fale Conosco", contact_us_path%></li>
 
           </ul>
         </div>
@@ -90,7 +87,7 @@
     </div>
 
     <div id="footer" >
-      <div class="warp"> MATRIZ: <b> Contato: (51) 8210.0606 </b> | Rua Garibaldi 800, bairro: Bom Fim, Porto Alegre - RS
+      <div class="warp"><strong> Contato: (51) 3086-3949 ou (51) 3086-3951 </strong> | Rua Garibaldi 800, bairro: Bom Fim, Porto Alegre - RS
         <br />
         <span style="color:#91907e !important">Todos os direitos reservados.   © Copyright Célula Z Internet.</span> 
       </div>

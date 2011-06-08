@@ -1,5 +1,5 @@
 <% if current_company.company.eql?(feed_item.item.layout.company) %>
   Você atualizou informações do seu <%=link_to_if current_company.company.site_enable? "site",z_path(current_company.login)%>
 <% else %>
-    <%=link_to(feed_item.item.layout.company.name, :controller=>"company/profile",:action=>"public",:id=>feed_item.item.layout.company) if !"public".eql? params[:action]%> atualizou informações do seu <%=link_to_if feed_item.item.layout.company.site_enable?, "site",z_path(feed_item.item.layout.company.user.login)%>
+    <%=link_to(feed_item.item.layout.company.name, :controller=>"company/profile",:action=>"public",:id=>feed_item.item.layout.company) %> atualizou informações do seu <%=link_to_if feed_item.item.layout.company.site_enable?, "site",z_path(feed_item.item.layout.company.user.login)%>
 <% end %>
