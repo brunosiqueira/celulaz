@@ -12,9 +12,9 @@ class UsersController < ApplicationController
   def index
     @user_type = params[:user_type]
     if @user_type && @user_type.eql?("user_company")
-      @users =  current_user.get_subusers_companies(params[:page])
+      @users =  current_user.get_subusers_companies(params[:page], params[:q])
     else
-      @users =  current_user.get_subusers_non_companies(params[:page])
+      @users =  current_user.get_subusers_non_companies(params[:page], params[:q])
     end
   end
   

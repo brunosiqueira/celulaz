@@ -20,10 +20,11 @@
     <div class="inner">
       <div id="form">
         <%=loading%>
-        <div id="filtro">
-          <%= link_to "Usuários",url_for(:action=>:index,:user_type=>"user") %>&nbsp;|&nbsp;
-          <%= link_to I18n.t("company.plural").capitalize,url_for(:action=>:index,:user_type=>"user_company") %>
-        </div>
+		<% form_tag users_path, :method => :get do %>
+			<%= text_field_tag "q", "#{params[:q]}" %>
+			<%= select_tag "user_type", options_for_select({ "Usuários" => "user", "Clientes" => "user_company" }, "#{params[:user_type]}"), :include_blank => true %>
+			<%= submit_tag "Pesquisar" %>
+		<% end %>
         <%= error_messages_for :user%>
         <table class="table">
           <tr>

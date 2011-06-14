@@ -233,12 +233,14 @@ class User < ActiveRecord::Base
       "UserWebAdministratorTrainee"]
   end
 
-  def get_subusers_non_companies(page=1)
-    User.paginate :page=>page, :conditions=>['id<>? and type<>?',self.id,UserCompany.name], :order=>"login"
+  def get_subusers_non_companies(page=1, query='')
+    query = '' if query.nil?
+    User.paginate :page => page, :conditions => ['id <> ? AND type <> ? AND login LIKE "%'+query+'%"', self.id, UserCompany.name], :order => "login"
   end
 
-  def get_subusers_companies(page=1)
-    UserCompany.paginate :page=>page,:include=>:company,:order=>"companies.razao_social", :conditions=>['users.id<>?',self.id]
+  def get_subusers_companies(page=1, query='')
+    query = '' if query.nil?
+    UserCompany.paginate :page => page, :include => :company, :order => "companies.razao_social", :conditions => ['users.id <> ? AND companies.razao_social LIKE "%'+query+'%"', self.id]
   end
 
 

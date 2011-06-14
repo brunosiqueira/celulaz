@@ -117,7 +117,7 @@ module ApplicationHelper
   def html_truncate(input, num_words = 15, truncate_string = "...")
     return "" if input.blank?
     doc = Nokogiri::HTML(input)
-
+    
     current = doc.children.first
     count = 0
 
@@ -197,7 +197,9 @@ module ApplicationHelper
     # now we grab the html and not the text.
     # we do first because nokogiri adds html and body tags
     # which we don't want
+    #debugger
     doc.root.children.first.inner_html
+    #doc.inner_html
   end
 
   def site_path(user)
