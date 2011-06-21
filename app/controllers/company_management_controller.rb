@@ -40,7 +40,7 @@ class CompanyManagementController < ApplicationController
     user = UserCompany.find_by_id(params[:id])
     if user && current_user.owns_company?(user.company)
       session[:current_company_id] = user.id
-      redirect_to root_path
+      redirect_to system_root_path
     else
       flash[:notice] = I18n.t "company.messages.not_manageable"
       redirect_to :action=>:index

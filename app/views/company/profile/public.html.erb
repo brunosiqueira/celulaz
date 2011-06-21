@@ -42,11 +42,10 @@
     <p><%= h(@company.layout.presentation_text).gsub(/\n/,'<br>')%></p>
   </div>
   <div style="width: 340px; float: left">
-    <h1 class="space">Servi&ccedil;os</h1>
-
-    <% for service in @company.services do %>
-        <%= image_tag "services/small/#{service.image_path}", :alt=>service.title, :id => "cv-thumb" %>
-      <% end %>
+    <h1 class="space">Conv&ecirc;nios/Conveni&ecirc;ncias</h1>
+	<% for service in @company.services do %>
+		<%= image_tag "services/small/#{service.image_path}", :alt=>service.title, :id => "cv-thumb" %>
+	<% end %>
     </div>
     <div id="cv-relac-master-box">
       <h1 class="space"><%= I18n.t "company.friends" %></h1>
