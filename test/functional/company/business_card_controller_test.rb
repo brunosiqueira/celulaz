@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class Company::BusinessCardControllerTest < ActionController::TestCase
+  
   test "index" do
     login_as :empresa_valid_2
     get :index
