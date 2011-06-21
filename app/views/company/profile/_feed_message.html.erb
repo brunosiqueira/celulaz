@@ -1,6 +1,6 @@
 <% if feed_item.item.sender.nil? %>
-  Um usuário externo enviou uma <%= link_to "mensagem",company_message_path(feed_item.item.message_copies.last) %>
+  Um usuário externo enviou uma <%= link_to "mensagem", system_modules_mailbox_message_path(feed_item.item.message_copies.last) %>
 <% else %>
-    <%= link_to(feed_item.item.sender.person.name, :controller => "company/profile", :action=>"public", :id => feed_item.item.sender.company) %> enviou uma <%= link_to "mensagem", company_message_path(feed_item.item.message_copies.last) %>
+    <%= link_to(feed_item.item.sender.person.name, :controller => "company/profile", :action=>"public", :id => feed_item.item.sender.company) %> enviou uma <%= link_to "mensagem", system_modules_mailbox_message_path(feed_item.item.message_copies.last) %>
 <% end %>
 

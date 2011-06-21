@@ -82,11 +82,11 @@ ul.as-selections li.as-original {
 
 ul.as-selections li.as-original input {
 	border: none;
-	outline: none;
-	font-size: 13px;
-	width: 150px;
+	font-size: 13px;
 	height: 18px;
+	outline: none;
 	padding-top: 3px;
+	width: 150px;
 }
 
 ul.as-list {

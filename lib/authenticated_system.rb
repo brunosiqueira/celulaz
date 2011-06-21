@@ -18,7 +18,7 @@ module AuthenticatedSystem
   def redirect_to_user_role
     if current_company
       respond_to do |format|
-        format.html { redirect_to(company_root_path)}
+        format.html { redirect_to(system_root_path)}
       end
     else
       redirect_to :controller=>"users", :action=>"show"

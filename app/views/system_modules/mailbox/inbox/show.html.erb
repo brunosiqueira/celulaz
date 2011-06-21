@@ -17,7 +17,7 @@
           <div class="delete">
             <%= check_box_tag("message[]", m.id, false) %>
           </div>
-          <% link_to company_message_path(m) do %>
+          <% link_to system_modules_mailbox_message_path(m, :message_origin => "inbox" ) do %>
             <div class="sender-info ">
               <%=  m.message.sender_name %>
 

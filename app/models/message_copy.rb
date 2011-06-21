@@ -18,7 +18,7 @@ class MessageCopy < ActiveRecord::Base
   belongs_to :message
   belongs_to :recipient, :class_name => "User"
   belongs_to :folder
-  belongs_to :answer, :class_name => "MessageCopy", :foreign_key => "answer_id"
+  belongs_to :answer, :class_name => "Message", :foreign_key => "answer_id"
   
   delegate :sender, :created_at, :subject, :body, :recipients, :to => :message
   scope_out  :deleted
@@ -26,7 +26,7 @@ class MessageCopy < ActiveRecord::Base
   scope_out :unread_messages, :conditions => ["(`read` IS NULL OR `read` = ?) and (deleted is NULL OR deleted = ?)", false, false]
   
   def answered?
-    answer != nil
+    answer_id != nil
   end
   
   def unread?

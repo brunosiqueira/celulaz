@@ -40,7 +40,7 @@
 			  <% unless company.user.person.nil? %>
               <td><%= company.user.person.subsidiary_title %></td>
 			  <% else %>
-			  <td><%#= company.subsidiary.title %></td>
+			  <td>Sem filial</td>
 			  <% end %>
 			  <td>
                 <% if company[:type].eql?(CompanyZ.name) && !company.contracts.empty? %>
@@ -50,7 +50,11 @@
               <td><%=h company.user.created_at.to_s_br%></td>
               <td><%= h company.segment.name %></td>
               <td><%=link_to(company.seller ? h(CompanyManagementHelper.show_seller_detailed(company.seller)) : "inserir",:controller=>:company_seller,:action=>:new, :id=>company.id,:method=>:get)%></td>
-              <td><%=link_to 'Editar Dados Pessoais', edit_person_path(company.user.person),:method=>:get %></td>
+			  <% unless company.user.person.nil? %>
+			  <td><%=link_to 'Editar Dados Pessoais', edit_person_path(company.user.person),:method=>:get %></td>
+			  <% else %>
+			  <td>--</td>
+			  <% end %>
               <td><%=link_to 'Editar Perfil', :action=>"loggin_as_company", :id=>company.user.id,:method=>:post %></td>
               <td><%=link_to_if company.site_enable?, 'Ver site', site_path(company.user),:popup=>true %></td>
             </tr>

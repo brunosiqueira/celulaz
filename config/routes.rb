@@ -1,4 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
+  map.system_root '/painel', :controller => "company/profile"
+  #system modules - mailbox
+  map.namespace :system_modules do |mod|
+    mod.namespace :mailbox do |mb|
+      mb.resources :inbox
+      mb.resources :sentbox
+      mb.resources :messages, :member => { :reply => :post }
+    end
+  end
+  
   map.resources :template_texts
   #messaging system
   map.localized([I18n.locale], :verbose =>true) do
@@ -7,7 +17,6 @@ ActionController::Routing::Routes.draw do |map|
       financial.resources :companies, :has_many=>:titles
     end
     map.namespace :company do |comp|
-      comp.resources :messages, :member => { :reply => :post }
       comp.resources :users
       comp.resources :banners
       comp.resources :businesses
@@ -15,7 +24,6 @@ ActionController::Routing::Routes.draw do |map|
       comp.resources :components do |components|
         components.resources :pictures
       end
-      comp.resources :sent, :mailbox
       comp.resources :phones
     end
 
@@ -44,11 +52,10 @@ ActionController::Routing::Routes.draw do |map|
     map.search '/busca', :controller => "search"
     map.component_update '/component_update', :controller => "company/components",:action=>"update"
     map.component_create '/component_create', :controller => "company/components",:action=>"create"
-    map.company_root '/empresa-inicio',:controller=>"company/profile"
     map.company_construction '/empresa/construcao',:controller=>"company/construction"
     map.company_identity '/empresa/identidade/:action',:controller=>"company/identity"
     map.company_business_card '/empresa/cartao-de-visitas', :controller=>"company/business_card"
-    map.inbox '/empresa/mensagens/entrada', :controller => 'company/mailbox', :action => 'index'
+    
     map.company_relationships '/empresa/relacionamentos', :controller => 'company/relationships'
     map.signup '/signup', :controller => 'users', :action => 'new'
     map.login '/login', :controller => 'main'

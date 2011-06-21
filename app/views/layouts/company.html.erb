@@ -38,14 +38,9 @@
     <%=analytics_script%>
     <div id="wrapper">
       <div id="header">
-        <a id="logo" href="#">Célula Z</a>
+        <%= link_to "Célula Z", system_root_path, :id => "logo" %>
         <ul class="top-nav">
-          <li><%=link_to "Inicial",company_root_path,:class=>"inicial"%></li>
-          <% if logged_as_company_z? %>
-            <li><%=link_to "Site",{:controller=>"company/construction"},:class=>"site"%></li>
-          <% end %>
-          <li><%=link_to "Mensagens",inbox_path,:class=>"mensagens"%></li>
-          <% if !current_user[:type].eql?(UserCompany.name)%>
+           <% if !current_user[:type].eql?(UserCompany.name)%>
             <li>
               <%= link_to "Voltar Administração",{:controller=>"/company_management", :action=>"loggout_as_company"},:class=>"orientation-msg", :style=>"font-style: normal;padding: 4px !important;" %>
             </li>
@@ -65,17 +60,33 @@
       </div><!-- #header -->
       <div id="menu">
         <ul>
-          <li <%= active_tab(:initial) %>><%=link_to "Inicial",company_root_path, :class=>"inicial"%></li>
-          <% if logged_as_company_z? %>
-            <li <%= active_tab(:site) %>><%=link_to "Site",company_construction_path, :class=>"site"%></li>
-          <% end %>
-          <li <%= active_tab(:card) %>><%=link_to "Cartão de Visita",company_business_card_path, :class=>"cartao-visitas"%></li>
-          <li <%= active_tab(:mail) %>><%= link_to "Mensagens", inbox_path, :class => 'mensagens' %></li>
-          <li <%= active_tab(:relationships) %>><%= link_to "Relacionamento",company_relationships_path, :class=>"relacionamento"%></li>
-          <li <%= active_tab(:business) %>><%= link_to "Meus Negócios",company_businesses_path, :class=>"negocio"%></li>
-          <li><a class="emails" href="http://www.celulazmail.com.br">Envio de e-mails</a> </li>
-          <li><a class="arquivos" href="http://www.computadorz.com.br/">Computador</a> </li>
-          <li <%= active_tab(:company) %>><%= link_to "Configurações",edit_company_user_path(current_company.company.user), :class=>"dados-empresa"%></li>
+			<li <%= active_tab(:initial) %>>
+				<%= link_to "Inicial", system_root_path, :class=>"inicial"%>
+			</li>
+			<% if logged_as_company_z? %>
+			<li <%= active_tab(:site) %>><%=link_to "Site",company_construction_path, :class=>"site"%></li>
+			<% end %>
+			<li <%= active_tab(:card) %>>
+				<%=link_to "Cartão de Visita",company_business_card_path, :class=>"cartao-visitas"%>
+			</li>
+			<li <%= active_tab(:mail) %>>
+				<%= link_to "Mensagens", system_modules_mailbox_inbox_path(current_company.inbox), :class => 'mensagens' %>
+			</li>
+			<li <%= active_tab(:relationships) %>>
+				<%= link_to "Relacionamento",company_relationships_path, :class=>"relacionamento"%>
+			</li>
+			<li <%= active_tab(:business) %>>
+				<%= link_to "Meus Negócios",company_businesses_path, :class=>"negocio"%>
+			</li>
+			<li>
+				<a class="emails" href="http://www.celulazmail.com.br" target="_blank">Envio de e-mails</a>
+			</li>
+			<li>
+				<a class="arquivos" href="http://www.computadorz.com.br/" target="_blank">Computador</a>
+			</li>
+			<li <%= active_tab(:company) %>>
+				<%= link_to "Configurações", edit_company_user_path(current_company.company.user), :class=>"dados-empresa"%>
+			</li>
           
         </ul>
         <!--<div id="banner-mailmkt">
@@ -90,11 +101,11 @@
       <br class="clearfloat" />
 
       <div id="footer">
-        <%=link_to "Inicial",company_root_path%>
+        <%=link_to "Inicial", system_root_path%>
         <% if logged_as_company_z? %>
           <%=link_to "Site",{:controller=>"company/construction"}%>
         <% end %>
-        <%=link_to "Mensagens",inbox_path%>
+        <%#=link_to "Mensagens",inbox_path%>
         <% form_tag url_for(:controller=>"company/search", :action=>"index"),:method=>:get do %>
           <%= text_field_tag 'search', I18n.t("company.search"),:class=>'input-search'%>
           <%= submit_tag "", :class=>"submit-search"  %>

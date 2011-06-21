@@ -16,7 +16,7 @@
     <% if @message.answered? %>
       <div class="panel-body">
         <span>
-          <%= show_received_message(@message.answer).gsub('\n',"<br/>") %>
+          <%= show_sent_message(@message.answer).gsub('\n',"<br/>") %>
         </span>
       </div>
     <% end %>
@@ -24,8 +24,7 @@
 
     <% unless @message.answered? || @message.message.is_external?  %>
       <div class="panel-answer">
-
-        <% form_tag ("/company/messages/reply"), :id => "answer-form" do -%>
+ 		<% form_tag ("/company/messages/reply"), :id => "answer-form" do -%>
           <%= hidden_field_tag  'message[id]', @message.id %>
           <%= hidden_field_tag  'message[sender_id]', current_company.id %>
           <label>Resposta:</label>

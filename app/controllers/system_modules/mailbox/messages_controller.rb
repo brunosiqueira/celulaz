@@ -1,4 +1,4 @@
-class Company::MessagesController < ApplicationController
+class SystemModules::Mailbox::MessagesController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
   
@@ -34,15 +34,24 @@ class Company::MessagesController < ApplicationController
   end
 
   def show
-    @folder = current_company.inbox
-    @folder ||= current_company.folders.find(params[:id])
-    @unread_messages = @folder.messages.find_unread_messages :all
-    if @message = current_company.received_messages.find_by_id(params[:id])
-      if @message.unread?
-        @message.update_attribute("read", true)
+    if params[:message_origin] == "inbox"
+      @folder = current_company.inbox
+      @unread_messages = @folder.messages.find_unread_messages :all
+      @message = current_company.received_messages.find_by_id(params[:id])
+      if @message
+        @message.update_attribute("read", true) if @message.unread?
+      else
+        render :action=>"not_found"
       end
     else
-      render :action=>"not_found"
+      @folder = current_company.inbox
+      @unread_messages = @folder.messages.find_unread_messages :all
+      @message = current_company.sent_messages.find(params[:id])
+      if @message
+        render :action => "show_sent_message"
+      else
+        render :action=>"not_found"
+      end
     end
   end
 

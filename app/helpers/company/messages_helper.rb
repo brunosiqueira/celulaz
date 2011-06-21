@@ -6,7 +6,7 @@ module Company::MessagesHelper
     if message.is_external?
       content << message.sender_email
 		else
-			content << link_to(message.sender.login, :controller => "company/profile", :action=>"public", :id => message.sender.company)
+			content << link_to(message.sender.login, :controller => "../company/profile", :action=>"public", :id => message.sender.company)
 		end
 		content << '<br /><div class="date">'
     content << I18n.localize(message.created_at, :format => :long)
@@ -22,7 +22,7 @@ module Company::MessagesHelper
     if message.message.is_external?
       content << message.message.sender_email
 		else
-			content << link_to(message.sender.login, :controller => "company/profile", :action=>"public", :id => message.sender.company)
+			content << link_to(message.sender.login, :controller => "../company/profile", :action=>"public", :id => message.sender.company)
 		end
 		content << '<br /><div class="date">'
     content << I18n.localize(message.created_at, :format => :long)
