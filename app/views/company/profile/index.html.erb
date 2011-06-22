@@ -18,7 +18,7 @@
 
   <div id="cv-relac-master-box">
     <h1><%= I18n.t "company.friends" %>&nbsp;&nbsp;<small><%= link_to "ver mais", company_relationships_path %></small></h1>
-    <% @company.friends(1,4).each do |company| %>
+    <% @friends.each do |company| %>
       <%=link_to "#{img_tag(company)} #{h company.layout.name} ",{:action=>:public,:id=>company}, :class=>"relac-thumb"%>
     <% end %>
   </div>

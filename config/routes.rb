@@ -44,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
     map.resources :companies, :has_many => :contracts
 
     
-    map.root :controller => "main",:action=>"index"
+    map.root :controller => "main", :action => "index"
     map.who '/quem-somos',:controller => "main",:action=>"who"
     map.advantages '/vantagens',:controller => "main",:action=>"advantages"
     map.contact_us '/fale-conosco',:controller => "contacts",:action=>"new"

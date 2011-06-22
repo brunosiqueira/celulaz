@@ -41,27 +41,7 @@ h3{    font-size:11px;     margin:0 0 10px 0}
 
 #content{    padding-top:60px;     overflow:hidden;     margin-bottom:20px;     background:url(../images/bg-content.jpg) center top no-repeat}
 
-#content2{    background-color:#FFF;     margin:auto;     min-width:1000px;     overflow:hidden;     padding-bottom:40px}
-#colleft{    float:left;     padding:0 0 0 40px;     width:450px}
 
-#colleftmeio{    float:left;     width:450px;     margin-left:20px}
-
-#collefttres{    float:left;     width:300px;     margin-left:20px}
-#colright{    background:url(../images/separador-vertical.jpg) no-repeat scroll left center transparent;  float:right;    width:456px;  padding-left:26px; margin-right: 20px;}
-
-#colright p{margin-bottom:10px!important}
-
-#colright p a{color:#91907e; text-decoration:none}
-#colright p a:hover{text-decoration:underline}
-
-#colrightmeio{ float:right;  margin-right:20px;  width:450px;  padding-left:18px}
-#subtitle{ height:15px;  margin-top:24px}
-
-#checkdomain-area{    background-color:#F7F7F7;     font-size:16px;     padding:10px;     float:left;     width:320px;     position:relative}
-#checkdomain-area input{    margin:0px 10px}
-#whoischeck-button{        position:absolute;     top:10px;     right:10px;     background-color:#F90 !important;     border:0px none !important;     color:#FFF !important;     cursor:pointer;     color:#fff;     margin:0!important;     padding:3px 10px!important;     width:50px}
-
-#footer{    background:#bae4de;  font-size:11px;  height:45px;  line-height:17px;  padding-top:15px;  text-align:center}
 
 #thumbs{ text-decoration:none!important;  color:#333!important;  float:left;  font-size:11px;  font-weight:bold;  padding-top:110px !important;  width:100px;  height:60px;  line-height:normal !important}
 
@@ -94,6 +74,18 @@ h3{    font-size:11px;     margin:0 0 10px 0}
 .top-nav .mensagens{background-image:url(/images/company/ico-top-msg.gif)}
 .input-search{width:160px; height:15px; position:absolute; bottom:13px; right:0; background:url(/images/company/ico-search.gif) no-repeat 148px center #fff}
 
+#header .warp {
+	background:url(/images/bg-center.jpg) no-repeat top center; 
+	position:relative; 
+	height: 355px;
+}
+
+#header-content {
+	margin-bottom:94px;
+	overflow:hidden;
+	width:100%;
+}
+
 #busca-padrao{float:left;     height:50px;     margin-left:253px;     overflow:hidden;     position:relative;     margin-top:20px;     width:420px}
 #busca-campo{    background-color:transparent!important;     border:0 solid #CCC !important;     color:#333;     float:left;     font-family:arial;     font-size:14px;     margin:0;     padding:5px;     width:200px}
 
@@ -106,24 +98,101 @@ fieldset{ margin:5px 0px 0px 5px;  padding:0px 3px!important}
 
 .styleCombobox{ background:#fff;  float:left;  width:150px !important;  padding:4px;  margin:0 0 0 4px;  background-color:transparent!important;  border:0 solid #CCC !important;  font-size:14px;  color:#333}
 
-#busca-padrão form fieldset select{border:0 solid #fff!important}
+#busca-padrao form fieldset select {
+	border:0 solid #fff!important
+}
 
-#topologin{    float:right;     margin:10px 67px 0 0;     width:230px}
+#topologin {    
+	float:right;     
+	margin:0 55px 0 0;    
+	position:relative;
+	top:16px; 
+	width:244px;
+}
 
-#topologin form{         width:230px;     font-family:Arial,Helvetica,sans-serif;         font-weight:normal;     margin:0 0 0 0;     position:relative;     float:left}
-#topologin form input{float:left;  margin-bottom:10px; font-size:11px !important}
+#topologin form{
+	float:left;
+	width:100%;
+}
 
-#topologin form input#login{border:0px #fff  solid; background:transparent; margin:8px 8px 8px 0px; width:83px; margin-left:2px; color:#333!important}
+#topologin form input{
+	float:left;  
+	margin:0px 8px 4px 0px; 
+}
 
- form input.btlogin{cursor:pointer; background:url(../images/btn-login.gif) center no-repeat!important; border:medium none !important; color:#FFF; padding:3px 10px; width:50px; margin:5px 0px}
+#topologin form input#login {
+	margin-left:6px; 
+	
+}
+
+#topologin form input.formtext {
+	background:transparent;
+	border:0px #fff solid; 
+	color:#333!important;
+	width:83px; 
+}
+
+#topologin form input#password {
+	width:64px;
+}
+
+#topologin form input.btlogin{
+	background:url(../images/btn-login.gif) center no-repeat!important; 
+	border:medium none !important; 
+	color:#FFF; 
+	cursor:pointer; 
+	padding:3px 10px; 
+	width:50px; 
+}
+
+#topologin form a,
+#topologin form a:link,  
+#topologin form a:visited{ 
+	text-decoration:none;  
+	color:#069;
+}
+
+#topologin form .actions {
+	float:left;
+	width:100%;
+}
+
+#topologin form .actions a{
+	margin-right:22px;
+}
+
+#topologin form .actions input {
+	margin:0;
+	margin-right:4px;
+	padding:0;
+	top:5px;
+}
 
 #remember_me{width:10px;  height:10px; float:left; margin:5px 5px auto 10px}
 
-#topologin form input#password{border:0px #fff solid; margin:8px 8px 8px 0px; background:transparent; width:65px}
-
-#topologin form a, #topologin form a:link,  form a:visited{ text-decoration:none;  margin:0px;  padding:0px;  text-align:right;  font-family:Arial,Helvetica,sans-serif;  font-size:11px;  color:#069;  font-weight:normal;  float:left}
-
 form label a:hover{ text-align:right;  font-family:Arial,Helvetica,sans-serif;  font-size:11px;  color:#069;  text-decoration:underline}
+
+#highlight {
+	/*padding-left:62px;*/
+	margin:0 auto;
+	width:82%;
+}
+
+#highlight h1{
+	color:#1D4482; 
+	font-size:2.6em;
+}
+
+#highlight a {
+	color: rgb(29, 68, 130);
+	display: block; 
+	float: right;
+	font-size: 20px;  
+	margin-right:180px;
+	text-decoration: none; 
+}
+
+
 
 div#menu{        float:left;    position:absolute;    width:700px;     text-align:left;     left:0px;     top:324px;         margin:0px 0px 0px 40px}
 
@@ -163,3 +232,84 @@ form.fale-conosco ul li input.fone{}
 .image_location a{    border: 2px solid #EEEEEE;margin-left: 10px;}
 .image_location a img{    border: 2px solid #ffffff;}
 
+#content2{    background-color:#FFF;     margin:auto;     min-width:1000px;     overflow:hidden;     padding-bottom:40px}
+#colleft{    float:left;     padding:0 0 0 0px;     width:450px}
+#colleft h1{margin:0 0 20px 20px;}
+#colleftmeio{    float:left;     width:450px;     margin-left:20px}
+
+#collefttres{    float:left;     width:300px;     margin-left:20px}
+
+#colleft .link-btn-orange {
+	margin:0px 0px 20px 20px;
+}
+
+#colleft .space a.last {
+	margin-bottom:0px;
+}
+
+#colright{    
+	background:url(../images/separador-vertical.jpg) no-repeat scroll left center transparent;  	
+	float:right;    
+	width:496px;  
+	padding-left:26px; 
+	margin-right: 20px;
+}
+
+#colright div {
+	float: left;
+	margin-bottom: 20px;
+	font-size:1em;
+}
+
+#colright div p{
+	background-color: #F7F7F7;
+	margin-bottom:10px;
+	margin-right:4px;
+	overflow: hidden;
+	padding: 12px 10px;
+	width:224px; 
+}
+
+#colright div p strong {
+	display:block;
+	position:relative;
+	top:6px;
+}
+
+#colright div p img{
+	float:left; 
+	margin-right:20px;
+}
+
+#colright div p.first{
+	margin:0;
+	margin-bottom:10px;
+	width:95%;
+}
+
+#colright div p.last{
+	margin-bottom:0;
+}
+
+#colright p a{color:#91907e; text-decoration:none}
+#colright p a:hover{text-decoration:underline}
+
+#colrightmeio{ float:right;  margin-right:20px;  width:450px;  padding-left:18px}
+#subtitle{ height:15px;  margin-top:24px}
+
+#footer{    background:#bae4de;  font-size:11px;  height:45px;  line-height:17px;  padding-top:15px;  text-align:center}
+
+
+/*
+	Page - Quem somos
+*/
+
+#quem-somos #colright p {
+	width:100%;
+}
+
+#quem-somos #colright p strong{
+	font-size:14px;
+	position:relative;
+	top:6px;
+}

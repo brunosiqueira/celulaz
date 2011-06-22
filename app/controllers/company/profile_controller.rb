@@ -9,6 +9,7 @@ class Company::ProfileController < ApplicationController
       :include=>:item, :select=>"distinct feed_items.*",
       :conditions=>["feeds.company_id in (?) and (is_public = ? or company_id = ?)",ids,true,@company.id], :order=>"feed_items.updated_at desc"
     @message_to_friend = MessageToFriend.new
+    @friends = @company.random_friends
     respond_to do |format|
       #ajax response
       format.html

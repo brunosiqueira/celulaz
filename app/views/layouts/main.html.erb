@@ -7,26 +7,6 @@
     <%= stylesheet_link_tag "principal","third/colorbox2" %>
     <%= javascript_include_tag "third/jquery-1.4.2.min","third/jquery.corner" ,"third/jquery.colorbox-min.js"%>
     <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.to_json};" if protect_against_forgery? %>
-    <script type="text/javascript">
-      
-      $(document).ready(function (){
-        $('.link-btn-orange').corner("5px");
-        $('.link-btn-gray').corner("5px");
-        
-        $('#login').click(function (){
-          if ('Nome/E-mail'== $(this).val()) {
-            $(this).val('');
-           
-          }
-        } );
-        
-        $('input#login').blur(function (){
-          if (''== $(this).val()) {
-            $(this).val("Nome/E-mail");
-          }
-        } );
-      });
-    </script>
     <%=yield :head%>
   </head>
   <body>
@@ -39,30 +19,36 @@
         </div>
       <% end %>
     </div>
-    <div id="header" >
-      <div class="warp" style="background:url(images/bg-center.jpg) no-repeat top center; position:relative; height: 355px;"> <a href="#" id="logo">Célula Z</a>
-        <div id="busca-padrao">
-          <% form_tag( '/search', :method => :get ) do %>
-            <fieldset>
-              <%= text_field_tag 'search', @search.blank? ? I18n.t("company.search") : @search , :id => "busca-campo", :class=>'estadoInicial', :onfocus=>"clearSearch(this)", :onblur=>"writeSearch(this)" %> <%= select_tag :segment_id, options_for_select( ["Todos"]+Segment.find(:all).collect { |p| [p.name, p.id.to_s] },@segment_id ),:class=>"styleCombobox" %> <%= submit_tag 'Pesquisar', :class => "submit" %>
-            </fieldset>
-          <% end %>
-          <script type="text/javascript">
-            function clearSearch(obj){
-              if (obj.value == '<%=  I18n.t "company.search"%>'){
-                obj.value = '';
-              }
-            }
-            function writeSearch(obj){
-              if (obj.value == ''){
-                obj.value = '<%=  I18n.t "company.search"%>';
-              }
-            }
-          </script>
-        </div>
-        <div id="topologin"> <%= render :partial=>"sessions/new"%> </div>
-        <div style="position:absolute;color:#1D4482; font-size:32px;top:130px; left:150px; padding:30px 0px; position:absolute;">A constru&ccedil;&atilde;o inteligente do seu neg&oacute;cio na internet<br/><br/>
-          <%=link_to image_tag("/images/btn-visita.gif"), visit_scheduler_path,:style=>"font-size: 20px; color: rgb(29, 68, 130); text-decoration: none; display: block; float: left"%>
+    <div id="header">
+      <div class="warp">
+		<div id="header-content">
+			<%= link_to "Célula Z", root_path, :id => "logo" %>
+        	<div id="busca-padrao">
+          		<% form_tag( '/search', :method => :get ) do %>
+		            <fieldset>
+		              <%= text_field_tag 'search', @search.blank? ? I18n.t("company.search") : @search , :id => "busca-campo", :class=>'estadoInicial', :onfocus=>"clearSearch(this)", :onblur=>"writeSearch(this)" %> <%= select_tag :segment_id, options_for_select( ["Todos"]+Segment.find(:all).collect { |p| [p.name, p.id.to_s] },@segment_id ),:class=>"styleCombobox" %> <%= submit_tag 'Pesquisar', :class => "submit" %>
+		            </fieldset>
+          		<% end %>
+				<script type="text/javascript">
+				  function clearSearch(obj){
+				    if (obj.value == '<%=  I18n.t "company.search"%>'){
+				      obj.value = '';
+				    }
+				  }
+				  function writeSearch(obj){
+				    if (obj.value == ''){
+				      obj.value = '<%=  I18n.t "company.search"%>';
+				    }
+				  }
+				</script>
+        	</div>
+        	<div id="topologin"> 
+				<%= render :partial=>"sessions/new"%> 
+			</div>
+		</div>
+        <div id="highlight">
+			<h1>A constru&ccedil;&atilde;o inteligente do seu neg&oacute;cio na internet</h1>
+          	<%= link_to image_tag("/images/btn-visita.gif"), visit_scheduler_path %>
         </div>
         <div style="height: 28px; background: url(images/iconsrelaci.gif) no-repeat scroll 94px 0px transparent; position: absolute; right: 60px; top: 315px;">
         	<div style="clear: none; display: block; float: left; font-size: 16px; margin-right: 5px; width: 100px; vertical-align: middle; height: 20px; margin-top: 5px; ">Conecte-se:</div>
@@ -71,7 +57,7 @@
         </div>
         <div id="menu">
           <ul id="menu">
-            <li class="purple-menu <%= params[:action].eql?("index") ? "select" : ""%>"><%= link_to "Home", root_path%> </li>
+            <li class="purple-menu <%= params[:action].eql?("index") ? "select" : ""%>"><%= link_to "Home", root_path %> </li>
             <li class="purple-menu <%= params[:action].eql?("who") ? "select" : ""%>"><%= link_to "Quem Somos", who_path%></li>
             <li class="purple-menu <%= params[:controller].eql?("contacts") ? "select" : ""%>"><%= link_to "Fale Conosco", contact_us_path%></li>
 
@@ -92,5 +78,24 @@
         <span style="color:#91907e !important">Todos os direitos reservados.   © Copyright Célula Z Internet.</span> 
       </div>
     </div>
+    <script type="text/javascript">
+      
+      $(document).ready(function (){
+        $('.link-btn-orange').corner("5px");
+        $('.link-btn-gray').corner("5px");
+        
+        $('#login').click(function (){
+          if ('Nome/E-mail'== $(this).val()) {
+            $(this).val('');
+          }
+        } );
+        
+        $('input#login').blur(function (){
+          if (''== $(this).val()) {
+            $(this).val("Nome/E-mail");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

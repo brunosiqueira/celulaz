@@ -1,13 +1,9 @@
 <% form_tag session_path do %>
-  <%= text_field_tag 'login',nil,:class=>'formtext' %>
-
-
-  <%= password_field_tag 'password',nil,:class=>'formtext' %>
+  <%= text_field_tag 'login', nil, :class=>'formtext' %>
+  <%= password_field_tag 'password', nil, :class=>'formtext' %>
   <%= submit_tag 'Entrar' ,:class=>"btlogin" %>
-<div style="width: 200px; position: relative; float: left!important;">
-    <%=link_to "Trocar Senha ", forgot_password_path%> 
-    <%= check_box_tag 'remember_me', nil, :style=>'' %> salvar login
-    
-</div>
-
 <% end %>
+<div class="actions">
+    <%=link_to "Alterar senha ", forgot_password_path%> 
+    <%= check_box_tag 'remember_me', nil, :style=>'' %> Permanecer logado
+</div>

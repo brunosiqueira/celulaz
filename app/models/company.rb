@@ -162,6 +162,27 @@ class Company < ActiveRecord::Base
     Company.paginate_by_sql(query, :page => page, :per_page => per_page, :order => "razao_social")
   end
   
+  # para o componente amigos da home logada
+  def random_friends
+    query = "
+    (SELECT companies.* FROM companies as companies 
+    JOIN company_relationships as destinies 
+    ON (companies.id = destinies.company_origin_id and confirmed=true) 
+    JOIN layouts as layouts
+    ON (companies.id = layouts.company_id)
+    WHERE (destinies.company_destiny_id=#{self.id.to_s}))"
+    query << " 
+    UNION (SELECT companies.* 
+    FROM companies as companies 
+    JOIN company_relationships as origins 
+    ON (companies.id = origins.company_destiny_id and confirmed=true) 
+    JOIN layouts as layouts
+    ON (companies.id = layouts.company_id)
+    WHERE (origins.company_origin_id=#{self.id.to_s}))"
+    query << " order by rand()"
+    Company.paginate_by_sql(query, :page => 1, :per_page => 4)
+  end
+  
   # metodo para listar os amigos ao enviar mensagens
   def auto_suggest_friends
     query = "

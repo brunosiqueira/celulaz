@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   def check_comercial_user
     if current_user.is_company?
       flash[:notice] = "O usuário não possui permissão para visualizar esta área."
-      redirect_to root_path
+      redirect_to system_root_path
     end
   end
 
