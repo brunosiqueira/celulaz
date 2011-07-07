@@ -60,8 +60,8 @@
 .ui-widget .ui-widget { font-size: 1em; }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1em; }
 .ui-widget-content { border: 1px solid #a6c9e2; background: #fcfdfd url(images/ui-bg_inset-hard_100_fcfdfd_1x100.png) 50% bottom repeat-x; color: #222222; }
-.ui-widget-content a { color: #222222; }
-.ui-widget-header { border: 1px solid #4297d7; background: #5c9ccc url(images/ui-bg_gloss-wave_55_5c9ccc_500x100.png) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
+.ui-widget-content a { }
+.ui-widget-header { border: 1px solid #DAEFFF; background: #DAEFFF; color: #ffffff; font-weight: bold; }
 .ui-widget-header a { color: #ffffff; }
 
 /* Interaction states
@@ -484,7 +484,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
  *
  * http://docs.jquery.com/UI/Tabs#theming
  */
-.ui-tabs { position: relative; padding: .2em; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.ui-tabs { overflow:hidden; position: relative; padding: .2em; zoom: 1; min-height:400px;} /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 .ui-tabs .ui-tabs-nav { margin: 0; padding: .2em .2em 0; }
 .ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
 .ui-tabs .ui-tabs-nav li a { float: left; padding: .5em 1em; text-decoration: none; }
@@ -571,40 +571,3 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
  */
 .ui-progressbar { height:2em; text-align: left; }
 .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
-
-/*infos basicas empresa*/
-.ui-widget-content .cv-info-basic {
-    clear: none;
-    float: left;
-    margin: 0 0 40px;
-    position: relative;
-    border-bottom: 1px solid #eee;
-}
-.ui-widget-content img {
-    border: 5px solid #F6F6F6;
-    float: left;
-    margin: 0 10px 0 0;
-    overflow: hidden;
-    word-wrap: break-word;
-}
-
-.ui-widget-content .cv-info-basic a {
-    background-image: none;
-    color: #003399;
-    float: left;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 1;
-    margin: 3px 0;
-    padding: 0 !important;
-    text-decoration: none;
-    width: 350px
-}
-
-.ui-widget-content .cv-info-basic p {
-   float: left;
-    margin: 4px 0;
-    padding-bottom: 5px;
-    width: 350px;
-
-}

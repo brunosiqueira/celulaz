@@ -1,0 +1,109 @@
+.col-left {
+	clear:none;
+	float:left;
+	margin:0 30px 20px 0;
+	width:20%;
+}
+
+.col-right {
+	float:right;
+	margin:0 30px 20px 0;
+	width:70%;
+}
+
+
+.profile-thumb {
+	margin-bottom: 20px; 
+	height: 180px; 
+	width:160px; 
+	border: 5px solid rgb(239, 239, 239);
+}
+
+.relac-actions {
+	float: left;
+}
+
+.relac-actions a {
+	width: 120px; 
+	padding-left: 40px !important; 
+}
+
+.relac-actions a.btn-msg{ 
+	background:  url("../../images/company/icon-site.gif") no-repeat 6px 1px;
+}
+
+.relac-actions a.btn-relac { 
+	background:url("../../images/company/icon-menu.png") no-repeat scroll 6px -170px;
+}
+
+.relac-actions a.btn-stop-relac { 
+	background:url("../../images/company/icon-menu.png") no-repeat scroll 6px -170px;
+}
+
+.relac-request{
+	float:left; 
+	margin-top: 5px; 
+	width: 130px;
+}
+
+
+.cv-info-basic h1 {
+	padding: 0px !important;
+	background-image: none;
+	color:#003399;
+	font-size:21px;
+	margin-bottom:4px;
+}
+
+.cv-info-basic p.phones {
+	font-size:12px;
+	font-weight:800;
+	margin:3px 5px 0 0;
+	padding:5px 0;
+	width:340px;
+}
+
+.box {
+	margin-bottom:10px;
+	overflow:hidden;
+	width:100%;
+}
+
+.box p {
+	float:left;
+	margin-bottom:4px;
+	width:100%;
+}
+
+.box h3{
+	color:#003399;
+	background:transparent url("../../images/new_version/title-decor.gif") no-repeat scroll 0px 2px;
+	font-size:0.9em;
+	padding-left: 12px;
+}
+
+
+.msg-box-profile-public {
+	background: url("../../images/new_version/ico-seta-box-novo-conteudo.gif") no-repeat scroll 15px 3px;
+	font-weight: bold;
+	margin-bottom:10px;
+	overflow:hidden;
+	padding-top:10px;
+}
+
+.msg-profile-public textarea {width: 100%!important;}
+.msg-profile-public{background-color:#EFEFEF;float:left;margin:0 ;padding:3px;width:334px;}
+.msg-profile-public .false-input {background-color: #FFF; border:1px solid ; border-color: #CCCCCC #F0f0f0  #F0f0f0 #CCCCCC ;cursor:text;padding:15px 9px 15px 34px; float: left; width:289px;font-weight: normal;}
+
+.msg-profile-public .false-input:hover{no-repeat 4px 10px #FFF;color:#333;cursor:text; width:289px; text-decoration: none !important; font-weight: normal;}
+
+.ok {
+ background-image: url(/images/company/icon-check.gif)no-repeat left center;
+}
+
+.cancel {
+background-image: url(/images/company/icon-remove.gif) no-repeat left center;
+}
+
+.relationship {float: left}
+#observation {width: 220px}

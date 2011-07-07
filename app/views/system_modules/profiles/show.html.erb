@@ -1,0 +1,96 @@
+<% stylesheet "third/smoothness/jquery-ui-1.8.10.custom","system_modules/profiles" %>
+<% javascript "third/jquery.colorbox-min","third/jquery-ui-1.8.4.custom.min","third/jquery.jeditable.mini","system_modules/profiles" %>
+
+<%= hidden_field_tag :user_id,@company.user.id,:class=>"hidden_id" %>
+<div id="tabs">
+	<ul>
+		<li><%= link_to "Perfil", "#profile" %></li>
+		<li><%= link_to "Atividades", { :controller => "system_modules/profiles", :action => "activities", :id => @company } %></li>
+		<li><%= link_to "Depoimentos", "/system_modules/profiles/testemonials" %></li>
+		<li><%= link_to "Parceiros", "/system_modules/profiles/partners" %></li>
+	</ul>
+	<div id="profile">
+		<div class="col-left">
+			<div class="profile-thumb">
+				<%= image_tag @company.profile_logo.url(:big) %>
+			</div>
+			<div class="relac-actions">
+				<%= link_to "Enviar Mensagem", %>
+		    	<% if @company.site_enable? %>
+			      <%= link_to 'Meu site',site_path(@company.user), :popup=>true, :class=>"btn-msg" %>
+			    <% end %>
+		    	<span class="relac-request">
+			      <% if current_company.company.origins.include?(@company) || current_company.company.destinies.include?(@company) %>
+			        <%=link_to 'Remover',{:controller=>"company/relationship_request",:action=>"destroy",:id=>@company}, :class=>"btn-stop-relac",:confirm=>"Deseja interromper o relacionamento?"%>
+			      <% elsif @company != current_company.company %>
+			        <%=link_to 'Relacionar-se',{:controller=>"company/relationship_request",:action=>"new",:id=>@company}, :class=>"btn-relac"%>
+			      <% end %>
+			    </span>
+			</div>
+		</div>
+		<div class="col-right">
+		  <div class="cv-info-basic">
+		    <%= "<h1>#{@company.name}</h1>" unless @company.name.nil? %>
+			<% if @company.phones.size > 0%>
+		    <p class="phones"> 
+				<% for phone in @company.phones %>
+					(<%=phone.ddd%>) <%=phone.number%>&nbsp;&nbsp;&nbsp;
+				<% end %>
+			</p>
+			<% end %>
+		    <p>
+		      <% if @company.address_business_card.show %>
+		        <%=h(@company.address_business_card.street) %>,
+		        <%=h(@company.address_business_card.number) %>
+		        <% if @company.address_business_card.complement != '' %>, <%=h(@company.address_business_card.complement)%><% end %>
+		                                          , <%=h(@company.address_business_card.neighborhood)%>,
+		        <%=h(@company.address_business_card.city)%> / <%=h(@company.address_business_card.state)%>
+		      <% end %>
+		    </p>
+		    <div class="msg-box-profile-public">
+		      <div class="msg-profile-public">
+		        <div class="false-input">
+		        </div>
+		      </div>
+		    </div>
+			<% unless @company.layout.presentation_text.nil?%>
+			<div class="box">
+			    <h3>Descri&ccedil;&atilde;o/Atividades</h3>
+			    <p><%= h(@company.layout.presentation_text).gsub(/\n/,'<br>')%></p>
+			</div>
+			<% end %>
+			<% if @company.services.size > 0%>
+			<div class="box">
+			    <h3>Conv&ecirc;nios/Conveni&ecirc;ncias</h3>
+				<% for service in @company.services do %>
+					<%= image_tag "services/small/#{service.image_path}", :alt=>service.title, :id => "cv-thumb" %>
+				<% end %>
+			</div>
+			<% end %>
+			<% if @company.friends.size > 0 %>
+			<div class="box">
+		      <h3><%= I18n.t "company.friends" %></h3>
+			  <p>
+		      <% @friends.each do |company| %>
+		        <%= link_to "#{img_tag(company)} #{h company.layout.name} ", system_modules_profile_path(company), :class=>"relac-thumb"%>
+		      <% end %>
+			  </p>
+			  <p><%= link_to "Veja todos os parceiros &raquo;", "#" %></p>
+		    </div>
+			<% end %>
+		  </div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() { 
+		$("#tabs").tabs({
+			ajaxOptions: {
+							error: function( xhr, status, index, anchor ) {
+								$( anchor.hash ).html(
+									"Estamos com indisponibilidade no momento. Volte em instantes. " );
+							}
+						}
+		});
+	});
+</script>

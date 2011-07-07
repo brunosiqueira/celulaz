@@ -20,10 +20,12 @@ class Company::FeedLikesController < ApplicationController
   end
 
   def destroy
+    debugger
     if @feed_item = FeedItem.find_by_id(params[:id])
       @like = @feed_item.feed_likes.find_by_company_id(@company.id)
       @feed_item.feed_likes.delete @like
       @feed_item.reload
+      @feed_item.save
       render :json=> @feed_item.as_json
     else
       render :json=> "{}"

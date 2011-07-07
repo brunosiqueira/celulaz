@@ -1,12 +1,21 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.system_root '/painel', :controller => "company/profile"
-  #system modules - mailbox
+
+  #system modules
   map.namespace :system_modules do |mod|
+    # messages
     mod.namespace :mailbox do |mb|
       mb.resources :inbox
       mb.resources :sentbox
       mb.resources :messages, :member => { :reply => :post }
     end
+    
+    # business
+    mod.resources :businesses, :collection => { :contract => [:get, :post] }
+    
+    # profile
+    mod.resources :profiles, :collection => { :activities => [:get] }
   end
   
   map.resources :template_texts
@@ -19,7 +28,6 @@ ActionController::Routing::Routes.draw do |map|
     map.namespace :company do |comp|
       comp.resources :users
       comp.resources :banners
-      comp.resources :businesses
       comp.resources :people
       comp.resources :components do |components|
         components.resources :pictures

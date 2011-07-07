@@ -1,0 +1,33 @@
+<%= image_tag feed_item.item.business_image.url() %>
+<br/>
+<% if can_buy(feed_item.item) %>
+  <a href="#" class="link-comprar" id="comprar-<%=feed_item.item.id%>">Comprar (<%= feed_item.item.value.reais_formatado %>)</a><img id="img-comprar-<%=feed_item.item.id%>" style="display:none;" alt="Carregando" src="colorbox/loading.gif"/>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('body').css('cursor','wait');
+      $('img-comprar-<%=feed_item.item.id%>').show();
+      $('#comprar-<%=feed_item.item.id%>').click(function(){
+        $.ajax({
+          type:"POST",
+          url:'/company/businesses/buy',
+          data:{
+            id:<%=feed_item.item.id%>,
+            authenticity_token:AUTH_TOKEN
+          },
+          dataType:"json",
+          success:function(result){
+            $('body').css('cursor','auto');
+            $('img-comprar-<%=feed_item.item.id%>').hide();
+            $('#comprar-<%=feed_item.item.id%>').replaceWith('Item comprado com sucesso. Aguarde o contato do vendedor.');
+          },
+          error:function(request,status,errorThrown){
+            alert('Erro na Ação!'+status)
+          }
+        });
+      });
+    });
+  </script>
+<% else %>
+  Este item não pode ser comprado por você
+<% end %>

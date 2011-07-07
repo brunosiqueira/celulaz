@@ -192,6 +192,15 @@ form label a:hover{ text-align:right;  font-family:Arial,Helvetica,sans-serif;  
 	text-decoration: none; 
 }
 
+#highlight h2 {
+	background: transparent url("/images/icons/icon-home-subhighlight.png") 0 2px no-repeat;
+	color:#1D4482;
+	font-size:;
+	float:right;
+	margin-right:180px;
+	width:222px;
+}
+
 
 
 div#menu{        float:left;    position:absolute;    width:700px;     text-align:left;     left:0px;     top:324px;         margin:0px 0px 0px 40px}
@@ -297,7 +306,14 @@ form.fale-conosco ul li input.fone{}
 #colrightmeio{ float:right;  margin-right:20px;  width:450px;  padding-left:18px}
 #subtitle{ height:15px;  margin-top:24px}
 
-#footer{    background:#bae4de;  font-size:11px;  height:45px;  line-height:17px;  padding-top:15px;  text-align:center}
+#footer{    
+	background:#bae4de url("/images/backgrounds/home-footer.jpg");  
+	font-size:11px;  
+	height:45px;  
+	line-height:17px;  
+	padding-top:15px;  
+	text-align:center
+}
 
 
 /*

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110608161939) do
+ActiveRecord::Schema.define(:version => 20110707002001) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "owner_id",                                      :null => false
@@ -245,6 +245,11 @@ ActiveRecord::Schema.define(:version => 20110608161939) do
 
   add_index "components", ["layout_id"], :name => "fk_components_layout_id"
 
+  create_table "configs", :force => true do |t|
+    t.boolean "site_published"
+    t.integer "user_id"
+  end
+
   create_table "constants", :force => true do |t|
     t.string   "key"
     t.string   "value"
@@ -288,6 +293,7 @@ ActiveRecord::Schema.define(:version => 20110608161939) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "feed_likes_count", :default => 0
+    t.datetime "promoted_at"
   end
 
   add_index "feed_items", ["item_id", "item_type"], :name => "index_feed_items_on_item_id_and_item_type"
@@ -606,23 +612,24 @@ ActiveRecord::Schema.define(:version => 20110608161939) do
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "email"
-    t.string   "crypted_password",          :limit => 40
-    t.string   "salt",                      :limit => 40
+    t.string   "crypted_password",           :limit => 40
+    t.string   "salt",                       :limit => 40
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
-    t.string   "activation_code",           :limit => 40
+    t.string   "activation_code",            :limit => 40
     t.datetime "activated_at"
-    t.string   "password_reset_code",       :limit => 40
-    t.boolean  "enabled",                                 :default => true
+    t.string   "password_reset_code",        :limit => 40
+    t.boolean  "enabled",                                  :default => true
     t.string   "type"
-    t.boolean  "self_created",                            :default => false
+    t.boolean  "self_created",                             :default => false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "domain"
+    t.boolean  "accepted_business_contract"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

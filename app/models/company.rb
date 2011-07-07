@@ -116,6 +116,7 @@ class Company < ActiveRecord::Base
     person.name
   end
 
+  # TODO: refatorar criando um site_enable boolean para controle de visualizacao
   def site_enable?
     self[:type] == "CompanyZ" && !self.layout.architecture_type.nil?
   end
@@ -284,9 +285,6 @@ class Company < ActiveRecord::Base
   end
   
   def to_param
-    #if name != ''
-    #  "#{id}-#{name.gsub(/[^a-z0-9]+/i, '-')}"
-    #else
     "#{id}-#{razao_social.gsub(/[^a-z0-9]+/i, '-')}"
     #end
   end

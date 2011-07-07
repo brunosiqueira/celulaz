@@ -2,9 +2,10 @@
 module ApplicationHelper
   MENU_CONTROLLERS = {
     :initial=>%w(company/profile),
+    :profile => %W(system_modules/profiles),
     :site=>%w(company/construction company/identity company/banners company/contacts company/seo),
     :card=>%w(company/business_card),
-    :business=>%w(company/businesses),
+    :business=>%w(system_modules/businesses),
     :mail=>%w(system_modules/mailbox/inbox system_modules/mailbox/sentbox system_modules/mailbox/messages),
     :relationships=>%w(company/relationships),
     :company=>%w(company/users company/people financial/titles_not_payed)

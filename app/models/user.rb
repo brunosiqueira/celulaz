@@ -23,7 +23,7 @@
 #  avatar_file_size          :integer(4)
 #  avatar_updated_at         :datetime
 #  domain                    :string(255)
-#
+#  accepted_contract_business :boolean
 
 require 'digest/sha1'
 class User < ActiveRecord::Base

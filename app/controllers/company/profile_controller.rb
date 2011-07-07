@@ -5,9 +5,7 @@ class Company::ProfileController < ApplicationController
   layout "company"
   def index
     ids = @company.origin_ids + @company.destiny_ids + [@company.id]
-    @feed_items = FeedItem.paginate :page=>params[:page],:joins=>:feeds,:per_page=>10,
-      :include=>:item, :select=>"distinct feed_items.*",
-      :conditions=>["feeds.company_id in (?) and (is_public = ? or company_id = ?)",ids,true,@company.id], :order=>"feed_items.updated_at desc"
+    @feed_items = FeedItem.paginate :page=>params[:page], :joins=>:feeds, :per_page=>10, :include=>:item, :select=>"distinct feed_items.*", :conditions=>["feeds.company_id in (?) AND (is_public = ? or company_id = ?)", ids, true, @company.id], :order=>"feed_items.created_at DESC, feed_items.promoted_at DESC"
     @message_to_friend = MessageToFriend.new
     @friends = @company.random_friends
     respond_to do |format|

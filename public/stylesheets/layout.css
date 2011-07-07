@@ -14,7 +14,12 @@ h4{background:none repeat scroll 0 0 #6b757f;color:white;font-size:10px;font-wei
 .clearfloat{clear:both}
 .live_pagination a,a.sent-to-friend-obs-link{color:#036!important}
 .float-link{float:left}
-#header{height:110px;position:relative}
+
+#header{
+	height:110px;
+	position:relative;
+}
+
 #header #logo{width:154px;height:65px;display:block;background:url(/images/new_version/logo-small.gif) no-repeat;text-indent:-9999px;overflow:hidden;position:absolute;left:20px;top:15px}
 #header .info-login{color:#006ab0;width:220px;text-align:right;position:absolute;top:15px;right:0; margin-right: 80px;}
 #header .info-login a{font-weight:bold;color:#f90;font-size:11px}
@@ -29,15 +34,71 @@ h4{background:none repeat scroll 0 0 #6b757f;color:white;font-size:10px;font-wei
 #header .profile-thumb .alt-thumb{   background: url("/images/company/layout/lapis_icon.png") no-repeat scroll 0 0 transparent;bottom: 0;cursor: pointer;display: block;height: 25px;position: absolute;right: 0;width: 25px;}
 #header .input-search{width:190px;height:15px;position:absolute;bottom:13px;right:0;background:url(/images/company/ico-search.gif) no-repeat 175px center #fff}
 #header .profile-thumb a img{width: 50px; height: 50px; border: 2px solid #fff }
+
+#header #busca-padrao{
+	float:left;     
+	height:50px;     
+	margin-left:253px;     
+	overflow:hidden;     
+	position:relative;
+	top:30px;     
+	width:420px;
+}
+
+#header #busca-padrao form{    
+	width:420px;     
+	height:50px;
+}
+
+#header fieldset{ border:0 none; margin:5px 0px 0px 5px;  padding:0px 3px!important}
+
+#header #busca-campo{    
+	border:0 solid #CCC !important;     
+	color:#333;     
+	float:left;
+	font-size:14px;
+	margin-right:8px;
+	padding:5px;     
+	width:200px;
+}
+
+#header #busca-padrao form fieldset select {
+	border:0 solid #fff!important;
+	background:#fff;  
+	float:left;  
+	width:150px !important;  
+	border:0 solid #CCC !important;  
+	font-size:16px;  
+	color:#333;
+	position:relative;
+	top:3px;
+}
+
+#header #busca-padrao form fieldset input.submit{   
+	background:url(../images/new_version/pesquisa-submit.gif) no-repeat scroll top transparent;  	
+	width:28px;  
+	padding:5px;  
+	border:none;  
+	top:-3px;  
+	color:#f60;  
+	float:left;  
+	text-indent:-9999px;  
+	display:block;  
+	cursor:pointer;  
+	margin:1px 0 0 5px;
+}
+
+
 .content{width:780px;float:right}
 .content-left{width:780px;float:left;position:relative;min-height: 500px;}
 .gray-box{background-color:#fdfdfd;border:1px solid #efefef;float:left;margin-bottom:30px;padding:20px}
 #menu{width:180px;float:left}
 #menu ul{margin:0;padding:0;list-style:none}
 #menu ul li{display:block;width:150px;height:23px;display:block;padding:10px 15px}
-#menu ul li a{font-weight:bold;text-decoration:none;color:#036;display:block;padding:5px 0 5px 35px;background:url(/images/company/icon-menu.png) no-repeat;margin-left:0}
+#menu ul li a{font-weight:bold;text-decoration:none;color:#036;display:block;padding:5px 0 5px 35px;background:url(/images/sprites/menu.png) no-repeat;margin-left:0}
 #menu ul li a:hover{text-decoration:underline}
 #menu ul li.active{background:url(/images/company/bg-item-menu.gif)}
+#menu .logged-profile{background-position:0 -371px}
 #menu .site{background-position:0 -41px}
 #menu .cartao-visitas{background-position:0 -86px}
 #menu .mensagens{background-position:0 -132px}

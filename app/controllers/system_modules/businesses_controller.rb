@@ -1,16 +1,27 @@
-class Company::BusinessesController < ApplicationController
+class SystemModules::BusinessesController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
+  before_filter :verify_contract, :except => [:contract]
   layout "company"
+
   # GET /businesses
   # GET /businesses.xml
+  
   def index
     @businesses = @company.businesses
-
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @businesses }
+      format.html
     end
+  end
+  
+  def contract
+    unless request.post?
+      
+    end
+  end
+  
+  def how
+    
   end
 
   # GET /businesses/1
@@ -89,4 +100,11 @@ class Company::BusinessesController < ApplicationController
     @company.businesses_bought << @business
     render :text=>"true"
   end
+  
+  private
+
+  def verify_contract
+    render 'contract' unless current_company.accepted_business_contract?
+  end
+  
 end

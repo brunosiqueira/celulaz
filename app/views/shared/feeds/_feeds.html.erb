@@ -1,0 +1,16 @@
+<% feeds.each do |feed| %>
+  <% unless feed.item.nil? %>
+    <div id="<%=feed.id%>" class="item feed_<%=feed.item_type.downcase%>">
+	  <!-- avatar -->
+	  <%= render :partial => "/shared/feeds/feed_avatar", :locals => { :feed_item => feed } %>
+	
+	  <!-- content -->
+	  <div class="feed_content">
+	  	<%= render :partial => "/shared/feeds/feed_#{feed.item_type.underscore}", :locals => { :feed_item =>feed } %>
+      	<!-- actions -->
+	  	<%= render :partial => "/shared/feeds/feed_actions", :locals => { :feed_item => feed, :company => @company } %>
+	  </div>
+	 </div>
+  <% end %>
+<% end %>
+<div id="companies-like" title="Profissionais/empresas que creditaram" style="display:none;"></div>
