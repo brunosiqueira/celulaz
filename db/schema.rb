@@ -245,11 +245,6 @@ ActiveRecord::Schema.define(:version => 20110707002001) do
 
   add_index "components", ["layout_id"], :name => "fk_components_layout_id"
 
-  create_table "configs", :force => true do |t|
-    t.boolean "site_published"
-    t.integer "user_id"
-  end
-
   create_table "constants", :force => true do |t|
     t.string   "key"
     t.string   "value"
@@ -475,6 +470,11 @@ ActiveRecord::Schema.define(:version => 20110707002001) do
   end
 
   add_index "pictures", ["component_id"], :name => "fk_pictures_component_id"
+
+  create_table "preferences", :force => true do |t|
+    t.boolean "site_published"
+    t.integer "user_id"
+  end
 
   create_table "segments", :force => true do |t|
     t.string "name", :limit => 100

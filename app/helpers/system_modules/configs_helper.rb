@@ -1,0 +1,2 @@
+module SystemModules::ConfigsHelper
+end

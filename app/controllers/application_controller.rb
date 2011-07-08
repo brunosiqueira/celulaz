@@ -100,4 +100,10 @@ class ApplicationController < ActionController::Base
     # save file into attachment
     return file
   end
+  
+  def unread_messages
+    @folder = current_company.inbox
+    @unread_messages = @folder.messages.find_unread_messages :all
+    @unread_messages_size = "(#{@unread_messages.size})" if @unread_messages.size > 0
+  end
 end

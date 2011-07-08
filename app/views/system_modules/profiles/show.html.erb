@@ -1,5 +1,6 @@
-<% stylesheet "third/smoothness/jquery-ui-1.8.10.custom","system_modules/profiles" %>
-<% javascript "third/jquery.colorbox-min","third/jquery-ui-1.8.4.custom.min","third/jquery.jeditable.mini","system_modules/profiles" %>
+<% stylesheet "third/smoothness/jquery-ui-1.8.10.custom", "system_modules/profiles" %>
+<% javascript "third/jquery.colorbox-min", "third/jquery-ui-1.8.4.custom.min","third/jquery.jeditable.mini", "third/jquery.bottomlesspagination.js", "system_modules/profiles" %>
+
 
 <%= hidden_field_tag :user_id,@company.user.id,:class=>"hidden_id" %>
 <div id="tabs">
@@ -7,7 +8,7 @@
 		<li><%= link_to "Perfil", "#profile" %></li>
 		<li><%= link_to "Atividades", { :controller => "system_modules/profiles", :action => "activities", :id => @company } %></li>
 		<li><%= link_to "Depoimentos", "/system_modules/profiles/testemonials" %></li>
-		<li><%= link_to "Parceiros", "/system_modules/profiles/partners" %></li>
+		<li><%= link_to "Parceiros", { :controller => "system_modules/profiles", :action => "partners", :id => @company } %></li>
 	</ul>
 	<div id="profile">
 		<div class="col-left">
@@ -15,10 +16,14 @@
 				<%= image_tag @company.profile_logo.url(:big) %>
 			</div>
 			<div class="relac-actions">
-				<%= link_to "Enviar Mensagem", %>
-		    	<% if @company.site_enable? %>
+				<% unless current_company.company == @company %>
+				<%= link_to "Enviar Mensagem", "#", :id => "company-message" %>
+				<% end %>
+				<% unless @company.user.preference.nil?%>
+		    	<% if @company.user.preference.site_published %>
 			      <%= link_to 'Meu site',site_path(@company.user), :popup=>true, :class=>"btn-msg" %>
 			    <% end %>
+				<% end %>	
 		    	<span class="relac-request">
 			      <% if current_company.company.origins.include?(@company) || current_company.company.destinies.include?(@company) %>
 			        <%=link_to 'Remover',{:controller=>"company/relationship_request",:action=>"destroy",:id=>@company}, :class=>"btn-stop-relac",:confirm=>"Deseja interromper o relacionamento?"%>
@@ -47,13 +52,7 @@
 		        <%=h(@company.address_business_card.city)%> / <%=h(@company.address_business_card.state)%>
 		      <% end %>
 		    </p>
-		    <div class="msg-box-profile-public">
-		      <div class="msg-profile-public">
-		        <div class="false-input">
-		        </div>
-		      </div>
-		    </div>
-			<% unless @company.layout.presentation_text.nil?%>
+		    <% unless @company.layout.presentation_text.nil?%>
 			<div class="box">
 			    <h3>Descri&ccedil;&atilde;o/Atividades</h3>
 			    <p><%= h(@company.layout.presentation_text).gsub(/\n/,'<br>')%></p>
@@ -75,22 +74,25 @@
 		        <%= link_to "#{img_tag(company)} #{h company.layout.name} ", system_modules_profile_path(company), :class=>"relac-thumb"%>
 		      <% end %>
 			  </p>
-			  <p><%= link_to "Veja todos os parceiros &raquo;", "#" %></p>
+			  <p><%= link_to "Veja todos os parceiros &raquo;", "#", :id => "partners" %></p>
 		    </div>
 			<% end %>
+			<div class="box">
+				<div id="company-message-window" style="display:none;">
+					<% form_tag ("/messages"), :id => "company-message-form" do -%>
+						<%= hidden_field_tag  'message[to]', @company.user.id %>
+						<label>Assunto:</label>
+						<%= text_field_tag 'message[subject]', '', :id => "message-subject" %>
+						<label>Mensagem:</label>
+						<%= text_area_tag 'message[body]', '', :id => "message-content", :rows => "5" %>
+						<%= submit_tag 'enviar', :class => "btn", :id => "submit" %>
+						<div id="result-company-message-window"></div>
+					<% end -%>
+				</div>
+			</div>
 		  </div>
 		</div>
 	</div>
+	<div id="ui-tabs-1"></div>
+		
 </div>
-<script type="text/javascript">
-	$(document).ready(function() { 
-		$("#tabs").tabs({
-			ajaxOptions: {
-							error: function( xhr, status, index, anchor ) {
-								$( anchor.hash ).html(
-									"Estamos com indisponibilidade no momento. Volte em instantes. " );
-							}
-						}
-		});
-	});
-</script>

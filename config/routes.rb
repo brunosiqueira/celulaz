@@ -16,6 +16,9 @@ ActionController::Routing::Routes.draw do |map|
     
     # profile
     mod.resources :profiles, :collection => { :activities => [:get] }
+    
+    #configs 
+    mod.resources :configs
   end
   
   map.resources :template_texts

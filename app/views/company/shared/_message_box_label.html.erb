@@ -1,9 +1,7 @@
-<%	unread_messages_size = "(#{@unread_messages.size})" if @unread_messages.size > 0 %>
-
 <div class="panel-head">
 	<ul class="panel-actions">
 		<li class="<%= 'active' if params[:controller].eql?("system_modules/mailbox/inbox") %>">
-			<%= link_to "Caixa de entrada #{unread_messages_size}", system_modules_mailbox_inbox_path %>
+			<%= link_to "Caixa de entrada #{@unread_messages_size}", system_modules_mailbox_inbox_path %>
 		</li>
 		<li class="<%= 'active' if params[:controller].eql?("system_modules/mailbox/sentbox") %>">
 			<%= link_to "Enviadas", system_modules_mailbox_sentbox_path %>

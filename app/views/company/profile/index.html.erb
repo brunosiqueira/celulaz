@@ -11,7 +11,7 @@
   <div class="feeds">
 	<%= render :partial=>"feeds",:object=>@feed_items %>
   </div>
-  <%=will_paginate @feed_items %>
+  <%= will_paginate @feed_items %>
 </div>
 <div class="col-right">
   <%= render :partial=>"company/message_to_friend/form" %>

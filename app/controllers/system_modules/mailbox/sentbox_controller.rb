@@ -1,7 +1,7 @@
 class SystemModules::Mailbox::SentboxController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
-#  before_filter :check_browser, :only => [:index, :show]
+  before_filter :unread_messages
   
   layout "company"
   

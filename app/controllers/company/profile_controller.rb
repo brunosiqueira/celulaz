@@ -2,6 +2,8 @@ class Company::ProfileController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company,:except=>:public
   after_filter :register_visitor, :only=>:public
+  before_filter :unread_messages, :onlhy => [:index]
+  
   layout "company"
   def index
     ids = @company.origin_ids + @company.destiny_ids + [@company.id]

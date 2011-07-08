@@ -1,4 +1,7 @@
-<% feeds.each do |feed| %>
+<h1>&Uacute;ltimas atividades</h1>
+
+<div class="feeds">
+<% @feed_items.each do |feed| %>
   <% unless feed.item.nil? %>
     <div id="<%=feed.id%>" class="item feed_<%=feed.item_type.downcase%>">
 	  <!-- avatar -->
@@ -10,7 +13,9 @@
       	<!-- actions -->
 	  	<%= render :partial => "/shared/feeds/feed_actions", :locals => { :feed_item => feed, :company => @company } %>
 	  </div>
+	  <div id="companies-like" title="Profissionais/empresas que creditaram" style="display:none;"></div>
 	 </div>
   <% end %>
 <% end %>
-<div id="companies-like" title="Profissionais/empresas que creditaram" style="display:none;"></div>
+</div>
+<%= will_paginate @feed_items %>

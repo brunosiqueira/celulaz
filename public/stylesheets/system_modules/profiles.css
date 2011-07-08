@@ -82,28 +82,54 @@
 	padding-left: 12px;
 }
 
+#company-message-window {
+	min-height:360px;
+	width:300px;
+}
 
-.msg-box-profile-public {
-	background: url("../../images/new_version/ico-seta-box-novo-conteudo.gif") no-repeat scroll 15px 3px;
-	font-weight: bold;
+#company-message-window label,
+#company-message-window span.fieldWithError{
+	display:block;
+	float:left;
+	width:300px;
+}
+#company-message-window label,
+#company-message-window span.fieldWithError,
+#company-message-window input#message-subject,
+#company-message-window textarea {
 	margin-bottom:10px;
-	overflow:hidden;
-	padding-top:10px;
 }
 
-.msg-profile-public textarea {width: 100%!important;}
-.msg-profile-public{background-color:#EFEFEF;float:left;margin:0 ;padding:3px;width:334px;}
-.msg-profile-public .false-input {background-color: #FFF; border:1px solid ; border-color: #CCCCCC #F0f0f0  #F0f0f0 #CCCCCC ;cursor:text;padding:15px 9px 15px 34px; float: left; width:289px;font-weight: normal;}
+#company-message-window span.fieldWithError {
+	color:#d23630;	
+}
+ 
 
-.msg-profile-public .false-input:hover{no-repeat 4px 10px #FFF;color:#333;cursor:text; width:289px; text-decoration: none !important; font-weight: normal;}
-
-.ok {
- background-image: url(/images/company/icon-check.gif)no-repeat left center;
+#company-message-window input#message-subject, 
+#company-message-window textarea {
+	float:left;
+	width:300px;
 }
 
-.cancel {
-background-image: url(/images/company/icon-remove.gif) no-repeat left center;
+#company-message-window input#submit {
+	float:left;
+	width:100px;
 }
 
 .relationship {float: left}
 #observation {width: 220px}
+
+.pagination {clear: both;display: block;float: left;border-bottom: 1px solid #EEEEEE;width: 100%;margin-top: 10px; padding-bottom:10px }
+.pagination a,.pagination span{padding:4px 4px;margin-right:5px;display:block;float:left}
+.pagination span.current{font-weight:bold;color:gray}
+.pagination a{text-decoration:none}
+.next_page{background-image:url("/images/company/layout/ico-left.gif");width:15px;height:15px;text-indent:-9999px;}
+.prev_page{background-image:url("/images/company/layout/ico-right.gif");width:15px;height:15px;text-indent:-9999px;}
+
+div#ajax-loader {
+	background:transparent url(/images/ajax-loader.gif) no-repeat;
+	float:right;
+	height:16px;
+	top:6px;
+	width:16px;
+}

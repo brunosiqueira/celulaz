@@ -8,8 +8,6 @@ class Company::RelationshipsController < ApplicationController
     @friends = @company.friends(
       page=( (params[:page]) ? params[:page] : 1),
       16, "(layouts.name LIKE '%#{@q}%')")
-    @friend_requests = @company.friend_requests
-    @suggestions = @company.friends_suggestions
   end
   
   def friend_requests

@@ -18,7 +18,17 @@
   </div><!-- .submenu -->
   <div class="publish-message orientation-msg" style="display: none"></div>
   <!-- .submenu -->
-  <div class="botoes-contrutor"> <a href="#" class="btn add" id="openMenu">Adicionar conteúdo</a> <a href="#" class="btn remove">Excluir selecionados</a> <div class="clearfloat"></div>
+  <div class="botoes-contrutor"> 
+	<a href="#" class="btn add" id="openMenu">Adicionar conteúdo</a> 
+	<a href="#" class="btn remove">Excluir selecionados</a> 
+	<div class="site_published">
+		<%= hidden_field_tag "user[id]", current_company.company.user.id %>
+		<% if @site_published %>
+			<%= check_box_tag "preference[site_published]", "true", { :checked => :checked } %>Exibir meu site no perfil 
+		<% else %>
+			<%= check_box_tag "preference[site_published]", false %>Exibir meu site no perfil
+		<% end %>
+	</div>
   </div>
   <!-- .botoes-contrutor -->
   <div id="box-incluir-conteudo" class="box-novo-conteudo">
@@ -70,3 +80,31 @@
                 <span class="error"></span>
 	</form>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function (){
+		$("#preference_site_published").bind("change", function(){
+			var $this = $(this);
+			var user_id  = $("#user_id").val();
+			$.ajax({
+                url:'/system_modules/configs/'+user_id,
+                type:'PUT',
+                data:{
+                    _method:'UPDATE',
+                    authenticity_token: AUTH_TOKEN,
+                    preference: { site_published: $this.is(':checked') }
+                },
+				beforeSend:function(){
+					$this.parent().append('<div id="ajax-loader"></div>');
+				},
+				success:function(){
+					$("#ajax-loader").remove();
+                    return false;
+                },
+                error:function(request){
+                    alert('Estamos com problemas. Aguarde e em instantes tente novamente.');
+                }
+            });
+		});
+	});	
+</script>

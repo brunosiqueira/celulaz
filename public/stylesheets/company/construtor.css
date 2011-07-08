@@ -8,7 +8,33 @@
 .preview,.publish{float:right;display:block;width:auto;padding:7px 25px 7px 40px;margin:5px 2px}
 .preview{background:url(/images/company/ico-preview.gif) white no-repeat 14px 7px}
 .publish{background:url(/images/company/ico-publish.gif) white no-repeat 12px 4px}
-.botoes-contrutor{margin-bottom:38px;padding-bottom:2px}
+
+.botoes-contrutor{
+	margin-bottom:38px;
+	overflow:hidden;
+	padding-bottom:2px;
+}
+
+.botoes-contrutor div.site_published{
+	float:right;
+	font-size:14px;
+	position:relative;
+	width:30%;
+	top:6px;
+}
+
+.botoes-contrutor div#ajax-loader {
+	background:transparent url(/images/ajax-loader.gif) no-repeat;
+	float:right;
+	height:16px;
+	top:6px;
+	width:16px;
+}
+
+.botoes-contrutor div input{
+	margin-right:4px;
+}
+
 .template-box{border-bottom:1px solid #eee;margin-bottom:38px;padding-bottom:2px}
 .box-novo-conteudo{border:9px solid #eee;margin-bottom:30px;position:relative;display:none;height:100%;background-color:#eee;min-height:110px}
 .box-novo-conteudo .icon-seta{width:34px;height:13px;background:url(/images/company/ico-seta-box-novo-conteudo.gif) no-repeat;position:absolute;top:-22px;left:37px}
@@ -91,3 +117,7 @@
 .btn-change-image2{width:160px;height:30px;opacity:0;-moz-opacity:0;filter:alpha(opacity:0);cursor:pointer}
 #wrap-btn-change-image{width:160px;height:30px;background:url(/images/company/change-image2.gif) no-repeat;margin:30px 0 0 20px;overflow:hidden;border:none;float:left}
 span.edit-tab{background: url("/images/company/layout/lapis_icon_small.png") no-repeat;position:absolute;display:block;width:10px;height:10px;top:4px;right:15px;cursor:pointer;z-index:998}
+
+
+/* custom by pavao */
+

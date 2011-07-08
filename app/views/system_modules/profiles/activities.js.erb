@@ -1,0 +1,11 @@
+<script>
+
+$("#ui-tabs-1").prepend("<%= escape_javascript(render(:partial => '/shared/feeds/feeds')) %>");
+
+$(document).ready(function() { 
+  	$('.pagination a').live('click', function() {
+		  $('#ui-tabs-1').fadeOut('fast').load(this.href).empty().fadeIn('fast');
+	 	  return false;
+	});
+});
+</script>

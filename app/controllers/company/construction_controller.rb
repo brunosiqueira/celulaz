@@ -6,6 +6,7 @@ class Company::ConstructionController < ApplicationController
   layout "company"
   
   def index
+    @site_published = current_company.company.user.preference[:site_published]
   end
 
   def content

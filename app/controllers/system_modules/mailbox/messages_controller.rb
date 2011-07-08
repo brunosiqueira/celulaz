@@ -1,6 +1,7 @@
 class SystemModules::Mailbox::MessagesController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
+  before_filter :unread_messages, :onlhy => [:show]
   
   layout "company"
   

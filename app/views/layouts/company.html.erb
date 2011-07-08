@@ -90,7 +90,7 @@
 				<%=link_to "Cartão de Visita",company_business_card_path, :class=>"cartao-visitas"%>
 			</li>
 			<li <%= active_tab(:mail) %>>
-				<%= link_to "Mensagens", system_modules_mailbox_inbox_path(current_company.inbox), :class => 'mensagens' %>
+				<%= link_to "Mensagens #{@unread_messages_size}", system_modules_mailbox_inbox_path(current_company.inbox), :class => 'mensagens' %>
 			</li>
 			<li <%= active_tab(:relationships) %>>
 				<%= link_to "Relacionamento",company_relationships_path, :class=>"relacionamento"%>
