@@ -1,0 +1,2 @@
+module SystemModules::TestimonialsHelper
+end
