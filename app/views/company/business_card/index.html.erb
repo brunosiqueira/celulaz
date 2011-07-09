@@ -89,17 +89,6 @@
             <a href="#" style="display: block" class="service_cancel"></a></div>
 
         </div>
-        <div id="cv-relac-master-box" title="Área de empresas relacionadas">
-          
-            <h1 class="space"><%= I18n.t "company.friends" %></h1>
-
-            <div id="cv-thumb"></div>
-            <div id="cv-thumb"></div>
-            <div id="cv-thumb"></div>
-            <div id="cv-thumb"></div>
-            <div id="cv-thumb"></div>
-          <a href="<%=url_for(company_relationships_path)%>"> Editar relacionamentos</a>
-        </div>
       </div>
       <div class="col-right">
         <h1>Mapa</h1>
@@ -107,7 +96,4 @@
         </div>
       </div>
   </div>
-    <div class="cv-more-action-bar">
-
-<%=link_to "Visualizar meu cartão de visitas",business_card_path(@company),:class=>'business-card-view float-link' ,:popup=>true%>
-    </div>
+    <div class="cv-more-action-bar"><%=link_to "Visualizar meu cartão de visitas",business_card_path(@company),:class=>'business-card-view float-link' ,:popup=>true%></div>

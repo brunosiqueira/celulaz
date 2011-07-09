@@ -27,11 +27,23 @@ class SystemModules::ProfilesController < ApplicationController
   
   def partners
     @company = Company.find params[:id]
-    @q = params[:q]
+    #@q = params[:q]
     @friends = @company.friends(
       page=( (params[:page]) ? params[:page] : 1),
-      16, "(layouts.name LIKE '%#{@q}%')")
-    @friend_requests = @company.friend_requests
-    @suggestions = @company.friends_suggestions
+      20, "(layouts.name LIKE '%#{@q}%')")
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def testimonials
+    @company = Company.find params[:id]
+    @pending_testimonials = Testimonial.all(:conditions => ['user_id = ? AND approved = ?', current_user.id, false])
+    @approved_testimonials = Testimonial.all(:conditions => ['user_id = ? AND approved = ?', current_user.id, true])
+    
+    respond_to do |format|
+      format.js
+    end
   end
 end

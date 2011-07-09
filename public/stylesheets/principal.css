@@ -193,7 +193,7 @@ form label a:hover{ text-align:right;  font-family:Arial,Helvetica,sans-serif;  
 }
 
 #highlight h2 {
-	background: transparent url("/images/icons/icon-home-subhighlight.png") 0 2px no-repeat;
+	background: transparent url("/images/icons/icon-home-subhighlight.png") 6px 2px no-repeat;
 	color:#1D4482;
 	font-size:;
 	float:right;

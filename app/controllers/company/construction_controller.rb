@@ -6,7 +6,7 @@ class Company::ConstructionController < ApplicationController
   layout "company"
   
   def index
-    @site_published = current_company.company.user.preference[:site_published]
+    @site_published = current_company.company.user.preference[:site_published] unless current_company.company.user.preference.nil?
   end
 
   def content

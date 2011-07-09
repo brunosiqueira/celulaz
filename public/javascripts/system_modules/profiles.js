@@ -23,6 +23,7 @@ $(document).ready(function(){
 												minHeight: 300,
 												minWidth: 350
 											});
+		return false;
     });
 
 	$("form#company-message-form").bind('submit', function() {
@@ -76,9 +77,8 @@ $(document).ready(function(){
 			});
 
 	$('#partners').click(function() { // bind click event to link
-	    $tabs.tabs('select', 4); // switch to third tab
+	    $tabs.tabs('select', 3); // switch to third tab
 	    return false;
 	});
-
 
 });

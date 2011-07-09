@@ -46,6 +46,7 @@ class User < ActiveRecord::Base
   has_many :sellers, :class_name => "Person",:foreign_key=>"user_web_adm_id",
     :conditions=>"not exists (select up.* from user_people as up where people.id = up.person_id)"
   has_many :user_people,:dependent=>:destroy
+  has_many :testimonials, :dependent => :destroy
   has_one :preference, :dependent => :destroy
   has_one :person,:through=>:user_people,:dependent=>:destroy
   has_one :person_old, :class_name => "Person",:dependent=>:destroy

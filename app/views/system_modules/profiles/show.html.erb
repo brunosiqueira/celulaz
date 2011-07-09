@@ -1,13 +1,12 @@
+<% javascript "third/jquery.colorbox-min", "third/jquery-ui-1.8.4.custom.min", "third/jquery.scrollTo-1.4.2-min", "system_modules/profiles" %>
 <% stylesheet "third/smoothness/jquery-ui-1.8.10.custom", "system_modules/profiles" %>
-<% javascript "third/jquery.colorbox-min", "third/jquery-ui-1.8.4.custom.min","third/jquery.jeditable.mini", "third/jquery.bottomlesspagination.js", "system_modules/profiles" %>
-
 
 <%= hidden_field_tag :user_id,@company.user.id,:class=>"hidden_id" %>
 <div id="tabs">
 	<ul>
 		<li><%= link_to "Perfil", "#profile" %></li>
 		<li><%= link_to "Atividades", { :controller => "system_modules/profiles", :action => "activities", :id => @company } %></li>
-		<li><%= link_to "Depoimentos", "/system_modules/profiles/testemonials" %></li>
+		<li><%= link_to "Depoimentos", { :controller => "system_modules/profiles", :action => "testimonials", :id => @company } %></li>
 		<li><%= link_to "Parceiros", { :controller => "system_modules/profiles", :action => "partners", :id => @company } %></li>
 	</ul>
 	<div id="profile">
@@ -20,7 +19,7 @@
 				<%= link_to "Enviar Mensagem", "#", :id => "company-message" %>
 				<% end %>
 				<% unless @company.user.preference.nil?%>
-		    	<% if @company.user.preference.site_published %>
+		    	<% if @company.user.preference.site_published || @company.site_enable? %>
 			      <%= link_to 'Meu site',site_path(@company.user), :popup=>true, :class=>"btn-msg" %>
 			    <% end %>
 				<% end %>	

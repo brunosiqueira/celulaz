@@ -15,10 +15,13 @@ ActionController::Routing::Routes.draw do |map|
     mod.resources :businesses, :collection => { :contract => [:get, :post] }
     
     # profile
-    mod.resources :profiles, :collection => { :activities => [:get] }
+    mod.resources :profiles, :collection => { :partners => [:get], :activities => [:get], :testimonials => [:get] }
     
-    #configs 
+    # configs 
     mod.resources :configs
+    
+    # testimonials
+    mod.resources :testimonials
   end
   
   map.resources :template_texts

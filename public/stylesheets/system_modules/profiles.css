@@ -133,3 +133,81 @@ div#ajax-loader {
 	top:6px;
 	width:16px;
 }
+
+.testimonials {
+	overflow:hidden;
+	width:100%;
+}
+
+.testimonials .testimonial {}
+
+.testimonials .form {
+	overflow:hidden;
+	width:100%;
+}
+
+.testimonials textarea {
+	float:left;
+	height:170px;
+	margin-bottom:10px;
+	width:520px;
+}
+
+.testimonials form .buttons {
+	float:left;
+	width:528px;
+	text-align:right;
+}
+
+.testimonials form .buttons #submit_testimonial,
+.testimonials form .buttons #cancel_testimonial {
+	color:#fff;
+	background:#394754;
+}
+
+.testimonials .moderation,
+.testimonials .all_testimonials {
+	float:left;
+	overflow:hidden;
+	width:600px;
+}
+
+.testimonials .testimonial {
+	float:left;
+	margin-bottom:10px;
+	overflow:hidden;
+	width:100%;
+}
+
+
+.testimonials .testimonial .avatar{
+	background-color:#FFFFFF;
+	border:#B4B4B4 1px solid;
+	float:left;
+	height:62px;
+	overflow:hidden;
+	width:62px;
+}	
+
+.testimonials .testimonial .content p{
+	float:right;
+	margin:0;
+	padding:0;
+	width:85%;
+}
+
+.testimonials .testimonial .content { 
+	float:left;
+	width:100%;
+}
+
+.testimonials .testimonial .actions {
+	float:right;
+	width:85%;
+}
+
+.partners {
+	
+	overflow:hidden;
+	width:92%;
+}

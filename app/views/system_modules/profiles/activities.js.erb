@@ -4,8 +4,13 @@ $("#ui-tabs-1").prepend("<%= escape_javascript(render(:partial => '/shared/feeds
 
 $(document).ready(function() { 
   	$('.pagination a').live('click', function() {
-		  $('#ui-tabs-1').fadeOut('fast').load(this.href).empty().fadeIn('fast');
-	 	  return false;
+			//var loader = $("<div id='ajax-loader'></div>");
+			//$(this).after(loader);
+			$('#ui-tabs-1').load(this.href, function(){
+				$(this).fadeIn('fast');
+				$.scrollTo("#ui-tabs-1", 1000);
+			});
+	 	  	return false;
 	});
 });
 </script>
