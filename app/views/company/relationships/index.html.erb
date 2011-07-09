@@ -8,8 +8,8 @@
       <h1>Solicitações de relacionamento</h1>
       <% @friend_requests.each do |f| %>
         <div id="relationship-<%= f.id %>" class="relation-request">
-          <%= link_to "#{img_tag(f)}", { :action => :public, :controller => 'company/profile', :id => f }, :class => "relac-thumb" %>
-          <h1><%=link_to "#{h f.layout.name}", { :action => :public, :controller => 'company/profile', :id => f }%></h1>
+          <%= link_to "#{img_tag(f)}", system_modules_profile_path(f), :class => "relac-thumb" %>
+          <h1><%=link_to "#{h f.layout.name}", system_modules_profile_path(f) %></h1>
           <%= link_to "Aceitar", "javascript:", :data => f.id, :class => "accept_relationship btn-input" %>
           <%= link_to "Recusar", "javascript:", :data => f.id, :class => "refuse_relationship btn-input" %>
         </div>
@@ -26,7 +26,7 @@
     </div>
     <p>Você tem <%= @company.friends_count %> parceiro(s)</p>
     <% @friends.each do |f| %>
-      <%= link_to "#{img_tag(f)} #{h f.layout.name} ", { :action => :public, :controller => 'company/profile', :id => f }, :class => "relac-thumb" %>
+      <%= link_to "#{img_tag(f)} #{h f.layout.name} ", system_modules_profile_path(f), :class => "relac-thumb" %>
     <% end %>
     <div id="search-control-bottom">
       <%= will_paginate @friends,:previous_label=>" ",:next_label=>" ",:id=>'top', :params=>{:q=>@q} %>
@@ -40,7 +40,10 @@
     <ul id="mycarousel" class="jcarousel-skin-tango">
       <% @suggestions.each do |suggestion| %>
         <li>
-          <a href="<%=url_for :controller=>"company/profile",:action=>"public",:id=>suggestion%>"><%= image_tag  suggestion.profile_logo(:small), :width=>"63", :height=>"63", :alt=>suggestion.layout.name, :class=>"relac-thumb" %><%=suggestion.name%></a>
+          <a href="<%=url_for system_modules_profile_path(suggestion)%>">
+			<%= image_tag  suggestion.profile_logo(:small), :width=>"63", :height=>"63", :alt=>suggestion.layout.name, :class=>"relac-thumb" %>
+			<%=suggestion.name%>
+		  </a>
         </li>
       <% end %>
     </ul>
