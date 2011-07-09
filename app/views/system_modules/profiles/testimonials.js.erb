@@ -1,5 +1,5 @@
 <div class="testimonials">
-	<% unless current_user.id == @company.user.id %>
+	<% unless current_company.company.id == @company.id %>
 	<h1>Depoimentos</h1>
 	<% unless @company.name.nil? %>
  	<%= "<p>Envie um depoimento para #{@company.name} e compartilhe sua opini&atilde;o com todos da rede." %>
@@ -10,7 +10,7 @@
 	<% form_tag "/system_modules/testimonials", :id => "testimonials", :method => :create do %>
 		<%= hidden_field_tag 'testimonial[approved]', false %>
 		<%= hidden_field_tag 'testimonial[user_id]', @company.user.id %>
-		<%= hidden_field_tag 'testimonial[sender_id]', current_user.id %>
+		<%= hidden_field_tag 'testimonial[sender_id]', current_company.id %>
 		<%= text_area_tag 'testimonial[content]', '' %>
 		<div class='buttons'>
 			<%= submit_tag 'enviar', :id => 'submit_testimonial' %>
@@ -19,7 +19,7 @@
 	<% end %>
 	</div>
 	<% end %>
-	<% unless @pending_testimonials.nil? || current_user.id != @company.user.id %>
+	<% unless @pending_testimonials.nil? || current_company.company.id != @company.id %>
 	<% if @pending_testimonials.size > 0 %>
 	<div class="moderation">
 	<h1>Depoimentos pendentes</h1>
@@ -43,17 +43,18 @@
 	<% end %>
 	<div class="all_testimonials">
 	<h1>Todos os depoimentos</h1>
+
 	<% unless @approved_testimonials.nil? %>
 	<% if @approved_testimonials.size > 0 %>
 		<% @approved_testimonials.each do |ad| %>
 			<div class="testimonial">
 				<div class="content">
 					<div class="avatar">
-				
+						<%= link_to "#{img_tag(ad.company.company)} #{h ad.company.company.layout.name} ", system_modules_profile_path(ad.company.company) %>
 					</div>
 					<p><%= ad.content %></p>
 				</div>
-				<% if current_company.company == @company %>
+				<% if current_company.company.id == @company.id %>
 				<div class="actions">
 					<%= link_to "Apagar", system_modules_testimonial_path(ad), :class => "testimonial_refuse" %>
 				</div>

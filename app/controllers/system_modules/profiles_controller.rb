@@ -39,9 +39,15 @@ class SystemModules::ProfilesController < ApplicationController
   
   def testimonials
     @company = Company.find params[:id]
-    @pending_testimonials = Testimonial.all(:conditions => ['user_id = ? AND approved = ?', current_user.id, false])
-    @approved_testimonials = Testimonial.all(:conditions => ['user_id = ? AND approved = ?', current_user.id, true])
-    
+    #se o perfil for igual ao usuario logado
+    if @company.user.id == current_company.id
+      @pending_testimonials = Testimonial.all(:conditions => ['user_id = ? AND approved = ?', current_company.id, false])
+      @approved_testimonials = Testimonial.all(:conditions => ['user_id = ? AND approved = ?', current_company.id, true])
+    else
+      @pending_testimonials = Testimonial.all(:conditions => ['user_id = ? AND approved = ?', @company.user.id, false])
+      @approved_testimonials = Testimonial.all(:conditions => ['user_id = ? AND approved = ?', @company.user.id, true])
+    end
+
     respond_to do |format|
       format.js
     end

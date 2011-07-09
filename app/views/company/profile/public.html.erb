@@ -1,5 +1,6 @@
+<% javascript "third/jquery.colorbox-min","third/jquery-ui-1.8.4.custom.min","company/profile-public" %>
 <% stylesheet "third/smoothness/jquery-ui-1.8.10.custom","company/profile-public", "third/colorbox" %>
-<% javascript "third/jquery.colorbox-min","third/jquery-ui-1.8.4.custom.min","third/jquery.jeditable.mini","company/profile-public" %>
+
 <%= hidden_field_tag :user_id,@company.user.id,:class=>"hidden_id" %>
 <div class="col-left">
   <div class="profile-thumb"><%= image_tag @company.profile_logo.url(:big) %></div>
@@ -46,18 +47,5 @@
 	<% for service in @company.services do %>
 		<%= image_tag "services/small/#{service.image_path}", :alt=>service.title, :id => "cv-thumb" %>
 	<% end %>
-    </div>
-    <div id="cv-relac-master-box">
-      <h1 class="space"><%= I18n.t "company.friends" %></h1>
-      <% @company.friends(5).each do |company| %>
-        <%=link_to "#{img_tag(company)} #{h company.layout.name} ",{:action=>:public,:id=>company}, :class=>"relac-thumb"%>
-      <% end %>
-    </div>
-  </div>
-  <div class="col-right2">
-    <div>
-      <h1>Últimas atividades</h1>
-      <div class="feeds-small"><%= render :partial=>"feeds",:object=>@feed_items %></div>
-      <%=will_paginate @feed_items,:params=>{:id=>@company}%>
     </div>
   </div>
