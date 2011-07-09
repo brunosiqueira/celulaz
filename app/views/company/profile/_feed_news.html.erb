@@ -1,5 +1,5 @@
 <span class="author">
-	<%= link_to feed_item.feeds.first.company.name, :controller=>"company/profile",:action=>"public",:id=>feed_item.feeds.first.company %>
+	<%= link_to feed_item.feeds.first.company.name, system_modules_profile_path(feed_item.feeds.first.company) %>
 </span>
 <div class="shared">
 	<%= feed_item.item.description %>

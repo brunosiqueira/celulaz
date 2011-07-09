@@ -2,12 +2,16 @@ class Company::RelationshipsController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
   layout "company"
+  before_filter :unread_messages, :only => [:index]
   
   def index
     @q = params[:q]
     @friends = @company.friends(
       page=( (params[:page]) ? params[:page] : 1),
       16, "(layouts.name LIKE '%#{@q}%')")
+      
+    @friend_requests = @company.friend_requests
+    @suggestions = @company.friends_suggestions
   end
   
   def friend_requests

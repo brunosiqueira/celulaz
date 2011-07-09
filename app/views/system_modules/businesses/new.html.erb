@@ -2,7 +2,7 @@
 <% stylesheet "company/business","scaffold" %>
 <h1>Publique uma a&ccedil;&atilde;o de venda</h1>
 
-<% form_for([:company,@business],:html => {:multipart => true} ) do |f| %>
+<% form_for([:system_modules,@business],:html => {:multipart => true} ) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -37,4 +37,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Voltar', company_businesses_path %>
+<%= link_to 'Voltar', system_modules_businesses_path %>

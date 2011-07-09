@@ -2,6 +2,7 @@ class Company::ContactsController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
   before_filter :create_address_not_exist
+  before_filter :unread_messages, :only => [:edit]
   layout nil
   def edit
     #testar para ver se @company ja tem endereco. Se nao tive, criar

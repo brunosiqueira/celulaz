@@ -1,6 +1,6 @@
 <% relation_first = feed_item.item.origin.eql?(@company) ? feed_item.item.origin : feed_item.item.destiny %>
 <% relation = feed_item.item.origin.eql?(@company) ? feed_item.item.destiny : feed_item.item.origin %>
 <div class="shared">
-	<%= link_to((relation_first.eql?(current_company.company) ? "Você" : relation_first.name ), :controller => "company/profile", :action=>"public", :id => (relation_first.eql?(current_company.company) ? relation : relation_first ) ) %>
-começou a se relacionar com <%= link_to relation.name, :controller=>"company/profile",:action=>"public", :id=>relation %>
+	<%= link_to((relation_first.eql?(current_company.company) ? "Você" : relation_first.name ), system_modules_profile_path(relation_first.eql?(current_company.company) ? relation : relation_first ) ) %>
+começou a se relacionar com <%= link_to relation.name, system_modules_profile_path(relation) %>
 </div>

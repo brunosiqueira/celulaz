@@ -4,6 +4,7 @@ class Company::IdentityController < ApplicationController
   before_filter :load_company
   before_filter :check_if_new, :except=>[:create,:update]
   after_filter :clean_cache
+  before_filter :unread_messages, :only => [:edit]
   layout "company"
 
   def new

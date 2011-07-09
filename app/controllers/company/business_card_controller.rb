@@ -2,6 +2,7 @@ class Company::BusinessCardController < ApplicationController
   include LoadMap
   before_filter :login_with_company_required
   before_filter :load_company
+  before_filter :unread_messages, :only => [:index]
   layout "company"
   
   def index

@@ -2,6 +2,7 @@ class Company::SeoController < ApplicationController
   before_filter :login_with_company_required
   before_filter :login_with_company_z_required
   before_filter :load_company
+  before_filter :unread_messages, :only => [:edit]
   layout "company"
 
   def edit

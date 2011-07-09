@@ -1,7 +1,8 @@
 class SystemModules::BusinessesController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
-  before_filter :verify_contract, :except => [:contract]
+  #before_filter :verify_contract, :except => [:contract]
+  before_filter :unread_messages
   layout "company"
 
   # GET /businesses

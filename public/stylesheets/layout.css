@@ -23,7 +23,7 @@ h4{background:none repeat scroll 0 0 #6b757f;color:white;font-size:10px;font-wei
 #header #logo{width:154px;height:65px;display:block;background:url(/images/new_version/logo-small.gif) no-repeat;text-indent:-9999px;overflow:hidden;position:absolute;left:20px;top:15px}
 #header .info-login{color:#006ab0;width:220px;text-align:right;position:absolute;top:15px;right:0; margin-right: 80px;}
 #header .info-login a{font-weight:bold;color:#f90;font-size:11px}
-#header .top-nav{list-style:none;position:absolute;left:180px;top:30px}
+#header .top-nav{list-style:none;position:absolute;left:660px;top:22px;}
 #header .top-nav li{display:inline}
 #header .top-nav li a{color:#039;text-decoration:none;padding:3px 50px 3px 28px;display:inline-block;background-position:0 2px;background-repeat:no-repeat}
 #header .top-nav li a:hover{text-decoration:underline}

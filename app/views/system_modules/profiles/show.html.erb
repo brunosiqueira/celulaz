@@ -4,8 +4,8 @@
 <%= hidden_field_tag :user_id,@company.user.id,:class=>"hidden_id" %>
 <div id="tabs">
 	<ul>
-		<li><%= link_to "Perfil", "#profile" %></li>
-		<li><%= link_to "Atividades", { :controller => "system_modules/profiles", :action => "activities", :id => @company } %></li>
+		<li><%= link_to "Participante", "#profile" %></li>
+		<li><%= link_to "&Uacute;timas Atividades", { :controller => "system_modules/profiles", :action => "activities", :id => @company } %></li>
 		<li><%= link_to "Depoimentos", { :controller => "system_modules/profiles", :action => "testimonials", :id => @company } %></li>
 		<li><%= link_to "Parceiros", { :controller => "system_modules/profiles", :action => "partners", :id => @company } %></li>
 	</ul>
@@ -16,7 +16,7 @@
 			</div>
 			<div class="relac-actions">
 				<% unless current_company.company == @company %>
-				<%= link_to "Enviar Mensagem", "#", :id => "company-message" %>
+				<%= link_to "Mensagem", "#", :id => "company-message" %>
 				<% end %>
 				<% unless @company.user.preference.nil?%>
 		    	<% if @company.user.preference.site_published || @company.site_enable? %>
@@ -73,7 +73,7 @@
 		        <%= link_to "#{img_tag(company)} #{h company.layout.name} ", system_modules_profile_path(company), :class=>"relac-thumb"%>
 		      <% end %>
 			  </p>
-			  <p><%= link_to "Veja todos os parceiros &raquo;", "#", :id => "partners" %></p>
+			  <!--<p><%#= link_to "Veja todos os parceiros &raquo;", "#", :id => "partners" %></p>-->
 		    </div>
 			<% end %>
 			<div class="box">

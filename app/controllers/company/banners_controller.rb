@@ -3,6 +3,7 @@ class Company::BannersController < ApplicationController
   before_filter :load_company
   after_filter :clean_cache
   before_filter :check_template
+  before_filter :unread_messages, :only => [:index]
   layout "company"
   
   def index
