@@ -3,7 +3,11 @@
 <div class="col-left">
   <% unless @company.friend_requests.empty? %>
 	<div class="warn">
-    	Você possui <%= link_to "solicitações de relacionamento", company_relationships_path %>.
+	<% if @company.friend_requests.size > 1 %>
+    	Você possui <%= link_to "<strong>0#{@company.friend_requests.size}</strong> solicitações de relacionamento", company_relationships_path %>.
+	<% else %>
+		Você possui <%= link_to "<strong>0#{@company.friend_requests.size}</strong> solicitação de relacionamento", company_relationships_path %>.
+	<% end %>
 	</div>
   <% end %>
   <%= render :partial=>"/company/news/news" %>
@@ -13,32 +17,22 @@
   </div>
   <%= will_paginate @feed_items %>
 </div>
-<div class="col-right">
-  <%= render :partial=>"company/message_to_friend/form" %>
-
-  <div id="cv-relac-master-box">
-    <h1><%= I18n.t "company.friends" %>&nbsp;&nbsp;<small><%= link_to "ver mais", company_relationships_path %></small></h1>
-    <% @friends.each do |company| %>
-      <%=link_to "#{img_tag(company)} #{h company.layout.name} ",{:action=>:public,:id=>company}, :class=>"relac-thumb"%>
-    <% end %>
-  </div>
-  <div class="analytcs">
-
-    <h4>Relatórios</h4>
-    <% if logged_as_company_z? %>
-      <h1>Site</h1>
-      <p>
-        <%= @company.count_visitors(:site,:today) %> /dia <%= @company.count_visitors(:site,:month) %> /mês
-      </p>
-    <% end %>
-    <h1>Perfil</h1>
-    <p>
-      <%= @company.count_visitors(:profile,:today) %> /dia <%= @company.count_visitors(:profile,:month) %> /mês
-    </p>
-    <h1>Cartão de visita</h1>
-    <p>  <%= @company.count_visitors(:business_card,:today) %> /dia <%= @company.count_visitors(:business_card,:month) %> /mês
-    </p>
-  </div>
+<div class="sidebar">
+	<div class="box">
+  		<%= render :partial=>"company/message_to_friend/form" %>
+	</div>
+	<div class="box">
+		<h1>
+			<%= I18n.t "company.friends" %>
+			<small><%= link_to "ver mais", company_relationships_path %></small>
+		</h1>
+	    <% @friends.each do |company| %>
+	      <%=link_to "#{img_tag(company)} #{h truncate company.layout.name, :length => 17} ", system_modules_profile_path(company), :class=>"relac-thumb"%>
+	    <% end %>
+	</div>
+	<div class="box">
+		<%= render :partial=>"system_modules/recommendations/form" %>
+	</div>
 </div>
 <div id="dialog-confirm" style="display: none;" title="Remover atividade?">
   <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Deseja remover a atividade?</p>

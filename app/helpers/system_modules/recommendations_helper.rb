@@ -1,0 +1,2 @@
+module SystemModules::RecommendationsHelper
+end

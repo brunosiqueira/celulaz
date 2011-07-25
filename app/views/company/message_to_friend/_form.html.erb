@@ -2,11 +2,11 @@
   <h1>Enviar e-mail</h1>
 
   <% form_for :message_to_friend,:url=>{:controller=>"company/message_to_friend",:action=>"create"},:html=>{:id=>"message-to-friend-form"} do |f| %>
-    <%= f.text_field :email_to %>
+    <%= f.text_field :email_to, :class=>"text" %>
+	<span class="fieldWithError"></span>
     <a class="sent-to-friend-obs-link ">Compor e-mail</a>
-    <%= f.text_area :observations, :class=>"sent-to-friend-obs" %>
-    <span class="message_error_email_to"></span>
-    <%= f.submit "Enviar" %>
+    <%= f.text_area :observations %>
+    <%= f.submit "Enviar", :class => "btn-input" %>
 
   <% end %>
 </div>

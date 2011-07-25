@@ -6,7 +6,7 @@ module Company::MessagesHelper
     if message.is_external?
       content << message.sender_email
 		else
-			content << link_to(message.sender.login, system_modules_profile_path(message.sender.company))
+			content << link_to(message.sender_name, system_modules_profile_path(message.sender.company))
 		end
 		content << '<br /><div class="date">'
     content << I18n.localize(message.created_at, :format => :long)
@@ -22,7 +22,11 @@ module Company::MessagesHelper
     if message.message.is_external?
       content << message.message.sender_email
 		else
-			content << link_to(message.sender.login, system_modules_profile_path(message.sender.company))
+		  if message.sender.nil?
+		    content << '<span>Não foi possível localizar o remetente.</span>'
+		  else
+			  content << link_to(message.sender_name, system_modules_profile_path(message.sender.company))
+			end
 		end
 		content << '<br /><div class="date">'
     content << I18n.localize(message.created_at, :format => :long)

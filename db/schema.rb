@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110708230802) do
+ActiveRecord::Schema.define(:version => 20110725174626) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "owner_id",                                      :null => false
@@ -376,7 +376,6 @@ ActiveRecord::Schema.define(:version => 20110708230802) do
 
   create_table "messages", :force => true do |t|
     t.integer  "sender_id"
-    t.integer  "receiver_id"
     t.string   "subject",          :limit => 256
     t.text     "body"
     t.datetime "created_at"
@@ -389,7 +388,6 @@ ActiveRecord::Schema.define(:version => 20110708230802) do
     t.boolean  "deleted_sent_box"
   end
 
-  add_index "messages", ["receiver_id"], :name => "fk_messages_receiver_id"
   add_index "messages", ["sender_id"], :name => "fk_messages_sender_id"
 
   create_table "news", :force => true do |t|

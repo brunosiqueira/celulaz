@@ -1,0 +1,175 @@
+<% javascript "third/jquery.colorbox-min", "third/jquery-ui-1.8.4.custom.min", "third/jquery.scrollTo-1.4.2-min", "system_modules/profiles" %>
+<% stylesheet  "third/colorbox", "third/smoothness/jquery-ui-1.8.10.custom", "system_modules/profiles" %>
+
+
+<div id="tabs">
+	<%= render "menu" %>
+	
+	<div class="testimonials">
+		<% unless current_company.company.id == @company.id %>
+		<h1>Depoimentos</h1>
+		<% unless @company.name.nil? %>
+	 	<%= "<p>Envie um depoimento para #{@company.name} e compartilhe sua opini&atilde;o com todos da rede." %>
+		<% else %>
+			<p>Envie um depoimento e compartilhe sua opini&atilde;o com todos da rede.</p>
+		<% end %>
+		<div class="form">
+		<% form_tag "/system_modules/testimonials", :id => "testimonials", :method => :create do %>
+			<%= hidden_field_tag 'testimonial[approved]', false %>
+			<%= hidden_field_tag 'testimonial[user_id]', @company.user.id %>
+			<%= hidden_field_tag 'testimonial[sender_id]', current_company.id %>
+			<%= text_area_tag 'testimonial[content]', '' %>
+			<div class='buttons'>
+				<%= submit_tag 'enviar', :id => 'submit_testimonial' %>
+				<%= submit_tag 'cancelar', :id => 'cancel_testimonial' %>
+			</div>
+		<% end %>
+		</div>
+		<% end %>
+		<% unless @pending_testimonials.nil? || current_company.company.id != @company.id %>
+		<% if @pending_testimonials.size > 0 %>
+		<div class="moderation">
+		<h1>Depoimentos pendentes</h1>
+			<% @pending_testimonials.each do |pd| %>
+				<div class="testimonial">
+					<div class="content">
+						<div class="avatar">
+							<%= link_to "#{img_tag(pd.company.company)} #{h pd.company.company.layout.name} ", system_modules_profile_path(pd.company.company) %>
+						</div>
+						<p><%= pd.content %></p>
+					</div>
+					<div class="actions">
+							<%= link_to "Aceitar", system_modules_testimonial_path(pd), :class => "testimonial_accept" %>
+							<%= link_to "Apagar", system_modules_testimonial_path(pd), :class => "testimonial_refuse" %>
+					</div>
+				</div>
+
+			<% end %>
+		</div>
+		<% end %>
+		<% end %>
+		<div class="all_testimonials">
+		<h1>Todos os depoimentos</h1>
+
+		<% unless @approved_testimonials.nil? %>
+		<% if @approved_testimonials.size > 0 %>
+			<% @approved_testimonials.each do |ad| %>
+				<div class="testimonial">
+					<div class="content">
+						<div class="avatar">
+							<%= link_to "#{img_tag(ad.company.company)} #{h ad.company.company.layout.name} ", system_modules_profile_path(ad.company.company) %>
+						</div>
+						<p><%= ad.content %></p>
+					</div>
+					<% if current_company.company.id == @company.id %>
+					<div class="actions">
+						<%= link_to "Apagar", system_modules_testimonial_path(ad), :class => "testimonial_refuse" %>
+					</div>
+					<% end %>
+				</div>
+			<% end %>
+		<% else %>
+			<p class="warn">Este participante ainda n&atilde;o recebeu nenhum depoimento. Envie um agora mesmo.</p>
+		<% end %>
+		<% end %>
+		</div>
+	</div>
+	
+</div>
+
+
+
+<script>
+$(document).ready(function(){
+	
+	$("form#testimonials").bind('submit', function(){
+		var $this = $(this);
+		
+		var testimonial_content = $('#testimonial_content').val();
+
+		if ( testimonial_content == "" ) {
+            alert("Digite o depoimento");
+			return false;
+        }
+		
+		$.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            beforeSend: function(){
+                
+            },
+            success: function() {
+                alert('Seu depoimento foi enviado. Aguarde a aprovação.');
+            },
+            error: function()  {
+                alert('Estamos com algum indisponibilidade. Aguarde alguns instantes.');
+            },
+            complete: function() {
+				$('form > textarea').val('');
+            }
+        });
+
+
+		return false;
+	});
+	
+	$(".testimonial_accept").bind('click', function(){
+		var $this = $(this);
+		if(confirm('Deseja aceitar esse depoimento ?')){
+			var testimonial = $this.parent().parent();
+			var all_testimonial = $('.all_testimonials');
+			$.ajax({
+	            type: 'PUT',
+	            url: $this.attr('href'),
+				beforeSend: function(){
+                
+	            },
+	            success: function() {
+					$this.remove();
+					testimonial.fadeIn(12000);
+	            },
+	            error: function()  {
+	                alert('Estamos com algum indisponibilidade. Aguarde alguns instantes.');
+	            },
+	            complete: function() {
+					if($('div.all_testimonial:has(p.warn)')){
+						$("p.warn").remove();
+					}
+					all_testimonial.append(testimonial);
+					if($('div.moderation').children().size() == 1){
+						$('.moderation').remove();
+					}
+	            }
+	        });
+		}
+		return false;
+	});
+	
+	$(".testimonial_refuse").bind('click', function(){
+		var $this = $(this);
+		if(confirm('Deseja mesmo apagar esse depoimento ?')) {
+			var testimonial = $this.parent().parent();
+			$.ajax({
+	            type: 'DELETE',
+	            url: $this.attr('href'),
+				beforeSend: function(){
+                
+	            },
+	            success: function() {
+	                testimonial.remove();
+	            },
+	            error: function()  {
+	                alert('Estamos com algum indisponibilidade. Aguarde alguns instantes.');
+	            },
+	            complete: function() {
+					if($('div.all_testimonials').children().size() == 1){
+						$('div.all_testimonials').append('<p class="warn">Este participante ainda n&atilde;o recebeu nenhum depoimento. Envie um agora mesmo.</p>');
+					}
+	            }
+	        });
+		}
+		return false;
+	});
+});
+</script>

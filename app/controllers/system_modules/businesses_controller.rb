@@ -1,7 +1,7 @@
 class SystemModules::BusinessesController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
-  #before_filter :verify_contract, :except => [:contract]
+  before_filter :verify_contract, :except => [:business_contract]
   before_filter :unread_messages
   layout "company"
 
@@ -12,12 +12,6 @@ class SystemModules::BusinessesController < ApplicationController
     @businesses = @company.businesses
     respond_to do |format|
       format.html
-    end
-  end
-  
-  def contract
-    unless request.post?
-      
     end
   end
   
@@ -102,10 +96,19 @@ class SystemModules::BusinessesController < ApplicationController
     render :text=>"true"
   end
   
+  def business_contract
+    if request.post?
+      @user = User.find(current_user)
+      if @user.update_attributes(params[:user])
+        redirect_to system_modules_businesses_path
+      end
+    end
+  end
+
   private
 
   def verify_contract
-    render 'contract' unless current_company.accepted_business_contract?
+      redirect_to :action => :business_contract unless current_company.accepted_business_contract?
   end
   
 end

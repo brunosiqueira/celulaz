@@ -1,0 +1,7 @@
+<h1>Enviar convite</h1>
+<p>Convide um parceiro para participar da rede de neg&oacute;cios C&eacute;lula Z.</p>
+<% form_tag system_modules_recommendations_path, :id => "recommendations" do  %>
+	<%= text_field_tag "addresses", "", :class => "text" %>
+	<span class="fieldWithError"></span>
+	<%= submit_tag "Enviar", :class => "btn-input" %>
+<% end %>

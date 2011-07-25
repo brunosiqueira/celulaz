@@ -181,7 +181,7 @@ class Company < ActiveRecord::Base
     ON (companies.id = layouts.company_id)
     WHERE (origins.company_origin_id=#{self.id.to_s}))"
     query << " order by rand()"
-    Company.paginate_by_sql(query, :page => 1, :per_page => 4)
+    Company.paginate_by_sql(query, :page => 1, :per_page => 6)
   end
   
   # metodo para listar os amigos ao enviar mensagens

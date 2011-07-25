@@ -39,7 +39,7 @@
       </div>
       <h1 class="space"><%= I18n.t "company.friends" %></h1>
       <div id="cv-relac-master-box">
-        <% @company.friends.each do |company| %>
+        <% @company.friends(1,6).each do |company| %>
           <%= link_to "#{img_tag(company)} #{h company.layout.name}", business_card_path(company), :class => 'relac-thumb' %>
         <% end %>
       </div>

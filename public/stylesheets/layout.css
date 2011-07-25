@@ -23,7 +23,7 @@ h4{background:none repeat scroll 0 0 #6b757f;color:white;font-size:10px;font-wei
 #header #logo{width:154px;height:65px;display:block;background:url(/images/new_version/logo-small.gif) no-repeat;text-indent:-9999px;overflow:hidden;position:absolute;left:20px;top:15px}
 #header .info-login{color:#006ab0;width:220px;text-align:right;position:absolute;top:15px;right:0; margin-right: 80px;}
 #header .info-login a{font-weight:bold;color:#f90;font-size:11px}
-#header .top-nav{list-style:none;position:absolute;left:660px;top:22px;}
+#header .top-nav{list-style:none;position:absolute;left:816px;top:60px;}
 #header .top-nav li{display:inline}
 #header .top-nav li a{color:#039;text-decoration:none;padding:3px 50px 3px 28px;display:inline-block;background-position:0 2px;background-repeat:no-repeat}
 #header .top-nav li a:hover{text-decoration:underline}
@@ -93,7 +93,13 @@ h4{background:none repeat scroll 0 0 #6b757f;color:white;font-size:10px;font-wei
 .content-left{width:780px;float:left;position:relative;min-height: 500px;}
 .gray-box{background-color:#fdfdfd;border:1px solid #efefef;float:left;margin-bottom:30px;padding:20px}
 #menu{width:180px;float:left}
-#menu ul{margin:0;padding:0;list-style:none}
+#menu ul{
+	margin:0;
+	margin-bottom:20px;
+	list-style:none;
+	padding:0;
+}
+
 #menu ul li{display:block;width:150px;height:23px;display:block;padding:10px 15px}
 #menu ul li a{font-weight:bold;text-decoration:none;color:#036;display:block;padding:5px 0 5px 35px;background:url(/images/sprites/menu.png) no-repeat;margin-left:0}
 #menu ul li a:hover{text-decoration:underline}
@@ -120,9 +126,9 @@ div.panel-head,div.submenu{background:none repeat scroll 0 0 #daefff;height:38px
 .panel-head ul li a,.submenu ul li a{display:block;float:left;padding:10px 18px 8px;width:auto}
 .panel-head a,.submenu a{color:#036;font-weight:bold;text-decoration:none}
 #footer{height:70px;margin-top:50px;padding-right:30px;padding-top:25px;background:url(/images/company/bg-footer.gif) top center no-repeat;text-align:left}
-#footer a{font-weight:bold;text-decoration:none;padding:0 20px;color:#333;margin-top:3px}
+#footer a{font-weight:bold;text-decoration:none;padding:0 7px;color:#333;margin-top:3px}
 #footer a:hover{text-decoration:underline}
-#footer .copyright{font-size:10px;display:block;line-height:25px;margin-top:20px}
+#footer .copyright{font-size:10px;display:block;line-height:25px;margin-top:20px;text-align:center;}
 #footer .input-search{background:white;border:1px solid #827d7d;width:180px}
 #footer .submit-search{width:29px;height:20px;background:url(/images/company/btn-search.gif) no-repeat 0 1px;border:none;text-indent:-9999px;overflow:hidden;margin-left:5px;cursor:pointer}
 #footer form{float:right;width:250px}
@@ -131,8 +137,8 @@ div.panel-head,div.submenu{background:none repeat scroll 0 0 #daefff;height:38px
 .btn.add{width:122px;padding-left:38px;background-image:url(/images/company/icon-add.gif)}
 .btn.add.active{background:white;color:#333;background:url(/images/company/icon-add-active.gif) no-repeat 8px 6px}
 .btn.remove{width:122px;padding-left:38px;background-image:url(/images/company/icon-remove.gif)}
-.btn-input,#message_to_friend_submit,.content .col-left .relac-actions a,.btn-small,div.msg-profile-public button{text-align: center; line-height:3;background-color: #394754; width: 78px; border:0 none;color:#fff;cursor:pointer;display:block;float:left;font-size:10px;height:30px;margin:10px 0 0;overflow:hidden;padding:0 10px;text-decoration:none;text-transform:uppercase}
-.btn-input,#message_to_friend_submit,div.msg-profile-public button, .btn-concluir, #banner_submit {background:url(/images/new_version/btn-input-small-mask.gif) no-repeat center center #394754!important;}
+.btn-input,#message_to_friend_submit,.content .col-left .relac-actions a,.btn-small,div.msg-profile-public button{text-align: center; line-height:3;background-color: #394754; width: 100px; border:0 none;color:#fff;cursor:pointer;display:block;float:left;font-size:10px;height:30px;margin:10px 0 0;overflow:hidden;padding:0 10px;text-decoration:none;text-transform:uppercase;text-align:right;}
+.btn-input,#message_to_friend_submit,div.msg-profile-public button, .btn-concluir, #banner_submit {background:url(/images/new_version/btn-input-small-mask.gif) no-repeat center center #394754!important;text-align: center;width: 78px;}
 .warning-msg{padding:15px;margin:0 0 30px;border:solid 1px #dd3c10;background-color:#ffebe8}
 .warning-msg p,.orientation-msg p{margin-top:5px!important;margin-left:15px}
 .warning-msg h1 {font-weight: normal!important;}
@@ -142,13 +148,42 @@ div.panel-head,div.submenu{background:none repeat scroll 0 0 #daefff;height:38px
 .orientation-msg h1,.orientation-msg p,.warning-msg h1,.warning-msg p{margin-bottom:0!important}
 .message_error_email_to{color:red;font-size:10px!important;line-height:1.8;font-variant:small-caps}
 .icon-space-msg{padding-left:120px!important}
-.relac-thumb{float:left;height:62px;margin:0 5px 0 0;width:62px;padding-bottom:62px;font-size:11px;word-wrap:break-word}
+
+.relac-thumb{
+	font-size:10px;
+	float:left;
+	height:30px;
+	margin:0 10px 10px 10px;
+	width:62px;
+	padding-bottom:60px;
+}
+
 .relac-thumb img{background-color:#fff;border:1px solid #b4b4b4;float:left;height:62px;width:62px;overflow:hidden}
 .relation-request a.relac-thumb {float:left;margin:0 25px 0 0;font-size:11px;word-wrap:break-word; padding: 0px !important}
-.relation-request h1 {  background-image: none;color: #003399;font-size: 21px;font-weight: normal;line-height: 1;margin: 3px 0;padding: 0 !important;}
+.relation-request h1 {  background-image: none;color: #003399;font-size: 16px;font-weight: normal;line-height: 1;margin: 3px 0;padding: 0 !important;}
 a.accept_relationship {margin-right: 5px }
-#cv-relac-master-box{width:100%;margin-bottom:30px;float:left}
-#cv-relac-master-box #cv-thumb{background-color:#fff;border:1px solid #b4b4b4;height:62px;width:62px;margin:0 5px 0 0;float:left}
+
+
+#cv-relac-master-box{
+	background-color:#FDFDFD;
+	border:1px solid #efefef;
+	float:left;
+	margin-bottom:30px;
+	padding:20px;
+}
+
+#cv-relac-master-box h1 {
+	margin:0 10px 10px 10px;
+}
+
+#cv-relac-master-box #cv-thumb{
+	background-color:#fff;
+	border:1px solid #b4b4b4;
+	height:62px;
+	width:62px;
+	margin:0 5px 0 0;
+	float:left;
+}
 
 .feeds {
 	margin-bottom:10px;

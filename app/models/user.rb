@@ -56,8 +56,8 @@ class User < ActiveRecord::Base
   
   # messaging system
   has_many :sent_messages, :class_name => 'Message', :conditions=>["deleted_sent_box = ? or deleted_sent_box is null", false], :foreign_key => 'sender_id'
-  has_many :received_messages, :class_name => 'MessageCopy', :conditions=>["deleted = ? or deleted is null",false],:foreign_key => 'recipient_id',:dependent=>:destroy
-  has_many :folders,:dependent=>:destroy
+  has_many :received_messages, :class_name => 'MessageCopy', :conditions=>["deleted = ? or deleted is null",false],:foreign_key => 'recipient_id'
+  has_many :folders, :dependent=>:destroy
   
   before_create :build_inbox
   
@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
 
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :password, :password_confirmation, :avatar, :domain
+  attr_accessible :login, :email, :password, :password_confirmation, :avatar, :domain, :accepted_business_contract
 
   class ActivationCodeNotFound < StandardError; end
   class AlreadyActivated < StandardError

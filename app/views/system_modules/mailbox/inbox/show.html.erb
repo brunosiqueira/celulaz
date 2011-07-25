@@ -12,14 +12,16 @@
         <div class="sender-label">Remetente</div>
         <div class="message-label">Mensagem</div>
       </div>
+	  
       <% @messages.each do |m| %>
-        <div class="item <%= 'new' if m.unread? %>">
+		<% unless m.message.nil? %>
+		<div class="item <%= 'new' if m.unread? %>">
           <div class="delete">
             <%= check_box_tag("message[]", m.id, false) %>
           </div>
           <% link_to system_modules_mailbox_message_path(m, :message_origin => "inbox" ) do %>
             <div class="sender-info ">
-              <%=  m.message.sender_name %>
+              <%=  m.message.sender_name %> 
 
               <div class="date <%= (m.answered?) ? 'msg-return' : '' %>">
 
@@ -33,6 +35,7 @@
             </div>
           <% end %>
         </div>
+		<% end %>
       <% end %>
     </div>
     <div id="search-control-bottom">

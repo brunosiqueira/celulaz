@@ -8,7 +8,7 @@ class Company::RelationshipsController < ApplicationController
     @q = params[:q]
     @friends = @company.friends(
       page=( (params[:page]) ? params[:page] : 1),
-      16, "(layouts.name LIKE '%#{@q}%')")
+      18, "(layouts.name LIKE '%#{@q}%')")
       
     @friend_requests = @company.friend_requests
     @suggestions = @company.friends_suggestions

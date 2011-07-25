@@ -183,11 +183,13 @@ pt-BR:
       template_text: 'Texto Padrão'
     attributes:
       business:
-        total: 'Total'
-        title: 'Título'
-        business_image: 'Imagem'
+        title: 'Título da campanha'
+        description: 'Descrição'
+        business_image: 'Carregar imagem'
+        total: 'Quantidade disponível'
+        per_company: 'Quantidade disponível por pessoa'
         value: 'Preço'
-        per_company: 'Máximo de Compras por Pessoa'
+        expired_at: 'Prazo da campanha'
       layout:
         name: 'Nome'
         domain: 'Domínio'

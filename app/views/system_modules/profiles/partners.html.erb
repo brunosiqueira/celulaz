@@ -1,0 +1,20 @@
+<% javascript "third/jquery.colorbox-min", "third/jquery-ui-1.8.4.custom.min", "third/jquery.scrollTo-1.4.2-min", "system_modules/profiles" %>
+<% stylesheet  "third/colorbox", "third/smoothness/jquery-ui-1.8.10.custom", "system_modules/profiles" %>
+
+
+<div id="tabs">
+	<%= render "menu" %>
+	
+	<div class="partners">
+	  <h1><%= I18n.t "company.friends" %></h1>
+	  <p><%= "#{@company.name}" unless @company.name.nil? %> tem <%= @company.friends_count %> parceiro(s)</p>
+	  <% @friends.each do |f| %>
+	    <%= link_to "#{img_tag(f)} #{truncate f.layout.name, :length => 17}", system_modules_profile_path(f), :class => "relac-thumb" %>
+	  <% end %>
+	  <div id="search-control-bottom">
+	    <%= will_paginate @friends,:previous_label=>" ",:next_label=>" ",:id=>'top', :params=>{:q=>@q} %>
+	    
+	  </div>
+	</div>
+	
+</div>

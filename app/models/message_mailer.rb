@@ -8,6 +8,7 @@ class MessageMailer < ActionMailer::Base
     recipients "#{message.recipient.email}"
     from       EMAIL
     sent_on    Time.now
+    body :message => message
     content_type "text/html"
   end
 

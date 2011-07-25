@@ -4,8 +4,6 @@
 # Table name: messages
 #
 #  id               :integer(4)      not null, primary key
-#  sender_id        :integer(4)
-#  receiver_id      :integer(4)
 #  subject          :string(256)
 #  body             :text
 #  created_at       :datetime
@@ -16,12 +14,12 @@
 #  receiver_email   :string(255)
 #  first_answer     :boolean(1)
 #  deleted_sent_box :boolean(1)
-#
+#  sender_id        :interger(4), foreign key
 
 class Message < ActiveRecord::Base
   #assocations
   belongs_to :sender, :class_name => "User"
-  has_many :message_copies, :dependent=>:destroy
+  has_many :message_copies
   has_many :recipients, :through => :message_copies
   
   validates_presence_of :body, :subject

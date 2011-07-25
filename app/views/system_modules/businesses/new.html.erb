@@ -1,5 +1,8 @@
-<% javascript "third/jquery.decimalMask.1.1.1.min","third/jquery.maskedinput-1.2.2.min","company/business"%>
-<% stylesheet "company/business","scaffold" %>
+<% stylesheet "system_modules/business" %> 
+<% javascript "system_modules/business" %>
+
+<%= render "menu" %>
+
 <h1>Publique uma a&ccedil;&atilde;o de venda</h1>
 
 <% form_for([:system_modules,@business],:html => {:multipart => true} ) do |f| %>
@@ -8,6 +11,10 @@
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
   </p>
   <p>
     <%= f.label :business_image %><br />

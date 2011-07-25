@@ -4,7 +4,7 @@ $(document).ready(function(){
     $(".btn-msg").corner("5px");
     $(".ok").corner("5px");
     $(".cancel").corner("5px");
-	$("#send-message").corner("5px");
+	$("#company-message").corner("5px");
     
 	$("a.btn-relac").colorbox();
     
@@ -65,20 +65,4 @@ $(document).ready(function(){
 	function clearErrorMessages(){
         $(".fieldWithError").remove();
     }
-
-
-	$("#tabs").tabs({
-				ajaxOptions: {
-								error: function( xhr, status, index, anchor ) {
-									$( anchor.hash ).html(
-										"Estamos com indisponibilidade no momento. Volte em instantes. " );
-								}
-							}
-			});
-
-	$('#partners').click(function() { // bind click event to link
-	    $tabs.tabs('select', 3); // switch to third tab
-	    return false;
-	});
-
 });

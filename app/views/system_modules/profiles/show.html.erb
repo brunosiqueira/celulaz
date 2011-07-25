@@ -1,14 +1,9 @@
 <% javascript "third/jquery.colorbox-min", "third/jquery-ui-1.8.4.custom.min", "third/jquery.scrollTo-1.4.2-min", "system_modules/profiles" %>
 <% stylesheet  "third/colorbox", "third/smoothness/jquery-ui-1.8.10.custom", "system_modules/profiles" %>
 
-<%= hidden_field_tag :user_id,@company.user.id,:class=>"hidden_id" %>
+
 <div id="tabs">
-	<ul>
-		<li><%= link_to "Participante", "#profile" %></li>
-		<li><%= link_to "&Uacute;timas Atividades", { :controller => "system_modules/profiles", :action => "activities", :id => @company } %></li>
-		<li><%= link_to "Depoimentos", { :controller => "system_modules/profiles", :action => "testimonials", :id => @company } %></li>
-		<li><%= link_to "Parceiros", { :controller => "system_modules/profiles", :action => "partners", :id => @company } %></li>
-	</ul>
+	<%= render "menu" %>
 	<div id="profile">
 		<div class="col-left">
 			<div class="profile-thumb">
@@ -16,10 +11,10 @@
 			</div>
 			<div class="relac-actions">
 				<% unless current_company.company == @company %>
-				<%= link_to "Mensagem", "#", :id => "company-message" %>
+				<%= link_to "Enviar mensagem", "#", :id => "company-message" %>
 				<% end %>
 				<% unless @company.user.preference.nil?%>
-		    	<% if @company.user.preference.site_published || @company.site_enable? %>
+		    	<% if @company.user.preference.site_published? %>
 			      <%= link_to 'Meu site',site_path(@company.user), :popup=>true, :class=>"btn-msg" %>
 			    <% end %>
 				<% end %>	
@@ -73,8 +68,23 @@
 		        <%= link_to "#{img_tag(company)} #{h company.layout.name} ", system_modules_profile_path(company), :class=>"relac-thumb"%>
 		      <% end %>
 			  </p>
-			  <!--<p><%#= link_to "Veja todos os parceiros &raquo;", "#", :id => "partners" %></p>-->
+			  <!--
+			  <p><%#= link_to "Veja todos os parceiros &raquo;", { :controller => "system_modules/profiles", :action => "partners", :id => @company } %></p>
+				-->
 		    </div>
+			<% end %>
+			<% unless @testimonial.nil? %>
+			<div class="box">
+				<h3>&Uacute;ltimo depoimento</h3>
+				<div class="testimonial">
+					<div class="content">
+						<div class="avatar">
+							<%= link_to "#{img_tag(@testimonial.company.company)} #{h truncate @testimonial.company.company.layout.name, :length => 17} ", system_modules_profile_path(@testimonial.company.company) %>
+						</div>
+						<p><%= @testimonial.content %></p>
+					</div>
+				</div>
+			</div>
 			<% end %>
 			<div class="box">
 				<div id="company-message-window" style="display:none;">

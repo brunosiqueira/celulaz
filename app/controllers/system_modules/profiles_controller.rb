@@ -3,14 +3,15 @@ class SystemModules::ProfilesController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
   before_filter :unread_messages, :only => [:show]
-  layout "company", :except => [ :activities, :partners ]
+  layout "company"
 
   def index
   end
 
   def show
     @company = Company.find params[:id]
-    @friends = @company.friends
+    @friends = @company.random_friends
+    @testimonial = Testimonial.find_by_user_id(current_user.id, :limit => 1)
     respond_to do |format|
       format.html
     end
@@ -21,7 +22,7 @@ class SystemModules::ProfilesController < ApplicationController
     page = params[:page] || 1
     @feed_items = @company.public_feed_items.paginate :per_page => 10, :page => page
     respond_to do |format|
-      format.js
+      format.html
     end
   end
   
@@ -30,10 +31,10 @@ class SystemModules::ProfilesController < ApplicationController
     #@q = params[:q]
     @friends = @company.friends(
       page=( (params[:page]) ? params[:page] : 1),
-      20, "(layouts.name LIKE '%#{@q}%')")
+      24, "(layouts.name LIKE '%#{@q}%')")
     
     respond_to do |format|
-      format.js
+      format.html
     end
   end
   
@@ -49,7 +50,7 @@ class SystemModules::ProfilesController < ApplicationController
     end
 
     respond_to do |format|
-      format.js
+      format.html
     end
   end
 end

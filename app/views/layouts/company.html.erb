@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Celula Z</title>
+    <title>Célula Z - A construção inteligente do seu negócio na internet</title>
     <!--[if lt IE 8]>
     <%= javascript_include_tag  "third/json2" %>
     <![endif]-->
@@ -90,7 +90,7 @@
 				<%=link_to "Cartão de Visita",company_business_card_path, :class=>"cartao-visitas"%>
 			</li>
 			<li <%= active_tab(:mail) %>>
-				<%= link_to "Mensagens #{@unread_messages_size}", system_modules_mailbox_inbox_path(current_company.inbox), :class => 'mensagens' %>
+				<%= link_to "Mensagens #{@unread_messages_size}", system_modules_mailbox_inbox_path(current_company.inbox, :message_origin => "inbox"), :class => 'mensagens' %>
 			</li>
 			<li <%= active_tab(:relationships) %>>
 				<%= link_to "Relacionamento",company_relationships_path, :class=>"relacionamento"%>
@@ -109,9 +109,22 @@
 			</li>
           
         </ul>
-        <!--<div id="banner-mailmkt">
-          <%=link_to image_tag("new_version/btn-mailmkt.jpg",:alt=>"E-mail Marketing"), "http://www.celulazmail.com.br",:popup=>true,:style=>"display: block; width: 100px; margin-left: 30px; margin-top: 30px;"%>
-        </div>-->
+	  	<div class="analytcs">
+			<h4>Relatórios</h4>
+		    <% if logged_as_company_z? %>
+		      <h1>Site</h1>
+		      <p>
+		        <%= current_company.company.count_visitors(:site,:today) %> /dia <%= current_company.company.count_visitors(:site,:month) %> /mês
+		      </p>
+		    <% end %>
+		    <h1>Perfil</h1>
+		    <p>
+		      <%= current_company.company.count_visitors(:profile,:today) %> /dia <%= current_company.company.count_visitors(:profile,:month) %> /mês
+		    </p>
+		    <h1>Cartão de visita</h1>
+		    <p>  <%= current_company.company.count_visitors(:business_card,:today) %> /dia <%= current_company.company.count_visitors(:business_card,:month) %> /mês
+		    </p>
+		</div>
       </div><!-- #sidebar -->
 
       <div class="content">
@@ -121,10 +134,18 @@
       <br class="clearfloat" />
 
       <div id="footer">
-        <%=link_to "Inicial", system_root_path%>
-        <% if logged_as_company_z? %>
-          <%=link_to "Site",{:controller=>"company/construction"}%>
-        <% end %>
+			<%= link_to "Inicial", system_root_path, :class=>"inicial"%>
+			<%= link_to "Perfil", system_modules_profile_path(current_company.company), :class => "logged-profile" %>
+			<% if logged_as_company_z? %>
+			<%=link_to "Site",company_construction_path, :class=>"site"%>
+			<% end %>
+			<%= link_to "Cartão de Visita",company_business_card_path, :class=>"cartao-visitas"%>
+			<%= link_to "Mensagens #{@unread_messages_size}", system_modules_mailbox_inbox_path(current_company.inbox), :class => 'mensagens' %>
+			<%= link_to "Relacionamento",company_relationships_path, :class=>"relacionamento"%>
+			<%= link_to "Meus Negócios", system_modules_businesses_path, :class=>"negocio" %>
+			<a class="emails" href="http://www.celulazmail.com.br" target="_blank">Envio de e-mails</a>
+			<a class="arquivos" href="http://www.computadorz.com.br/" target="_blank">Computador</a>
+			<%= link_to "Configurações", edit_company_user_path(current_company.company.user), :class=>"dados-empresa"%>
         <span class="copyright">Todos os direitos reservados. <%=SITE_URL%> - Copyrigth@ <%= Time.now.year %></span>
       </div><!-- #footer -->
 

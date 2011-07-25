@@ -40,6 +40,10 @@
 	background:url("../../images/company/icon-menu.png") no-repeat scroll 6px -170px;
 }
 
+a#company-message {
+	background:#394754 url("../../images/company/icon-menu.png") no-repeat scroll 6px -128px;
+}
+
 .relac-request{
 	float:left; 
 	margin-top: 5px; 
@@ -172,7 +176,7 @@ div#ajax-loader {
 	width:600px;
 }
 
-.testimonials .testimonial {
+.testimonial {
 	float:left;
 	margin-bottom:10px;
 	overflow:hidden;
@@ -180,7 +184,7 @@ div#ajax-loader {
 }
 
 
-.testimonials .testimonial .avatar{
+.testimonial .avatar{
 	background-color:#FFFFFF;
 	border:#B4B4B4 1px solid;
 	float:left;
@@ -189,14 +193,14 @@ div#ajax-loader {
 	width:62px;
 }	
 
-.testimonials .testimonial .content p{
+.testimonial .content p{
 	float:right;
 	margin:0;
 	padding:0;
 	width:85%;
 }
 
-.testimonials .testimonial .content { 
+.testimonial .content { 
 	float:left;
 	width:100%;
 }
