@@ -25,7 +25,7 @@ module Company::MessagesHelper
 		  if message.sender.nil?
 		    content << '<span>Não foi possível localizar o remetente.</span>'
 		  else
-			  content << link_to(message.sender_name, system_modules_profile_path(message.sender.company))
+			  content << link_to(message.message.sender_name, system_modules_profile_path(message.message.sender.company))
 			end
 		end
 		content << '<br /><div class="date">'
