@@ -1,11 +1,8 @@
-<div style="height: 390px; overflow: auto"><% @companies.each do |company| %>
+<% @companies.each do |company| %>
   <% unless company.nil? %>
     <div class="cv-info-basic">
       <%= image_tag(company.profile_logo.url(:small), :size=>"63x63") %>
       <%= link_to h(company.layout.name),:controller=>"company/profile",:action=>"public",:id=>company %>
-      <p><%= h(truncate(company.layout.presentation_text,:length=>200)) %></p>
-      <br/>
     </div>
-</div>
-  <% end %>
+	<% end %>
 <% end %>

@@ -89,3 +89,24 @@
     background: url("/images/new_version/ico-seta-box-novo-conteudo.gif") no-repeat scroll 15px 3px transparent;
     padding: 15px 0 0;
 }
+
+.cv-info-basic {
+	float:left;
+	margin-bottom:20px;
+	width:100%;
+}
+
+.cv-info-basic img {
+	display:block;
+	float:left;
+	height:63px;
+	margin-right:20px;
+	width:63px;
+}
+
+.cv-info-basic a {
+	display:block;
+	float:left;
+	position:relative;
+	top:22px;
+}

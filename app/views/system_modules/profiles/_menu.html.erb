@@ -1,7 +1,7 @@
 <div class="panel-head">
   <ul class="panel-actions">
     <li <%= "class='active'" if params[:action] == 'show' %> >
-		<%= link_to "Participante", system_modules_profile_path(current_company.company) %>
+		<%= link_to "Participante", system_modules_profile_path(@company) %>
 	</li>
 	<li <%= "class='active'" if params[:action] == 'activities' %>><%= link_to "&Uacute;timas Atividades", { :controller => "system_modules/profiles", :action => "activities", :id => @company } %></li>
 	<li <%= "class='active'" if params[:action] == 'testimonials' %>><%= link_to "Depoimentos", { :controller => "system_modules/profiles", :action => "testimonials", :id => @company } %></li>
