@@ -1,11 +1,14 @@
-.page-contract .actions {
+/* Similar pages */
+
+.page .actions,
+.business .actions {
 	background:#eee;
 	overflow:hidden;
 	padding:10px;
 	width:100%;
 }
 
-.page-contract .contract {
+.page .contract {
 	height:450px;
 	margin-bottom:10px;
 	overflow:auto;
@@ -13,11 +16,120 @@
 	width:100%;
 }
 
-.page-contract .actions form {
+.page .actions form {
 	text-align:right;
 }
 
-.page-contract .actions form input{
+.page .actions form input{
 	display:inline;
 	float:none;
 }
+
+.business {
+	width:100%;
+}
+
+.business p {
+	float:left;
+	padding:20px 0;
+	width:100%;
+}
+
+.business label {
+	background:none;
+	display:block;
+	float:left;
+	margin-right:60px;
+	width:216px;
+}
+
+.business input.text{
+	float:left;
+	margin-right:10px;
+	width:50%;
+}
+
+.business input.number{
+	float:left;
+	margin-right:10px;
+	width:5%;
+}
+
+.business input.btn-input {
+	float:right;
+}
+
+.business textarea {
+	float:left;
+	height:10%;
+	margin-right:10px;
+	width:50%;
+}
+
+.business select {
+	float:left;
+	margin-right:10px;
+	width:auto;
+}
+
+/* Index */
+
+.index.campaigns {
+	min-height:350px;
+}
+
+.index.campaigns .campaign {
+	float:left;
+	width:100%;
+}
+
+.index.campaigns .campaign .thumb {
+	float:left;
+	margin-right:20px;
+	width:76px;
+}
+
+.index.campaigns .campaign .description {
+	float:left;
+	width:60%;
+}
+
+.index.campaigns .campaign .info{
+	float:right;
+	width:20%;
+}
+
+.pagination {
+	float:left;
+	width:100%;
+}
+
+/* Show */
+
+.show.campaign {
+	float:left;
+	width:100%;
+}
+
+.show.campaign .thumb {
+	float:left;
+	margin-right:20px;
+	width:342px;
+}
+
+.show.campaign .description {
+	float:left;
+	width:52%;
+}
+
+/* New */
+
+a.tooltip {
+	background:url("/images/icons/icon_tooltip.png") no-repeat;
+	display:block;
+	float:left;
+	height:16px;
+	width:16px;
+	text-indent:-9999px;
+}
+

@@ -1,47 +1,90 @@
-<% stylesheet "system_modules/business" %> 
-<% javascript "system_modules/business" %>
+<% stylesheet "system_modules/business", "third/tip-yellow" %> 
+<% javascript "third/jquery.qtip-1.0.0-rc3.min", "system_modules/business" %>
 
-<%= render "menu" %>
+<%= render :partial => "menu" %>
+<div class="business">
+	<p>Antes de publicar sua campanha, verifique com cuidado todas as informações. Uma vez publicada, a campanha não poderá ser editada (apenas finalizada).
+		Sua campanha será publicada na timeline de negócios da Célula Z, disponível para que todos os participantes da rede a visualizem.</p>
+	<% form_for([:system_modules,@business],:html => {:multipart => true} ) do |f| %>
+	  
+		<% if @business.errors.any? %>
+	    	<div class="error_messages">
+		      <h2>Erro ao criar uma nova campanha</h2>
+		      <ul>
+		        <% for message in @business.errors.full_messages %>
+		          <li><%= message %></li>
+		        <% end %>
+		      </ul>
+		    </div>
+		<% end %>
 
-<h1>Publique uma a&ccedil;&atilde;o de venda</h1>
+	  <p>	
+		<%= f.label :title %>
+	    <%= f.text_field :title, :class => "text" %>
+		<%= link_to "Help", "#", :class => "tooltip", :title => "Escreva em até 100 caracteres a chamada da sua campanha" %>
+	  </p>
+	  <p>
+	    <%= f.label :description %>
+	    <%= f.text_area :description %>
+		<%= link_to "Help", "#", :class => "tooltip", :title => "Determine as regras e divulgue as vantagens do que será oferecido" %>
+	  </p>
+	  <p>
+	    <%= f.label :business_image %>
+	    <%= f.file_field :business_image, :class => "text" %>
+	  </p>
+	  <p>
+	    <%= f.label :total %>
+	    <%= f.text_field :total, :class => "number" %>
+		<%= link_to "Help", "#", :class => "tooltip", :title => "Determine a quantidade de cupons disponíveis na campanha" %>
+	  </p>
+	  <p>
+	    <%= f.label :per_company %>
+	    <%= f.text_field :per_company, :class => "number" %>
+		<%= link_to "Help", "#", :class => "tooltip", :title => "Determine a quantidade máxima de cupons que cada usuário poderá adquirir" %>
+	  </p>
+	  <p>
+	    <%= f.label :value %>
+	    <%= f.text_field :value, :size => 4, :class => "number" %>
+		<%= link_to "Help", "#", :class => "tooltip", :title => "Indique o valor do produto/serviço" %>
+	  </p>
+	  <p>
+		<%= f.label :expired_at %>
+		<%= f.date_select :expired_at, :include_blank => true, :start_year => 2011 %>
+		<%= link_to "Help", "#", :class => "tooltip", :title => "Indique o dia em que sua campanha será finalizada" %>
+	  </p>
+	  <p>
+		<%= f.label :voucher_expired_at %>
+		<%= f.date_select :voucher_expired_at, :include_blank => true, :start_year => 2011 %>
+		<%= link_to "Help", "#", :class => "tooltip", :title => "Indique a data limite de utilização do cupom de sua campanha" %>
+	  </p>
+	  <p>
+		<%= f.label :link %>
+	    <%= f.text_field :link, :class => "text" %>
+		<%= link_to "Help", "#", :class => "tooltip", :title => "Indique um link com mais informações sobre a campanha, se precisar " %>
+	  </p>
+	  <p>
+	    <%= f.label :status %>	
+	    <%= f.collection_select :status, %w[Rascunho Publicado], :to_s, :humanize, :include_blank => "Indique o status da campanha" %>
+		<%= link_to "Help", "#", :class => "tooltip", :title => "Indique o status da campanha. Uma vez publicada, ela n&atilde;o poder&aacute; ser editada. " %>
+	  </p>
+	  <div class="actions">
+	    <%= f.submit 'Salvar', :class => "btn-input" %>
+	  </div>
+	<% end %>
+</div>
 
-<% form_for([:system_modules,@business],:html => {:multipart => true} ) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :business_image %><br />
-    <%= f.file_field :business_image %>
-  </p>
-  <p>
-    <%= f.label :total %><br />
-    <%= f.text_field :total %>
-  </p>
-  <p>
-    <%= f.label :per_company %><br />
-    <%= f.text_field :per_company %>
-  </p>
-  <p>
-    <%= f.label :value %><br />
-    <%= f.text_field :value %>
-    <script type="text/javascript">
-      jQuery("input#business_value").decimalMask({
-        separator: ",",
-        decSize: 2,
-        intSize: 4
-      });
-    </script>
-  </p>
-  <p>
-    <%= f.submit 'Criar' %>
-  </p>
-<% end %>
-
-<%= link_to 'Voltar', system_modules_businesses_path %>
+<script type="text/javascript"> 
+$(document).ready(function() {
+	$('a.tooltip[title]').qtip({ 
+		style: { name: 'cream', tip: true },
+		position: {
+		      corner: {
+		         target: 'topLeft',
+		         tooltip: 'bottomRight'
+		      }
+		   }
+		}
+	).click('return false');
+	
+});
+</script>

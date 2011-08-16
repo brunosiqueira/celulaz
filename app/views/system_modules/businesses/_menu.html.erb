@@ -1,8 +1,8 @@
 <div class="panel-head">
   <ul class="panel-actions">
     <li <%= "class='active'" if params[:action] == 'index' %> ><%= link_to "Todas as campanhas", system_modules_businesses_path %></li>
-	<li><%= link_to "Minhas campanhas", "" %></li>
-    <li <%= "class='active'" if params[:action] == 'new' %>><%= link_to "Nova campanha", new_system_modules_business_path %></li>
+	<li <%= "class='active'" if params[:action] == 'mine' %>><%= link_to "Minhas campanhas", :controller => "system_modules/businesses", :action => "mine" %></li>
+    <li <%= "class='active'" if params[:action] == 'new' || params[:action] == 'create' %>><%= link_to "Nova campanha", new_system_modules_business_path %></li>
 	<li><%= link_to "Meus cupons", "" %></li>	
 	<li <%= "class='active'" if params[:action] == 'how' %>><%= link_to "Como funciona", :controller => "system_modules/businesses", :action => "how" %></li>
 </ul>

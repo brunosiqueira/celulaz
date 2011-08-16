@@ -9,7 +9,14 @@ class SystemModules::BusinessesController < ApplicationController
   # GET /businesses.xml
   
   def index
-    @businesses = @company.businesses
+    @businesses = Business.all.paginate :per_page => 2, :page => params[:page] || 1
+    respond_to do |format|
+      format.html
+    end
+  end
+  
+  def mine
+    @businesses = current_company.company.businesses.paginate :per_page => 2, :page => params[:page] || 1
     respond_to do |format|
       format.html
     end
@@ -49,15 +56,12 @@ class SystemModules::BusinessesController < ApplicationController
   # POST /businesses
   # POST /businesses.xml
   def create
-    
     @business = @company.businesses.build(params[:business])
     respond_to do |format|
       if @business.save
         format.html { redirect_to(company_business_path(@business), :notice => 'O Negócio foi criado com sucesso.') }
-        format.xml  { render :xml => @business, :status => :created, :location => @business }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @business.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -104,7 +108,7 @@ class SystemModules::BusinessesController < ApplicationController
       end
     end
   end
-
+  
   private
 
   def verify_contract

@@ -10,3 +10,5 @@ backup/files/shipping/*.txt
 public/photos/3/*
 config/development.sphinx.conf
 config/database.yml
+public/business_images/
+public/sites/

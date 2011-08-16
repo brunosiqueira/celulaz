@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110725174626) do
+ActiveRecord::Schema.define(:version => 20110802015939) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "owner_id",                                      :null => false
@@ -99,6 +99,9 @@ ActiveRecord::Schema.define(:version => 20110725174626) do
     t.integer  "per_company"
     t.text     "description"
     t.datetime "expired_at"
+    t.date     "voucher_expired_at"
+    t.string   "link"
+    t.string   "status"
   end
 
   add_index "businesses", ["company_id"], :name => "fk_businesses_company_id"

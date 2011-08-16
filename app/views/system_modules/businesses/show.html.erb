@@ -1,29 +1,14 @@
-<% javascript "company/business"%>
-<% stylesheet "company/business"%> 
-<h1>Meus Negócios</h1>
-<div style="width: 740px" class="gray-box">
-  <%= image_tag @business.business_image.url(:big), :class=>'negocio' %>
-  <div style= "  float: left;">
+<% stylesheet "system_modules/business" %> 
+<% javascript "system_modules/business" %>
 
-    <b><%=h @business.title %></b><br/><br/>
-    total:<%=h @business.total %><br/><br/>
-    por:<%=h @business.value %><br/><br/>
+<%= render "menu" %>
 
-    <h2>Compradores</h2>
-    <table>
-      <tr>
-        <th>Nome</th>
-        <th>Data de Compra</th>
-      </tr>
-      <% @business.business_companies.each do |business_company| %>
-        <tr>
-          <td><%= link_to business_company.company.layout.name, :controller=>"company/profile",:action=>"public",:id=>business_company.company %></td>
-          <td><%= business_company.created_at.to_s_br %></td>
-        </tr>
-      <% end %>
-    </table>
-    <%= link_to 'Editar', edit_company_business_path(@business) %> |
-    <%= link_to 'Voltar', company_businesses_path %>
-
-  </div>
+<div class="show campaign">
+	<div class="thumb">
+		<%= image_tag @business.business_image.url(:big) %>
+	</div>
+	<div class="description">
+		<p><%= link_to @business.title, system_modules_business_path(@business) %></p>
+		<p><%= @business.description %></p>
+	</div>
 </div>

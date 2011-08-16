@@ -2,7 +2,7 @@
   <% unless company.nil? %>
     <div class="cv-info-basic">
       <%= image_tag(company.profile_logo.url(:small), :size=>"63x63") %>
-      <%= link_to h(company.layout.name),:controller=>"company/profile",:action=>"public",:id=>company %>
+      <%= link_to h(company.layout.name), system_modules_profile_path(company) %>
     </div>
 	<% end %>
 <% end %>

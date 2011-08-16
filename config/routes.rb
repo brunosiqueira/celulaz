@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
     end
     
     # business
-    mod.resources :businesses, :collection => { :business_contract => [:get, :post], :how => [:get] }
+    mod.resources :businesses, :collection => { :business_contract => [:get, :post], :how => [:get], :mine => [:get] }
     
     # profile
     mod.resources :profiles, :collection => { :partners => [:get], :activities => [:get], :testimonials => [:get] }

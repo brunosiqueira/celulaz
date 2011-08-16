@@ -185,11 +185,14 @@ pt-BR:
       business:
         title: 'Título da campanha'
         description: 'Descrição'
-        business_image: 'Carregar imagem'
+        business_image: 'Imagem de destaque'
         total: 'Quantidade disponível'
         per_company: 'Quantidade disponível por pessoa'
         value: 'Preço'
-        expired_at: 'Prazo da campanha'
+        expired_at: 'Expiração da campanha'
+        voucher_expired_at: 'Validade do cupom'
+        link: 'Link externo'
+        status: 'Status da campanha'
       layout:
         name: 'Nome'
         domain: 'Domínio'
