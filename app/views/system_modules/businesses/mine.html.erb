@@ -4,28 +4,33 @@
 <%= render "menu" %>
 
 <div class="index campaigns">
-<% @businesses.each do |business| %>
-	<div class="campaign">
-		<div class="thumb">
-			<%= link_to image_tag(business.business_image(:small)), system_modules_business_path(business) %>
+	<% @businesses.each do |business| %>
+		<div class="campaign">
+			<div class="thumb">
+				<%= link_to image_tag(business.business_image(:small)), system_modules_business_path(business) %>
+			</div>
+			<div class="description">
+				<p class="title"><%= link_to business.title, system_modules_business_path(business) %></p>
+				<p><%= truncate business.description, :length => 154 %></p>
+			</div>
+			<div class="info">
+				<p class="value">Status: <%= business.status %></p>
+				<p>
+					<% if business.status == 'Rascunho' %>
+						<%= link_to 'Editar',  edit_system_modules_business_path(business)  %> | 
+						<%= link_to 'Apagar', system_modules_business_path(business), :confirm => 'Deseja mesmo excluir a campanha? ', :method => :delete %>
+					<% elsif business.status == 'Publicado' %>
+						<%= link_to 'Finalizar', { :controller => "system_modules/businesses", :action => "end_campaign", :id => business }, :confirm => 'Deseja mesmo finalizar a campanha?', :method => 'end_campaign', :id => business %> |
+						<%= link_to 'Relatório',  :controller => "system_modules/businesses", :action => ""  %>  
+					<% else %>
+						<%= link_to 'Relatório',  :controller => "system_modules/businesses", :action => ""  %>  
+					<% end %>
+				</p>
+			</div>
 		</div>
-		<div class="description">
-			<p><%= link_to business.title, system_modules_business_path(business) %></p>
-			<p><%= truncate business.description, :length => 200 %></p>
-		</div>
-		<div class="info">
-			<p class="value">R$ <%= business.value %><p>
-			<p>Total de cupons: <%= business.total %></p>
-			<p>Dispon&iacute;veis:</p>
-		</div>
-	</div>
-  <ul class="tab-negocios" >
-    
-    
-    
-    <li class="edit"><%= link_to '&nbsp;',  edit_system_modules_business_path(business)  %></li>
-    <li class="delete"><%= link_to '&nbsp;', system_modules_business_path(business), :confirm => 'Você tem certeza que quer excluir este negócio? ', :method => :delete %></li>
-  </ul>
-<% end %>
+
+
+	<% end %>
 </div>
+
 <%= will_paginate @businesses, :previous_label=>" ", :next_label=>"" %>

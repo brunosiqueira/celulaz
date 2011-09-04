@@ -302,7 +302,7 @@ class Company < ActiveRecord::Base
     start = time == :today ? Time.now.utc.beginning_of_day : Time.now.utc - 1.month
     Visit.count :conditions=>["request_url=? and created_at>? and created_at<?",url,start,Time.now.utc]
   end
-
+  
   private
   
   def is_formal_company

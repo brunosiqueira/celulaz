@@ -3,20 +3,20 @@ class SystemModules::BusinessesController < ApplicationController
   before_filter :load_company
   before_filter :verify_contract, :except => [:business_contract]
   before_filter :unread_messages
-  layout "company"
+  layout "new_layout"
 
   # GET /businesses
   # GET /businesses.xml
   
   def index
-    @businesses = Business.all.paginate :per_page => 2, :page => params[:page] || 1
+    @businesses = Business.paginate :per_page => 10, :page => params[:page] || 1, :order => ["updated_at DESC"], :conditions => ['status = "Publicado"']
     respond_to do |format|
       format.html
     end
   end
   
   def mine
-    @businesses = current_company.company.businesses.paginate :per_page => 2, :page => params[:page] || 1
+    @businesses = current_company.company.businesses.paginate :per_page => 10, :page => params[:page] || 1, :order => ["updated_at DESC"]
     respond_to do |format|
       format.html
     end
@@ -29,11 +29,13 @@ class SystemModules::BusinessesController < ApplicationController
   # GET /businesses/1
   # GET /businesses/1.xml
   def show
-    @business = @company.businesses.find(params[:id])
-
+    @business = Business.find(params[:id])
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @business }
+      if (@business.status == 'Rascunho' || @business.status == 'Finalizado') && @business.company != current_company.company  
+        format.html { redirect_to ( {:controller => "system_modules/businesses", :action => "mine"}, :notice => 'Você não pode ver esta campanha.') }
+      else
+        format.html
+      end
     end
   end
 
@@ -50,7 +52,14 @@ class SystemModules::BusinessesController < ApplicationController
 
   # GET /businesses/1/edit
   def edit
-    @business = @company.businesses.find(params[:id])
+    @business = current_company.company.businesses.find(params[:id])
+    respond_to do |format|
+      if @business.status != 'Rascunho'
+        format.html { redirect_to ( {:controller => "system_modules/businesses", :action => "mine"}, :notice => 'Você não pode editar esta campanha.') }
+      else
+        format.html
+      end
+    end
   end
 
   # POST /businesses
@@ -59,7 +68,7 @@ class SystemModules::BusinessesController < ApplicationController
     @business = @company.businesses.build(params[:business])
     respond_to do |format|
       if @business.save
-        format.html { redirect_to(company_business_path(@business), :notice => 'O Negócio foi criado com sucesso.') }
+        format.html { redirect_to(system_modules_business_path(@business), :notice => 'O Negócio foi criado com sucesso.') }
       else
         format.html { render :action => "new" }
       end
@@ -73,11 +82,9 @@ class SystemModules::BusinessesController < ApplicationController
 
     respond_to do |format|
       if @business.update_attributes(params[:business])
-        format.html { redirect_to(company_business_path(@business), :notice => 'Business was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to(system_modules_business_path(@business), :notice => 'A campanha foi editada corretamente.') }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @business.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -85,11 +92,10 @@ class SystemModules::BusinessesController < ApplicationController
   # DELETE /businesses/1
   # DELETE /businesses/1.xml
   def destroy
-    @business = @company.businesses.find(params[:id])
+    @business = current_company.company.businesses.find(params[:id])
     @business.destroy
-
     respond_to do |format|
-      format.html { redirect_to(company_businesses_url) }
+      format.html { redirect_to ( {:controller => "system_modules/businesses", :action => "mine"}, :notice => 'A campanha foi removida corretamente.') }
       format.xml  { head :ok }
     end
   end
@@ -105,6 +111,31 @@ class SystemModules::BusinessesController < ApplicationController
       @user = User.find(current_user)
       if @user.update_attributes(params[:user])
         redirect_to system_modules_businesses_path
+      end
+    end
+  end
+  
+  def end_campaign
+    if request.post?
+      @business = current_company.company.businesses.find(params[:id])
+      @business.status = 'Finalizado'
+      if @business.save
+        respond_to do |format|
+          format.html { redirect_to({:controller => "system_modules/businesses", :action => "mine"}, :notice => 'A campanha foi finalizada corretamente.')}
+        end
+      end
+    end
+  end
+  
+  def purchase_campaign
+    if request.post?
+      @business = Business.find(params[:id])
+      respond_to do |format|
+        if @business.business_companies.create(:company_id => current_company.company.id)
+          format.html { redirect_to(system_modules_business_path(@business), :notice => 'O cupom foi adquirido. Parabéns!!') }
+        else
+          format.html { redirect_to(system_modules_business_path(@business), :notice => 'Você não pode mais adquirir este cupom.') }
+        end
       end
     end
   end

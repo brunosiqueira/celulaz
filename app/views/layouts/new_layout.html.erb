@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Célula Z - A construção inteligente do seu negócio na internet</title>
+	<!--[if lt IE 8]>
+	<%= javascript_include_tag  "third/json2" %>
+	<![endif]-->
+	<%= stylesheet_link_tag "layout" %>
+	<%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.to_json};" if protect_against_forgery? %>
+	<%= javascript_include_tag "third/jquery-1.5.2.min.js", "third/jquery.corner", "application" %>
+	<%= yield(:head) %>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="header">
+        	<%= link_to "Célula Z", system_root_path, :id => "logo" %>
+			<div id="busca-padrao">
+	      		<% form_tag url_for(:controller=>"company/search", :action=>"index"),:method=>:get do %>
+		            <fieldset>
+		              <%= text_field_tag 'search', @search.blank? ? I18n.t("company.search") : @search , :id => "busca-campo", :class=>'estadoInicial', :onfocus=>"clearSearch(this)", :onblur=>"writeSearch(this)" %> 
+					  <%= select_tag :segment_id, options_for_select( ["Todos"]+Segment.find(:all).collect { |p| [p.name, p.id.to_s] },@segment_id ) %> 
+					  <%= submit_tag 'Pesquisar', :class => "submit" %>
+		            </fieldset>
+	      		<% end %>
+			</div>
+        	<ul class="top-nav">
+	           <% if !current_user[:type].eql?(UserCompany.name)%>
+	            <li>
+	              <%= link_to "Voltar Administração",{:controller=>"/company_management", :action=>"loggout_as_company"},:class=>"orientation-msg", :style=>"font-style: normal;padding: 4px !important;" %>
+	            </li>
+	          <% end %>
+	        </ul>
+			<div class="profile-thumb">
+				<%= link_to image_tag(current_company.company.profile_logo.url(:small)) , :controller=>"company/users", :action=>"edit",:id=>current_company%> 
+				<div class="alt-thumb"></div>
+			</div>
+        	<div class="info-login">
+        		Bem-vindo,<br />
+          		<%=current_company.person.name%><br />
+          		<%= link_to "Sair", logout_path %>
+        	</div>
+		</div>
+		<div id="menu">
+			<ul>
+				<li <%= active_tab(:initial) %>>
+					<%= link_to "Inicial", system_root_path, :class=>"inicial"%>
+				</li>
+				<li <%= active_tab(:profile) %>>
+					<%= link_to "Perfil", system_modules_profile_path(current_company.company), :class => "logged-profile" %>
+				</li>
+				<% if logged_as_company_z? %>
+				<li <%= active_tab(:site) %>><%=link_to "Site",company_construction_path, :class=>"site"%></li>
+				<% end %>
+				<li <%= active_tab(:card) %>>
+					<%=link_to "Cartão de Visita",company_business_card_path, :class=>"cartao-visitas"%>
+				</li>
+				<li <%= active_tab(:mail) %>>
+					<%= link_to "Mensagens #{@unread_messages_size}", system_modules_mailbox_inbox_path(current_company.inbox, :message_origin => "inbox"), :class => 'mensagens' %>
+				</li>
+				<li <%= active_tab(:relationships) %>>
+					<%= link_to "Relacionamento",company_relationships_path, :class=>"relacionamento"%>
+				</li>
+				<li <%= active_tab(:business) %>>
+					<%= link_to "Meus Negócios", system_modules_businesses_path, :class=>"negocio" %>
+				</li>
+				<li>
+					<a class="emails" href="http://www.celulazmail.com.br" target="_blank">Envio de e-mails</a>
+				</li>
+				<li>
+					<a class="arquivos" href="http://www.computadorz.com.br/" target="_blank">Computador</a>
+				</li>
+				<li <%= active_tab(:company) %>>
+					<%= link_to "Configurações", edit_company_user_path(current_company.company.user), :class=>"dados-empresa"%>
+				</li>
+			</ul>
+			<div class="analytcs">
+				<h4>Relatórios</h4>
+				<% if logged_as_company_z? %>
+				<h1>Site</h1>
+				<p>
+				<%= current_company.company.count_visitors(:site,:today) %> /dia <%= current_company.company.count_visitors(:site,:month) %> /mês
+				</p>
+				<% end %>
+				<h1>Perfil</h1>
+				<p>
+				<%= current_company.company.count_visitors(:profile,:today) %> /dia <%= current_company.company.count_visitors(:profile,:month) %> /mês
+				</p>
+				<h1>Cartão de visita</h1>
+				<p>  <%= current_company.company.count_visitors(:business_card,:today) %> /dia <%= current_company.company.count_visitors(:business_card,:month) %> /mês
+				</p>
+			</div>
+      	</div>
+		<div class="content">
+			<% flash.each do |name, msg| %>
+			  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+			<% end %>
+        	<%= yield %>
+      	</div>
+      <!-- #content -->
+      <br class="clearfloat" />
+      <div id="footer">
+			<%= link_to "Inicial", system_root_path, :class=>"inicial"%>
+			<%= link_to "Perfil", system_modules_profile_path(current_company.company), :class => "logged-profile" %>
+			<% if logged_as_company_z? %>
+			<%=link_to "Site",company_construction_path, :class=>"site"%>
+			<% end %>
+			<%= link_to "Cartão de Visita",company_business_card_path, :class=>"cartao-visitas"%>
+			<%= link_to "Mensagens #{@unread_messages_size}", system_modules_mailbox_inbox_path(current_company.inbox), :class => 'mensagens' %>
+			<%= link_to "Relacionamento",company_relationships_path, :class=>"relacionamento"%>
+			<%= link_to "Meus Negócios", system_modules_businesses_path, :class=>"negocio" %>
+			<a class="emails" href="http://www.celulazmail.com.br" target="_blank">Envio de e-mails</a>
+			<a class="arquivos" href="http://www.computadorz.com.br/" target="_blank">Computador</a>
+			<%= link_to "Configurações", edit_company_user_path(current_company.company.user), :class=>"dados-empresa"%>
+        <span class="copyright">Todos os direitos reservados. <%=SITE_URL%> - Copyrigth@ <%= Time.now.year %></span>
+      </div><!-- #footer -->
+	</div>
+	<%= analytics_script %>
+	<script type="text/javascript">
+		$(document).ready(function (){
+        	$('.input-search').click(function (){
+	          if ('<%= I18n.t "company.search" %>'== $(this).val()) {
+	            $(this).val("");
+	          }
+	        });
+        
+	        $('.input-search').blur(function (){
+	          if (''== $(this).val()) {
+	            $(this).val("<%= I18n.t "company.search" %>");
+	          }
+	        });
+
+			function clearSearch(obj){
+			    if (obj.value == '<%=  I18n.t "company.search"%>'){
+			      obj.value = '';
+			    }
+			}
+		
+			function writeSearch(obj){
+			    if (obj.value == ''){
+			      obj.value = '<%=  I18n.t "company.search"%>';
+			    }
+			}
+		});
+    </script>
+</body>
+</html>

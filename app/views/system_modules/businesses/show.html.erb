@@ -8,7 +8,41 @@
 		<%= image_tag @business.business_image.url(:big) %>
 	</div>
 	<div class="description">
-		<p><%= link_to @business.title, system_modules_business_path(@business) %></p>
+		<h1><%= link_to @business.title, system_modules_business_path(@business) %></h1>
 		<p><%= @business.description %></p>
 	</div>
+	<div class="observations">
+		<h2>Observa&ccedil;&otilde;es importantes:</h2>
+		<ul>
+			<li>Validade da campanha: <strong><%= @business.expired_at.to_s_br %></strong></li>
+			<li>Cupons por usu&aacute;rio: <strong><%= @business.per_company %> unidade(s)</strong></li>
+			<li>Validade do cupom: <strong><%= @business.voucher_expired_at.to_s_br %></strong></li>
+		</ul>
+	</div>
+	
+	<div class="actions">
+		<div class="stats">
+			<ul>
+				<li>R$ <%= @business.value %><li>
+				<li>Cupons dispon&iacute;veis: <%= @business.coupons_available %></li>
+			</ul>
+		</div>	
+		<div class="buttons">
+			<% if @business.status == 'Rascunho' %>
+		    	<%= link_to 'Editar', edit_system_modules_business_path(@business), :class => "btn-input" %>
+				<span>ou</span>
+				<%= link_to 'Apagar', system_modules_business_path(@business), :confirm => 'Você tem certeza que quer excluir este negócio? ', :method => :delete, :class => "back" %>
+			<% elsif @business.status == 'Publicado' %>
+				<% if @business.company == current_company.company %>
+					<%= link_to 'Finalizar', { :controller => "system_modules/businesses", :action => "end_campaign", :id => @business }, :confirm => 'Deseja mesmo finalizar a campanha?', :method => 'end_campaign', :id => @business, :class => "btn-input" %>
+					<%= link_to 'Relatório', edit_system_modules_business_path(@business), :class => "btn-input" %>
+				<% else %>
+					<%= link_to 'Adquirir cupom', { :controller => "system_modules/businesses", :action => "purchase_campaign", :id => @business }, :confirm => 'Deseja mesmo adquirir um cupom desta campanha?', :method => 'purchase_campaign', :id => @business, :class => "btn-input" %> <span>ou</span> <%= link_to " Listar todas as campanhas", system_modules_businesses_path, :class => "back" %>
+				<% end %>
+			<% else %>
+				<%= link_to 'Relatório', edit_system_modules_business_path(@business), :class => "btn-input" %>
+			<% end %>
+		</div>
+	 </div>
+	
 </div>

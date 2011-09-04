@@ -14,18 +14,11 @@
 			<p><%= truncate business.description, :length => 200 %></p>
 		</div>
 		<div class="info">
-			<p class="value">R$ <%= business.value %><p>
-			<p>Total de cupons: <%= business.total %></p>
-			<p>Dispon&iacute;veis:</p>
+			<p>R$ <%= business.value %><p>
+			<p>Cupons dispon&iacute;veis: <%= business.coupons_available %></p>
+			<p class="call"><%= link_to 'Visualizar campanha &raquo;', system_modules_business_path(business) %></p>
 		</div>
 	</div>
-  <ul class="tab-negocios" >
-    
-    
-    
-    <li class="edit"><%= link_to '&nbsp;',  edit_system_modules_business_path(business)  %></li>
-    <li class="delete"><%= link_to '&nbsp;', system_modules_business_path(business), :confirm => 'Você tem certeza que quer excluir este negócio? ', :method => :delete %></li>
-  </ul>
 <% end %>
 </div>
 <%= will_paginate @businesses, :previous_label=>" ", :next_label=>""%>

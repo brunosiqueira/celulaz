@@ -1,12 +1,29 @@
 /* Similar pages */
 
-.page .actions,
-.business .actions {
-	background:#eee;
-	overflow:hidden;
-	padding:10px;
-	width:100%;
+form .actions {
+	width:62.5%;
+	float:right;
 }
+
+form .actions div.buttons input {
+	float:left;
+	line-height:0;
+	margin:0;
+	margin-right:4px;
+}
+
+form .actions div.buttons a,
+form .actions div.buttons span {
+	display:block;
+	float:left;
+	position:relative;
+	top:8px;
+}
+
+form .actions div.buttons span {
+	margin-right:4px;
+}
+
 
 .page .contract {
 	height:450px;
@@ -54,11 +71,6 @@
 	margin-right:10px;
 	width:5%;
 }
-
-.business input.btn-input {
-	float:right;
-}
-
 .business textarea {
 	float:left;
 	height:10%;
@@ -72,6 +84,12 @@
 	width:auto;
 }
 
+.business form span.separator {
+	float:left;
+	margin-right:10px;
+	width:10px;
+}
+
 /* Index */
 
 .index.campaigns {
@@ -80,6 +98,8 @@
 
 .index.campaigns .campaign {
 	float:left;
+	margin-bottom:20px;
+	overflow:hidden;
 	width:100%;
 }
 
@@ -94,9 +114,30 @@
 	width:60%;
 }
 
+.index.campaigns .campaign .description .title {
+	margin-bottom:10px;
+}
+
+.index.campaigns .campaign .description p,
+.index.campaigns .campaign .info p {
+	margin:0;
+}
+
 .index.campaigns .campaign .info{
 	float:right;
 	width:20%;
+}
+.index.campaigns .campaign .info p{
+	margin-bottom:8px;
+}
+
+.index.campaigns .campaign .info p.call a{
+	color:#036;
+	display:block;
+	background:#DAEFFF;
+	font-weight:bold;
+	padding:4px 4px;
+	text-decoration:none !important;
 }
 
 .pagination {
@@ -111,15 +152,68 @@
 	width:100%;
 }
 
+.show.campaign .description {
+	float:left;
+	width:52%;
+}
+
+.show.campaign .description p{ 
+	margin:0;
+	margin-bottom:10px;
+}
+
+.show.campaign .thumb,
+.show.campaign .description {
+	margin-bottom:20px;
+	overflow:hidden;
+}
+
 .show.campaign .thumb {
 	float:left;
 	margin-right:20px;
 	width:342px;
 }
 
-.show.campaign .description {
+.show.campaign .observations {
+	margin-bottom:20px;
+	overflow:hidden;
+	width:100%;
+}
+
+.show.campaign .observations ul li {
+	list-style-type:inherit !important;
+}
+
+.show.campaign .actions {
+	background:#eee;
+	overflow:hidden;
+	padding:10px;
+	width:97.5%;
+}
+
+.show.campaign .actions .stats{
 	float:left;
-	width:52%;
+	overflow:hidden;
+	width:30%;
+}
+
+.show.campaign .actions .stats ul{
+	margin:0;
+	padding:0;
+}
+
+.show.campaign .actions .buttons{
+	float:right;
+	overflow:hidden;
+}
+
+.show.campaign .actions .buttons a{
+	margin:0;
+}
+.show.campaign .actions .buttons a.back,
+.show.campaign .actions .buttons span{
+	position:relative;
+	top:8px;
 }
 
 /* New */

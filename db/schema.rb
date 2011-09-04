@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20110802015939) do
     t.integer  "per_company"
     t.text     "description"
     t.datetime "expired_at"
-    t.date     "voucher_expired_at"
+    t.datetime "voucher_expired_at"
     t.string   "link"
     t.string   "status"
   end
