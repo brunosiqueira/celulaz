@@ -1,0 +1,36 @@
+<% stylesheet "system_modules/business" %> 
+<% javascript "system_modules/business" %>
+
+<%= render "menu" %>
+
+<div class="index campaigns">
+	<% if @campaigns.size > 0 %>
+		<% @campaigns.each do |campaign| %>
+			<div class="campaign">
+				<div class="thumb">
+					<%= link_to image_tag(campaign.business_image(:small)), system_modules_business_path(campaign) %>
+				</div>
+				<div class="description">
+					<p class="title"><%= link_to campaign.title, system_modules_business_path(campaign) %></p>
+					<p><%= truncate campaign.description, :length => 154 %></p>
+				</div>
+				<div class="info">
+					<% if campaign.status == 'Publicado' %>
+						<p><strong>Campanha ativa</strong></p>
+						<p>Cupom n&atilde;o liberado</p>
+					<% elsif campaign.status == 'Finalizado' %>
+						<p>Campanha finalizada</p>
+						<p class="call">
+								<%= link_to 'Imprimir cupom', '#' %>	
+						</p>
+					 <% end %>
+					</p>
+				</div>
+			</div>
+		<% end %>
+	<% else %>
+		<p>Nao ha cupons ainda</p>
+	<% end %>
+</div>
+
+<%= will_paginate @campaigns, :previous_label=>" ", :next_label=>"" %>

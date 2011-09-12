@@ -42,8 +42,12 @@ class Business < ActiveRecord::Base
   
   STATUS = %w[Rascunho Publicado Finalizado]
 
-  has_attached_file :business_image,
-                    :styles => { :small=>"76x62", :big=>"342x279" }
+  has_attached_file :business_image, 
+                    :styles => { :small=>"76x62", :medium => "152x124", :big=>"342x279" },
+									  :url => "/system/uploads/images/:class/:attachment/:id/:style.:extension",
+										:path => "#{::Rails.root.to_s}/public/system/uploads/images/:class/:attachment/:id/:style.:extension",
+										:default_url => "/uploads/images/:class/default_:style_campaign.png"                    
+
   usar_como_dinheiro :value
   
   def before_destroy

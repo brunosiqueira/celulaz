@@ -31,7 +31,7 @@ class SystemModules::BusinessesController < ApplicationController
   def show
     @business = Business.find(params[:id])
     respond_to do |format|
-      if (@business.status == 'Rascunho' || @business.status == 'Finalizado') && @business.company != current_company.company  
+      if (@business.status == 'Rascunho') && @business.company != current_company.company  
         format.html { redirect_to ( {:controller => "system_modules/businesses", :action => "mine"}, :notice => 'Você não pode ver esta campanha.') }
       else
         format.html
@@ -115,6 +115,10 @@ class SystemModules::BusinessesController < ApplicationController
     end
   end
   
+  def mine_coupons
+    @campaigns = current_company.company.businesses_bought.paginate :per_page => 10, :page => params[:page] || 1, :order => ["created_at DESC"]
+  end
+  
   def end_campaign
     if request.post?
       @business = current_company.company.businesses.find(params[:id])
@@ -130,8 +134,9 @@ class SystemModules::BusinessesController < ApplicationController
   def purchase_campaign
     if request.post?
       @business = Business.find(params[:id])
+      @voucher = @business.business_companies.build(:company_id => current_company.company.id)
       respond_to do |format|
-        if @business.business_companies.create(:company_id => current_company.company.id)
+        if @voucher.save
           format.html { redirect_to(system_modules_business_path(@business), :notice => 'O cupom foi adquirido. Parabéns!!') }
         else
           format.html { redirect_to(system_modules_business_path(@business), :notice => 'Você não pode mais adquirir este cupom.') }
@@ -140,10 +145,8 @@ class SystemModules::BusinessesController < ApplicationController
     end
   end
   
-  private
-
   def verify_contract
-      redirect_to :action => :business_contract unless current_company.accepted_business_contract?
+      render :action => :business_contract if current_company.accepted_business_contract == nil || current_company.accepted_business_contract == false
   end
   
 end

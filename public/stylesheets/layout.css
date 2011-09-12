@@ -185,6 +185,8 @@ a.accept_relationship {margin-right: 5px }
 	float:left;
 }
 
+/* component - feed */
+
 .feeds {
 	margin-bottom:10px;
 }
@@ -245,11 +247,33 @@ a.accept_relationship {margin-right: 5px }
 	padding-left: 15px; 
 }
 
+.feeds .item div.feed_content .campaign {
+	margin-bottom:6px;
+	overflow:hidden;
+	width:100%;
+}
 
-/*
-.feeds .feed_company, .feeds .feed_component, .feeds .feed_news{background:url("/images/new_version/icons-new-ativ01.gif") no-repeat 15px 10px scroll #fdfdfd;}
-.feeds .feed_message{background:url("/images/new_version/icons-new-ativ02.gif") no-repeat 15px 10px scroll #fdfdfd;}
-.feeds .feed_companyrelationship{background:url("/images/new_version/icons-new-ativ03.gif") no-repeat 15px  10px scroll #fdfdfd;}*/
+.feeds .item div.feed_content .campaign .author{
+	margin:0px;
+	margin-bottom:6px;
+	width:100%;
+}
+
+.feeds .item div.feed_content .campaign .picture{
+	float:left;
+	width:76px;
+}
+
+.feeds .item div.feed_content .campaign .info{
+	float:right;
+	width:236px;
+}
+
+.feeds .item div.feed_content .campaign .info h5 {
+	font-size:1em;
+	margin:0;
+	margin-bottom:4px;
+}
 
 .feeds-small .item{background:url("/images/new_version/icons-new-ativ.gif") no-repeat scroll 0 0 #fdfdfd;border:1px solid #efefef;font-size:0.9em;font-weight:normal;margin-bottom:-1px;padding:5px 5px 5px 40px}
 .feeds-small .item .date{font-size:10px;font-weight:normal!important;color:buttonshadow}
@@ -263,7 +287,7 @@ a.accept_relationship {margin-right: 5px }
 #search-control{width:100%;text-align: right;border-bottom:1px solid #eee;margin-bottom:5px; float: left}
 #search-control-bottom{width:100%;text-align: right;border-top:1px solid #eee;margin-bottom:5px; float: left}
 
-/* components - pagination*/
+/* component - pagination */
 
 .pagination a,
 .pagination span {

@@ -10,8 +10,9 @@
 			<%= link_to image_tag(business.business_image(:small)), system_modules_business_path(business) %>
 		</div>
 		<div class="description">
-			<p><%= link_to business.title, system_modules_business_path(business) %></p>
-			<p><%= truncate business.description, :length => 200 %></p>
+			<p class="title"><%= link_to business.title, system_modules_business_path(business) %></p>
+			<p class="text"><%= truncate business.description, :length => 200 %></p>
+			<p>Publicado por <%= link_to business.company.name, system_modules_profile_path(business.company) %></p>
 		</div>
 		<div class="info">
 			<p>R$ <%= business.value %><p>

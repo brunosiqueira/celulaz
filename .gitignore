@@ -12,3 +12,4 @@ config/development.sphinx.conf
 config/database.yml
 public/business_images/
 public/sites/
+public/system

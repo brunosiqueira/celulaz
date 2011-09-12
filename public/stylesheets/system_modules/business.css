@@ -114,7 +114,8 @@ form .actions div.buttons span {
 	width:60%;
 }
 
-.index.campaigns .campaign .description .title {
+.index.campaigns .campaign .description .title,
+.index.campaigns .campaign .description .text {
 	margin-bottom:10px;
 }
 
@@ -204,6 +205,7 @@ form .actions div.buttons span {
 
 .show.campaign .actions .buttons{
 	float:right;
+	height:30px;
 	overflow:hidden;
 }
 

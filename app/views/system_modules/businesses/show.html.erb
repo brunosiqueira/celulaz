@@ -8,11 +8,12 @@
 		<%= image_tag @business.business_image.url(:big) %>
 	</div>
 	<div class="description">
-		<h1><%= link_to @business.title, system_modules_business_path(@business) %></h1>
+		<h2><%= @business.title %></h2>
 		<p><%= @business.description %></p>
+		<p>Publicado por <%= link_to @business.company.name, system_modules_profile_path(@business.company) %></p>
 	</div>
 	<div class="observations">
-		<h2>Observa&ccedil;&otilde;es importantes:</h2>
+		<h3>Observa&ccedil;&otilde;es importantes:</h3>
 		<ul>
 			<li>Validade da campanha: <strong><%= @business.expired_at.to_s_br %></strong></li>
 			<li>Cupons por usu&aacute;rio: <strong><%= @business.per_company %> unidade(s)</strong></li>
@@ -40,7 +41,11 @@
 					<%= link_to 'Adquirir cupom', { :controller => "system_modules/businesses", :action => "purchase_campaign", :id => @business }, :confirm => 'Deseja mesmo adquirir um cupom desta campanha?', :method => 'purchase_campaign', :id => @business, :class => "btn-input" %> <span>ou</span> <%= link_to " Listar todas as campanhas", system_modules_businesses_path, :class => "back" %>
 				<% end %>
 			<% else %>
-				<%= link_to 'Relatório', edit_system_modules_business_path(@business), :class => "btn-input" %>
+				<% if @business.company == current_company.company %>
+					<%= link_to 'Relatório', edit_system_modules_business_path(@business), :class => "btn-input" %>
+				<% else %>
+					<%= link_to 'Listar todas as campanhas', system_modules_businesses_path, :class => "back" %>
+				<% end %>
 			<% end %>
 		</div>
 	 </div>

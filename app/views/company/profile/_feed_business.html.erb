@@ -1,33 +1,12 @@
-<%= image_tag feed_item.item.business_image.url() %>
-<br/>
-<% if can_buy(feed_item.item) %>
-  <a href="#" class="link-comprar" id="comprar-<%=feed_item.item.id%>">Comprar (<%= feed_item.item.value.reais_formatado %>)</a><img id="img-comprar-<%=feed_item.item.id%>" style="display:none;" alt="Carregando" src="colorbox/loading.gif"/>
-
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('body').css('cursor','wait');
-      $('img-comprar-<%=feed_item.item.id%>').show();
-      $('#comprar-<%=feed_item.item.id%>').click(function(){
-        $.ajax({
-          type:"POST",
-          url:'/company/businesses/buy',
-          data:{
-            id:<%=feed_item.item.id%>,
-            authenticity_token:AUTH_TOKEN
-          },
-          dataType:"json",
-          success:function(result){
-            $('body').css('cursor','auto');
-            $('img-comprar-<%=feed_item.item.id%>').hide();
-            $('#comprar-<%=feed_item.item.id%>').replaceWith('Item comprado com sucesso. Aguarde o contato do vendedor.');
-          },
-          error:function(request,status,errorThrown){
-            alert('Erro na Ação!'+status)
-          }
-        });
-      });
-    });
-  </script>
-<% else %>
-  Este item não pode ser comprado por você
-<% end %>
+<div class="campaign">
+	<div class="author">
+		<%= link_to feed_item.feeds.first.company.name, system_modules_profile_path(feed_item.feeds.first.company) %>
+	</div>
+	<div class="picture">
+		<%= image_tag feed_item.item.business_image.url(:small) %>
+	</div>
+	<div class="info">
+		<h5><%= feed_item.item.title %></h5>
+		<h5><%= link_to "Ver campanha", system_modules_business_path(feed_item.item) %></h5>
+	</div>
+</div>
