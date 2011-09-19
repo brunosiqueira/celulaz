@@ -50,14 +50,6 @@ class Business < ActiveRecord::Base
 
   usar_como_dinheiro :value
   
-  def before_destroy
-    FeedItem.destroy_all(:item_id=>self.id,:item_type=>"Business")
-  end
-
-  def can_buy?(company)
-    self.per_company > self.companies.count(:conditions=>{:id=>company.id})
-  end
-  
   def validate_available_items
     unless self.per_company.nil? || self.total.nil?
       if self.per_company > self.total
@@ -68,10 +60,12 @@ class Business < ActiveRecord::Base
 
   def validate_cupom_and_campaign_dates
     unless self.expired_at.nil? || self.voucher_expired_at.nil? 
-      if self.expired_at < Time.now
-        self.errors.add :expired_at, 'deve ser maior que o horario atual'
-      elsif self.expired_at >= self.voucher_expired_at
-        self.errors.add :expired_at, 'deve ser menor que a expiração do voucher'
+      if self.status != "Finalizado"
+        if self.expired_at < Date.today
+          self.errors.add :expired_at, 'deve ser maior que a data de hoje'
+        elsif self.expired_at >= self.voucher_expired_at
+          self.errors.add :voucher_expired_at, 'deve ser maior que a expiração da campanha'
+        end
       end
     end
   end

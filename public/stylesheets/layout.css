@@ -328,3 +328,27 @@ a.accept_relationship {margin-right: 5px }
 	padding:8px;
 	text-align:center;
 }
+
+
+/* new flash-messages */
+
+.flash_component {
+	margin-bottom:10px;
+	padding:10px;
+	text-align:center;
+}
+
+.flash_notice {
+  border: 1px solid #ddf;
+  background-color: #eef;
+}
+
+.flash_alert {
+  border: 1px solid #fbb;
+  background-color: #fdd;
+}
+
+.flash_warning {
+  border: 1px solid #fffaaa;
+  background-color: #ffffcc;
+}

@@ -28,9 +28,8 @@
 				</div>
 			</div>
 		<% end %>
+		<%= will_paginate @campaigns, :previous_label=>" ", :next_label=>"" %>
 	<% else %>
-		<p>Nao ha cupons ainda</p>
+		<div class="flash_notice flash_component">Você ainda não tem nenhum cupom adquirido.</div>
 	<% end %>
 </div>
-
-<%= will_paginate @campaigns, :previous_label=>" ", :next_label=>"" %>

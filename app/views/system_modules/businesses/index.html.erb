@@ -4,22 +4,111 @@
 <%= render "menu" %>
 
 <div class="index campaigns">
-<% @businesses.each do |business| %>
-	<div class="campaign">
-		<div class="thumb">
-			<%= link_to image_tag(business.business_image(:small)), system_modules_business_path(business) %>
+<% if @businesses.size > 0 %>
+	<% @businesses.each do |business| %>
+		<div class="campaign">
+			<div class="thumb">
+				<%= link_to image_tag(business.business_image(:small)), system_modules_business_path(business) %>
+			</div>
+			<div class="description">
+				<p class="title"><%= link_to business.title, system_modules_business_path(business) %></p>
+				<p class="text"><%= truncate business.description, :length => 200 %></p>
+				<p>Publicado por <%= link_to business.company.name, system_modules_profile_path(business.company) %></p>
+			</div>
+			<div class="info">
+				<p>R$ <%= business.value %><p>
+				<p>Cupons dispon&iacute;veis: <%= business.coupons_available %></p>
+				<p class="call"><%= link_to 'Visualizar campanha &raquo;', system_modules_business_path(business) %></p>
+			</div>
 		</div>
-		<div class="description">
-			<p class="title"><%= link_to business.title, system_modules_business_path(business) %></p>
-			<p class="text"><%= truncate business.description, :length => 200 %></p>
-			<p>Publicado por <%= link_to business.company.name, system_modules_profile_path(business.company) %></p>
-		</div>
-		<div class="info">
-			<p>R$ <%= business.value %><p>
-			<p>Cupons dispon&iacute;veis: <%= business.coupons_available %></p>
-			<p class="call"><%= link_to 'Visualizar campanha &raquo;', system_modules_business_path(business) %></p>
-		</div>
+	<% end %>
 	</div>
-<% end %>
+	<%= will_paginate @businesses, :previous_label=>" ", :next_label=>""%>
+<% else %>	
+<div class="banner">
+	<h2>Quer divulgar seus produtos e serviços para todos da rede Célula Z ?</h2>
+	<p>Veja como é fácil e interessante para o seu negócio divulgar produtos e serviços na rede:</p>
+	
+	<h3> O melhor custo benefício </h3>
+	<p>Nossa intenção com essa nova funcionalidade é promover o negócio de nossos participantes. Para isso, criamos uma politica
+		em que apenas será cobrada nossa comissão quando de fato sua campanha impactar algum dos participantes.</p>
+	<p>Abaixo você pode olhar nossa tabela comparativa:</p>
+	<table>
+		<tr>
+			<th>
+				Faixa de VALOR UNITÁRIO do produto e/ou serviço disponibilizado pelo participante
+			</th>
+			<th>
+				Comissão devida à CélulaZ SOBRE O VALOR EFETIVO do produto e/ou serviço disponibilizado pelo participante
+			</th>
+		</tr>
+		<tr>
+			<th>R$ 0,01 até R$ 100,00</th>
+			<th>5%</th>
+		</tr>
+		<tr>
+			<th>R$ 100,01 até R$ 200,00</th>
+			<th>4,5%</th>
+		</tr>
+		<tr>
+			<th>R$ 200,01 até R$ 300,00</th>
+			<th>4%</th>
+		</tr>
+		<tr>
+			<th>R$ 300,01 até R$ 500,00</th>
+			<th>3,5%</th>
+		</tr>
+		<tr>
+			<th>R$ 500,01 até R$ 1.000,00</th>
+			<th>3%</th>
+		</tr>
+		<tr>
+			<th>R$ 1.000,01 até R$ 3.000,00</th>
+			<th>2,5%</th>
+		</tr>
+		<tr>
+			<th>R$ 3.000,01 até R$ 8.000,00</th>
+			<th>2%</th>
+		</tr>
+		<tr>
+			<th>R$ 8.000,01 até R$ 26.000,00</th>
+			<th>1,5%</th>
+		</tr>
+		<tr>
+			<th>R$ 26.000,01 até R$ 50.000,00</th>
+			<th>1%</th>
+		</tr>
+		<tr>
+			<th>R$ 50.000,01 até R$ 100.000,00</th>
+			<th>0,5%</th>
+		</tr>
+		<tr>
+			<th>R$ 100.000,01 até R$ 300.000,00</th>
+			<th>0,1%</th>
+		</tr>
+		<tr>
+			<th>Acima de R$ 300.000,00</th>
+			<th>0,05%</th>
+		</tr>
+	</table>
+	
+	<p>Veja todos os detalhes no link <%= link_to "como funciona", :controller => "system_modules/businesses", :action => "how" %>.</p>
+	
+	<h3>Facilidade de publicação</h3>
+	<p>
+		Em apenas uma tela, você controla o processo de publicação de uma campanha para um produto ou serviço da sua empresa.
+		Você ainda pode deixar campanhas preparadas para entrar no ar com a funcionalidade Rascunho. Aproveite essa novidade e 
+		<%= link_to "publique uma nova campanha", new_system_modules_business_path %> agora mesmo.
+	</p>
+	
+	<h3>Relatórios das campanhas</h3>
+	<p>Durente e ao término de uma promoção, você tem acesso as estatísticas gerais da campanha, bem como todos os 
+		participantes que irão usufruir dos descontos que você anunciou. Você terá uma visão clara do benefício de divulgar
+		seus negócios na Célula Z.</p>
+	
+	<h3>Controle de cupons</h3>
+	<p>Da mesma forma que um participante, ao adquirir um cupom de uma campanha, tem controle delas em um ambiente exclusivo, 
+		você poderá controlar a assiduidade dos participantes que irão usufruir de sua campanha. Ou seja, você terá gerência
+		sobre cada participante que de fato utilizou seus serviços ou produtos e poderá ter contato pessoal com eles.</p>
 </div>
-<%= will_paginate @businesses, :previous_label=>" ", :next_label=>""%>
+<% end %>

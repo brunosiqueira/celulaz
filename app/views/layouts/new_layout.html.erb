@@ -93,7 +93,7 @@
       	</div>
 		<div class="content">
 			<% flash.each do |name, msg| %>
-			  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+			  <%= content_tag :div, msg, :class => "flash_#{name} flash_component" %>
 			<% end %>
         	<%= yield %>
       	</div>

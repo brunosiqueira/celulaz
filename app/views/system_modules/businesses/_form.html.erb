@@ -49,12 +49,12 @@
   </p>
   <p>
 	<%= f.label :expired_at %>
-	<%= f.datetime_select :expired_at, :start_year => 2011, :end_year => 2013, :datetime_separator => '<span class="separator">-</span>', :time_separator => '<span class="separator">:</span>' %>
+	<%= f.date_select :expired_at, :start_year => 2011, :end_year => 2013, :datetime_separator => '<span class="separator">-</span>', :time_separator => '<span class="separator">:</span>' %>
 	<%= link_to "Help", "#", :class => "tooltip", :title => "Indique o dia em que sua campanha será finalizada" %>
   </p>
   <p>
 	<%= f.label :voucher_expired_at %>
-	<%= f.datetime_select :voucher_expired_at, :start_year => 2011, :end_year => 2013, :datetime_separator => '<span class="separator">-</span>', :time_separator => '<span class="separator">:</span>' %>
+	<%= f.date_select :voucher_expired_at, :start_year => 2011, :end_year => 2013, :datetime_separator => '<span class="separator">-</span>', :time_separator => '<span class="separator">:</span>' %>
 	<%= link_to "Help", "#", :class => "tooltip", :title => "Indique a data limite de utilização do cupom de sua campanha" %>
   </p>
   <p>

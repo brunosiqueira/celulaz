@@ -68,7 +68,7 @@ class SystemModules::BusinessesController < ApplicationController
     @business = @company.businesses.build(params[:business])
     respond_to do |format|
       if @business.save
-        format.html { redirect_to(system_modules_business_path(@business), :notice => 'O Negócio foi criado com sucesso.') }
+        format.html { redirect_to(system_modules_business_path(@business), :notice => 'Sua campanha foi criado. Bons negócios.') }
       else
         format.html { render :action => "new" }
       end
