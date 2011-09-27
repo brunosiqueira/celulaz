@@ -129,6 +129,7 @@ form .actions div.buttons span {
 	width:20%;
 }
 .index.campaigns .campaign .info p{
+	text-align:center;
 	margin-bottom:8px;
 }
 
@@ -216,6 +217,27 @@ form .actions div.buttons span {
 .show.campaign .actions .buttons span{
 	position:relative;
 	top:8px;
+}
+
+.cv-info-basic {
+	float:left;
+	margin-bottom:20px;
+	width:100%;
+}
+
+.cv-info-basic img {
+	display:block;
+	float:left;
+	height:63px;
+	margin-right:20px;
+	width:63px;
+}
+
+.cv-info-basic a {
+	display:block;
+	float:left;
+	position:relative;
+	top:22px;
 }
 
 /* New */

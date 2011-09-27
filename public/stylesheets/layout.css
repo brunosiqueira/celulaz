@@ -261,12 +261,13 @@ a.accept_relationship {margin-right: 5px }
 
 .feeds .item div.feed_content .campaign .picture{
 	float:left;
+	margin-right:6px;
 	width:76px;
 }
 
 .feeds .item div.feed_content .campaign .info{
 	float:right;
-	width:236px;
+	width:230px;
 }
 
 .feeds .item div.feed_content .campaign .info h5 {

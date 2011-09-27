@@ -1,0 +1,19 @@
+* {margin:0;padding:0;}
+.voucher {
+	border:1px dotted #ccc;
+	background:#eee;
+	overflow:hidden;
+	padding:40px;
+	width:456px;
+}
+
+.voucher h2 {
+	font-size:1.2em;
+	margin-bottom:10px;
+}
+
+.voucher p {
+	font-size:.9em;
+	line-height:1.1em;
+	margin-bottom:10px;
+}

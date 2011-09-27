@@ -1,0 +1,8 @@
+<% @companies.each do |company| %>
+  <% unless company.nil? %>
+    <div class="cv-info-basic">
+      <%= image_tag(company.company.profile_logo.url(:small), :size=>"63x63") %>
+      <%= link_to h(company.company.layout.name), system_modules_profile_path(company.company) %>
+    </div>
+	<% end %>
+<% end %>

@@ -15,17 +15,6 @@ class SystemModules::BusinessesController < ApplicationController
     end
   end
   
-  def mine
-    @businesses = current_company.company.businesses.paginate :per_page => 10, :page => params[:page] || 1, :order => ["updated_at DESC"]
-    respond_to do |format|
-      format.html
-    end
-  end
-  
-  def how
-    
-  end
-
   # GET /businesses/1
   # GET /businesses/1.xml
   def show
@@ -99,12 +88,6 @@ class SystemModules::BusinessesController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-  def buy
-    @business = Business.find params[:id]
-    @company.businesses_bought << @business
-    render :text=>"true"
-  end
   
   def business_contract
     if request.post?
@@ -115,10 +98,20 @@ class SystemModules::BusinessesController < ApplicationController
     end
   end
   
+  # mine campaigns
+  def mine
+    @businesses = current_company.company.businesses.paginate :per_page => 10, :page => params[:page] || 1, :order => ["updated_at DESC"]
+    respond_to do |format|
+      format.html
+    end
+  end
+  
+  # campaigns that an user bought
   def mine_coupons
     @campaigns = current_company.company.businesses_bought.paginate :per_page => 10, :page => params[:page] || 1, :order => ["created_at DESC"]
   end
   
+  # end the campaign
   def end_campaign
     if request.post?
       @business = current_company.company.businesses.find(params[:id])
@@ -131,6 +124,7 @@ class SystemModules::BusinessesController < ApplicationController
     end
   end
   
+  # acquire a campain
   def purchase_campaign
     if request.post?
       @business = Business.find(params[:id])
@@ -143,6 +137,18 @@ class SystemModules::BusinessesController < ApplicationController
         end
       end
     end
+  end
+  
+  # to print a voucher campaign
+  def print_voucher
+    @business = Business.find(params[:id])
+    render :layout => "voucher"
+  end
+
+  def buyers 
+    @business = Business.find(params[:id])
+    @companies = @business.business_companies
+    render :layout => "false"
   end
   
   def verify_contract

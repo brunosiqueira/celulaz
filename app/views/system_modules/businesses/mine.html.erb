@@ -1,5 +1,5 @@
-<% stylesheet "system_modules/business" %> 
-<% javascript "system_modules/business" %>
+<% stylesheet "third/smoothness/jquery-ui-1.8.10.custom", "system_modules/business" %> 
+<% javascript "system_modules/business", "third/jquery-ui-1.8.4.custom.min" %>
 
 <%= render "menu" %>
 
@@ -22,9 +22,9 @@
 							<%= link_to 'Apagar', system_modules_business_path(business), :confirm => 'Deseja mesmo excluir a campanha? ', :method => :delete %>
 						<% elsif business.status == 'Publicado' %>
 							<%= link_to 'Finalizar', { :controller => "system_modules/businesses", :action => "end_campaign", :id => business }, :confirm => 'Deseja mesmo finalizar a campanha?', :method => 'end_campaign', :id => business %> |
-							<%= link_to 'Relatório',  :controller => "system_modules/businesses", :action => ""  %>  
+							<%= link_to 'Relatório',  { :controller => "system_modules/businesses", :action => "buyers", :id => business }, :id => "reports"  %>  
 						<% else %>
-							<%= link_to 'Relatório',  :controller => "system_modules/businesses", :action => ""  %>  
+							<%= link_to 'Relatório',  { :controller => "system_modules/businesses", :action => "buyers", :id => business }, :id => "reports" %>  
 						<% end %>
 					</p>
 				</div>
@@ -35,3 +35,36 @@
 		<div class="flash_alert flash_component">Você ainda não tem nenhuma campanha divulgada na rede.</div>
 	<% end %>
 </div>
+<div id="company-report" style="display:none;"></div>
+<script>
+$(document).ready(function(){
+	$("#reports").bind('click', function(){
+		var $this = $(this);
+		var href = $this.attr("href");
+		$("#company-report").load(
+					href,
+					{
+						authenticity_token:AUTH_TOKEN
+					},
+					function(responseText,textStatus,XMLHttpRequest){
+						$("#company-report").dialog({
+							resizable:false,
+							height:500,
+							width:500,
+							modal:true,
+							open:function(event,ui){
+								$('body').css('cursor','auto');
+								},
+							buttons:{
+								"Fechar":function(){
+									$(this).dialog("close");
+								}
+							}
+						});
+					}
+				);
+		return false;
+	});
+});
+
+</script>

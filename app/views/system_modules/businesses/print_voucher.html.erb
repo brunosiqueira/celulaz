@@ -1,0 +1,10 @@
+<div class="voucher">
+	<div class="description">
+		<h2><%= @business.title %></h2>
+		<p>Validade do cupom: <strong><%= @business.voucher_expired_at.to_date.to_s_br %> 23:59h</strong></p>
+		<p><%= @business.description %></p>
+	</div>
+	<div class="customer">
+		<p>Nome: <%= current_company.company.name %></p>
+	</div>
+</div>

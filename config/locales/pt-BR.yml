@@ -82,14 +82,15 @@ pt-BR:
 
   time:
     formats:
-      default: "%A, %{count} de %B de %Y, %H:%M hs"
-      time: "%H:%M hs"
-      short: "%{count}/%m, %H:%M hs"
-      long: "%A, %{count} de %B de %Y, %H:%M hs"
+      default: "%A, %{count} de %B de %Y, %H:%M h"
+      time: "%H:%M h"
+      short: "%{count}/%m, %H:%M h"
+      long: "%A, %{count} de %B de %Y, %H:%M h"
       only_second: "%S"
       datetime:
         formats:
           default: "%Y-%m-%{count}T%H:%M:%S%Z"
+          business: "%{count}/%m/%Y"
     am: ''
     pm: ''
 

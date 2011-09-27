@@ -21,7 +21,9 @@
 					<% elsif campaign.status == 'Finalizado' %>
 						<p>Campanha finalizada</p>
 						<p class="call">
-								<%= link_to 'Imprimir cupom', '#' %>	
+								<%= link_to 'Imprimir cupom', 
+									{ :controller => "system_modules/businesses", :action => "print_voucher", :id => campaign }, 
+									:target => "_blank" %>	
 						</p>
 					 <% end %>
 					</p>

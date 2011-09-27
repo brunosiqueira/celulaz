@@ -3,6 +3,7 @@ class SystemModules::ProfilesController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
   before_filter :unread_messages, :only => [:show]
+  after_filter :register_visitor, :only=>:show
   layout "company"
 
   def index
@@ -51,6 +52,16 @@ class SystemModules::ProfilesController < ApplicationController
 
     respond_to do |format|
       format.html
+    end
+  end
+  
+  private
+  def register_visitor
+    session_id = request.session_options[:id]
+    url = "/system_modules/profiles/#{params[:id]}"
+    if @company && !Visit.exists?(:request_url=>url,:session=>session_id)
+      Visit.create :user_id=>logged_in? ? current_user.id : nil, :session=>session_id,
+        :ip_address=>request.remote_ip, :request_url=>url
     end
   end
 end
