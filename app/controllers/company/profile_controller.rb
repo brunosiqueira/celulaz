@@ -4,7 +4,7 @@ class Company::ProfileController < ApplicationController
   after_filter :register_visitor, :only=>:public
   before_filter :unread_messages, :onlhy => [:index]
   
-  layout "company"
+  layout "new_layout"
   def index
     ids = @company.origin_ids + @company.destiny_ids + [@company.id]
     @feed_items = FeedItem.paginate :page=>params[:page], :joins=>:feeds, :per_page=>10, :include=>:item, :select=>"distinct feed_items.*", :conditions=>["feeds.company_id in (?) AND (is_public = ? or company_id = ?)", ids, true, @company.id], :order=>"feed_items.updated_at DESC"

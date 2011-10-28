@@ -3,8 +3,8 @@
   <head>
     <meta name="verify-v1" content="e12iWDQ2NexYozpJgWLJ9wnYoZwVGKMd1UouDC6EHuM=" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Célula Z - A construção inteligente do seu negócio na internet</title>
-	<meta name="description" content="A Célula Z é uma uma rede de relacionamento corporativo com o objetivo de gerar negócios para seus participantes. Oferece soluções para um posicionamento inteligente de empresas e profissionais no mundo digital.">
+    <title>Célula Z - O seu negócio precisa</title>
+	<meta name="description" content="A Célula Z é uma uma rede de relacionamento corporativo com o objetivo de gerar negócios para seus participantes. Oferece soluções para um posicionamento inteligente de empresas e profissionais no mundo digital." />
     <%= stylesheet_link_tag "principal","third/colorbox2" %>
     <%= javascript_include_tag "third/jquery-1.4.2.min","third/jquery.corner" ,"third/jquery.colorbox-min.js"%>
     <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.to_json};" if protect_against_forgery? %>
@@ -44,7 +44,15 @@
 				</script>
         	</div>
         	<div id="topologin"> 
-				<%= render :partial=>"sessions/new"%> 
+				<% form_tag session_path do %>
+				  <%= text_field_tag 'login', nil, :class=>'formtext' %>
+				  <%= password_field_tag 'password', nil, :class=>'formtext' %>
+				  <%= submit_tag 'Entrar' ,:class=>"btlogin" %>
+				<% end %>
+				<div class="actions">
+					<span><%= check_box_tag 'remember_me', nil, :style=>'' %> Permanecer logado</span>
+				    <%=link_to "Esqueci minha senha ", forgot_password_path%> 
+				</div>
 			</div>
 		</div>
         <div id="highlight">
@@ -75,7 +83,7 @@
     </div>
 
     <div id="footer" >
-      <div class="warp"><strong> Contato: (51) 3086-3949 ou (51) 3086-3951 </strong> | Rua Garibaldi 800, bairro: Bom Fim, Porto Alegre - RS
+      <div class="warp"><strong> Contato: (51) 3086-3949 ou (51) 3086-3951 </strong>
         <br />
         <span style="color:#91907e !important">Todos os direitos reservados.   © Copyright Célula Z Internet.</span> 
       </div>
@@ -83,21 +91,31 @@
     <script type="text/javascript">
       
       $(document).ready(function (){
-        $('.link-btn-orange').corner("5px");
-        $('.link-btn-gray').corner("5px");
+	        $('.link-btn-orange').corner("5px");
+	        $('.link-btn-gray').corner("5px");
         
-        $('#login').click(function (){
-          if ('Nome/E-mail'== $(this).val()) {
-            $(this).val('');
-          }
-        } );
+	        $('#login').click(function (){
+	          if ('login ou e-mail'== $(this).val()) {
+	            $(this).val('');
+	          }
+	        });
+			$('#password').click(function (){
+	          if ('password'== $(this).val()) {
+	            $(this).val('');
+	          }
+	        });
         
-        $('input#login').blur(function (){
-          if (''== $(this).val()) {
-            $(this).val("Nome/E-mail");
-          }
-        });
-      });
+	        $('input#login').blur(function (){
+	          if (''== $(this).val()) {
+	            $(this).val("login ou e-mail");
+	          }
+	        });
+			$('input#password').blur(function (){
+	          if (''== $(this).val()) {
+	            $(this).val("password");
+	          }
+	        });
+		});
     </script>
   </body>
 </html>

@@ -297,7 +297,7 @@ class Company < ActiveRecord::Base
     when :business_card
       url = "/business_cards/#{self.to_param}"
     when :profile
-      url = "/company/profile/public/#{self.to_param}"
+      url = "/system_modules/profiles/#{self.to_param}"
     end
     start = time == :today ? Time.now.utc.beginning_of_day : Time.now.utc - 1.month
     Visit.count :conditions=>["request_url=? and created_at>? and created_at<?",url,start,Time.now.utc]

@@ -4,7 +4,8 @@ class SystemModules::ProfilesController < ApplicationController
   before_filter :load_company
   before_filter :unread_messages, :only => [:show]
   after_filter :register_visitor, :only=>:show
-  layout "company"
+
+  layout "new_layout"
 
   def index
   end

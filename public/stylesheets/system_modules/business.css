@@ -1,16 +1,5 @@
 /* Similar pages */
 
-form .actions {
-	width:62.5%;
-	float:right;
-}
-
-form .actions div.buttons input {
-	float:left;
-	line-height:0;
-	margin:0;
-	margin-right:4px;
-}
 
 form .actions div.buttons a,
 form .actions div.buttons span {
@@ -30,16 +19,11 @@ form .actions div.buttons span {
 	margin-bottom:10px;
 	overflow:auto;
 	padding:10px;
-	width:100%;
+	width:97.5%;
 }
 
 .page .actions form {
 	text-align:right;
-}
-
-.page .actions form input{
-	display:inline;
-	float:none;
 }
 
 .business {
@@ -251,3 +235,73 @@ a.tooltip {
 	text-indent:-9999px;
 }
 
+
+/*
+* Component - Buttons
+*/
+.actions {
+	float:left;
+	position:relative;
+	top:20px;
+	width:100%;
+}
+
+.actions input,
+.actions .previous-button {
+	
+	background:url("/images/_components/bg-submit-button.png");
+	border:0;
+	color:#000;
+	font-weight:bold;
+	height:36px;
+	width:140px;
+}
+
+.actions .previous-button {
+	display:block;
+	float:left;
+	height:26px;
+	padding-top:10px;
+	text-align:center;
+	text-decoration:none !important;
+}
+
+.actions .accept-button,
+.actions .next-button,
+.actions .publish-button
+{
+	float:right;
+}
+
+
+form .file-wrapper {
+	background: url(/images/_components/bg-photo-field.png);
+	height:247px;
+	margin:0 auto;
+	width:229px;
+}
+
+form .file-field {
+	height: 100%;
+	opacity: 0;
+	position: relative;
+	width: auto;
+}
+
+form .picture-wrapper {
+	height:342px;
+	margin:0 auto;
+	position:relative;
+	width:279px;
+}
+
+form .picture-wrapper span a{
+	background:url(/images/_components/bg-photo-delete.png);
+	display:block;
+	height:32px;
+	position:absolute;
+	right:34px;
+	text-indent:-9999px;
+	top:-18px;
+	width:32px;
+}

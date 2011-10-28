@@ -36,13 +36,13 @@
 			<% elsif @business.status == 'Publicado' %>
 				<% if @business.company == current_company.company %>
 					<%= link_to 'Finalizar', { :controller => "system_modules/businesses", :action => "end_campaign", :id => @business }, :confirm => 'Deseja mesmo finalizar a campanha?', :method => 'end_campaign', :id => @business, :class => "btn-input" %>
-					<%= link_to 'Relatório', { :controller => "system_modules/businesses", :action => "buyers", :id => @business }, :class => "btn-input", :id => "reports" %>
+					<%= link_to 'Relatório', { :controller => "system_modules/businesses", :action => "buyers", :id => @business }, :class => "btn-input report" %>
 				<% else %>
 					<%= link_to 'Adquirir cupom', { :controller => "system_modules/businesses", :action => "purchase_campaign", :id => @business }, :confirm => 'Deseja mesmo adquirir um cupom desta campanha?', :method => 'purchase_campaign', :id => @business, :class => "btn-input" %> <span>ou</span> <%= link_to " Listar todas as campanhas", system_modules_businesses_path, :class => "back" %>
 				<% end %>
 			<% else %>
 				<% if @business.company == current_company.company %>
-					<%= link_to 'Relatório', { :controller => "system_modules/businesses", :action => "buyers", :id => @business }, :class => "btn-input", :id => "reports" %>
+					<%= link_to 'Relatório', { :controller => "system_modules/businesses", :action => "buyers", :id => @business }, :class => "btn-input report" %>
 				<% else %>
 					<%= link_to 'Listar todas as campanhas', system_modules_businesses_path, :class => "back" %>
 				<% end %>
@@ -50,36 +50,4 @@
 		</div>
 	 </div>
 </div>
-<div id="company-report" style="display:none;"></div>
-<script>
-$(document).ready(function(){
-	$("#reports").bind('click', function(){
-		var $this = $(this);
-		var href = $this.attr("href");
-		$("#company-report").load(
-					href,
-					{
-						authenticity_token:AUTH_TOKEN
-					},
-					function(responseText,textStatus,XMLHttpRequest){
-						$("#company-report").dialog({
-							resizable:false,
-							height:500,
-							width:500,
-							modal:true,
-							open:function(event,ui){
-								$('body').css('cursor','auto');
-								},
-							buttons:{
-								"Fechar":function(){
-									$(this).dialog("close");
-								}
-							}
-						});
-					}
-				);
-		return false;
-	});
-});
-
-</script>
+<div id="company-report" style="display:none;" title="Compradores"></div>

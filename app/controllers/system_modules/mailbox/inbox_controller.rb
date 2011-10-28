@@ -2,7 +2,8 @@ class SystemModules::Mailbox::InboxController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
   before_filter :unread_messages
-  layout "company"
+
+  layout "new_layout"
   
   def show
     @messages = current_company.inbox.messages.paginate_not_deleted :all, :per_page => 10, :page => params[:page],

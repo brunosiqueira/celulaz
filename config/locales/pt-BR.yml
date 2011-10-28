@@ -82,10 +82,10 @@ pt-BR:
 
   time:
     formats:
-      default: "%A, %{count} de %B de %Y, %H:%M h"
+      default: "%A, %d de %B de %Y, %H:%M h"
       time: "%H:%M h"
       short: "%{count}/%m, %H:%M h"
-      long: "%A, %{count} de %B de %Y, %H:%M h"
+      long: "%A, %d de %B de %Y, %H:%Mh"
       only_second: "%S"
       datetime:
         formats:

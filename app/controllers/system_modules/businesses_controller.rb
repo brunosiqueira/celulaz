@@ -3,6 +3,7 @@ class SystemModules::BusinessesController < ApplicationController
   before_filter :load_company
   before_filter :verify_contract, :except => [:business_contract]
   before_filter :unread_messages
+
   layout "new_layout"
 
   # GET /businesses
@@ -32,10 +33,8 @@ class SystemModules::BusinessesController < ApplicationController
   # GET /businesses/new.xml
   def new
     @business = Business.new
-
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @business }
+      format.html
     end
   end
 
@@ -56,8 +55,9 @@ class SystemModules::BusinessesController < ApplicationController
   def create
     @business = @company.businesses.build(params[:business])
     respond_to do |format|
+      @business.status = 'Rascunho'
       if @business.save
-        format.html { redirect_to(system_modules_business_path(@business), :notice => 'Sua campanha foi criado. Bons negócios.') }
+        format.html { redirect_to({:controller => "system_modules/businesses", :action => "business_pictures", :id => @business}, :notice => 'Carregue uma imagem para sua campanha.') }
       else
         format.html { render :action => "new" }
       end
@@ -67,11 +67,15 @@ class SystemModules::BusinessesController < ApplicationController
   # PUT /businesses/1
   # PUT /businesses/1.xml
   def update
-    @business = @company.businesses.find(params[:id])
-
+    @business = current_company.company.businesses.find(params[:id])
     respond_to do |format|
       if @business.update_attributes(params[:business])
-        format.html { redirect_to(system_modules_business_path(@business), :notice => 'A campanha foi editada corretamente.') }
+        if @business.status == 'Publicado'
+          format.html { redirect_to({:controller => "system_modules/businesses", :action => "mine"}, :notice => "Sua campanha foi editada e publicada corretamente. Bons negócios.") }
+        else
+          format.html { redirect_to({:controller => "system_modules/businesses", :action => "business_pictures", :id => @business}, :notice => "Sua campanha foi editada corretamente e aguarda publicação. Salvo em rascunho!") }
+        end
+        
       else
         format.html { render :action => "edit" }
       end
@@ -85,7 +89,6 @@ class SystemModules::BusinessesController < ApplicationController
     @business.destroy
     respond_to do |format|
       format.html { redirect_to ( {:controller => "system_modules/businesses", :action => "mine"}, :notice => 'A campanha foi removida corretamente.') }
-      format.xml  { head :ok }
     end
   end
   
@@ -94,6 +97,21 @@ class SystemModules::BusinessesController < ApplicationController
       @user = User.find(current_user)
       if @user.update_attributes(params[:user])
         redirect_to system_modules_businesses_path
+      end
+    end
+  end
+  
+  def business_pictures
+    @business = current_company.company.businesses.find(params[:id])
+  end
+  
+  def delete_business_pictures
+    if request.post?
+      @business = current_company.company.businesses.find(params[:id])
+      @business.business_image = nil
+      @business.save
+      respond_to do |format|
+        format.html { redirect_to({:controller => "system_modules/businesses", :action => "business_pictures", :id => @business}, :notice => "Sua campanha foi editada corretamente e aguarda publicação. Salvo em rascunho!") }
       end
     end
   end
@@ -131,7 +149,7 @@ class SystemModules::BusinessesController < ApplicationController
       @voucher = @business.business_companies.build(:company_id => current_company.company.id)
       respond_to do |format|
         if @voucher.save
-          format.html { redirect_to(system_modules_business_path(@business), :notice => 'O cupom foi adquirido. Parabéns!!') }
+          format.html { redirect_to(system_modules_business_path(@business), :notice => 'O cupom foi adquirido com sucesso. Parabéns!') }
         else
           format.html { redirect_to(system_modules_business_path(@business), :notice => 'Você não pode mais adquirir este cupom.') }
         end

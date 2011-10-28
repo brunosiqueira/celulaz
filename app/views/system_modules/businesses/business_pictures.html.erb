@@ -1,0 +1,50 @@
+<% stylesheet "system_modules/business" %> 
+<% javascript "system_modules/business",  "system_modules/si.files" %>
+
+<%= render :partial => "menu" %>
+
+<h2>Passo 01 - Folder da campanha</h2>
+
+<p>Envie uma imagem para sua campanha ter mais destaque em nosso mural de negócios. Capriche no folder
+	e bons negócios.</p>
+
+<% form_for([:system_modules,@business],:html => {:multipart => true}) do |f| %>
+	  
+	    <% unless @business.business_image_file_name.nil? %>
+		<p class="picture-wrapper">
+			<span>
+				<%= link_to "Remover", {:controller => "system_modules/businesses", :action => "delete_business_pictures", :id => @business}, :method => "delete_business_pictures", :id => "delete-picture", :confirm => "Tem certeza que deseja excluir ?" %>
+			</span>
+			<%= image_tag @business.business_image.url(:edit) %>
+		</p>
+		<% else %>
+		<p class="file-wrapper">
+			<%= f.file_field :business_image, :class => "file-field" %>
+		</p>
+		<% end %>
+
+<% end %>
+
+<% form_for([:system_modules,@business],:html => {:multipart => true}) do |f| %>
+	<%= hidden_field_tag 'business[status]', 'Publicado' %>
+	<div class="actions">
+		<%= link_to 'Passo anterior', edit_system_modules_business_path(@business), :class => "previous-button"%>
+		<% unless @business.business_image_file_name.nil? %>
+		<%= f.submit 'Publicar', :class => "publish-button" %> 
+		<% end %>
+	</div>
+<% end %>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		SI.Files.stylizeById('business_business_image');
+		$('#business_business_image').live('change', function(e) {
+	        var self = this;
+	        var blur = function() {
+	            $(self).blur();
+				$(".edit_business").submit();
+	        }
+	        setTimeout(blur, 0);
+	    });
+	});
+</script>	

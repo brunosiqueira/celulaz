@@ -3,7 +3,7 @@ class SystemModules::Mailbox::MessagesController < ApplicationController
   before_filter :load_company
   before_filter :unread_messages, :only => [:show]
   
-  layout "company"
+  layout "new_layout"
   
   def create
     parameters = params[:message]

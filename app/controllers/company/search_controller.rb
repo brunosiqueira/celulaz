@@ -1,7 +1,9 @@
 class Company::SearchController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
-  layout "company"
+
+  layout "new_layout"
+
   def index
     page = params[:page] || 1
     @order = params[:order] || "layout_name ASC"

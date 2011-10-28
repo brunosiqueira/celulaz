@@ -252,10 +252,11 @@
 			 do sistema de “WEB MARKETING” disponibilizado pela CONTRATADA.
 		</p>
 	</div>
-	<div class="actions">
+
 		<% form_tag :controller => "system_modules/businesses", :action => "business_contract" do %>
 			<%= hidden_field_tag "user[accepted_business_contract]", true %>
-			<%= submit_tag 'Aceitar', :class => "btn-input" %>
+			<div class="actions">
+				<%= submit_tag 'Aceitar contrato', :class => "accept-button" %>
+			</div>
 		<% end %>
-	</div>
 </div>

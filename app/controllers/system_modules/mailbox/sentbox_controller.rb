@@ -3,7 +3,7 @@ class SystemModules::Mailbox::SentboxController < ApplicationController
   before_filter :load_company
   before_filter :unread_messages
   
-  layout "company"
+  layout "new_layout"
   
   def show
     @messages = current_company.sent_messages.paginate :per_page => 10, :page => params[:page], :order => "created_at DESC"

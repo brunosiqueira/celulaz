@@ -4,7 +4,8 @@ class Company::ConstructionController < ApplicationController
   before_filter :load_company
   before_filter :check_template
   before_filter :unread_messages, :only => [:index]
-  layout "company"
+
+  layout "new_layout"
   
   def index
     @site_published = current_company.company.user.preference[:site_published] unless current_company.company.user.preference.nil?

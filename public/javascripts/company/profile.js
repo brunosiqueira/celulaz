@@ -62,7 +62,7 @@ $(document).ready(function(){
 
     $("h4").corner("3px");
 	$(".sidebar > .box").corner("8px");
-
+	
 	
 	$(".feeds .remove-feed").removeFeed();
 });

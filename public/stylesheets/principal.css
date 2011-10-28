@@ -30,16 +30,28 @@ p{    width:auto;     padding:0 0 0 20px;     float:left;     color:#91907E;    
 
 h1, h2, h3{    font-family:Arial,Helvetica,sans-serif;     font-weight:normal!important;     text-align:left}
 
-h1{    font-size:24px;     font-weight:bold!important;     margin:0px 0 30px;     color:#1D4482;     padding:0px 0px 0px 25px;     background: url(../images/seta-h1.jpg) transparent left 1px no-repeat}
+h1{    font-size:24px;     font-weight:bold!important;     margin:0px 0 30px;     color:#1D4482;     padding:0px 0px 0px 25px;     background: url(../images/new_images/seta-h1.png) transparent left 1px no-repeat}
 
 h2{    font-size:18px;     margin:10px 0 20px;     padding:0px 0px 0px 25px;     background: url(../images/seta-h2.jpg) transparent left 0px no-repeat}
 
 h3{    font-size:11px;     margin:0 0 10px 0}
 
-#header{    height:355px;     background:url(../images/bg-repeat.jpg) repeat-x center bottom #fff;     width:expression(document.body.clientWidth <960? "1000px":"auto");     min-width:1000px}
-.warp{    width:1000px;     margin:auto}
+#header{    
+	background: #daefff;
+	height:355px;
+	min-width:100%;
+}
 
-#content{    padding-top:60px;     overflow:hidden;     margin-bottom:20px;     background:url(../images/bg-content.jpg) center top no-repeat}
+.warp{    
+	width:1000px;     
+	margin:auto
+}
+
+#content{    
+	padding-top:60px;     
+	overflow:hidden;     
+	margin-bottom:20px;     background:url(../images/bg-content.jpg) center top no-repeat;
+}
 
 
 
@@ -62,9 +74,21 @@ h3{    font-size:11px;     margin:0 0 10px 0}
 #contato h2{ font-size:24px;  font-weight:normal;  margin:0px;  color:#039}
 #contato h3{ font-size:12px;  font-weight:normal;  margin:0px}
 
-#logo{width:174px; height:65px; display:block; background:url(../images/logo-home.gif) no-repeat center; text-indent:-9999px; overflow:hidden; position:absolute; left:55px; top:5px}
+#logo{
+	background:url(../images/new_images/logo_home.png) no-repeat center;
+	display:block;
+	height:63px;
+	margin-right:58px;     
+	overflow:hidden;
+	position:relative;
+	text-indent:-9999px;
+	top:10px;
+	width:177px;
+}
+
 .info-login{color:#006ab0; width:220px; text-align:right; position:absolute; top:15px; right:0}
 .info-login a{font-weight:bold; color:#f90; font-size:11px}
+
 .top-nav{list-style:none; position:absolute; left:180px; top:30px}
 .top-nav li{display:inline}
 .top-nav li a{color:#039; text-decoration:none; padding:3px 50px 3px 28px; display:inline-block; background-position:0 2px; background-repeat:no-repeat}
@@ -75,74 +99,113 @@ h3{    font-size:11px;     margin:0 0 10px 0}
 .input-search{width:160px; height:15px; position:absolute; bottom:13px; right:0; background:url(/images/company/ico-search.gif) no-repeat 148px center #fff}
 
 #header .warp {
-	background:url(/images/bg-center.jpg) no-repeat top center; 
-	position:relative; 
-	height: 355px;
+	background: #daefff; 
+	position:relative;
 }
 
 #header-content {
-	margin-bottom:94px;
+	margin-bottom:90px;
 	overflow:hidden;
-	width:100%;
+	padding:10px;
 }
 
-#busca-padrao{float:left;     height:50px;     margin-left:253px;     overflow:hidden;     position:relative;     margin-top:20px;     width:420px}
-#busca-campo{    background-color:transparent!important;     border:0 solid #CCC !important;     color:#333;     float:left;     font-family:arial;     font-size:14px;     margin:0;     padding:5px;     width:200px}
+#busca-padrao{
+	float:left;     
+	height:50px;
+	overflow:hidden;     
+	position:relative;
+	top:20px;     
+	width:420px;
+}
+
+#busca-campo{    
+	background-color:#fff;
+	border:0 solid #CCC !important;     
+	color:#333;     
+	float:left;     
+	font-family:arial;     
+	font-size:14px;     
+	margin-right:4px;     
+	padding:4px;
+	width:222px;
+}
 
 #busca-padrao form{    width:420px;     height:50px}
 
-#busca-padrao form fieldset input.submit{    background:url(../images/new_version/pesquisa-submit.gif) no-repeat scroll top transparent;  width:28px;  padding:5px;  border:none;  top:-3px;  color:#f60;  float:left;  text-indent:-9999px;  display:block;  cursor:pointer;  margin:1px 0 0 5px}
+#busca-padrao form fieldset input.submit { 
+	background:url(../images/new_version/pesquisa-submit.gif) no-repeat scroll top transparent;  
+	width:26px;
+	height:26px;  
+	border:none;  
+	float:left;  
+	text-indent:-9999px;  
+	display:block;  
+	cursor:pointer;
+}
 abbr, acronym, img, fieldset{ border:0 none}
 
 fieldset{ margin:5px 0px 0px 5px;  padding:0px 3px!important}
 
-.styleCombobox{ background:#fff;  float:left;  width:150px !important;  padding:4px;  margin:0 0 0 4px;  background-color:transparent!important;  border:0 solid #CCC !important;  font-size:14px;  color:#333}
-
-#busca-padrao form fieldset select {
-	border:0 solid #fff!important
+.styleCombobox{ 
+	background:#fff;  
+	float:left;  
+	padding:4px;
+	border:0 solid #CCC !important;  
+	font-size:14px;  
+	color:#333
 }
 
+#busca-padrao form fieldset select {
+	height:26px;
+	margin-right:4px;
+	padding:5px;
+	width:140px;
+}
+
+/* Componente - Login */
 #topologin {    
-	float:right;     
-	margin:0 55px 0 0;    
+	float:right;
 	position:relative;
-	top:16px; 
-	width:244px;
+	top:16px;
 }
 
 #topologin form{
 	float:left;
+	margin-bottom:4px;
 	width:100%;
 }
 
 #topologin form input{
-	float:left;  
-	margin:0px 8px 4px 0px; 
+	float:left;
 }
 
 #topologin form input#login {
-	margin-left:6px; 
 	
 }
 
-#topologin form input.formtext {
-	background:transparent;
-	border:0px #fff solid; 
-	color:#333!important;
-	width:83px; 
+#topologin form input#password {
+	
 }
 
-#topologin form input#password {
-	width:64px;
+
+#topologin form input.formtext {
+	background:#fff;
+	border:0px #eee solid; 
+	color:#333!important;
+	padding:4px;
+	margin-right:8px;
+	width:100px; 
 }
+
 
 #topologin form input.btlogin{
 	background:url(../images/btn-login.gif) center no-repeat!important; 
 	border:medium none !important; 
 	color:#FFF; 
 	cursor:pointer; 
-	padding:3px 10px; 
+	padding:4px 10px; 
 	width:50px; 
+	float:right;
 }
 
 #topologin form a,
@@ -157,18 +220,19 @@ fieldset{ margin:5px 0px 0px 5px;  padding:0px 3px!important}
 	width:100%;
 }
 
-#topologin form .actions a{
-	margin-right:22px;
-}
-
-#topologin form .actions input {
-	margin:0;
+#topologin .actions span {
+	display:block;
+	float:left;
 	margin-right:4px;
-	padding:0;
 	top:5px;
 }
 
-#remember_me{width:10px;  height:10px; float:left; margin:5px 5px auto 10px}
+#topologin .actions a{
+	color:#005284;
+	display:block;
+	float:right;
+}
+
 
 form label a:hover{ text-align:right;  font-family:Arial,Helvetica,sans-serif;  font-size:11px;  color:#069;  text-decoration:underline}
 
@@ -184,7 +248,7 @@ form label a:hover{ text-align:right;  font-family:Arial,Helvetica,sans-serif;  
 }
 
 #highlight a {
-	color: rgb(29, 68, 130);
+	color: rgb(29, 68, 130);	
 	display: block; 
 	float: right;
 	font-size: 20px;  
@@ -307,7 +371,7 @@ form.fale-conosco ul li input.fone{}
 #subtitle{ height:15px;  margin-top:24px}
 
 #footer{    
-	background:#bae4de url("/images/backgrounds/home-footer.jpg");  
+	background:#daefff;  
 	font-size:11px;  
 	height:45px;  
 	line-height:17px;  

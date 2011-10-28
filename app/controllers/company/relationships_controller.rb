@@ -1,8 +1,9 @@
 class Company::RelationshipsController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
-  layout "company"
   before_filter :unread_messages, :only => [:index]
+  
+  layout "new_layout"
   
   def index
     @q = params[:q]

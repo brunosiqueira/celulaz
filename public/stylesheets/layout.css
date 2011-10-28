@@ -1,4 +1,8 @@
-body{margin:0;background:url(/images/company/bg-header.jpg) top center no-repeat;font:normal 12px 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color:#333;letter-spacing:2}
+body{
+	color:#333;
+	font:normal 12px 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	margin:0;
+}
 img{border:none}
 li{text-decoration: none; list-style: none}
 input,textarea,select,ul.as-selections{background:#fff;border:1px solid;border-color:#ccc #F0f0f0 #f0f0f0 #CCCCCC;padding:3px;font:normal 12px Arial,Helvetica,sans-serif;color:#333;margin:0}
@@ -16,32 +20,38 @@ h4{background:none repeat scroll 0 0 #6b757f;color:white;font-size:10px;font-wei
 .float-link{float:left}
 
 #header{
-	height:110px;
-	position:relative;
+	background:#daefff;
+	float:left;
+	margin-bottom:20px;
+	overflow:hidden;
+	width:100%;
 }
 
-#header #logo{width:154px;height:65px;display:block;background:url(/images/new_version/logo-small.gif) no-repeat;text-indent:-9999px;overflow:hidden;position:absolute;left:20px;top:15px}
-#header .info-login{color:#006ab0;width:220px;text-align:right;position:absolute;top:15px;right:0; margin-right: 80px;}
-#header .info-login a{font-weight:bold;color:#f90;font-size:11px}
-#header .top-nav{list-style:none;position:absolute;left:816px;top:60px;}
-#header .top-nav li{display:inline}
-#header .top-nav li a{color:#039;text-decoration:none;padding:3px 50px 3px 28px;display:inline-block;background-position:0 2px;background-repeat:no-repeat}
-#header .top-nav li a:hover{text-decoration:underline}
-#header .top-nav .inicial{background-image:url(/images/company/ico-top-inicio.gif)}
-#header .top-nav .site{background-image:url(/images/company/ico-top-site.gif)}
-#header .top-nav .mensagens{background-image:url(/images/company/ico-top-msg.gif)}
-#header .profile-thumb { border-color: #CCCCCC;border-style: solid;border-width: 1px !important;float: right;height: 54px;margin-top: 10px;position: relative;width: 54px;}
-#header .profile-thumb .alt-thumb{   background: url("/images/company/layout/lapis_icon.png") no-repeat scroll 0 0 transparent;bottom: 0;cursor: pointer;display: block;height: 25px;position: absolute;right: 0;width: 25px;}
-#header .input-search{width:190px;height:15px;position:absolute;bottom:13px;right:0;background:url(/images/company/ico-search.gif) no-repeat 175px center #fff}
-#header .profile-thumb a img{width: 50px; height: 50px; border: 2px solid #fff }
+#header .wrapper {
+	margin:0 auto;
+	overflow:hidden;
+	padding:10px;
+	width:1000px;
+}
+
+#header #logo{
+	display:block;
+	float:left;
+	height:51px;
+	margin-right:58px;
+	width:177px;
+	background:url(/images/new_images/logo_home.png) no-repeat;
+	text-indent:-9999px;
+	position:relative;
+	top:10px;
+}
 
 #header #busca-padrao{
 	float:left;     
-	height:50px;     
-	margin-left:253px;     
+	height:50px;
 	overflow:hidden;     
 	position:relative;
-	top:30px;     
+	top:20px;     
 	width:420px;
 }
 
@@ -53,41 +63,81 @@ h4{background:none repeat scroll 0 0 #6b757f;color:white;font-size:10px;font-wei
 #header fieldset{ border:0 none; margin:5px 0px 0px 5px;  padding:0px 3px!important}
 
 #header #busca-campo{    
+	background-color:#fff;
 	border:0 solid #CCC !important;     
 	color:#333;     
-	float:left;
-	font-size:14px;
-	margin-right:8px;
-	padding:5px;     
-	width:200px;
+	float:left;     
+	font-family:arial;     
+	font-size:14px;     
+	margin-right:4px;     
+	padding:4px;
+	width:222px;
 }
 
 #header #busca-padrao form fieldset select {
-	border:0 solid #fff!important;
 	background:#fff;  
 	float:left;  
-	width:150px !important;  
+	padding:4px;
 	border:0 solid #CCC !important;  
-	font-size:16px;  
+	font-size:14px;  
 	color:#333;
-	position:relative;
-	top:3px;
+	height:26px;
+	margin-right:4px;
+	padding:5px;
+	width:140px;
 }
 
 #header #busca-padrao form fieldset input.submit{   
-	background:url(../images/new_version/pesquisa-submit.gif) no-repeat scroll top transparent;  	
-	width:28px;  
-	padding:5px;  
+	background:url(../images/new_version/pesquisa-submit.gif) no-repeat scroll top transparent;  
+	width:26px;
+	height:26px;  
 	border:none;  
-	top:-3px;  
-	color:#f60;  
 	float:left;  
 	text-indent:-9999px;  
 	display:block;  
-	cursor:pointer;  
-	margin:1px 0 0 5px;
+	cursor:pointer;
 }
 
+#header .top-nav{list-style:none;}
+#header .top-nav li{display:inline}
+#header .top-nav li a{color:#039;text-decoration:none;display:inline-block;background:#fffbe2;border:1px solid #ffe222; padding:4px;}
+#header .top-nav li a:hover{text-decoration:underline}
+#header .top-nav .inicial{background-image:url(/images/company/ico-top-inicio.gif)}
+#header .top-nav .site{background-image:url(/images/company/ico-top-site.gif)}
+#header .top-nav .mensagens{background-image:url(/images/company/ico-top-msg.gif)}
+
+#header #profile-thumb { 
+	border-color: #CCCCCC;
+	border-style: solid;
+	border-width: 1px;
+	float: right;
+	position: relative;
+	width: 54px;
+}
+
+
+#header .input-search{width:190px;height:15px;position:absolute;bottom:13px;right:0;background:url(/images/company/ico-search.gif) no-repeat 175px center #fff}
+#header #profile-thumb a img{width: 50px; height: 50px; border: 2px solid #fff }
+
+
+#header .info-login{
+	color:#006ab0;
+	float:right;
+	margin-right:20px;
+	text-align:right;
+	width:220px;
+}
+#header .info-login a{
+	font-weight:bold;
+	color:#f90;
+	font-size:11px
+}
+#header .info-login a.profile {
+	color:#006AB0;
+}
+#header .info-login a.profile:hover {
+	text-decoration:underline;
+}
 
 .content{width:780px;float:right}
 .content-left{width:780px;float:left;position:relative;min-height: 500px;}
@@ -113,6 +163,29 @@ h4{background:none repeat scroll 0 0 #6b757f;color:white;font-size:10px;font-wei
 #menu .negocio{background-position:0 -259px}
 #menu .arquivos{background-position:0 -291px}
 #menu .emails{background-position:0 -332px}
+
+#menu .box {
+	background-color:#FDFDFD;
+	border:1px solid #efefef;
+	float:left;
+	margin-bottom:30px;
+	padding:20px;
+	width:140px;
+}
+
+#menu .box div{
+	border-bottom:1px solid #eee;
+	padding:6px 0;
+}
+#menu .box div strong {
+	display:block;
+	margin-bottom:4px;
+}
+
+#menu .box div.last{
+	border-bottom:none;
+}
+
 div.submenu-small{background:none repeat scroll 0 0 #6b757f;float:left;margin-bottom:20px;padding-right:10px;position:relative}
 .submenu-small ul{top:10px;left:20px;list-style:none outside none;height:45px;margin:0;padding:0}
 .submenu-small ul li{display:inline;margin:0;padding:0}
@@ -341,7 +414,7 @@ a.accept_relationship {margin-right: 5px }
 
 .flash_notice {
   border: 1px solid #ddf;
-  background-color: #eef;
+  background-color: #e0f3fe;
 }
 
 .flash_alert {

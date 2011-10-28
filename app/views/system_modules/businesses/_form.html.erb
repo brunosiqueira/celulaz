@@ -1,11 +1,11 @@
+
 <p>
-	Antes de publicar sua campanha, verifique com cuidado todas as informações. 
-	Uma vez publicada, a campanha não poderá ser editada (apenas finalizada).
-	Sua campanha será publicada na timeline de negócios da Célula Z, disponível para que 
-	todos os participantes da rede a visualizem.
+	Preencha as informações da sua campanha com atenção. 
+	Após carregar uma imagem para ela no próximo passo, sua campanha será publicada no mural de negócios da 
+	Célula Z e estará disponível para que  todos os participantes da rede a visualizem.
 </p>
 
-<% form_for([:system_modules,@business],:html => {:multipart => true} ) do |f| %>
+<% form_for([:system_modules,@business] ) do |f| %>
   
 	<% if @business.errors.any? %>
     	<div class="error_messages">
@@ -28,10 +28,7 @@
     <%= f.text_area :description %>
 	<%= link_to "Help", "#", :class => "tooltip", :title => "Determine as regras e divulgue as vantagens do que será oferecido em até 700 caracteres" %>
   </p>
-  <p>
-    <%= f.label :business_image %>
-    <%= f.file_field :business_image, :class => "text" %>
-  </p>
+  
   <p>
     <%= f.label :total %>
     <%= f.text_field :total, :class => "number" %>
@@ -57,21 +54,16 @@
 	<%= f.date_select :voucher_expired_at, :start_year => 2011, :end_year => 2013, :datetime_separator => '<span class="separator">-</span>', :time_separator => '<span class="separator">:</span>' %>
 	<%= link_to "Help", "#", :class => "tooltip", :title => "Indique a data limite de utilização do cupom de sua campanha" %>
   </p>
+<!--
   <p>
 	<%= f.label :link %>
     <%= f.text_field :link, :class => "text" %>
 	<%= link_to "Help", "#", :class => "tooltip", :title => "Indique um link com mais informações sobre a campanha, se precisar " %>
   </p>
-  <p>
-    <%= f.label :status %>	
-    <%= f.collection_select :status, %w[Rascunho Publicado], :to_s, :humanize, :include_blank => "Indique o status da campanha" %>
-	<%= link_to "Help", "#", :class => "tooltip", :title => "Indique o status da campanha. Uma vez publicada, ela n&atilde;o poder&aacute; ser editada. " %>
-  </p>
+-->
   <div class="actions">
-	<div class="buttons">
-    	<%= f.submit 'Salvar', :class => "btn-input" %> 
-		<span>ou</span> 
-		<%= link_to 'Visualizar minhas campanhas', :controller => "system_modules/businesses", :action => "mine"%>
+	<div class="next-button">
+    	<%= f.submit 'Próximo passo', :class => "submit" %> 
 	</div>
   </div>
 

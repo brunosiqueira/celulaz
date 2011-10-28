@@ -3,7 +3,7 @@ class Company::BusinessCardController < ApplicationController
   before_filter :login_with_company_required
   before_filter :load_company
   before_filter :unread_messages, :only => [:index]
-  layout "company"
+  layout "new_layout"
   
   def index
     @map = get_location(@company.address_business_card.to_s)

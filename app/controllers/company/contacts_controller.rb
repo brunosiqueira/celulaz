@@ -6,7 +6,7 @@ class Company::ContactsController < ApplicationController
   layout nil
   def edit
     #testar para ver se @company ja tem endereco. Se nao tive, criar
-    render :layout=>"company"
+    render :layout=>"new_layout"
   end
   
   def index
